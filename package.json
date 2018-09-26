@@ -4,7 +4,7 @@
   "description": "Minimal Apostrophe Boilerplate",
   "main": "app.js",
   "scripts": {
-    "build": "node app apostrophe-assets:frontend-build && webpack",
+    "build": "node app apostrophe-assets:build",
     "dev": "npm run build && npm start",
     "start": "node app.js"
   },
