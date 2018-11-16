@@ -1,0 +1,25 @@
+<div class="left">
+  {{
+    apos.area(data.widget, 'left', {
+      widgets: {
+        'test1': {}
+      }
+    })
+  }}
+</div>
+<div class="right">
+  {{
+    apos.area(data.widget, 'right', {
+      widgets: {
+        'test1': {}
+      }
+    })
+  }}
+</div>
+<div style="clear: both"></div>
+<style type="text/css">
+  .left, .right {
+    width: 50%;
+    float: left;
+  }
+</style>
