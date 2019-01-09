@@ -23,7 +23,11 @@ var apos = require('apostrophe')({
     'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
     'test1-widgets': {},
     'two-column-widgets': {},
-    'products': {}
+    'products': {},
+    'apostrophe-rich-text-widgets': {
+      defaultOptions: {
+      }
+    }
 
   }
 });
