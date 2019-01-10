@@ -1,7 +1,7 @@
 {
   "name": "a3-test-1",
   "version": "2.0.0",
-  "description": "Minimal Apostrophe Boilerplate",
+  "description": "Apostrophe 3 Demo Site",
   "main": "app.js",
   "scripts": {
     "build": "node app apostrophe-assets:build",
@@ -15,7 +15,7 @@
   "author": "P'unk Avenue",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.47.0"
+    "apostrophe": "git://github.com/apostrophecms/apostrophe.git#3.0"
   },
   "nodemonConfig": {
     "verbose": true,
