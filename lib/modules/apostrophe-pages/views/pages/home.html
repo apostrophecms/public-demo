@@ -13,17 +13,17 @@
         <a class="login-link" href="/login">Login</a>
       {% endif %}
     </h3>
-    {{ apos.area(data.page, 'top', {
+    {% area data.page, 'top', {
       widgets: {
         'test1': {},
         'apostrophe-rich-text': {
         }
       }
-    }) }}
-    {{ apos.area(data.page, 'main', {
+    } %}
+    {% area data.page, 'main', {
       widgets: {
         'two-column': {}
       }
-    }) }}
+    } %}
   </div>
 {% endblock %}
