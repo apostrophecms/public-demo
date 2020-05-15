@@ -4,7 +4,7 @@
   "description": "Apostrophe 3 Demo Site",
   "main": "app.js",
   "scripts": {
-    "build": "node app apostrophe-assets:build",
+    "build": "node app @apostrophecms/assets:build",
     "dev": "npm run build && npm start",
     "start": "node app.js"
   },
