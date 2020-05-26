@@ -33,7 +33,7 @@ require('apostrophe')({
         defaultOptions: {
         }
       }
-    }
-
+    },
+    'home': {}
   }
 });
