@@ -13,17 +13,7 @@
         <a class="login-link" href="/login">Login</a>
       {% endif %}
     </h3>
-    {% area data.page, 'top', {
-      widgets: {
-        'test1': {},
-        '@apostrophecms/rich-text': {
-        }
-      }
-    } %}
-    {% area data.page, 'main', {
-      widgets: {
-        'two-column': {}
-      }
-    } %}
+    {% area data.page, 'top' %}
+    {% area data.page, 'main' %}
   </div>
 {% endblock %}
