@@ -15,7 +15,7 @@
   "author": "P'unk Avenue",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "git://github.com/apostrophecms/apostrophe.git#refactor-pages"
+    "apostrophe": "git://github.com/apostrophecms/apostrophe.git#1940-new-module-format"
   },
   "nodemonConfig": {
     "verbose": true,
