@@ -1,3 +1,5 @@
+# ignore vim swapfiles
+*.swp
 /public/apos-frontend
 /apos-build
 /apos-frontend
