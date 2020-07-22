@@ -7,7 +7,7 @@
     "build": "node app @apostrophecms/assets:build",
     "dev": "npm run build && npm start",
     "start": "node app.js",
-    "storybook": "node app @apostrophecms/assets:build && node app @apostrophecms/storybook:run"
+    "storybook": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true node app @apostrophecms/storybook:run"
   },
   "repository": {
     "type": "git",
