@@ -1,19 +1,20 @@
 {
-  "name": "a3-test-1",
-  "version": "2.0.0",
+  "name": "a3-demo",
+  "version": "1.0.0-prealpha",
   "description": "Apostrophe 3 Demo Site",
   "main": "app.js",
   "scripts": {
     "build": "node app @apostrophecms/assets:build",
     "dev": "npm run build && npm start",
     "start": "node app.js",
-    "storybook": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true node app @apostrophecms/storybook:run"
+    "storybook": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true node app @apostrophecms/storybook:run",
+    "storybook-deploy": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true STORYBOOK_DEPLOY=true node app @apostrophecms/storybook:run"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
-  "author": "P'unk Avenue",
+  "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
   "nodemonConfig": {
     "verbose": true,
