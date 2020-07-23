@@ -8,7 +8,7 @@
     "dev": "npm run build && npm start",
     "start": "node app.js",
     "storybook": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true node app @apostrophecms/storybook:run",
-    "storybook-deploy": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true STORYBOOK_DEPLOY=true node app @apostrophecms/storybook:run"
+    "storybook-deploy": "node app @apostrophecms/assets:build && STORYBOOK_MODE=true STORYBOOK_DEPLOY=1 node app @apostrophecms/storybook:run"
   },
   "repository": {
     "type": "git",
