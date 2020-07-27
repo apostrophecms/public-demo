@@ -10,7 +10,7 @@ module.exports = {
       }
 
       // Add more page types here, but make sure you create a corresponding
-      // template in lib/modules/@apostrophecms/pages/views/pages!
+      // template in lib/modules/@apostrophecms/page/views/pages!
     ]
   }
 };
