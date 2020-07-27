@@ -1,5 +1,6 @@
 # ignore vim swapfiles
 *.swp
+/storybook-static
 /public/apos-frontend
 /apos-build
 /apos-frontend

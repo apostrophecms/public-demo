@@ -20,15 +20,15 @@ require('apostrophe')({
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
 
-    '@apostrophecms/templates': {
+    '@apostrophecms/template': {
       options: {
         viewsFolderFallback: path.join(__dirname, 'views')
       }
     },
-    'test1-widgets': {},
-    'two-column-widgets': {},
-    'products': {},
-    '@apostrophecms/rich-text-widgets': {
+    'test1-widget': {},
+    'two-column-widget': {},
+    'product': {},
+    '@apostrophecms/rich-text-widget': {
       options: {
         defaultOptions: {
         }

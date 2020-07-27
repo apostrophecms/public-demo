@@ -1,8 +1,5 @@
 module.exports = {
   extend: '@apostrophecms/piece-type',
-  options: {
-    name: 'product'
-  },
   fields: {
     add: {
       price: {
