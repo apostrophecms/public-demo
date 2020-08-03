@@ -4,6 +4,17 @@ module.exports = {
     add: {
       price: {
         type: 'string'
+      },
+      blurb: {
+        type: 'area',
+        options: {
+          widgets: {
+            'test1': {},
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'bold', 'italic', 'link' ]
+            }
+          }
+        }
       }
     }
   },
