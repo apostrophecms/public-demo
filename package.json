@@ -15,6 +15,9 @@
     "type": "git",
     "url": ""
   },
+  "dependencies": {
+    "apostrophe": "apostrophecms/apostrophe#3.0"
+  },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
   "nodemonConfig": {
