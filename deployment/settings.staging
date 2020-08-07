@@ -6,4 +6,4 @@
 # the server
 
 USER=nodeapps
-SERVER=staging8.punkave.net
+SERVER=staging.apos.dev

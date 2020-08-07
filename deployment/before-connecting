@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# This project requires a Webpack build, do that before deployment so the
-# assets are never stale.
-
-npm run build
