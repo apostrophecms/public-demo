@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "node app @apostrophecms/asset:build",
+    "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build",
     "dev": "npm run build && npm start",
     "start": "node app.js",
     "storybook": "node app @apostrophecms/storybook:run",
