@@ -33,6 +33,11 @@ require('apostrophe')({
         defaultOptions: {
         }
       }
+    },
+    '@apostrophecms/storybook': {
+      options: {
+        domain: 'ui.apos.dev'
+      }
     }
   }
 });
