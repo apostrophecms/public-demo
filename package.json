@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node app @apostrophecms/asset:build",
     "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build",
-    "dev": "npm run build && npm start",
+    "dev": "nodemon -x \"npm run build && nodemon app.js\"",
     "start": "node app.js",
     "storybook": "node app @apostrophecms/storybook:run",
     "storybook-build": "node app @apostrophecms/storybook:build ./storybook-static",
@@ -23,6 +23,14 @@
   "license": "MIT",
   "nodemonConfig": {
     "verbose": true,
+    "watch": [
+      "./app.js",
+      "./modules/**/*",
+      "./node_modules/apostrophe/modules/@apostrophecms/**/ui/**/*"
+    ],
+    "ignoreRoot": [
+      ".git"
+    ],
     "ignore": [
       "lib/modules/*/public/js/*.js",
       "locales/*.json",
@@ -33,6 +41,9 @@
       "public/css/master-*.less",
       "data"
     ],
-    "ext": "json, js, html, less"
+    "ext": "json, js, html, less, vue"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
