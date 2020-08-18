@@ -9,7 +9,7 @@ module.exports = {
         title: 'Second',
         slug: '/second',
         published: true,
-        parkedId: 'second'
+        parkedId: 'secondId'
       },
       {
         type: '@apostrophecms/home-page',
@@ -17,15 +17,15 @@ module.exports = {
         title: 'Third',
         slug: '/third',
         published: true,
-        parkedId: 'third'
+        parkedId: 'thirdId'
       },
       {
         type: '@apostrophecms/home-page',
         findMeAgain: true,
         title: 'Fourth',
-        slug: '/third/fourth',
+        slug: '/fourth',
         published: true,
-        parkedId: 'fourth'
+        parkedId: 'fourthId'
       }
     ],
     types: [
