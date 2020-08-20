@@ -21,13 +21,13 @@ module.exports = {
       }
     },
     groups: {
-      priceFields: {
-        label: 'Price Fields',
-        fields: [ 'price', 'taxes' ]
-      },
       basics: {
         label: 'Basics',
         fields: ['blurb']
+      },
+      priceFields: {
+        label: 'Price Fields',
+        fields: [ 'price', 'taxes' ]
       }
     }
   },
