@@ -10,7 +10,8 @@
     "start": "node app.js",
     "storybook": "node app @apostrophecms/storybook:run",
     "storybook-build": "node app @apostrophecms/storybook:build ./storybook-static",
-    "storybook-deploy": "node app @apostrophecms/storybook:deploy"
+    "storybook-deploy": "node app @apostrophecms/storybook:deploy",
+    "staging-deploy": "rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging"
   },
   "repository": {
     "type": "git",
