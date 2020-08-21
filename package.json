@@ -41,7 +41,7 @@
       "public/css/master-*.less",
       "data"
     ],
-    "ext": "json, js, html, less, scss, vue"
+    "ext": "json, js, html, scss, vue"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
