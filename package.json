@@ -26,7 +26,7 @@
     "watch": [
       "./app.js",
       "./modules/**/*",
-      "./node_modules/apostrophe/modules/@apostrophecms/**/ui/**/*"
+      "./node_modules/apostrophe/modules/@apostrophecms/**/*"
     ],
     "ignoreRoot": [
       ".git"
@@ -41,7 +41,7 @@
       "public/css/master-*.less",
       "data"
     ],
-    "ext": "json, js, html, less, vue"
+    "ext": "json, js, html, scss, vue"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
