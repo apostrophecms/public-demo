@@ -8,6 +8,23 @@ module.exports = {
       taxes: {
         type: 'string'
       },
+      color: {
+        type: 'select',
+        choices: [
+          {
+            label: 'Red',
+            value: 'red'
+          },
+          {
+            label: 'Blue',
+            value: 'blue'
+          },
+          {
+            label: 'Yellow',
+            value: 'yellow'
+          }
+        ]
+      },
       blurb: {
         type: 'area',
         options: {
@@ -30,6 +47,29 @@ module.exports = {
         fields: [ 'price', 'taxes' ]
       }
     }
+  },
+  options: {
+    filters: [
+      {
+        name: 'color',
+        label: 'Color',
+        inputType: 'select',
+        choices: [
+          {
+            label: 'Red',
+            value: 'red'
+          },
+          {
+            label: 'Blue',
+            value: 'blue'
+          },
+          {
+            label: 'Yellow',
+            value: 'yellow'
+          }
+        ]
+      }
+    ]
   },
   components(self, options) {
     return {
