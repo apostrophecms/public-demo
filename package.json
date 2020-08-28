@@ -47,6 +47,7 @@
     "ext": "json, js, html, scss, vue"
   },
   "devDependencies": {
+    "node-dev": "^5.2.0",
     "nodemon": "^2.0.4"
   }
 }
