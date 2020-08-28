@@ -5,6 +5,9 @@ module.exports = {
       price: {
         type: 'string'
       },
+      taxes: {
+        type: 'string'
+      },
       blurb: {
         type: 'area',
         options: {
@@ -27,6 +30,16 @@ module.exports = {
       },
       integer: {
         type: 'integer'
+      }
+    },
+    groups: {
+      basics: {
+        label: 'Basics',
+        fields: ['blurb']
+      },
+      priceFields: {
+        label: 'Price Fields',
+        fields: [ 'price', 'taxes' ]
       }
     }
   },
