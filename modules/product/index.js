@@ -15,6 +15,18 @@ module.exports = {
             }
           }
         }
+      },
+      date: {
+        type: 'date'
+      },
+      time: {
+        type: 'time'
+      },
+      float: {
+        type: 'float'
+      },
+      integer: {
+        type: 'integer'
       }
     }
   },
@@ -26,5 +38,14 @@ module.exports = {
         };
       }
     };
+  },
+  handlers(self, options) {
+    return {
+      afterSave: {
+        test(req, doc) {
+          self.apos.notify(req, 'New product added: ' + doc.title);
+        }
+      }
+    }
   }
 };

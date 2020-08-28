@@ -13,7 +13,7 @@ require('apostrophe')({
 
     // Note: most configuration occurs in the respective
     // modules' directories. See lib/@apostrophecms/assets/index.js for an example.
-    
+
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here: `moduleName: {}`
 
@@ -28,6 +28,7 @@ require('apostrophe')({
     'test1-widget': {},
     'two-column-widget': {},
     'product': {},
+    'article': {},
     '@apostrophecms/rich-text-widget': {
       options: {
         defaultOptions: {
