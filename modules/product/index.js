@@ -66,6 +66,7 @@ module.exports = {
         name: 'color',
         label: 'Color',
         inputType: 'select',
+        def: null,
         choices: [
           {
             label: 'Red',
