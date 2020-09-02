@@ -29,6 +29,7 @@ require('apostrophe')({
     'two-column-widget': {},
     'product': {},
     'article': {},
+    'person': {},
     '@apostrophecms/rich-text-widget': {
       options: {
         defaultOptions: {
