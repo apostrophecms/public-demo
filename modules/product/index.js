@@ -49,7 +49,7 @@ module.exports = {
         type: 'integer'
       }
     },
-    groups: {
+    group: {
       basics: {
         label: 'Basics',
         fields: ['blurb']

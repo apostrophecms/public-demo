@@ -26,7 +26,7 @@ module.exports = {
         }
       }
     },
-    groups: {
+    group: {
       basics: {
         label: 'Basics',
         fields: ['blurb', '_products']
