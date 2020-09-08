@@ -9,7 +9,7 @@ module.exports = {
         type: 'string'
       },
       _products: {
-        type: 'join',
+        type: 'relationship',
         withType: 'product',
         min: 1,
         max: 3

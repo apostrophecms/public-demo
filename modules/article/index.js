@@ -17,12 +17,11 @@ module.exports = {
         }
       },
       _product: {
-        type: 'join',
+        type: 'relationship',
         max: 3,
         min: 2,
         withType: 'product',
-        label: 'Linked product',
-        idsField: 'linkedProduct'
+        label: 'Linked product'
       }
     }
   }
