@@ -21,7 +21,14 @@ module.exports = {
         max: 3,
         min: 2,
         withType: 'product',
-        label: 'Linked product'
+        label: 'Linked product',
+        fields: {
+          add: {
+            description: {
+              type: 'string'
+            }
+          }
+        }
       }
     }
   }
