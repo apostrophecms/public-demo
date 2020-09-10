@@ -100,12 +100,12 @@ module.exports = {
     return {
       afterInsert: {
         insertNotif(req, doc) {
-          self.apos.notify(req, `New product added: ${doc.title}`, { dismiss: true, type: 'success' });
+          self.apos.notify(req, 'New product added: %s', doc.title, { dismiss: true, type: 'success' });
         }
       },
       afterUpdate: {
         updateNotif(req, doc) {
-          self.apos.notify(req, `Product ${doc.title} updated`, { dismiss: true, type: 'success' });
+          self.apos.notify(req, 'Product %s updated', doc.title, { dismiss: true, type: 'success' });
         }
       }
     }
