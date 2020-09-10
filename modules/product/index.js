@@ -47,6 +47,9 @@ module.exports = {
       },
       integer: {
         type: 'integer'
+      },
+      email: {
+        type: 'email'
       }
     },
     group: {
@@ -95,9 +98,14 @@ module.exports = {
   },
   handlers(self, options) {
     return {
-      afterSave: {
-        test(req, doc) {
-          self.apos.notify(req, 'New product added: ' + doc.title);
+      afterInsert: {
+        insertNotif(req, doc) {
+          self.apos.notify(req, 'New product added: ' + doc.title, { dismiss: 10 });
+        }
+      },
+      afterUpdate: {
+        updateNotif(req, doc) {
+          self.apos.notify(req, `Product ${doc.title} updated`, { dismiss: 10 });
         }
       }
     }
