@@ -25,7 +25,8 @@ module.exports = {
         fields: {
           add: {
             description: {
-              type: 'string'
+              type: 'string',
+              label: 'Description'
             }
           }
         }
