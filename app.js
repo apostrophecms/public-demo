@@ -40,6 +40,9 @@ require('apostrophe')({
       options: {
         domain: 'ui.apos.dev'
       }
-    }
+    },
+    'recipe': {},
+    'recipe-pages': {},
+    'recipe-widget': {}
   }
 });

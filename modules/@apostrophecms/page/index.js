@@ -26,6 +26,13 @@ module.exports = {
         slug: '/fourth',
         published: true,
         parkedId: 'fourthId'
+      },
+      {
+        title: 'Recipes',
+        type: 'recipe',
+        slug: '/recipes',
+        parkedId: 'recipePage123',
+        published: true
       }
     ],
     types: [
