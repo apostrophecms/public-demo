@@ -42,7 +42,7 @@ require('apostrophe')({
       }
     },
     'recipe': {},
-    'recipe-pages': {},
+    'recipe-page': {},
     'recipe-widget': {}
   }
 });

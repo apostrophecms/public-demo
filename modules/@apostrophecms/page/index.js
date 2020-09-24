@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         title: 'Recipes',
-        type: 'recipe',
+        type: 'recipe-page',
         slug: '/recipes',
         parkedId: 'recipePage123',
         published: true

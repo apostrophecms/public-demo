@@ -1,9 +1,7 @@
 module.exports = {
   extend: '@apostrophecms/piece-page-type',
   options: {
-    name: 'recipe',
     label: 'Recipes',
-    alias: 'recipePage',
     perPage: 10
   },
   fields: {
