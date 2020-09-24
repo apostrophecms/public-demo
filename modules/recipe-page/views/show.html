@@ -1,0 +1,100 @@
+{% extends "@apostrophecms/template:outerLayoutBase.html" %}
+
+{% block extraHead %}
+  <link rel="stylesheet" href="/index.css" />
+{% endblock %}
+
+{% block main %}
+  <div
+    id="turmeric-and-cardamom-granola-with-mango-lassi-yogurt"
+    class="body template-article template-recipe show-promo-bar"
+    style="zoom: 1;"
+  >
+
+    {% include '@apostrophecms/template:header.html' %}
+
+    <main role="main" id="main-content">
+      <article class="article" role="article">
+        {% area data.piece, 'body' %}
+        {# <header class="section recipe-banner">
+          <div class="recipe-banner__image">
+            <figure class="objFit">
+              <img src="//cdn.shopify.com/s/files/1/0324/8750/5965/articles/Monoware_Tumeric_Granola_Recipe_3c2eb5c6-d683-4f0d-8de3-1fed3917c5af_25x.jpg?v=1593000132" />
+            </figure>
+          </div>
+          <div class="recipe-banner__content recipe-banner-content">
+            <h4 class="recipe-banner-content__tag">
+              <a
+                href="/blogs/journal/turmeric-and-cardamom-granola-with-mango-lassi-yogurt?constraint=recipes"
+                title="Show products matching tag Recipes"
+                >Recipes</a
+              >
+            </h4>
+
+            <h1 class="recipe-banner-content__title">
+              Turmeric and cardamom granola with mango lassi yogurt
+            </h1>
+
+            <p class="recipe-banner-content__summary"></p>
+            <p>
+              <span
+                >We often repeat the same breakfast each morning, body and brain
+                on autopilot. Sometimes it’s good to mix it up. This granola uses
+                just seeds and nuts - no oats or grains - and is held together
+                with coconut oil and maple syrup. It’s a great base recipe - add
+                whatever needs using up from the store cupboard; pecans, chia or
+                hemp can go into the mix before roasting; dates, raisins, apricots
+                and prunes can be chopped and mixed through after the granola is
+                out of the oven. The lassi yogurt recipe makes enough for two
+                people, as it is best made fresh. Add more lime if you like it
+                tart or honey to sweeten it.</span
+              >
+            </p>
+            <p></p>
+
+            <div class="recipe-banner-content__meta recipe-meta">
+              <div class="recipe-meta__item">
+                <h4 class="recipe-meta__item-title">Prep time</h4>
+                <span class="recipe-meta__item-meta">10 minutes</span>
+              </div>
+
+              <div class="recipe-meta__item">
+                <h4 class="recipe-meta__item-title">Cook time</h4>
+                <span class="recipe-meta__item-meta">1 hr</span>
+              </div>
+
+              <div class="recipe-meta__item">
+                <h4 class="recipe-meta__item-title">Serves</h4>
+                <span class="recipe-meta__item-meta">Lassi serves 2</span>
+              </div>
+
+              <div class="recipe-meta__item print-icon">
+                <a
+                  href="https://cdn.shopify.com/s/files/1/0324/8750/5965/files/Monoware_Recipe_Granola.pdf?v=1594133646"
+                  class="print-icon__link"
+                  target="_blank"
+                  rel="noopener"
+                  ><svg
+                    width="20"
+                    height="17"
+                    viewBox="0 0 20 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M15.0289 0H5.01749V2.42204H15.0289V0ZM1.24848 3.65591H18.7744C19.4575 3.65591 20.0228 4.18145 19.9993 4.86694V10.922C19.9993 11.5847 19.4339 12.1331 18.7508 12.1331H15.0054V17H4.99393V12.1559H1.24848C0.565351 12.1559 0 11.6075 0 10.9449V4.86694C0 4.2043 0.565351 3.65591 1.24848 3.65591ZM13.7569 15.789H6.26597V9.71102H13.7804V15.789H13.7569ZM18.1383 6.35215C18.6566 6.35215 19.057 5.94086 19.057 5.46102C19.057 4.98118 18.6566 4.56989 18.1383 4.56989C17.6201 4.56989 17.2196 4.95833 17.2196 5.46102C17.2196 5.96371 17.6437 6.35215 18.1383 6.35215Z"
+                      fill="#272727"
+                    ></path>
+                  </svg>
+                  <span class="screenreader-text">Print recipe</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </header> #}
+      </article>
+    </main>
+  </div>
+{% endblock %}

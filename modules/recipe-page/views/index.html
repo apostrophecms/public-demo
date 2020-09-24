@@ -1,6 +1,6 @@
 {% extends "@apostrophecms/template:outerLayoutBase.html" %} 
 {% block extraHead %}
-  <link rel="stylesheet" href="temp.css" />
+  <link rel="stylesheet" href="/index.css" />
 {% endblock %}
 {% block main %}
   <div id="journal" class="body template-blog template- show-promo-bar" style="zoom:1">
@@ -513,7 +513,6 @@
               </article>
             </div>
           </div>
-          {{ apos.log(data.page.coolRecipes) }}
           {# <div class="blog-header__list blog-list">
             <article class="blog-list__item blog-item ">
               <a
@@ -819,8 +818,14 @@
             </article>
           </div> #}
           <div class="blog-header__list blog-list">
-            {% area data.page, 'coolRecipes' %}
+            {# {% area data.page, 'coolRecipes' %} #}
+            <ol>
+              {% for item in data.pieces %}
+                <li><a href="{{ item._url }}">{{ item.title }}</a></li>
+              {% endfor %}
+            </ol>
           </div>
+
         </div>
 
         <div id="shopify-section-newsletter-social" class="shopify-section">

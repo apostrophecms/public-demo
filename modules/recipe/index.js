@@ -6,10 +6,15 @@ module.exports = {
   },
   fields: {
     add: {
-      nice: {
-        type: 'string',
-        label: 'Nice'
-      },
+      body: {
+        label: 'Body',
+        type: 'area',
+        options: {
+          widgets: {
+            'two-column': {}
+          }
+        }
+      }
     }
   }
 }

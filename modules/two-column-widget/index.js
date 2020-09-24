@@ -10,7 +10,12 @@ module.exports = {
         contextual: true,
         options: {
           widgets: {
-            'test1': {}
+            'recipe': {},
+            '@apostrophecms/image': {},
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'bold', 'italic', 'link' ]
+            },
+            '@apostrophecms/html': {}
           }
         }
       },
@@ -19,7 +24,10 @@ module.exports = {
         contextual: true,
         options: {
           widgets: {
-            'test1': {}
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'bold', 'italic', 'link' ]
+            },
+            '@apostrophecms/html': {}
           }
         }
       }

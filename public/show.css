@@ -672,7 +672,19 @@ body {
 main {
   background: #f6f6f6;
 }
-
+.body-overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  position: fixed;
+  z-index: 40;
+  background: rgba(73, 73, 73, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
 .hide {
   display: none !important;
 }
@@ -1008,7 +1020,85 @@ main {
     text-align: right;
   }
 }
-
+.close-icon {
+  width: 2.75em;
+  height: 2.75em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: relative;
+  transition: none;
+  border: 0;
+  padding: 0;
+  background: #fff;
+}
+.close-icon:before {
+  content: "";
+  z-index: 0;
+  width: 80%;
+  height: 80%;
+  border: 2px solid #272727;
+  border-radius: 100%;
+  transition: background 0.3s ease;
+}
+.close-icon:before,
+.close-icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.close-icon svg {
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1.2em;
+  max-height: 1.2em;
+}
+.close-icon svg,
+.close-icon svg circle,
+.close-icon svg path {
+  transition: fill 0.3s ease;
+}
+.close-icon:hover {
+  color: #fff;
+}
+.close-icon:hover:before {
+  background: #272727;
+}
+.close-icon:hover svg,
+.close-icon:hover svg circle,
+.close-icon:hover svg path {
+  fill: #fff;
+}
+.close-icon:hover .close-icon__inner:after,
+.close-icon:hover .close-icon__inner:before {
+  background: #fff;
+}
+.close-icon__inner:after,
+.close-icon__inner:before {
+  content: "";
+  width: 0.8em;
+  height: 0.1em;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #272727;
+  transition: background 0.3s ease;
+}
+.close-icon__inner:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.close-icon__inner:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 img {
   display: block;
   transition: opacity 1s ease, transform 1s ease 0.25s;
@@ -1548,7 +1638,7 @@ main {
 .open-nav .main-nav {
   transform: translateX(0);
 }
-/* #shopify-section-header,
+#shopify-section-header,
 .template-password #shopify-section-holding-page-header {
   position: fixed;
   top: 0;
@@ -1557,7 +1647,7 @@ main {
   z-index: 50;
   transform: translateZ(0);
   transition: transform 0.5s ease;
-} */
+}
 #shopify-section-header.hidden,
 .template-password .hidden#shopify-section-holding-page-header {
   transform: translate3d(0, -100%, 0);
@@ -8039,16 +8129,4 @@ tfoot > .responsive-table-row:first-child:after {
 }
 .template-about #shopify-section-about-content-block-2 ~ .line-seperator {
   margin: 2em auto;
-}
-
-.body {
-  font-family: sans-serif;
-  color: #272727;
-  font: 1em/1.4375em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
-  text-rendering: optimizeLegibility;
-  font-size: 16px;
-  line-height: 1.575em;
 }
