@@ -11,7 +11,7 @@ module.exports = {
         options: {
           widgets: {
             'recipe': {},
-            '@apostrophecms/image': {},
+            // '@apostrophecms/image': {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             },

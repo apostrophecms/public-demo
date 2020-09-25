@@ -14,6 +14,17 @@ module.exports = {
             'two-column': {}
           }
         }
+      },
+      extra: {
+        label: 'Extra',
+        type: 'area',
+        options: {
+          widgets: {
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'bold', 'italic', 'link' ]
+            },
+          }
+        }
       }
     }
   }
