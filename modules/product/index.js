@@ -95,19 +95,5 @@ module.exports = {
         };
       }
     };
-  },
-  handlers(self, options) {
-    return {
-      afterInsert: {
-        insertNotif(req, doc) {
-          self.apos.notify(req, 'New product added: %s', doc.title, { dismiss: true, type: 'success' });
-        }
-      },
-      afterUpdate: {
-        updateNotif(req, doc) {
-          self.apos.notify(req, 'Product %s updated', doc.title, { dismiss: true, type: 'success' });
-        }
-      }
-    }
   }
 };
