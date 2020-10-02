@@ -43,6 +43,7 @@ require('apostrophe')({
     },
     'recipe': {},
     'recipe-page': {},
-    'recipe-widget': {}
+    'recipe-widget': {},
+    'asset': {}
   }
 });
