@@ -10,12 +10,14 @@ module.exports = {
         contextual: true,
         options: {
           widgets: {
-            'recipe': {},
-            // '@apostrophecms/image': {},
             '@apostrophecms/rich-text': {
-              toolbar: [ 'bold', 'italic', 'link' ]
-            },
-            '@apostrophecms/html': {}
+              toolbar: [ 'styles', 'bold', 'italic', 'link' ],
+              styles: [
+                { tag: 'p', label: 'Paragraph (P)' },
+                { tag: 'h3', label: 'Heading 3 (H3)' },
+                { tag: 'h4', label: 'Heading 4 (H4)' }
+              ]
+            }
           }
         }
       },
@@ -25,9 +27,13 @@ module.exports = {
         options: {
           widgets: {
             '@apostrophecms/rich-text': {
-              toolbar: [ 'bold', 'italic', 'link' ]
-            },
-            '@apostrophecms/html': {}
+              toolbar: [ 'styles', 'bold', 'italic', 'link' ],
+              styles: [
+                { tag: 'p', label: 'Paragraph (P)' },
+                { tag: 'h3', label: 'Heading 3 (H3)' },
+                { tag: 'h4', label: 'Heading 4 (H4)' }
+              ]
+            }
           }
         }
       }

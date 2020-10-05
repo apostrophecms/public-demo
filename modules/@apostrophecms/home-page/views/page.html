@@ -5,15 +5,20 @@
 
 {% extends "layout.html" %}
 
+{% block extraHead %}
+  <link rel="stylesheet" href="/css.css">
+{% endblock %}
+
 {% block main %}
   <div class="main-content">
     {% component "product:list" with { limit: 5 }  %}
-    <h3>Hello world!
+    <h3>
       {% if not data.user %}
         <a class="login-link" href="/login">Login</a>
       {% endif %}
     </h3>
+    {# {% area data.page, 'top' %} #}
     {% area data.page, 'main' %}
-    <h1>{{ data.page.title }}</h1>
+    {# <h1>{{ data.page.title }}</h1> #}
   </div>
 {% endblock %}
