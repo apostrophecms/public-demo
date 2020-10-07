@@ -16,6 +16,9 @@ module.exports = {
           }
         }
       },
+      file: {
+        type: 'attachment'
+      },
       _product: {
         type: 'relationship',
         max: 3,
@@ -30,6 +33,19 @@ module.exports = {
             }
           }
         }
+      }
+    },
+    group: {
+      basics: {
+        label: 'Basics',
+        fields: [
+          'title',
+          'price',
+          '_product',
+          'file',
+          'blurb',
+          'trash'
+        ]
       }
     }
   }
