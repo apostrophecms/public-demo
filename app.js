@@ -27,9 +27,9 @@ require('apostrophe')({
     'test1-widget': {},
     'two-column-widget': {},
     'custom-page': {},
-    'product': {},
-    'article': {},
-    'person': {},
+    product: {},
+    article: {},
+    person: {},
     '@apostrophecms/rich-text-widget': {
       options: {
         defaultOptions: {
