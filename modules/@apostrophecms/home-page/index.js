@@ -9,7 +9,8 @@ module.exports = {
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
-          }
+          },
+          max: 2
         }
       },
       main: {

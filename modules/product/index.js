@@ -2,6 +2,34 @@ module.exports = {
   extend: '@apostrophecms/piece-type',
   fields: {
     add: {
+      features: {
+        type: 'array',
+        fields: {
+          add: {
+            title: {
+              type: 'string',
+              label: 'Title'
+            },
+            importance: {
+              type: 'integer',
+              label: 'Importance',
+              def: 1
+            },
+            drawbacks: {
+              type: 'array',
+              label: 'Drawbacks',
+              fields: {
+                add: {
+                  title: {
+                    type: 'string',
+                    label: 'Title'
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       price: {
         type: 'string'
       },

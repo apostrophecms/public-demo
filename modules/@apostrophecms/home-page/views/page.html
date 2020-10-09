@@ -7,12 +7,14 @@
 
 {% block main %}
   <div class="main-content">
+    {% area data.page, 'top' %}
     {% component "product:list" with { limit: 5 }  %}
     <h3>Hello world!
       {% if not data.user %}
         <a class="login-link" href="/login">Login</a>
       {% endif %}
     </h3>
+    <h3>Main</h3>
     {% area data.page, 'main' %}
     <h1>{{ data.page.title }}</h1>
   </div>
