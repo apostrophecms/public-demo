@@ -47,6 +47,9 @@
     "ext": "json, js, html, scss, vue"
   },
   "devDependencies": {
+    "eslint": "^7.8.0",
+    "eslint-config-apostrophe": "^3.4.0",
+    "eslint-plugin-node": "^11.1.0",
     "node-dev": "^5.2.0",
     "nodemon": "^2.0.4"
   }

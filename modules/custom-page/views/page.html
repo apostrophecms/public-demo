@@ -1,0 +1,23 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block extraHead %}
+  <link rel="stylesheet" href="/css.css">
+{% endblock %}
+
+{% block main %}
+  <div class="main-content">
+    {% component "product:list" with { limit: 5 }  %}
+    <h3>
+      {% if not data.user %}
+        <a class="login-link" href="/login">Login</a>
+      {% endif %}
+    </h3>
+    <h1>{{ data.page.title }}</h1>
+    {% area data.page, 'main' %}
+  </div>
+{% endblock %}

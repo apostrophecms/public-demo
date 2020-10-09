@@ -18,7 +18,7 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            'test1': {},
+            test1: {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
@@ -29,7 +29,7 @@ module.exports = {
     group: {
       basics: {
         label: 'Basics',
-        fields: ['blurb', '_products']
+        fields: [ 'blurb', '_products' ]
       },
       priceFields: {
         label: 'Price Fields',

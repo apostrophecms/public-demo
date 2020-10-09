@@ -9,7 +9,7 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            'test1': {},
+            test1: {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
