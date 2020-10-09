@@ -1,5 +1,6 @@
 .apos-rich-text p,
-.apos-richtext-editor p {
+.apos-richtext-editor p,
+.ProseMirror p {
   color: rgb(0, 0, 0);
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
@@ -12,7 +13,8 @@
 }
 
 .apos-rich-text h4,
-.apos-richtext-editor h4 {
+.apos-richtext-editor h4,
+.ProseMirror h4 {
   font-family: serif;
   font-weight: 300;
   font-size: 3.4em;
@@ -20,7 +22,8 @@
 }
 
 .apos-rich-text h3,
-.apos-richtext-editor h3 {
+.apos-richtext-editor h3,
+.ProseMirror h3 {
   font-family: sans-serif;
   text-transform: uppercase;
   font-weight: 300;
