@@ -33,6 +33,7 @@
 }
 
 .apos-rich-text,
-.apos-richtext-editor {
+.apos-richtext-editor,
+.ProseMirror {
   padding: 2rem;
 }
