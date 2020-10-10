@@ -4,6 +4,8 @@ module.exports = {
     add: {
       features: {
         type: 'array',
+        required: true,
+        max: 4,
         fields: {
           add: {
             title: {
