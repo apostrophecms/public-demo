@@ -43,6 +43,15 @@ require('apostrophe')({
     },
     'recipe': {},
     'recipe-page': {},
-    'recipe-widget': {}
+    'recipe-widget': {},
+    // A home for our own assets
+    'asset': {},
+    // Manages apostrophe's overall asset pipeline
+    '@apostrophecms/asset': {
+      // When not in production, refresh the page on restart
+      options: {
+        refreshOnRestart: true
+      }
+    }
   }
 });

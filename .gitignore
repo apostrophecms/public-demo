@@ -11,6 +11,7 @@ npm-debug.log
 /public/uploads
 /public/apos-minified
 /data/temp/uploadfs
+/modules/asset/ui/public/site.js
 node_modules
 # This folder is created on the fly and contains symlinks updated at startup (we'll come up with a Windows solution that actually copies things)
 /public/modules

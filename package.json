@@ -4,23 +4,25 @@
   "description": "Apostrophe 3 Demo Site",
   "main": "app.js",
   "scripts": {
-    "build": "node app @apostrophecms/asset:build",
-    "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build",
+    "build": "webpack && npm run apostrophe-build",
+    "apostrophe-build": "node app @apostrophecms/asset:build",
+    "start": "node app",
     "dev": "nodemon -x \"npm run build && nodemon app.js\"",
-    "dev:back": "node-dev app.js",
-    "dev:front": "nodemon -x \"npm run build\"",
-    "start": "node app.js",
     "storybook": "node app @apostrophecms/storybook:run",
     "storybook-build": "node app @apostrophecms/storybook:build ./storybook-static",
     "storybook-deploy": "node app @apostrophecms/storybook:deploy",
-    "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging"
+    "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
+    "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
   "dependencies": {
-    "apostrophe": "apostrophecms/apostrophe#3.0"
+    "apostrophe": "apostrophecms/apostrophe#3.0",
+    "bootstrap": "^4.5.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
@@ -29,6 +31,7 @@
     "watch": [
       "./app.js",
       "./modules/**/*",
+      "./src/**/*",
       "./node_modules/apostrophe/modules/@apostrophecms/**/*"
     ],
     "ignoreRoot": [
@@ -42,12 +45,20 @@
       "public/uploads",
       "public/apos-minified/*.js",
       "public/css/master-*.less",
+      "modules/asset/ui/public/site.js",
       "data"
     ],
     "ext": "json, js, html, scss, vue"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
     "node-dev": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1"
   }
 }
