@@ -1,18 +1,15 @@
 module.exports = {
   extend: '@apostrophecms/page-type',
   options: {
-    label: 'Home Page',
-    pluralLabel: 'Home Pages'
+    label: 'Custom Page',
+    pluralLabel: 'Custom Pages'
   },
   fields: {
     add: {
-      top: {
-        type: 'area',
-        options: {
-          widgets: {
-
-          }
-        }
+      magicWord: {
+        label: 'What\'s the magic word?',
+        type: 'string',
+        def: 'Please'
       },
       main: {
         type: 'area',
@@ -56,14 +53,6 @@ module.exports = {
             'two-column': {}
           }
         }
-      },
-      recipes: {
-        type: 'area',
-        options: {
-          widgets: {
-            'recipe': {}
-          }
-        }
       }
     },
     group: {
@@ -71,9 +60,12 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
-          'top',
-          'main'
+          'magicWord'
         ]
+      },
+      areas: {
+        label: 'Areas',
+        fields: [ 'main' ]
       }
     }
   }
