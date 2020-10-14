@@ -59,7 +59,7 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            'test1': {},
+            test1: {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
@@ -85,7 +85,7 @@ module.exports = {
     group: {
       basics: {
         label: 'Basics',
-        fields: ['blurb']
+        fields: [ 'blurb' ]
       },
       priceFields: {
         label: 'Price Fields',
@@ -125,19 +125,5 @@ module.exports = {
         };
       }
     };
-  },
-  handlers(self, options) {
-    return {
-      afterInsert: {
-        insertNotif(req, doc) {
-          self.apos.notify(req, 'New product added: %s', doc.title, { dismiss: true, type: 'success' });
-        }
-      },
-      afterUpdate: {
-        updateNotif(req, doc) {
-          self.apos.notify(req, 'Product %s updated', doc.title, { dismiss: true, type: 'success' });
-        }
-      }
-    }
   }
 };

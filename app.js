@@ -8,7 +8,6 @@ require('apostrophe')({
   // configuring user accounts.
 
   modules: {
-
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
@@ -27,9 +26,10 @@ require('apostrophe')({
     },
     'test1-widget': {},
     'two-column-widget': {},
-    'product': {},
-    'article': {},
-    'person': {},
+    'custom-page': {},
+    product: {},
+    article: {},
+    person: {},
     '@apostrophecms/rich-text-widget': {
       options: {
         defaultOptions: {

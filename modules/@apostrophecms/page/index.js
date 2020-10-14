@@ -37,8 +37,12 @@ module.exports = {
     ],
     types: [
       {
-        name: 'home',
+        name: '@apostrophecms/home-page',
         label: 'Home'
+      },
+      {
+        name: 'custom-page',
+        label: 'Custom Type'
       }
       // Add more page types here, but make sure you create a corresponding
       // template in lib/modules/@apostrophecms/page/views/pages!

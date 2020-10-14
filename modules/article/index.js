@@ -9,12 +9,15 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            'test1': {},
+            test1: {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
           }
         }
+      },
+      file: {
+        type: 'attachment'
       },
       _product: {
         type: 'relationship',
@@ -30,6 +33,19 @@ module.exports = {
             }
           }
         }
+      }
+    },
+    group: {
+      basics: {
+        label: 'Basics',
+        fields: [
+          'title',
+          'price',
+          '_product',
+          'file',
+          'blurb',
+          'trash'
+        ]
       }
     }
   }

@@ -1,13 +1,48 @@
 module.exports = {
+  options: {
+    label: 'Home Page',
+    pluralLabel: 'Home Pages'
+  },
   fields: {
     add: {
       top: {
         type: 'area',
         options: {
           widgets: {
-            'test1': {},
             '@apostrophecms/rich-text': {
-              toolbar: [ 'bold', 'italic', 'link' ]
+              toolbar: [
+                'styles',
+                '|',
+                'bold',
+                'italic',
+                'strike',
+                'link',
+                '|',
+                'bullet_list',
+                'ordered_list',
+                '|',
+                'blockquote',
+                'code_block',
+                '|',
+                'horizontal_rule',
+                '|',
+                'undo',
+                'redo'
+              ],
+              styles: [
+                {
+                  tag: 'p',
+                  label: 'Paragraph (P)'
+                },
+                {
+                  tag: 'h3',
+                  label: 'Heading 3 (H3)'
+                },
+                {
+                  tag: 'h4',
+                  label: 'Heading 4 (H4)'
+                }
+              ]
             }
           },
           max: 2
@@ -17,6 +52,41 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
+            '@apostrophecms/rich-text': {
+              toolbar: [
+                'styles',
+                '|',
+                'bold',
+                'italic',
+                'strike',
+                'link',
+                '|',
+                'bullet_list',
+                'ordered_list',
+                '|',
+                'blockquote',
+                'code_block',
+                '|',
+                'horizontal_rule',
+                '|',
+                'undo',
+                'redo'
+              ],
+              styles: [
+                {
+                  tag: 'p',
+                  label: 'Paragraph (P)'
+                },
+                {
+                  tag: 'h3',
+                  label: 'Heading 3 (H3)'
+                },
+                {
+                  tag: 'h4',
+                  label: 'Heading 4 (H4)'
+                }
+              ]
+            },
             'two-column': {}
           }
         }
@@ -28,6 +98,16 @@ module.exports = {
             'recipe': {}
           }
         }
+      }
+    },
+    group: {
+      basics: {
+        label: 'Basics',
+        fields: [
+          'title',
+          'top',
+          'main'
+        ]
       }
     }
   }
