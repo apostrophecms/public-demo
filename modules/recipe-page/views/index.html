@@ -1,0 +1,11 @@
+{% extends "@apostrophecms/template:outerLayoutBase.html" %} 
+{% block extraHead %}
+  <link rel="stylesheet" href="/index.css" />
+{% endblock %}
+{% block main %}
+  <ul>
+    {% for item in data.pieces %}
+      <li><a href="{{ item._url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

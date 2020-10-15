@@ -89,6 +89,14 @@ module.exports = {
             'two-column': {}
           }
         }
+      },
+      recipes: {
+        type: 'area',
+        options: {
+          widgets: {
+            'recipe': {}
+          }
+        }
       }
     },
     group: {

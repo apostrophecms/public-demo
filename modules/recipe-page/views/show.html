@@ -1,0 +1,12 @@
+{% extends "@apostrophecms/template:outerLayoutBase.html" %}
+
+{% block extraHead %}
+  <link rel="stylesheet" href="/index.css" />
+{% endblock %}
+
+{% block main %}
+  <article class="article" role="article">
+    {% area data.piece, 'body' %}
+    {% area data.piece, 'extra' %}
+  </article>
+{% endblock %}
