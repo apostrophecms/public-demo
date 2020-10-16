@@ -50,7 +50,39 @@ module.exports = {
       },
       email: {
         type: 'email'
-      }
+      },
+      features: {
+        type: 'array',
+        required: true,
+        max: 4,
+        fields: {
+          add: {
+            title: {
+              type: 'string',
+              label: 'Title',
+              min: 2,
+              max: 10
+            },
+            importance: {
+              type: 'integer',
+              label: 'Importance',
+              def: 1
+            },
+            drawbacks: {
+              type: 'array',
+              label: 'Drawbacks',
+              fields: {
+                add: {
+                  title: {
+                    type: 'string',
+                    label: 'Title'
+                  }
+                }
+              }
+            }
+          }
+        }
+      }      
     },
     group: {
       basics: {

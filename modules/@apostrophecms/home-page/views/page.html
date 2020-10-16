@@ -11,14 +11,15 @@
 
 {% block main %}
   <div class="main-content">
+    {% area data.page, 'top' %}
     {% component "product:list" with { limit: 5 }  %}
     <h3>
       {% if not data.user %}
         <a class="login-link" href="/login">Login</a>
       {% endif %}
     </h3>
-    {# {% area data.page, 'top' %} #}
+    <h1>{{ data.page.title }}</h1>
+    {% area data.page, 'top' %}
     {% area data.page, 'main' %}
-    {# <h1>{{ data.page.title }}</h1> #}
   </div>
 {% endblock %}

@@ -10,6 +10,8 @@ module.exports = {
         contextual: true,
         options: {
           widgets: {
+            'recipe': {},
+            '@apostrophecms/html': {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'styles', 'bold', 'italic', 'link' ],
               styles: [
@@ -35,6 +37,8 @@ module.exports = {
         contextual: true,
         options: {
           widgets: {
+            'recipe': {},
+            '@apostrophecms/html': {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'styles', 'bold', 'italic', 'link' ],
               styles: [
