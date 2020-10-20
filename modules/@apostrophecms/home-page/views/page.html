@@ -8,6 +8,7 @@
 {% block main %}
   <div class="main-content">
     {# {% component "product:list" with { limit: 5 }  %} #}
+    {% area data.page, 'singleton' %}
     <h3>
       {% if not data.user %}
         <a class="login-link" href="/login">Login</a>
