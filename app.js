@@ -30,6 +30,11 @@ require('apostrophe')({
     product: {},
     article: {},
     person: {},
+    '@apostrophecms/image-widget': {
+      options: {
+        className: 'image-widget'
+      }
+    },
     '@apostrophecms/rich-text-widget': {
       options: {
         defaultOptions: {

@@ -43,7 +43,8 @@ module.exports = {
                   label: 'Heading 4 (H4)'
                 }
               ]
-            }
+            },
+            '@apostrophecms/image': {}
           },
           max: 2
         }
@@ -87,6 +88,7 @@ module.exports = {
                 }
               ]
             },
+            '@apostrophecms/image': {},
             'two-column': {}
           }
         }
@@ -95,7 +97,7 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            'recipe': {}
+            recipe: {}
           }
         }
       }
