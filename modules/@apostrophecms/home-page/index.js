@@ -7,8 +7,9 @@ module.exports = {
     add: {
       main: {
         type: 'area',
+        contextual: true,
         options: {
-          widgets: require('../../area')
+          widgets: require('../../../lib/area')
         }
       }
     },
