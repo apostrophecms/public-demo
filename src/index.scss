@@ -1,39 +1,39 @@
+.a3-widget-image {
+  max-width: 100%;
+}
+
 .a3-main {
   max-width: 80rem;
 }
 
-.a3-widget-rte p {
-  color: rgb(0, 0, 0);
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: none;
-  font-family: "La Nord", sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-  transition: all 250ms ease 0s;
-  font-size: 1rem;
-  max-width: 30rem;
-}
-
-.a3-widget-rte h4 {
-  font-family: serif;
-  font-weight: 300;
-  font-size: 3.4em;
-  line-height: 1.2em;
-}
-
-.a3-widget-rte h3 {
-  font-family: sans-serif;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 4.4em;
-  line-height: 1.2em;
-  letter-spacing: -1px;
-}
-
 .a3-widget-rte {
   padding: 2rem;
-}
 
-.a3-widget-image {
-  max-width: 100%;
+  p {
+    color: rgb(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+    font-family: "La Nord", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    transition: all 250ms ease 0s;
+    font-size: 1rem;
+    max-width: 30rem;
+  }
+
+  h4 {
+    font-family: serif;
+    font-weight: 300;
+    font-size: 3.4em;
+    line-height: 1.2em;
+  }
+
+  h3 {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 4.4em;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+  }
 }
