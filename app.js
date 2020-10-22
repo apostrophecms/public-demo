@@ -37,8 +37,7 @@ require('apostrophe')({
     },
     '@apostrophecms/rich-text-widget': {
       options: {
-        defaultOptions: {
-        }
+        className: 'rich-text-widget'
       }
     },
     '@apostrophecms/storybook': {
