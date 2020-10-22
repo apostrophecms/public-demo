@@ -1,9 +1,14 @@
-.image-widget {
+.a3-widget-image {
   max-width: 100%;
 }
 
-.rich-text-widget {
-  padding: 2em;
+.a3-main {
+  max-width: 80rem;
+}
+
+.a3-widget-rte {
+  padding: 2rem;
+
   p {
     color: rgb(0, 0, 0);
     -webkit-font-smoothing: antialiased;

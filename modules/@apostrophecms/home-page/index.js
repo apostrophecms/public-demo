@@ -12,6 +12,15 @@ module.exports = {
           widgets: require('../../../lib/area')
         }
       }
+    },
+    group: {
+      basics: {
+        label: 'Basics',
+        fields: [
+          'title',
+          'main'
+        ]
+      }
     }
   }
 };
