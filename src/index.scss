@@ -1,6 +1,8 @@
-.apos-rich-text p,
-.apos-richtext-editor p,
-.ProseMirror p {
+.a3-main {
+  max-width: 80rem;
+}
+
+.a3-widget-rte p {
   color: rgb(0, 0, 0);
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
@@ -12,18 +14,14 @@
   max-width: 30rem;
 }
 
-.apos-rich-text h4,
-.apos-richtext-editor h4,
-.ProseMirror h4 {
+.a3-widget-rte h4 {
   font-family: serif;
   font-weight: 300;
   font-size: 3.4em;
   line-height: 1.2em;
 }
 
-.apos-rich-text h3,
-.apos-richtext-editor h3,
-.ProseMirror h3 {
+.a3-widget-rte h3 {
   font-family: sans-serif;
   text-transform: uppercase;
   font-weight: 300;
@@ -32,12 +30,10 @@
   letter-spacing: -1px;
 }
 
-.apos-rich-text,
-.apos-richtext-editor,
-.ProseMirror {
+.a3-widget-rte {
   padding: 2rem;
 }
 
-.apos-image-widget {
+.a3-widget-image {
   max-width: 100%;
 }

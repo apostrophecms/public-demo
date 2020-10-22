@@ -10,7 +10,7 @@ module.exports = {
         options: {
           widgets: require('../../area')
         }
-      },
+      }
     },
     group: {
       basics: {

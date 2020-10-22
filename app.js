@@ -32,8 +32,12 @@ require('apostrophe')({
     person: {},
     '@apostrophecms/rich-text-widget': {
       options: {
-        defaultOptions: {
-        }
+        className: 'a3-widget-rte'
+      }
+    },
+    '@apostrophecms/image-widget': {
+      options: {
+        className: 'a3-widget-image'
       }
     },
     '@apostrophecms/storybook': {
@@ -41,11 +45,11 @@ require('apostrophe')({
         domain: 'ui.apos.dev'
       }
     },
-    'recipe': {},
+    recipe: {},
     'recipe-page': {},
     'recipe-widget': {},
     // A home for our own assets
-    'asset': {},
+    asset: {},
     // Manages apostrophe's overall asset pipeline
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
