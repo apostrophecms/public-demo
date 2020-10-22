@@ -5,14 +5,9 @@
 
 {% extends "layout.html" %}
 
-{% block extraHead %}
-  <link rel="stylesheet" href="/css.css">
-{% endblock %}
-
 {% block main %}
   <div class="main-content">
-    {% area data.page, 'top' %}
-    {% component "product:list" with { limit: 5 }  %}
+    {# {% component "product:list" with { limit: 5 }  %} #}
     <h3>
       {% if not data.user %}
         <a class="login-link" href="/login">Login</a>
