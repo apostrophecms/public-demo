@@ -16,8 +16,9 @@ module.exports = {
         label: 'Content',
         items: [
           'product',
-          'person',
-          'acticle'
+          'article',
+          'recipe',
+          'person'
         ]
       }
     ]
