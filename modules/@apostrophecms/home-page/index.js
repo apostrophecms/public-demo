@@ -9,7 +9,7 @@ module.exports = {
         type: 'area',
         label: 'Hello?',
         options: {
-          max: 3,
+          max: 1,
           widgets: {
             '@apostrophecms/image': {}
           }
