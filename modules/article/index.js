@@ -2,34 +2,36 @@ module.exports = {
   extend: '@apostrophecms/piece-type',
   fields: {
     add: {
-      price: {
-        type: 'string'
-      },
       blurb: {
         type: 'area',
         options: {
           widgets: {
-            test1: {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
-          }
+          },
+          limit: 1
+        },
+        label: 'Blurb',
+        help: 'A short summary.'
+      },
+      main: {
+        label: 'Content',
+        type: 'area',
+        options: {
+          widgets: require('../../lib/area')
         }
       },
-      file: {
-        type: 'attachment'
-      },
-      _product: {
+      _products: {
         type: 'relationship',
-        max: 3,
-        min: 2,
+        max: 5,
         withType: 'product',
-        label: 'Linked product',
+        label: 'Related products',
         fields: {
           add: {
-            description: {
+            relevance: {
               type: 'string',
-              label: 'Description'
+              label: 'Relevance'
             }
           }
         }
@@ -40,13 +42,32 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
-          'price',
-          '_product',
-          'file',
+          'visibility',
           'blurb',
           'trash'
         ]
+      },
+      main: {
+        label: 'Content',
+        fields: [
+          'main'
+        ]
+      },
+      relatedProducts: {
+        label: 'Related Products',
+        fields: [
+          '_products'
+        ]
       }
     }
+  },
+  components(self, options) {
+    return {
+      async recent(req, data) {
+        return {
+          articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray()
+        };
+      }
+    };
   }
 };

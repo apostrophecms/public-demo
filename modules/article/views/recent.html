@@ -1,0 +1,8 @@
+{% if data.articles.length %}
+  {% for article in data.articles %}
+    <h4><a href="{{ article._url }}">{{ article.title }}</a></h4>
+    <article>{% area article, 'blurb' %}</article>
+  {% endfor %}
+{% else %}
+  <h4>There are no articles yet. Try adding one.</h4>
+{% endif %}
