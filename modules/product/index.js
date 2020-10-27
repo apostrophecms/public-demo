@@ -3,10 +3,10 @@ module.exports = {
   fields: {
     add: {
       price: {
-        type: 'string'
+        type: 'float'
       },
       taxes: {
-        type: 'string'
+        type: 'float'
       },
       color: {
         type: 'select',
@@ -29,75 +29,76 @@ module.exports = {
         type: 'area',
         options: {
           widgets: {
-            test1: {},
             '@apostrophecms/rich-text': {
               toolbar: [ 'bold', 'italic', 'link' ]
             }
-          }
+          },
+          limit: 1
+        },
+        label: 'Blurb',
+        help: 'A short summary.'
+      },
+      main: {
+        type: 'area',
+        options: {
+          widgets: require('../../lib/area')
         }
       },
-      date: {
-        type: 'date'
+      releaseDate: {
+        type: 'date',
+        label: 'Release Date'
       },
-      time: {
-        type: 'time'
-      },
-      float: {
-        type: 'float'
-      },
-      integer: {
-        type: 'integer'
-      },
-      email: {
-        type: 'email'
+      releaseTime: {
+        type: 'time',
+        label: 'Release Time'
       },
       features: {
         type: 'array',
         required: true,
-        max: 4,
+        max: 5,
         fields: {
           add: {
             title: {
               type: 'string',
               label: 'Title',
               min: 2,
-              max: 10
-            },
-            importance: {
-              type: 'integer',
-              label: 'Importance',
-              def: 1
-            },
-            drawbacks: {
-              type: 'array',
-              label: 'Drawbacks',
-              fields: {
-                add: {
-                  title: {
-                    type: 'string',
-                    label: 'Title'
-                  }
-                }
-              }
+              max: 80
             }
           }
         }
-      }      
+      },
+      _articles: {
+        type: 'relationshipReverse',
+        withType: 'article',
+        reverses: '_products'
+      }
     },
     group: {
       basics: {
         label: 'Basics',
-        fields: [ 'blurb' ]
+        fields: [ 'title', 'blurb', 'color' ]
       },
       priceFields: {
         label: 'Price Fields',
         fields: [ 'price', 'taxes' ]
+      },
+      release: {
+        label: 'Release Date',
+        fields: [ 'releaseDate', 'releaseTime' ]
+      },
+      features: {
+        label: 'Features',
+        fields: [ 'features' ]
+      },
+      content: {
+        label: 'Content',
+        fields: [ 'main' ]
       }
     }
   },
-  options: {
-    filters: [
-      {
+  filters: {
+    add: {
+      color: {
         name: 'color',
         label: 'Color',
         inputType: 'select',
@@ -117,15 +118,6 @@ module.exports = {
           }
         ]
       }
-    ]
-  },
-  components(self, options) {
-    return {
-      async list(req, data) {
-        return {
-          products: await self.find(req).limit(data.limit).toArray()
-        };
-      }
-    };
+    }
   }
 };

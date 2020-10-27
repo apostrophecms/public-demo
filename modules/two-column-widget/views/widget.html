@@ -1,13 +1,8 @@
-<div class="left">
-  {% area data.widget, 'left' %}
+<div class="widget-two-column">
+  <div class="widget-two-column-left">
+    {% area data.widget, 'left' %}
+  </div>
+  <div class="widget-two-column-right">
+    {% area data.widget, 'right' %}
+  </div>
 </div>
-<div class="right">
-  {% area data.widget, 'right' %}
-</div>
-<div style="clear: both"></div>
-<style type="text/css">
-  .left, .right {
-    width: 50%;
-    float: left;
-  }
-</style>

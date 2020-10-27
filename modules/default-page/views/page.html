@@ -5,13 +5,6 @@
 
 {% extends "layout.html" %}
 
-{# Home page is full width #}
-{% block sideNav %}{% endblock %}
-
 {% block main %}
-  <section class="latest-article">
-    <h2>Latest Article</h2>
-    {% component "article:recent" with { limit: 1 } %}
-  </section>
   {% area data.page, 'main' %}
 {% endblock %}

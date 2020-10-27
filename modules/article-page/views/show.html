@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% set article = data.piece %}
+
+{# article show page is full width #}
+{% block sideNav %}{% endblock %}
+
+{% block main %}
+  <section class="blurb">{% area article, 'blurb' %}</section>
+  <section class="related">
+    <h3>Related Products</h3>
+    {% for product in article._products %}
+      <h4><a href="{{ product._url }}">{{ product.title }}: {{ product._fields.relevance }}</a></h4>
+    {% endfor %}
+  </section>
+  <article>{% area article, 'main' %}</article>
+{% endblock %}
+

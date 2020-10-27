@@ -1,0 +1,4 @@
+{% for product in data.widget._products %}
+  <h4><a href="{{ product._url }}">{{ product.title }}</a></h4>
+  <article>{% area product, 'blurb' %}</article>
+{% endfor %}
