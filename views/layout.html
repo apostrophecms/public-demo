@@ -80,6 +80,16 @@
 {% block afterMain %}
     </main>
   </div>
+  <footer>
+    {% if data.global._footerLinks.length %}
+      <nav class="footer-links">
+        {% for page in data.global._footerLinks %}
+          {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
+          <a {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </footer>
   {#
     This would be a great place to put a global footer.
   #}
