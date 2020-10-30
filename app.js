@@ -37,7 +37,7 @@ require('apostrophe')({
         className: 'a3-widget-image'
       }
     },
-
+    '@apostrophecms/video-widget': {},
     // Manages apostrophe's overall asset pipeline
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
