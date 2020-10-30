@@ -11,6 +11,16 @@ module.exports = {
         type: 'relationship',
         withType: '@apostrophecms/page'
       }
+    },
+    group: {
+      analytics: {
+        label: 'Analytics',
+        fields: [ 'analyticsCode' ]
+      },
+      footer: {
+        label: 'Footer',
+        fields: [ '_footerLinks' ]
+      }
     }
   }
 };
