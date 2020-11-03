@@ -1,13 +1,14 @@
 module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Test 1'
+    name: 'product',
+    label: 'Products'
   },
   fields: {
     add: {
-      about: {
-        label: 'About',
-        type: 'string',
+      _products: {
+        type: 'relationship',
+        label: 'Products',
         required: true
       }
     }

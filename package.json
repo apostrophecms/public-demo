@@ -7,7 +7,7 @@
     "build": "webpack && npm run apostrophe-build",
     "apostrophe-build": "node app @apostrophecms/asset:build",
     "start": "node app",
-    "dev": "nodemon -x \"npm run build && nodemon app.js\"",
+    "dev": "nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
     "storybook": "node app @apostrophecms/storybook:run",
     "storybook-build": "node app @apostrophecms/storybook:build ./storybook-static",
     "storybook-deploy": "node app @apostrophecms/storybook:deploy",

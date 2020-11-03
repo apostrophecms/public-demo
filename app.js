@@ -8,13 +8,14 @@ require('apostrophe')({
   // configuring user accounts.
 
   modules: {
+
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
     // modules' directories. See lib/@apostrophecms/assets/index.js for an example.
 
     // However any modules that are not present by default in Apostrophe must at
-    // least have a minimal configuration here: `moduleName: {}`
+    // least have a minimal configuration here to turn them on: `moduleName: {}`
 
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
@@ -24,12 +25,8 @@ require('apostrophe')({
         viewsFolderFallback: path.join(__dirname, 'views')
       }
     },
-    'test1-widget': {},
-    'two-column-widget': {},
-    'custom-page': {},
-    product: {},
-    article: {},
-    person: {},
+
+    // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
       options: {
         className: 'a3-widget-rte'
@@ -40,22 +37,44 @@ require('apostrophe')({
         className: 'a3-widget-image'
       }
     },
-    '@apostrophecms/storybook': {
-      options: {
-        domain: 'ui.apos.dev'
-      }
-    },
-    recipe: {},
-    'recipe-page': {},
-    'recipe-widget': {},
-    // A home for our own assets
-    asset: {},
+    '@apostrophecms/video-widget': {},
     // Manages apostrophe's overall asset pipeline
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
       options: {
         refreshOnRestart: true
       }
-    }
+    },
+
+    // For a good experience user-testing our admin UI
+    '@apostrophecms/storybook': {
+      options: {
+        domain: 'ui.apos.dev'
+      }
+    },
+
+    // A home for our own project-specific javascript and SASS assets
+    asset: {},
+
+    // A custom widget with two columns
+    'two-column-widget': {},
+
+    // A page type for ordinary pages
+    'default-page': {},
+
+    // A piece type for products
+    product: {},
+    // Tease a product on any page
+    'product-widget': {},
+    // Paginated index of products, with detail pages for individual products
+    'product-page': {},
+
+    // A piece type for articles
+    article: {},
+    // Tease an article on any page
+    'article-widget': {},
+    // Paginated index of articles, and with pages for individual articles
+    'article-page': {}
+
   }
 });

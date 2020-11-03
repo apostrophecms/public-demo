@@ -1,13 +1,10 @@
 {# Automatically extends the right outer layout and also handles AJAX siutations #}
 {% extends data.outerLayout %}
 
+{% set title = data.piece.title or data.page.title %}
 {% block title %}
-  {# Create a useful, SEO-friendly title tag based on what we have #}
-  {% if data.piece %}
-    {{ data.piece.title }}
-  {% elseif data.page %}
-    {{ data.page.title }}
-  {% else %}
+  {{ title }}
+  {% if not title %}
     {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
   {% endif %}
 {% endblock %}
@@ -20,10 +17,56 @@
 {% endblock %}
 
 {% block beforeMain %}
-  {#
-    We recommend you use the beforeMain block for global page components
-    like headers or navigation.
-  #}
+  <header>
+    {% if not data.user %}
+      <a class="login-link" href="/login">Login</a>
+    {% endif %}
+    {# Tabs: children of the home page #}
+    <nav class="tabs">
+      {% for page in data.home._children %}
+        {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
+        <a {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
+      {% endfor %}
+    </nav>
+    {# Breadcrumb trail to the current page or piece. Not on the home page #}
+    {% if data.page and data.page._ancestors.length %}
+      <nav class="breadcrumb">
+        {% for page in data.page._ancestors %}
+          <a href="{{ page._url }}">{{ page.title }}</a>
+        {% endfor %}
+        <a {{ ('class="current-page"' if not data.piece) | safe }} href="{{ data.page._url }}">{{ data.page.title }}</a>
+        {% if data.piece %}
+          <a class="current-page" href="{{ data.piece._url }}">{{ data.piece.title }}</a>
+        {% endif %}
+      </nav>
+    {% endif %}
+    <h1>{{ title }}</h1>
+  </header>
+  <div class="layout">
+    {% block sideNav %}
+      <section class="side-nav">
+        {% if data.page and not data.piece %}
+          {# Side nav: peers of the current page #}
+          {% if data.page._ancestors.length > 1 %}
+            {% set peers = (data.page._ancestors | last)._children %}
+            <nav class="peers">
+              {% for page in peers %}
+                <h4><a {{ ('class="current-page"' if data.page._id == page._id) | safe }} href="{{ page._url }}">{{ page.title }}</a></h4>
+              {% endfor %}
+            </nav>
+          {% endif %}
+          {# Side nav: children of the current page #}
+          {% if data.page._children.length %}
+            <nav class="children">
+              {% for page in data.page._children %}
+                <h4><a href="{{ page._url }}">{{ page.title }}</a></h4>
+              {% endfor %}
+            </nav>
+          {% endif %}
+        {% endif %}
+      </section>
+    {% endblock %}
+    <main>
 {% endblock %}
 
 {% block main %}
@@ -35,6 +78,18 @@
 {% endblock %}
 
 {% block afterMain %}
+    </main>
+  </div>
+  <footer>
+    {% if data.global._footerLinks.length %}
+      <nav class="footer-links">
+        {% for page in data.global._footerLinks %}
+          {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
+          <a {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </footer>
   {#
     This would be a great place to put a global footer.
   #}

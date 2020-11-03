@@ -1,0 +1,14 @@
+{% import '@apostrophecms/pager:macros.html' as pager with context %}
+{% extends "layout.html" %}
+
+{# article index page is full width #}
+{% block sideNav %}{% endblock %}
+
+{% block main %}
+  {% for article in data.pieces %}
+    <h4><a href="{{ article._url }}">{{ article.title }}</a></h4>
+    <section>{% area article, 'blurb' %}</section>
+  {% endfor %}
+  {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+{% endblock %}
+
