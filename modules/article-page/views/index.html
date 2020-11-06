@@ -5,10 +5,16 @@
 {% block sideNav %}{% endblock %}
 
 {% block main %}
-  {% for article in data.pieces %}
-    <h4><a href="{{ article._url }}">{{ article.title }}</a></h4>
-    <section>{% area article, 'blurb' %}</section>
-  {% endfor %}
-  {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  <div class="article-index">
+    <h1>{{ data.page.title }}</h1>
+    {% for article in data.pieces %}
+      <div class="article-excerpt">
+        <h4><a href="{{ article._url }}">{{ article.title }}</a></h4>
+        <section>{% area article, 'blurb' %}</section>
+      </div>
+    {% endfor %}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </div>
+
 {% endblock %}
 

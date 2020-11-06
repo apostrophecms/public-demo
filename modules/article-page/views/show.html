@@ -5,13 +5,23 @@
 {% block sideNav %}{% endblock %}
 
 {% block main %}
-  <section class="blurb">{% area article, 'blurb' %}</section>
+  <div class="article-show">
+    <h4 class="meta">{{ data.page.title}}</h4>
+    <h1>{{ data.piece.title }}</h1>
+    <section class="blurb">
+      {% area article, 'blurb' %}
+      <article>{% area article, 'main' %}</article>
+    </section>
+  </div>
   <section class="related">
-    <h3>Related Products</h3>
-    {% for product in article._products %}
-      <h4><a href="{{ product._url }}">{{ product.title }}: {{ product._fields.relevance }}</a></h4>
-    {% endfor %}
+    <div class="inner">
+      <h3>Related Products</h3>
+      {% for product in article._products %}
+        <div class="article-excerpt">
+          <h4><a href="{{ article._url }}">{{ product.title }}: {{ product._fields.relevance or 'No relevance score given' }}</a></h4>
+        </div>
+      {% endfor %}
+    </div>
   </section>
-  <article>{% area article, 'main' %}</article>
 {% endblock %}
 
