@@ -5,14 +5,13 @@
 {% block sideNav %}{% endblock %}
 
 {% block main %}
-  <div class="article-show">
-    <h4 class="meta">{{ data.page.title}}</h4>
-    <h1>{{ data.piece.title }}</h1>
-    <section class="blurb">
-      {% area article, 'blurb' %}
-      <article>{% area article, 'main' %}</article>
-    </section>
-  </div>
+  <article class="article-show">
+    <header>
+      <div class="meta">{{ data.page.title}}</div>
+      <h1>{{ data.piece.title }}</h1>
+    </header>
+    {% area article, 'main' %}
+  </article>
   <section class="related">
     <div class="inner">
       <h3>Related Products</h3>
