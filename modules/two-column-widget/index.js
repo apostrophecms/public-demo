@@ -1,7 +1,8 @@
 module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Two Column'
+    label: 'Two Column',
+    icon: 'pillar'
   },
   fields: {
     add: {
@@ -20,5 +21,8 @@ module.exports = {
         }
       }
     }
+  },
+  init(self, options) {
+    self.apos.asset.addIcon('pillar', 'Pillar');
   }
 };

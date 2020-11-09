@@ -2,7 +2,8 @@ module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
     name: 'article',
-    label: 'Recent Articles'
+    label: 'Recent Articles',
+    icon: 'text-subject'
   },
   fields: {
     add: {
@@ -12,5 +13,8 @@ module.exports = {
         def: 5
       }
     }
+  },
+  init(self, options) {
+    self.apos.asset.addIcon('text-subject', 'TextSubject');
   }
 };
