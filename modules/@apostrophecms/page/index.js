@@ -9,10 +9,6 @@ module.exports = {
         label: 'Default'
       },
       {
-        name: 'product-page',
-        label: 'Product Index'
-      },
-      {
         name: 'article-page',
         label: 'Article Index'
       },

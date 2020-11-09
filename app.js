@@ -62,13 +62,6 @@ require('apostrophe')({
     // A page type for ordinary pages
     'default-page': {},
 
-    // A piece type for products
-    product: {},
-    // Tease a product on any page
-    'product-widget': {},
-    // Paginated index of products, with detail pages for individual products
-    'product-page': {},
-
     // A piece type for articles
     article: {},
     // Tease an article on any page
