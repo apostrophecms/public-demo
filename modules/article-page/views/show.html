@@ -12,15 +12,4 @@
     </header>
     {% area article, 'main' %}
   </article>
-  <section class="related">
-    <div class="inner">
-      <h3>Related Products</h3>
-      {% for product in article._products %}
-        <div class="article-excerpt">
-          <h4><a href="{{ article._url }}">{{ product.title }}: {{ product._fields.relevance or 'No relevance score given' }}</a></h4>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
 {% endblock %}
-

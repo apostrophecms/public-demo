@@ -15,10 +15,7 @@ module.exports = {
         name: 'pieces',
         label: 'Content',
         items: [
-          'product',
-          'article',
-          'recipe',
-          'person'
+          'article'
         ]
       }
     ]

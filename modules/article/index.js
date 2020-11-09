@@ -21,20 +21,6 @@ module.exports = {
         options: {
           widgets: require('../../lib/area')
         }
-      },
-      _products: {
-        type: 'relationship',
-        max: 5,
-        withType: 'product',
-        label: 'Related products',
-        fields: {
-          add: {
-            relevance: {
-              type: 'string',
-              label: 'Relevance'
-            }
-          }
-        }
       }
     },
     group: {
@@ -51,12 +37,6 @@ module.exports = {
         label: 'Content',
         fields: [
           'main'
-        ]
-      },
-      relatedProducts: {
-        label: 'Related Products',
-        fields: [
-          '_products'
         ]
       }
     }

@@ -2,9 +2,7 @@
   {% for article in data.articles %}
     <div class="article-excerpt">
       {% if not article._url %}
-          <p class="meta purple">
-            <em>You will need to publish an Article Index page for article links to work.</em>
-          </p>
+          <p class="meta purple"><em>To link to this article make sure an Article Index page exists on the site</em></p>
       {% endif %}
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
       <article>
