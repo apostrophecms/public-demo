@@ -5,16 +5,6 @@ module.exports = {
   },
   fields: {
     add: {
-      singleton: {
-        type: 'area',
-        label: 'Hello?',
-        options: {
-          max: 1,
-          widgets: {
-            '@apostrophecms/image': {}
-          }
-        }
-      },
       main: {
         type: 'area',
         contextual: true,
