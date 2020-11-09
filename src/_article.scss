@@ -22,7 +22,10 @@
 
 .article-index {
   margin: 0 auto;
-  width: 500px;
+  width: 700px;
+  .article-excerpt {
+    width: 100%;
+  }
 }
 
 .article-show {
@@ -52,4 +55,8 @@
     max-width: 500px;
     margin: 0 auto;
   }
+}
+
+.article-intro {
+  margin-bottom: 40px;
 }

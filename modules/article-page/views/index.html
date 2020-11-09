@@ -6,7 +6,10 @@
 
 {% block main %}
   <div class="article-index">
-    <h1>{{ data.page.title }}</h1>
+    <div class="article-intro">
+      <h1>{{ data.page.title }}</h1>
+      {% area data.page, 'intro' %}
+    </div>
     {% for article in data.pieces %}
       <div class="article-excerpt">
         <h4><a href="{{ article._url }}">{{ article.title }}</a></h4>

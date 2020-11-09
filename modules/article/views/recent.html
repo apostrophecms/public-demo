@@ -1,6 +1,9 @@
 {% if data.articles.length %}
   {% for article in data.articles %}
     <div class="article-excerpt">
+      {% if not article._url %}
+          <p class="meta purple"><em>To link to this article make sure a Article Index page is published</em></p>
+      {% endif %}
       <h4><a href="{{ article._url }}">{{ article.title }}</a></h4>
       <article>
         {% area article, 'blurb' %}
