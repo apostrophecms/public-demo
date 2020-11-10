@@ -1,3 +1,5 @@
+const areaConfig = require('../../lib/area').basicConfig;
+
 module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
@@ -10,14 +12,14 @@ module.exports = {
         type: 'area',
         contextual: true,
         options: {
-          widgets: require('../../lib/area')
+          widgets: areaConfig
         }
       },
       right: {
         type: 'area',
         contextual: true,
         options: {
-          widgets: require('../../lib/area')
+          widgets: areaConfig
         }
       }
     }
