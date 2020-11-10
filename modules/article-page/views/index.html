@@ -15,7 +15,7 @@
         <h2>
           <a href="{{ article._url }}">{{ article.title }}</a>
         </h2>
-        {% if article.blurb.length %}
+        {% if article.blurb and article.blurb.length %}
            <p class="article-blurb">{{ article.blurb }}</p>
         {% else %}
           <p class="placeholder">No blurb for this article</p>
