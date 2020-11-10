@@ -108,15 +108,13 @@ main {
   }
 }
 
-.site-title {
-  font-family: 'Inter', sans-serif;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 28px;
-  color: black;
-  img {
-    height: 40px;
-  }
+.site-home {
+  display: inline-block;
+}
+
+.site-logo {
+  display: block;
+  height: 40px;
 }
 
 .home {
