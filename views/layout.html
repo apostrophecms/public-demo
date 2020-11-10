@@ -55,21 +55,9 @@
   </header>
   <div class="layout">
     {% block sideNav %}
-      {% set placeheld = false %}
-      <section class="side-nav">
-        {% if data.page and not data.piece %}
-          {# Side nav: peers of the current page #}
-          {% if data.page._ancestors.length > 1 %}
-            {% set peers = (data.page._ancestors | last)._children %}
-            <nav class="peers">
-              {% for page in peers %}
-                <h4><a {{ ('class="current-page"' if data.page._id == page._id) | safe }} href="{{ page._url }}">{{ page.title }}</a></h4>
-              {% endfor %}
-            </nav>
-          {% else %}
-            <p class="placeholder">No links to display in side navigation</p>
-            {% set placeheld = true %}
-          {% endif %}
+      {% if data.page and (not data.piece) and data.page._children.length %}
+        {% set placeheld = false %}
+        <section class="side-nav">
           {# Side nav: children of the current page #}
           {% if data.page._children.length %}
             <nav class="children">
@@ -77,11 +65,9 @@
                 <h4><a href="{{ page._url }}">{{ page.title }}</a></h4>
               {% endfor %}
             </nav>
-          {% elif not placeheld %}
-            <p class="placeholder">No links to display in side navigation</p>
           {% endif %}
-        {% endif %}
-      </section>
+        </section>
+      {% endif %}
     {% endblock %}
     <main>
 {% endblock %}
