@@ -5,6 +5,7 @@ module.exports = {
       blurb: {
         type: 'string',
         textarea: true,
+        max: 250,
         label: 'Blurb',
         help: 'A short summary.'
       },
