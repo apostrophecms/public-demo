@@ -8,7 +8,7 @@
       {% endif %}
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
       <article>
-        {% area article, 'blurb' %}
+        <p>{{ article.blurb }}</p>
       </article>
     </div>
   {% endfor %}
