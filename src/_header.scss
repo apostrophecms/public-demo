@@ -15,11 +15,12 @@
 }
 
 .breadcrumb a {
-  font-size: 12px;
+  font-size: 14px;
   display: inline-block;
   color: #52648e;
+  text-decoration: none;
   &:after {
-    margin: 0 8px;
+    margin: 0 8px 0 16px;
     content: '»';
     display: inline-block;
     text-decoration: none;

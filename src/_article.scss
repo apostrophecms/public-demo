@@ -12,7 +12,7 @@
 }
 
 .article-excerpt a {
-  font-size: 28px;
+  font-size: 38px;
   color: #649a1d;
   text-decoration: none;
   &:hover {
@@ -30,7 +30,7 @@
 
 .article-show {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 50px auto;
 
   h1 {
     font-size: 5em;
@@ -59,4 +59,8 @@
 
 .article-intro {
   margin-bottom: 40px;
+}
+
+.latest-article h2 {
+  opacity: 0.5;
 }

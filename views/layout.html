@@ -37,9 +37,9 @@
         </ol>
       </nav>
     </div>
-    <div class="inner">
-      {# Breadcrumb trail to the current page or piece. Not on the home page #}
-      {% if data.page and data.page._ancestors.length %}
+    {# Breadcrumb trail to the current page or piece. Not on the home page #}
+    {% if data.page and data.page._ancestors.length %}
+      <div class="inner">
         <nav class="breadcrumb">
           {% for page in data.page._ancestors %}
             <a href="{{ page._url }}">{{ page.title }}</a>
@@ -49,8 +49,8 @@
             <a class="current-page" href="{{ data.piece._url }}">{{ data.piece.title }}</a>
           {% endif %}
         </nav>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </header>
   <div class="layout">
     {% block sideNav %}
@@ -66,7 +66,7 @@
               {% endfor %}
             </nav>
           {% else %}
-            No links in the side nav
+            <p class="placeholder">No links to display in side navigation</p>
             {% set placeheld = true %}
           {% endif %}
           {# Side nav: children of the current page #}
@@ -77,7 +77,7 @@
               {% endfor %}
             </nav>
           {% elif not placeheld %}
-            No links in the side nav
+            <p class="placeholder">No links to display in side navigation</p>
           {% endif %}
         {% endif %}
       </section>

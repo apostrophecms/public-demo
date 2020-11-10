@@ -25,18 +25,20 @@ body {
   }
 
   h4 {
-    font-family: serif;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     font-weight: 300;
-    font-size: 3.4em;
+    font-size: 2.4em;
+    margin: 30px 0;
     line-height: 1.2em;
   }
 
   h3 {
     font-family: sans-serif;
     font-weight: 300;
-    font-size: 4.4em;
+    font-size: 3.4em;
     line-height: 1.2em;
     letter-spacing: -1px;
+    margin: 30px 0;
   }
 }
 
@@ -44,9 +46,10 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 100%;
-  margin-left: 20px;
-  margin-right: 20px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 main {
@@ -90,7 +93,7 @@ main {
   font-size: 28px;
   color: black;
   img {
-    height: 52px;
+    height: 40px;
   }
 }
 
@@ -106,4 +109,12 @@ main {
 
 .purple {
   color: #6617dc;
+}
+
+.placeholder {
+  width: 100%;
+  opacity: 0.5;
+  margin: 40px 10px;
+  text-align: center;
+  font-style: italic;
 }
