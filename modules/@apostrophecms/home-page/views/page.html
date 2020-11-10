@@ -10,10 +10,6 @@
 
 {% block main %}
   <div class="home">
-    <section class="latest-article">
-      <h2>Latest Articles</h2>
-      {% component "article:recent" with { limit: 5 } %}
-    </section>
     <div class="content">
       {% area data.page, 'main' %}
     </div>
