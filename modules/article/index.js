@@ -19,7 +19,7 @@ module.exports = {
         label: 'Content',
         type: 'area',
         options: {
-          widgets: require('../../lib/area')
+          widgets: require('../../lib/area').fullConfig
         }
       }
     },
