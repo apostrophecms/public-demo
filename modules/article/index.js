@@ -3,15 +3,8 @@ module.exports = {
   fields: {
     add: {
       blurb: {
-        type: 'area',
-        options: {
-          widgets: {
-            '@apostrophecms/rich-text': {
-              toolbar: [ 'bold', 'italic', 'link' ]
-            }
-          },
-          limit: 1
-        },
+        type: 'string',
+        textarea: true,
         label: 'Blurb',
         help: 'A short summary.'
       },
