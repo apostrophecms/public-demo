@@ -15,7 +15,11 @@
         <h2>
           <a href="{{ article._url }}">{{ article.title }}</a>
         </h2>
-        {% area article, 'blurb' %}
+        {% if article.blurb.items and article.blurb.items.length %}
+          {{ article.blurb.items[0].content | safe }}
+        {% else %}
+          <p class="placeholder">No blurb for this article</p>
+        {% endif %}
       </div>
     {% endfor %}
     {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
