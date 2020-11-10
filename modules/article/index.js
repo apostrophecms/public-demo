@@ -29,8 +29,7 @@ module.exports = {
         fields: [
           'title',
           'visibility',
-          'blurb',
-          'trash'
+          'blurb'
         ]
       },
       main: {
