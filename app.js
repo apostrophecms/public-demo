@@ -29,15 +29,19 @@ require('apostrophe')({
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
       options: {
-        className: 'a3-widget-rte'
+        className: 'demo-rte'
       }
     },
     '@apostrophecms/image-widget': {
       options: {
-        className: 'a3-widget-image'
+        className: 'demo-image'
       }
     },
-    '@apostrophecms/video-widget': {},
+    '@apostrophecms/video-widget': {
+      options: {
+        className: 'demo-video'
+      }
+    },
     // Manages apostrophe's overall asset pipeline
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
