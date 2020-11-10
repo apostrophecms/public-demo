@@ -1,5 +1,5 @@
 .header {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Inter', sans-serif;
   background-color: #f7f7f7;
   margin-bottom: 30px;
   padding: 20px 0;
@@ -15,7 +15,8 @@
 }
 
 .breadcrumb a {
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: .8em;
   display: inline-block;
   color: #52648e;
   text-decoration: none;
