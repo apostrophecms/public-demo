@@ -86,18 +86,22 @@ main {
   width: 100%;
 }
 
-.widget-two-column-left {
+.widget-two-column-one {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
 }
 
-.widget-two-column-right {
+.widget-two-column-two {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+}
+
+.widget-two-column-one + .widget-two-column-two {
+  margin-left: 20px;
 }
 
 .footer-links {
