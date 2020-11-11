@@ -8,14 +8,14 @@ module.exports = {
   },
   fields: {
     add: {
-      left: {
+      one: {
         type: 'area',
         contextual: true,
         options: {
           widgets: areaConfig
         }
       },
-      right: {
+      two: {
         type: 'area',
         contextual: true,
         options: {
