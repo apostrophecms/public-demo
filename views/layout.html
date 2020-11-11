@@ -15,6 +15,10 @@
     It is a good place to put extra <script> <link> and <meta> tags.
   #}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
+  {#
+    Project level CSS should load early to avoid FOUC.
+  #}
+  <link rel="stylesheet" href="/css/main.css" />
 {% endblock %}
 
 {% block beforeMain %}
