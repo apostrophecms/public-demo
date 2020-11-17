@@ -3,11 +3,17 @@ module.exports = {
   fields: {
     add: {
       blurb: {
-        type: 'string',
-        textarea: true,
-        max: 250,
+        type: 'area',
         label: 'Blurb',
-        help: 'A short summary.'
+        help: 'A short summary.',
+        options: {
+          widgets: {
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'bold', 'italic' ]
+            },
+            '@apostrophecms/image': {}
+          }
+        }
       },
       main: {
         label: 'Content',
