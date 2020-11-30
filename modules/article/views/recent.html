@@ -8,8 +8,8 @@
       {% endif %}
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
       <article>
-        {% if article.blurb and article.blurb.length %}
-           <p class="article-blurb">{{ article.blurb }}</p>
+        {% if not apos.area.isEmpty(article, 'blurb') %}
+           <p class="article-blurb">{% area article, 'blurb' %}</p>
         {% else %}
           <p class="placeholder">No blurb for this article</p>
         {% endif %}

@@ -3,11 +3,17 @@ module.exports = {
   fields: {
     add: {
       blurb: {
-        type: 'string',
-        textarea: true,
-        max: 250,
+        type: 'area',
         label: 'Blurb',
-        help: 'A short summary.'
+        help: 'A short summary.',
+        options: {
+          max: 1,
+          widgets: {
+            '@apostrophecms/rich-text': {
+              toolbar: [ 'Bold', 'Italic' ]
+            }
+          }
+        }
       },
       main: {
         label: 'Content',
@@ -42,5 +48,25 @@ module.exports = {
         };
       }
     };
+  },
+  init(self, options) {
+    // blurb used to be a string; now we've decided it should be
+    // a rich text widget. Make the conversion with a migration
+    self.apos.migration.add('blurb', async () => {
+      await self.apos.migration.eachDoc({
+        type: 'article'
+      }, 5, async (doc) => {
+        if ((typeof doc.blurb) === 'string') {
+          doc.blurb = self.apos.area.fromPlaintext(doc.blurb);
+          return self.apos.doc.db.updateOne({
+            _id: doc._id
+          }, {
+            $set: {
+              blurb: doc.blurb
+            }
+          });
+        }
+      });
+    });
   }
 };
