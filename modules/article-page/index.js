@@ -2,8 +2,7 @@ module.exports = {
   extend: '@apostrophecms/piece-page-type',
   options: {
     label: 'Article Index Page',
-    pluralLabel: 'Article Index Pages',
-    perPage: 3
+    pluralLabel: 'Article Index Pages'
   },
   fields: {
     add: {
