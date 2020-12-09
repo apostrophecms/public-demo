@@ -22,11 +22,7 @@
         {% endif %}
       </div>
     {% endfor %}
-    {{ pager.render({
-      page: data.currentPage,
-      total: data.totalPages,
-      class: 'pager'
-    }, data.url) }}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
   </section>
 
 {% endblock %}
