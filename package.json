@@ -34,7 +34,8 @@
       "./lib/**/*.js",
       "./views/**/*.html",
       "./src/**/*",
-      "./node_modules/apostrophe/modules/@apostrophecms/**/*"
+      "./node_modules/apostrophe/modules/@apostrophecms/**/*",
+      "./node_modules/@apostrophecms/**/*"
     ],
     "ignoreRoot": [
       ".git"

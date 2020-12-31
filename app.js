@@ -71,7 +71,9 @@ require('apostrophe')({
     // Tease an article on any page
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
-    'article-page': {}
+    'article-page': {},
+
+    '@apostrophecms/palette': {}
 
   }
 });
