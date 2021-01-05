@@ -46,7 +46,6 @@
     </div>
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
     {% if data.page and data.page._ancestors.length %}
-      {{ apos.log(data.page._ancestors) }}
       <div class="inner">
         <nav class="breadcrumb">
           {% for page in data.page._ancestors %}
