@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 module.exports = {
+  mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(

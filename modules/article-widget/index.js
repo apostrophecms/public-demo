@@ -14,7 +14,7 @@ module.exports = {
       }
     }
   },
-  init(self, options) {
-    self.apos.asset.addIcon('text-subject', 'TextSubject');
+  icons: {
+    'text-subject': 'TextSubject'
   }
 };

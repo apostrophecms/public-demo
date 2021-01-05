@@ -24,7 +24,7 @@ module.exports = {
       }
     }
   },
-  init(self, options) {
-    self.apos.asset.addIcon('pillar', 'Pillar');
+  icons: {
+    pillar: 'Pillar'
   }
 };
