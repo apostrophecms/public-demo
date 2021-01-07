@@ -5,6 +5,8 @@
 #
 # We don't have any, 3.x policy is safe migrations only. -Tom
 
+export NODE_ENV=production
+
 # node app @apostrophecms/migration:migrate
 #
 #echo "Site migrated"

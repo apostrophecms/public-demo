@@ -3,6 +3,8 @@
 # Shut the site down, for instance by tweaking a .htaccess file to display
 # a 'please wait' notice, or stopping a node server
 
+export NODE_ENV=production
+
 if [ ! -f "app.js" ]; then
   echo "I don't see app.js in the current directory."
   exit 1

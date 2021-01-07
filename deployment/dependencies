@@ -8,6 +8,8 @@
 # (we're in a deployment dir, which is a subdir of 'deployments', which
 # is a subdir of the project's main dir)
 
+export NODE_ENV=production
+
 HERE=`pwd`
 mkdir -p ../../data
 ln -s ../../data $HERE/data
