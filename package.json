@@ -19,7 +19,7 @@
     "url": ""
   },
   "dependencies": {
-    "apostrophe": "apostrophecms/apostrophe#3.0",
+    "apostrophe": "github:apostrophecms/apostrophe#3.0",
     "extract-css-chunks-webpack-plugin": "^4.8.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
