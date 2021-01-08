@@ -15,11 +15,6 @@ module.exports = {
           }
         }
       },
-      target: {
-        label: 'New Color',
-        help: 'This color could help us!',
-        type: 'color'
-      },
       main: {
         label: 'Content',
         type: 'area',
