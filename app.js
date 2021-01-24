@@ -63,6 +63,10 @@ require('apostrophe')({
     // A custom widget with two columns
     'two-column-widget': {},
 
+    // A widget with doubly nested arrays and sub-areas within the array items,
+    // for debugging issues relating to such scenarios
+    'array-nested-widget': {},
+
     // A page type for ordinary pages
     'default-page': {},
 

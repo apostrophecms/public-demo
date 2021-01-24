@@ -1,0 +1,16 @@
+<ul>
+  {% for parent in data.widget.parents %}
+    <li>
+      <h2>{{ parent.name }}</h2>
+      {% area parent, 'about' %}
+      <ul>
+        {% for child in parent.children %}
+          <li>
+            <h2>{{ child.name }}</h2>
+            {% area child, 'about' %}
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
