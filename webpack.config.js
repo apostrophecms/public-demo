@@ -36,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new ExtractCssChunks({
-      filename: '../../../../public/css/main.css'
+      filename: 'site.css'
     })
   ]
 };
