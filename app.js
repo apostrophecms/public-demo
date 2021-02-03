@@ -71,7 +71,111 @@ require('apostrophe')({
     // Tease an article on any page
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
-    'article-page': {}
-
+    'article-page': {},
+    '@apostrophecms/palette': {
+      fields: {
+        add: {
+          backgroundColor: {
+            label: 'Background color',
+            type: 'color',
+            help: 'The background of your website',
+            selector: 'body',
+            property: 'background-color'
+          },
+          primaryColor: {
+            label: 'Primary Color',
+            type: 'color',
+            help: 'Primary color block color',
+            selector: '.primary',
+            property: 'background-color'
+          },
+          secondaryColor: {
+            label: 'Secondary Color',
+            type: 'color',
+            help: 'Used for accents',
+            selector: '.secondary',
+            property: 'background-color'
+          },
+          baseFont: {
+            label: 'Font',
+            type: 'select',
+            help: 'Base font family for the website',
+            selector: 'body',
+            choices: [
+              {
+                label: 'Helvetica',
+                value: 'helvetica',
+                def: true
+              },
+              {
+                label: 'Times',
+                value: 'times'
+              }
+            ]
+          },
+          baseFontSize: {
+            label: 'Size',
+            type: 'select',
+            help: 'Base font size',
+            selector: 'body',
+            choices: [
+              {
+                label: '12px',
+                value: '12',
+                def: true
+              },
+              {
+                label: '15px',
+                value: '15'
+              }
+            ]
+          },
+          baseFontColor: {
+            label: 'Color',
+            type: 'color',
+            selector: 'body',
+          },
+          titleFont: {
+            label: 'Font',
+            type: 'select',
+            help: 'Base font family for the website',
+            selector: 'h1',
+            choices: [
+              {
+                label: 'Helvetica',
+                value: 'helvetica',
+                def: true
+              },
+              {
+                label: 'Times',
+                value: 'times'
+              }
+            ]
+          }
+        },
+      },
+      options: {
+        paletteGroups: {
+          page: {
+            label: 'Page',
+            fields: [ 'backgroundColor', 'primaryColor', 'secondaryColor' ]
+          },
+          typography: {
+            label: 'Typography',
+            fields: [],
+            group: {
+              default: {
+                label: 'Default',
+                fields: [ 'baseFont', 'baseFontSize', 'baseFontColor' ]
+              },
+              title: {
+                label: 'Title',
+                fields: [ 'titleFont' ]
+              }
+            }
+          }
+        }
+      }
+    }
   }
 });
