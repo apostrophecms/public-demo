@@ -3,6 +3,10 @@
 @import '_pager';
 @import '_sidenav';
 
+body {
+  margin: 0
+}
+
 .demo-video {
   width: 100%;
 }
