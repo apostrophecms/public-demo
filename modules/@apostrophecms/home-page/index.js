@@ -11,6 +11,13 @@ module.exports = {
         options: {
           widgets: require('../../../lib/area').fullConfig
         }
+      },
+      below: {
+        type: 'area',
+        contextual: true,
+        options: {
+          widgets: require('../../../lib/area').fullConfig
+        }
       }
     },
     group: {

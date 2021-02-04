@@ -1,0 +1,8 @@
+{% fragment main(page) %}
+  {% area page, 'main' %}
+{% endfragment %}
+
+{% fragment below(page) %}
+  {% area page, 'below' %}
+  {{ apos.util.slugify('someGnarly&928string') }}
+{% endfragment %}

@@ -8,10 +8,13 @@
 {# Home page is full width #}
 {% block sideNav %}{% endblock %}
 
+{% import "areas.html" as areas %}
+
 {% block main %}
   <div class="home">
     <div class="content">
-      {% area data.page, 'main' %}
+      {% render areas.main(data.page) %}
+      {% render areas.below(data.page) %}
     </div>
   </div>
 {% endblock %}
