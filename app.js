@@ -72,7 +72,7 @@ require('apostrophe')({
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
     'article-page': {},
-    '@apostrophecms/palette': {
+    '@apostrophecms-pro/palette': {
       fields: {
         add: {
           backgroundColor: {
@@ -101,6 +101,7 @@ require('apostrophe')({
             type: 'select',
             help: 'Base font family for the website',
             selector: 'body',
+            property: 'font-family',
             choices: [
               {
                 label: 'Helvetica',
@@ -118,6 +119,8 @@ require('apostrophe')({
             type: 'select',
             help: 'Base font size',
             selector: 'body',
+            property: 'font-size',
+            unit: 'px',
             choices: [
               {
                 label: '12px',
@@ -134,12 +137,14 @@ require('apostrophe')({
             label: 'Color',
             type: 'color',
             selector: 'body',
+            property: 'color'
           },
           titleFont: {
             label: 'Font',
             type: 'select',
             help: 'Base font family for the website',
             selector: 'h1',
+            property: 'font-family',
             choices: [
               {
                 label: 'Helvetica',
@@ -152,7 +157,7 @@ require('apostrophe')({
               }
             ]
           }
-        },
+        }
       },
       options: {
         paletteGroups: {
