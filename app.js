@@ -80,21 +80,24 @@ require('apostrophe')({
             type: 'color',
             help: 'The background of your website',
             selector: 'body',
-            property: 'background-color'
+            property: 'background-color',
+            def: '#ffffff'
           },
           primaryColor: {
             label: 'Primary Color',
             type: 'color',
             help: 'Primary color block color',
             selector: '.primary',
-            property: 'background-color'
+            property: 'background-color',
+            def: '#000000'
           },
           secondaryColor: {
             label: 'Secondary Color',
             type: 'color',
             help: 'Used for accents',
             selector: '.secondary',
-            property: 'background-color'
+            property: 'background-color',
+            def: '#0000ff'
           },
           baseFont: {
             label: 'Font',
@@ -137,7 +140,8 @@ require('apostrophe')({
             label: 'Color',
             type: 'color',
             selector: 'body',
-            property: 'color'
+            property: 'color',
+            def: '#000000'
           },
           titleFont: {
             label: 'Font',
