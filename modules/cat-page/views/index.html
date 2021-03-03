@@ -1,0 +1,25 @@
+{% import '@apostrophecms/pager:macros.html' as pager with context %}
+{% extends "layout.html" %}
+
+{# cat index page is full width #}
+{% block sideNav %}{% endblock %}
+
+{% block main %}
+  <section class="cat-index">
+    <header class="cat-intro">
+      <h1>{{ data.page.title }}</h1>
+    </header>
+    {% for cat in data.pieces %}
+      <div class="cat-excerpt">
+        <h2>
+          <a href="{{ cat._url }}">{{ cat.title }}</a>
+        </h2>
+        {% for article in cat._articles %}
+          <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </section>
+
+{% endblock %}

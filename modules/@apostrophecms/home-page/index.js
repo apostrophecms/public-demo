@@ -9,7 +9,8 @@ module.exports = {
         type: 'area',
         contextual: true,
         options: {
-          widgets: require('../../../lib/area').fullConfig
+          widgets: require('../../../lib/area').fullConfig,
+          max: 2
         }
       }
     },

@@ -21,6 +21,10 @@ module.exports = {
         options: {
           widgets: require('../../lib/area').fullConfig
         }
+      },
+      _cats: {
+        type: 'relationship',
+        withType: 'cat'
       }
     },
     group: {

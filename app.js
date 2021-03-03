@@ -71,7 +71,157 @@ require('apostrophe')({
     // Tease an article on any page
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
-    'article-page': {}
-
+    'article-page': {},
+    cat: {
+      extend: '@apostrophecms/piece-type',
+      options: {
+        label: 'Cat'
+      },
+      fields: {
+        add: {
+          _articles: {
+            type: 'relationshipReverse',
+            withType: 'article',
+            reverseOf: '_cats'
+          },
+          variety: {
+            type: 'select',
+            required: true,
+            choices: [
+              {
+                value: 'pretty',
+                label: 'Pretty'
+              },
+              {
+                value: 'vacant',
+                label: 'Vacant'
+              }
+            ]
+          },
+          sauciness: {
+            type: 'string',
+            def: 'very',
+            required: true
+          }
+        }
+      }
+    },
+    'cat-page': {
+      extend: '@apostrophecms/piece-page-type'
+    },
+    '@apostrophecms-pro/palette': {
+      fields: {
+        add: {
+          backgroundColor: {
+            label: 'Background color',
+            type: 'color',
+            help: 'The background of your website',
+            selector: 'body',
+            property: 'background-color',
+            def: '#ffffff'
+          },
+          primaryColor: {
+            label: 'Primary Color',
+            type: 'color',
+            help: 'Primary color block color',
+            selector: '.primary',
+            property: 'background-color',
+            def: '#000000'
+          },
+          secondaryColor: {
+            label: 'Secondary Color',
+            type: 'color',
+            help: 'Used for accents',
+            selector: '.secondary',
+            property: 'background-color',
+            def: '#0000ff'
+          },
+          baseFont: {
+            label: 'Font',
+            type: 'select',
+            help: 'Base font family for the website',
+            selector: 'body',
+            property: 'font-family',
+            choices: [
+              {
+                label: 'Helvetica',
+                value: 'helvetica',
+                def: true
+              },
+              {
+                label: 'Times',
+                value: 'times'
+              }
+            ]
+          },
+          baseFontSize: {
+            label: 'Size',
+            type: 'select',
+            help: 'Base font size',
+            selector: 'body',
+            property: 'font-size',
+            unit: 'px',
+            choices: [
+              {
+                label: '12px',
+                value: '12',
+                def: true
+              },
+              {
+                label: '15px',
+                value: '15'
+              }
+            ]
+          },
+          baseFontColor: {
+            label: 'Color',
+            type: 'color',
+            selector: 'body',
+            property: 'color',
+            def: '#000000'
+          },
+          titleFont: {
+            label: 'Font',
+            type: 'select',
+            help: 'Base font family for the website',
+            selector: 'h1',
+            property: 'font-family',
+            choices: [
+              {
+                label: 'Helvetica',
+                value: 'helvetica',
+                def: true
+              },
+              {
+                label: 'Times',
+                value: 'times'
+              }
+            ]
+          }
+        }
+      },
+      options: {
+        paletteGroups: {
+          page: {
+            label: 'Page',
+            fields: [ 'backgroundColor', 'primaryColor', 'secondaryColor' ]
+          },
+          typography: {
+            label: 'Typography',
+            fields: [],
+            group: {
+              default: {
+                label: 'Default',
+                fields: [ 'baseFont', 'baseFontSize', 'baseFontColor' ]
+              },
+              title: {
+                label: 'Title',
+                fields: [ 'titleFont' ]
+              }
+            }
+          }
+        }
+      }
+    }
   }
 });

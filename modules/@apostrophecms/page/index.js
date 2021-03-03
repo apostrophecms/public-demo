@@ -15,6 +15,10 @@ module.exports = {
       {
         name: '@apostrophecms/home-page',
         label: 'Home'
+      },
+      {
+        name: 'cat-page',
+        label: 'Cats'
       }
     ]
   }
