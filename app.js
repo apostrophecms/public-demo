@@ -71,7 +71,39 @@ require('apostrophe')({
     // Tease an article on any page
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
-    'article-page': {}
+    'article-page': {},
+
+    attendee: {
+      extend: '@apostrophecms/piece-type',
+      fields: {
+        add: {
+          lodgings: {
+            type: 'boolean'
+          },
+          roomNumber: {
+            type: 'integer',
+            if: {
+              lodgings: true
+            },
+            min: 600,
+            max: 699
+          },
+          ghostFriendly: {
+            type: 'boolean',
+            if: {
+              roomNumber: 666
+            },
+            required: true
+          }
+        },
+        group: {
+          lodgings: {
+            label: 'Lodgings',
+            fields: [ 'lodgings', 'roomNumber', 'ghostFriendly' ]
+          }
+        }
+      }
+    }
 
   }
 });
