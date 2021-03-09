@@ -94,6 +94,25 @@ require('apostrophe')({
               roomNumber: 666
             },
             required: true
+          },
+          rock: {
+            type: 'boolean'
+          },
+          volume: {
+            type: 'range',
+            if: {
+              rock: true
+            },
+            min: 0,
+            max: 11,
+            step: 1
+          },
+          awesome: {
+            type: 'boolean',
+            if: {
+              volume: 11
+            },
+            label: 'Is this awesome?'
           }
         },
         group: {
