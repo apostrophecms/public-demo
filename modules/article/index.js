@@ -21,6 +21,19 @@ module.exports = {
         options: {
           widgets: require('../../lib/area').fullConfig
         }
+      },
+      flavor: {
+        type: 'select',
+        choices: [
+          {
+            value: 'grape',
+            label: 'Grape'
+          },
+          {
+            value: 'strawberry',
+            label: 'Strawberry'
+          }
+        ]
       }
     },
     group: {
@@ -38,6 +51,13 @@ module.exports = {
         fields: [
           'main'
         ]
+      }
+    }
+  },
+  filters: {
+    add: {
+      flavor: {
+        label: 'Flavor'
       }
     }
   },
