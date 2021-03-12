@@ -41,7 +41,7 @@ module.exports = {
       }
     }
   },
-  components(self, options) {
+  components(self) {
     return {
       async recent(req, data) {
         return {
@@ -50,7 +50,7 @@ module.exports = {
       }
     };
   },
-  init(self, options) {
+  init(self) {
     // blurb used to be a string; now we've decided it should be
     // a rich text widget. Make the conversion with a migration
     self.apos.migration.add('blurb', async () => {
