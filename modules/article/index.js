@@ -34,6 +34,16 @@ module.exports = {
             label: 'Strawberry'
           }
         ]
+      },
+      advantages: {
+        type: 'array',
+        fields: {
+          add: {
+            title: {
+              type: 'string'
+            }
+          }
+        }
       }
     },
     group: {
