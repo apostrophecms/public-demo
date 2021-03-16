@@ -8,9 +8,6 @@
     "apostrophe-build": "node app @apostrophecms/asset:build",
     "start": "node app",
     "dev": "nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
-    "storybook": "node app @apostrophecms/storybook:run",
-    "storybook-build": "node app @apostrophecms/storybook:build ./storybook-static",
-    "storybook-deploy": "node app @apostrophecms/storybook:deploy",
     "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
     "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
   },
