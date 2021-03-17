@@ -50,13 +50,6 @@ require('apostrophe')({
       }
     },
 
-    // For a good experience user-testing our admin UI
-    '@apostrophecms/storybook': {
-      options: {
-        domain: 'ui.apos.dev'
-      }
-    },
-
     // A home for our own project-specific javascript and SASS assets
     asset: {},
 
