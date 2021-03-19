@@ -64,7 +64,13 @@ require('apostrophe')({
     // Tease an article on any page
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
-    'article-page': {}
-
+    'article-page': {},
+    jogario: {
+      extend: '@apostrophecms/piece-type',
+      async init (self) {
+        const req = self.apos.task.getAnonReq();
+        await self.insert(req, { title: 'Testing' }, { permissions: false });
+      }
+    }
   }
 });
