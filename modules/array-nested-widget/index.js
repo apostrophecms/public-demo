@@ -17,10 +17,11 @@ module.exports = {
             about: {
               type: 'area',
               label: 'About',
-              max: 1,
               options: {
                 widgets: {
-                  '@apostrophecms/rich-text': {}
+                  '@apostrophecms/rich-text': {},
+                  '@apostrophecms/video': {},
+                  'array-nested': {}
                 }
               }
             },
@@ -39,7 +40,9 @@ module.exports = {
                     max: 1,
                     options: {
                       widgets: {
-                        '@apostrophecms/rich-text': {}
+                        '@apostrophecms/rich-text': {},
+                        '@apostrophecms/video': {},
+                        'array-nested': {}
                       }
                     }
                   }
