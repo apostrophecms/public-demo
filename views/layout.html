@@ -18,59 +18,7 @@
 {% endblock %}
 
 {% block beforeMain %}
-  <header class="header">
-    <div class="inner">
-      <a class="site-home" href="/">
-        <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
-      </a>
-      {# children of the home page #}
-      <nav class="nav">
-        <ol class="nav-items">
-          {% for page in data.home._children %}
-            {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
-            <li class="nav-item">
-              <a class="nav-link" {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
-            </li>
-          {% endfor %}
-          {% if not data.user %}
-            <li class="nav-item nav-item--login">
-              <a class="nav-link nav-link--login" href="/login">Login</a>
-            </li>
-          {% endif %}
-        </ol>
-      </nav>
-    </div>
-    {# Breadcrumb trail to the current page or piece. Not on the home page #}
-    {% if data.page and data.page._ancestors.length %}
-      <div class="inner">
-        <nav class="breadcrumb">
-          {% for page in data.page._ancestors %}
-            <a href="{{ page._url }}">{{ page.title }}</a>
-          {% endfor %}
-          <a {{ ('class="current-page"' if not data.piece) | safe }} href="{{ data.page._url }}">{{ data.page.title }}</a>
-          {% if data.piece %}
-            <a class="current-page" href="{{ data.piece._url }}">{{ data.piece.title }}</a>
-          {% endif %}
-        </nav>
-      </div>
-    {% endif %}
-  </header>
   <div class="layout">
-    {% block sideNav %}
-      {% if data.page and (not data.piece) and data.page._children.length %}
-        {% set placeheld = false %}
-        <section class="side-nav">
-          {# Side nav: children of the current page #}
-          {% if data.page._children.length %}
-            <nav class="children">
-              {% for page in data.page._children %}
-                <h4><a href="{{ page._url }}">{{ page.title }}</a></h4>
-              {% endfor %}
-            </nav>
-          {% endif %}
-        </section>
-      {% endif %}
-    {% endblock %}
     <main>
 {% endblock %}
 
