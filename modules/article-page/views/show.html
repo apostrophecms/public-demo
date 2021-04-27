@@ -1,3 +1,5 @@
+{% import 'fragments.html' as fragments with context %}
+
 {% extends "layout.html" %}
 {% set article = data.piece %}
 
@@ -10,11 +12,7 @@
       <div class="meta">{{ data.page.title}}</div>
       <h1>{{ data.piece.title }}</h1>
       {% if article._topics and article._topics.length > 0 %}
-        <ul class="article-topics">
-          {% for topic in article._topics %}
-            <li>{{ topic.title }}</li>
-          {% endfor %}
-        </ul>
+        {% render fragments.topicsList(article._topics) %}
       {% endif %}
     </header>
     {% area article, 'main' %}
