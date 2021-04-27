@@ -4,8 +4,7 @@
   "description": "Apostrophe 3 Demo Site",
   "main": "app.js",
   "scripts": {
-    "build": "webpack && npm run apostrophe-build",
-    "apostrophe-build": "node app @apostrophecms/asset:build",
+    "build": "webpack",
     "start": "node app",
     "dev": "nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
     "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
@@ -49,6 +48,7 @@
       "public/modules/**/*.less",
       "public/modules/**/*.js",
       "public/uploads",
+      "public/apos-frontend",
       "public/apos-minified/*.js",
       "public/css/master-*.less",
       "modules/asset/ui/public/site.js",
