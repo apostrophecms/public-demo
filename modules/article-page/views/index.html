@@ -15,6 +15,13 @@
         <h2>
           <a href="{{ article._url }}">{{ article.title }}</a>
         </h2>
+        {% if article._topics and article._topics.length > 0 %}
+          <ul class="article-topics">
+            {% for topic in article._topics %}
+              <li>{{ topic.title }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
         {% if not apos.area.isEmpty(article, 'blurb') %}
            <p class="article-blurb">{% area article, 'blurb' %}</p>
         {% else %}

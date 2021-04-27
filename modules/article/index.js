@@ -15,6 +15,11 @@ module.exports = {
           }
         }
       },
+      _topics: {
+        label: 'Article topics',
+        type: 'relationship',
+        withType: 'topic'
+      },
       main: {
         label: 'Content',
         type: 'area',
