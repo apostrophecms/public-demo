@@ -46,6 +46,14 @@ module.exports = {
       }
     }
   },
+  columns: {
+    add: {
+      _topics: {
+        label: 'Topics',
+        component: 'DemoCellRelation'
+      }
+    }
+  },
   components(self) {
     return {
       async recent(req, data) {
