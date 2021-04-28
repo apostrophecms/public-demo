@@ -27,7 +27,6 @@ module.exports = {
       basics: {
         label: 'Basics',
         fields: [
-          'radios',
           'title',
           'visibility',
           'blurb'
