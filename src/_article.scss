@@ -60,7 +60,7 @@
 
 @media only screen and (max-width: 600px) {
   .article-show {
-  
+
     h1 {
       font-size: 3.6em;
     }
@@ -85,4 +85,19 @@
 
 .latest-article h2 {
   opacity: 0.5;
+}
+
+.article-topics {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding-left: 0;
+  font-family: 'Inter', sans-serif;
+
+  li {
+    border: 1px solid rgb(101, 22, 221);
+    padding: 0.5em;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+  }
 }

@@ -15,6 +15,11 @@ module.exports = {
           }
         }
       },
+      _topics: {
+        label: 'Article topics',
+        type: 'relationship',
+        withType: 'topic'
+      },
       main: {
         label: 'Content',
         type: 'area',
@@ -37,6 +42,14 @@ module.exports = {
         fields: [
           'main'
         ]
+      }
+    }
+  },
+  columns: {
+    add: {
+      _topics: {
+        label: 'Topics',
+        component: 'DemoCellRelation'
       }
     }
   },
