@@ -42,13 +42,6 @@ module.exports = {
           'main',
           '_topics'
         ]
-      },
-      utility: {
-        label: 'Utility',
-        fields: [
-          'slug',
-          'visibility'
-        ]
       }
     }
   },
