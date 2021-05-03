@@ -17,12 +17,9 @@ module.exports = {
       basics: {
         label: 'Basics',
         fields: [
-          'title'
+          'title',
+          'main'
         ]
-      },
-      main: {
-        label: 'Main',
-        fields: [ 'main' ]
       },
       utility: {
         label: 'Utility',
