@@ -17,13 +17,16 @@ module.exports = {
       basics: {
         label: 'Basics',
         fields: [
-          'title',
-          'visibility'
+          'title'
         ]
       },
       main: {
         label: 'Main',
         fields: [ 'main' ]
+      },
+      utility: {
+        label: 'Utility',
+        fields: [ 'slug', 'type', 'visibility', 'orphan' ]
       }
     }
   }

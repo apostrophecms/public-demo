@@ -33,14 +33,21 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
-          'visibility',
           'blurb'
         ]
       },
       main: {
         label: 'Content',
         fields: [
-          'main'
+          'main',
+          '_topics'
+        ]
+      },
+      utility: {
+        label: 'Utility',
+        fields: [
+          'slug',
+          'visibility'
         ]
       }
     }
