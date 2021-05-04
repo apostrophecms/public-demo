@@ -18,12 +18,8 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
-          'visibility'
+          'main'
         ]
-      },
-      main: {
-        label: 'Main',
-        fields: [ 'main' ]
       }
     }
   }
