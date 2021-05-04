@@ -20,10 +20,6 @@ module.exports = {
           'title',
           'main'
         ]
-      },
-      utility: {
-        label: 'Utility',
-        fields: [ 'slug', 'type', 'visibility', 'orphan' ]
       }
     }
   }
