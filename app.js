@@ -54,7 +54,7 @@ require('apostrophe')({
     asset: {},
 
     // A custom widget with two columns
-    'two-column-widget': {},
+    'columns-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},
