@@ -53,9 +53,8 @@ require('apostrophe')({
     // A home for our own project-specific javascript and SASS assets
     asset: {},
 
-    // A custom widget with two columns
-    'two-column-widget': {},
     'cta-links-widget': {},
+    'columns-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},
