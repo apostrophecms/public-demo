@@ -2,6 +2,7 @@
 @import '_article';
 @import '_pager';
 @import '_sidenav';
+@import '_columns';
 
 body {
   margin: 0;
@@ -71,44 +72,6 @@ main {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-}
-
-.widget-two-column {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.widget-two-column-one {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-}
-
-.widget-two-column-two {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-}
-
-.widget-two-column-one + .widget-two-column-two {
-  margin-left: 20px;
-}
-
-@media only screen and (max-width: 600px) {
-  .widget-two-column {
-    flex-direction: column;
-  }
-
-  .widget-two-column-one + .widget-two-column-two {
-    margin-top: 20px;
-    margin-left: 0;
-  }
 }
 
 .footer-links {
