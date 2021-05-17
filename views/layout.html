@@ -14,7 +14,7 @@
     This block outputs its contents in the HTML document's <head>.
     It is a good place to put extra <script> <link> and <meta> tags.
   #}
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@200;400;500&display=swap" rel="stylesheet"> 
 {% endblock %}
 
 {% block beforeMain %}
@@ -23,7 +23,6 @@
       <a class="site-home" href="/">
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
-      {# children of the home page #}
       <nav class="nav">
         <ol class="nav-items">
           {% for page in data.home._children %}

@@ -2,6 +2,8 @@
 @import '_article';
 @import '_pager';
 @import '_sidenav';
+@import '_rich-text';
+@import '_cta';
 
 body {
   margin: 0;
@@ -13,47 +15,6 @@ body {
 
 .demo-image {
   max-width: 100%;
-}
-
-.demo-rte {
-
-  a,
-  a:visited {
-    font-family: 'Inter', sans-serif;
-    color: rgb(101, 22, 221);
-    text-decoration: none;
-  }
-
-  a:active,
-  a:hover {
-    text-decoration: underline;
-  }
-
-  p {
-    color: rgb(0, 0, 0);
-    -webkit-font-smoothing: antialiased;
-    text-size-adjust: none;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    transition: all 250ms ease 0s;
-    font-size: 1rem;
-  }
-
-  h4 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.6em;
-    margin: 30px 0;
-    line-height: 1.2em;
-  }
-
-  h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 2.4em;
-    line-height: 1.2em;
-    letter-spacing: -1px;
-    margin: 30px 0;
-  }
 }
 
 .layout {
@@ -141,6 +102,13 @@ main {
   margin-left: 30px;
 }
 
+.home-cta {
+  margin: 10px 0 50px;
+  .cta-links-widget {
+    margin-top: 50px;
+  }
+}
+
 .purple {
   color: #6617dc;
 }
@@ -152,3 +120,9 @@ main {
   text-align: center;
   font-style: italic;
 }
+
+.tip {
+  font-family: 'Caveat', cursive;
+  color: #6617dc;
+}
+

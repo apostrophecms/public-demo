@@ -1,8 +1,6 @@
 .header {
   font-family: 'Inter', sans-serif;
-  background-color: #f7f7f7;
-  margin-bottom: 30px;
-  padding: 20px 0;
+  margin-bottom: 50px;
 }
 
 .header .inner {
@@ -41,19 +39,26 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  padding: 0;
 }
 
 .nav-item {
+  display: flex;
+  flex-direction: column;
   margin: 0 20px;
 }
 
 .nav-link {
   display: inline-block;
-  padding: 5px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .5px;
   text-decoration: none;
-  color: #52648e;
-  text-decoration: none;
+  color: black;
+  transition: background-color 250ms ease 0s;
   &:hover {
-    text-decoration: underline
+    text-decoration: underline;
   }
 }

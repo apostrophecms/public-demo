@@ -1,0 +1,71 @@
+.demo-rte {
+  font-family: 'Inter', sans-serif;
+  a,
+  a:visited {
+    color: rgb(101, 22, 221);
+    text-decoration: none;
+  }
+
+  a:active,
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    color: rgb(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+    font-weight: 400;
+    line-height: 1.6;
+    transition: all 250ms ease 0s;
+    font-size: 1rem;
+  }
+
+  h2, h3, h4 {
+    margin: 0 0 30px;
+    line-height: 1.2em;
+  }
+
+  h4 {
+    font-size: 1.6em;
+    line-height: 1.2em;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: 2.4em;
+    letter-spacing: -1px;
+  }
+}
+
+.demo-rte h2,
+.h2 .demo-rte p {
+  margin: 0 0 30px;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -3px;
+}
+
+.home-cta.h2 p {
+  text-align: center;
+}
+
+.rich-text .demo-rte {
+  & > p,
+  & > [contenteditable] > p,
+  & > ul,
+  & > [contenteditable] > ul,
+  & > ol,
+  & > [contenteditable] > ol {
+    max-width: 680px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+// .rich-text .demo-rte {
+//   max-width: 680px;
+//   margin-right: auto;
+//   margin-left: auto;
+// }

@@ -11,13 +11,19 @@
 {% block main %}
   <div class="home">
     <div class="content">
-      {% area data.page, 'main' with {
-        'two-column': {
-          '@apostrophecms/image': {
-            sizes: '(min-width: 600px) 45vw, (min-width: 1140px) 530px'
+      <div class="home-cta h2">
+        {% area data.page, 'cta' %}
+        {% area data.page, 'ctaLinks' %}
+      </div>
+      <div class="rich-text">
+        {% area data.page, 'main' with {
+          'two-column': {
+            '@apostrophecms/image': {
+              sizes: '(min-width: 600px) 45vw, (min-width: 1140px) 530px'
+            }
           }
-        }
-      } %}
+        } %}
+      </div>
     </div>
   </div>
 {% endblock %}

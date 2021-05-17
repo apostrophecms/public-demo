@@ -1,0 +1,56 @@
+.cta-links-widget__item {
+  position: relative;
+  margin: 0 20px;
+}
+
+.cta-links-widget__help-label {
+  font-family: 'Caveat', cursive;
+  position: relative;
+  display: block;
+  width: 220px;
+  font-size: 19px;
+  line-height: 1.25;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.cta-links-widget__items {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.cta-links-widget__link {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 16px 32px;
+  text-decoration: none;
+  transition: background-color 250ms ease 0s;
+  &:hover {
+    background-color: #FF8080;
+  }
+}
+
+.cta-links-widget__arrow {
+  position: absolute;
+  color: currentColor;
+}
+
+.cta-links-widget__arrow--right {
+  left: -40px;
+  top: -10px;
+  transform: rotate(-10deg);
+}
+
+.cta-links-widget__arrow--left {
+  right: -90px;
+  top: -40px;
+  transform: rotate(10deg);
+}
+// text-align: center;
