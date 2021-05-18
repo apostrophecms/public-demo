@@ -55,6 +55,7 @@ require('apostrophe')({
 
     'cta-links-widget': {},
     'columns-widget': {},
+    'container-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},
