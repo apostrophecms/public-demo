@@ -1,10 +1,18 @@
 {% import '@apostrophecms/template:macros/arrows.html' as arrows with context %}
+{% import "link.html" as link %}
+{% set widget = data.widget %}
 
 <div class="cta-links-widget">
   <ol class="cta-links-widget__items">
     {% for item in data.widget.links %}
+      {% set path = apos.helper.linkPath(item) %}
       <li class="cta-links-widget__item" id="{{ item._id }}">
-        <a class="cta-links-widget__link" href="{{ item._page._url }}">{{ item.label }}</a>
+        {{ link.render({
+          label: item.linkText,
+          path: path,
+          target: item.linkTarget,
+          class: 'button cta-links-widget__button'
+        })}}
         {% if item.helpLabel %}
           <span class="cta-links-widget__help-label" {% if item.color %} style="color:{{ item.color }}"{% endif %}>
             {{ item.helpLabel }}

@@ -52,10 +52,11 @@ require('apostrophe')({
 
     // A home for our own project-specific javascript and SASS assets
     asset: {},
-
+    helper: {},
     'cta-links-widget': {},
     'columns-widget': {},
     'container-widget': {},
+    'button-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},

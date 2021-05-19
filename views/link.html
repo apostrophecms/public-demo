@@ -1,0 +1,7 @@
+{% macro render(options) %}
+  <a
+    {% if options.class %} class="link {{ options.class }}"{% endif %}
+    href="{{ options.path }}"
+    {% if options.target[0] === '_blank' %} target="_blank" {% endif %}
+  >{{ options.label }}</a>
+{% endmacro %}

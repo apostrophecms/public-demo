@@ -1,25 +1,21 @@
 const areaConfig = require('../../lib/area').basicConfig;
-
+const linkConfig = require('../../lib/link');
 module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'CTA Links',
-    icon: 'pillar'
+    icon: 'link-icon'
   },
   fields: {
     add: {
     links: {
       label: 'CTA Links',
-      help: 'Linkzzz',
+      help: 'Add Links to the page',
       type: 'array',
-      titleField: 'label',
+      titleField: 'linkText',
       fields: {
         add: {
-          label: {
-            type: 'string',
-            label: 'Button Label',
-            help: 'What appears on the button'
-          },
+          ...linkConfig.link,
           helpLabel: {
             type: 'string',
             label: 'Help Label',
@@ -43,25 +39,10 @@ module.exports = {
             type: 'color',
             label: 'Accent Link',
             help: 'Hover state and Help Label will be styled with this'
-          },
-          _page: {
-            label: 'Page',
-            type: 'relationship',
-            withType: '@apostrophecms/page',
-            builders: {
-              // project: {
-              //   title: 1,
-              //   type: 1,
-              //   checkFields: 1
-              // }
-            }
-          },
+          }
         }
       }
     },
     }
-  },
-  icons: {
-    pillar: 'Pillar'
   }
 };

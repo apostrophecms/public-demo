@@ -1,5 +1,6 @@
 {# Automatically extends the right outer layout and also handles AJAX siutations #}
 {% extends data.outerLayout %}
+{% import '@apostrophecms/template:macros/arrows.html' as arrows with context %}
 
 {% set title = data.piece.title or data.page.title %}
 {% block title %}
@@ -53,6 +54,12 @@
         </nav>
       </div>
     {% endif %}
+    {# <div class="edit-pointer purple">
+      {{ arrows.up() }}
+      <span class="tip edit-pointer__tip">
+        Turn on in-context editing
+      </span>
+    </div> #}
   </header>
   <div class="layout">
     {% block sideNav %}
