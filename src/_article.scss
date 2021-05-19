@@ -12,6 +12,10 @@
   }
 }
 
+.article-title-wrapper {
+  margin-bottom: 50px;
+}
+
 .article-blurb {
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
@@ -44,7 +48,7 @@
 .article-show {
   width: 100%;
   max-width: 900px;
-  margin: 50px auto;
+  margin: 0 auto 50px;
 
   h1 {
     font-family: 'Inter', sans-serif;

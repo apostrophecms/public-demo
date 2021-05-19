@@ -1,8 +1,10 @@
 .demo-rte {
   font-family: 'Inter', sans-serif;
-  & > *:first-child {
+  & > *:first-child,
+  & > [contenteditable] > *:first-child {
     margin-top: 0;
   }
+
   a,
   a:visited {
     color: rgb(101, 22, 221);

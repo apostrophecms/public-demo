@@ -3,6 +3,18 @@
 
 {% extends "layout.html" %}
 
+{% block pageTitle %}
+  <div class="article-title-wrapper">
+    <div class="inner">
+      {% set title = data.page.title %}
+      {% if data.piece %}
+        {% set title = data.piece.title %}
+      {% endif %}
+      <h1 class="page-title">{{ title }}</h1>
+    </div>
+  </div>
+{% endblock %}
+
 {% block main %}
   <section class="article-index">
     <header class="article-intro general-content">
