@@ -1,5 +1,8 @@
 .demo-rte {
   font-family: 'Inter', sans-serif;
+  & > *:first-child {
+    margin-top: 0;
+  }
   a,
   a:visited {
     color: rgb(101, 22, 221);
@@ -9,6 +12,11 @@
   a:active,
   a:hover {
     text-decoration: underline;
+  }
+
+  li p {
+    padding: 0;
+    margin: 0 0 5px;
   }
 
   p {
@@ -22,14 +30,14 @@
   }
 
   h2, h3, h4 {
-    margin: 0 0 30px;
+    margin: 30px 0;
     line-height: 1.2em;
   }
 
   h4 {
     font-size: 1.6em;
     line-height: 1.2em;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   h3 {
@@ -50,22 +58,3 @@
 .home-cta.h2 p {
   text-align: center;
 }
-
-// .rich-text .demo-rte {
-//   & > p,
-//   & > [contenteditable] > p,
-//   & > ul,
-//   & > [contenteditable] > ul,
-//   & > ol,
-//   & > [contenteditable] > ol {
-//     max-width: 680px;
-//     margin-right: auto;
-//     margin-left: auto;
-//   }
-// }
-
-// .rich-text .demo-rte {
-//   max-width: 680px;
-//   margin-right: auto;
-//   margin-left: auto;
-// }
