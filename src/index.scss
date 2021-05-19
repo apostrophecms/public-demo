@@ -1,7 +1,7 @@
 @import '_header';
 @import '_article';
 @import '_pager';
-@import '_sidenav';
+@import '_subnav';
 @import '_rich-text';
 @import '_cta';
 @import '_columns';
@@ -79,14 +79,39 @@ main {
 }
 
 .placeholder {
-  width: 100%;
   opacity: 0.5;
-  margin: 40px 10px;
-  text-align: center;
+  margin: 40px 0;
   font-style: italic;
 }
 
 .tip {
   font-family: 'Caveat', cursive;
   color: #6617dc;
+}
+
+.meta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.general-content .demo-rte {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.page-title-wrapper {
+  margin-bottom: 80px;
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -3px;
+  text-align: center;
 }

@@ -6,7 +6,8 @@
 {% extends "layout.html" %}
 
 {# Home page is full width #}
-{% block sideNav %}{% endblock %}
+{% block pageTitle %}{% endblock %}
+{% block subnav %}{% endblock %}
 
 {% block main %}
   <div class="home">
@@ -15,7 +16,7 @@
         {% area data.page, 'cta' %}
         {% area data.page, 'ctaLinks' %}
       </div>
-      <div class="rich-text">
+      <div class="general-content">
         {% area data.page, 'main' with {
           'two-column': {
             '@apostrophecms/image': {

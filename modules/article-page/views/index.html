@@ -3,19 +3,16 @@
 
 {% extends "layout.html" %}
 
-{# article index page is full width #}
-{% block sideNav %}{% endblock %}
-
 {% block main %}
   <section class="article-index">
-    <header class="article-intro">
-      <h1>{{ data.page.title }}</h1>
+    <header class="article-intro general-content">
       {% area data.page, 'intro' %}
     </header>
-    {% for article in data.pieces %}
-      {% render fragments.indexItem(article) %}
-    {% endfor %}
-
+    <div class="article-excerpts">
+      {% for article in data.pieces %}
+        {% render fragments.indexItem(article) %}
+      {% endfor %}
+    </div>
     {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
   </section>
 

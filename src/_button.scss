@@ -1,6 +1,5 @@
 .button {
   display: inline-block;
-  padding: 5px;
   text-decoration: none;
   text-align: center;
   color: black;
@@ -11,6 +10,14 @@
   padding: 16px 32px;
   text-decoration: none;
   transition: background-color 250ms ease 0s;
+  &:hover {
+    background-color: bisque;
+  }
+}
+
+.button--small {
+  padding: 12px 24px;
+  font-size: 16px;
 }
 
 .button-widget {

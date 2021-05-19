@@ -11,14 +11,6 @@
     text-decoration: underline;
   }
 
-  .meta {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    margin: 0 0 10px;
-    line-height: 1.2;
-  }
-
   p {
     color: rgb(0, 0, 0);
     -webkit-font-smoothing: antialiased;
@@ -59,18 +51,18 @@
   text-align: center;
 }
 
-.rich-text .demo-rte {
-  & > p,
-  & > [contenteditable] > p,
-  & > ul,
-  & > [contenteditable] > ul,
-  & > ol,
-  & > [contenteditable] > ol {
-    max-width: 680px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
+// .rich-text .demo-rte {
+//   & > p,
+//   & > [contenteditable] > p,
+//   & > ul,
+//   & > [contenteditable] > ul,
+//   & > ol,
+//   & > [contenteditable] > ol {
+//     max-width: 680px;
+//     margin-right: auto;
+//     margin-left: auto;
+//   }
+// }
 
 // .rich-text .demo-rte {
 //   max-width: 680px;

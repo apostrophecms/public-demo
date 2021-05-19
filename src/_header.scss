@@ -29,16 +29,23 @@
   text-align: right;
   transform: rotate(-2deg);
 }
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
 .breadcrumb a {
-  font-family: 'Inter', sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   font-size: .8em;
   display: inline-block;
-  color: #52648e;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
   &:after {
-    margin: 0 8px 0 16px;
-    content: '»';
+    margin: 0 8px;
+    content: '/';
     display: inline-block;
     text-decoration: none;
     color: black;

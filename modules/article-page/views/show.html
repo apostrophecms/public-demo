@@ -3,18 +3,25 @@
 {% extends "layout.html" %}
 {% set article = data.piece %}
 
-{# article show page is full width #}
-{% block sideNav %}{% endblock %}
-
-{% block main %}
-  <article class="article-show">
-    <header>
-      <div class="meta">{{ data.page.title}}</div>
-      <h1>{{ data.piece.title }}</h1>
+{% block pageTitle %}
+  <div class="show-title-wrapper">
+    <div class="inner">
+      {% set title = data.page.title %}
+      {% if data.piece %}
+        {% set title = data.piece.title %}
+      {% endif %}
+      <h1 class="page-title">{{ title }}</h1>
+    </div>
+    <div class="inner article-topics">
       {% if article._topics and article._topics.length > 0 %}
         {% render fragments.topicsList(article._topics) %}
       {% endif %}
-    </header>
+    </div>
+  </div>
+{% endblock %}
+
+{% block main %}
+  <article class="article-show general-content">
     {% area article, 'main' %}
   </article>
 {% endblock %}
