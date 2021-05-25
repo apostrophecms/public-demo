@@ -7,6 +7,7 @@
 @import '_columns';
 @import '_container';
 @import '_button';
+@import '_pr-widget';
 
 body {
   margin: 0;
@@ -51,7 +52,7 @@ main {
 
 .site-logo {
   display: block;
-  height: 40px;
+  height: 55px;
 }
 
 .home {

@@ -48,6 +48,7 @@ require('apostrophe')({
     'columns-widget': {},
     'container-widget': {},
     'button-widget': {},
+    'github-prs-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},

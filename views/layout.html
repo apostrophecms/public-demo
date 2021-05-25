@@ -24,21 +24,6 @@
       <a class="site-home" href="/">
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
-      <nav class="nav">
-        <ol class="nav-items">
-          {% for page in data.home._children %}
-            {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
-            <li class="nav-item">
-              <a class="nav-link" {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
-            </li>
-          {% endfor %}
-          {% if not data.user %}
-            <li class="nav-item nav-item--login">
-              <a class="nav-link nav-link--login" href="/login">Login</a>
-            </li>
-          {% endif %}
-        </ol>
-      </nav>
     </div>
     {# <div class="edit-pointer purple">
       {{ arrows.up() }}
