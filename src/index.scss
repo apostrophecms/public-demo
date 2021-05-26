@@ -11,6 +11,7 @@ $spacer: 30px;
 @import '_container';
 @import '_button';
 @import '_pr-widget';
+@import '_footer';
 
 body {
   margin: 0;
@@ -43,14 +44,6 @@ main {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-}
-
-.footer-links {
-  font-family: 'Inter', sans-serif;
-  margin: 32px 32px 16px 32px;
-  a {
-    padding-right: 32px;
-  }
 }
 
 .site-home {

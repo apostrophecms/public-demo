@@ -1,10 +1,16 @@
+const linkConfig = require('../../../lib/link');
 module.exports = {
   fields: {
     add: {
-      _footerLinks: {
+      footerLinks: {
         label: 'Footer Links',
-        type: 'relationship',
-        withType: '@apostrophecms/page'
+        type: 'array',
+        titleField: 'linkText',
+        fields: {
+          add: {
+            ...linkConfig.link,
+          }
+        }
       },
       siteTitle: {
         label: 'Site Title',
@@ -14,7 +20,7 @@ module.exports = {
     group: {
       general: {
         label: 'General',
-        fields: [ 'siteTitle', '_footerLinks' ]
+        fields: [ 'siteTitle', 'footerLinks' ]
       }
     }
   }
