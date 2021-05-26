@@ -55,6 +55,13 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -3px;
+  @media only screen and (max-width: 800px) {
+    font-size: 50px;
+    letter-spacing: -1px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 40px;
+  }
 }
 
 .home-cta.h2 p {

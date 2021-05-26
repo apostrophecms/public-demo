@@ -15,6 +15,14 @@
   }
 }
 
+.widget-columns--single-50 {
+  justify-content: center;
+  .widget-columns__column {
+    width: 100%;
+    max-width: $outerWidth / 2;
+  }
+}
+
 .widget-columns--40-40 {
   justify-content: space-around;
   .widget-columns__column {

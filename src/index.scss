@@ -1,3 +1,5 @@
+$outerWidth: 1100px;
+
 @import '_header';
 @import '_article';
 @import '_pager';
@@ -25,7 +27,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 1100px;
+  max-width: $outerWidth;
   margin-left: auto;
   margin-right: auto;
   padding: 0 20px;
@@ -115,4 +117,11 @@ h1 {
   line-height: 1.1;
   letter-spacing: -3px;
   text-align: center;
+  @media only screen and (max-width: 800px) {
+    font-size: 50px;
+    letter-spacing: -1px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 40px;
+  }
 }

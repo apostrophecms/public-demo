@@ -13,12 +13,13 @@ module.exports = {
         label: 'Column Configuration',
         choices: [
           {
-            label: '50% / 50%',
-            value: '50-50'
+            label: 'Single column, 50%',
+            value: 'single-50',
+            def: true
           },
           {
-            label: '40% / 40%',
-            value: '40-40'
+            label: '50% / 50%',
+            value: '50-50'
           },
           {
             label: '33% / 33% / 33%',
@@ -38,6 +39,12 @@ module.exports = {
         contextual: true,
         options: {
           widgets: areaConfig
+        },
+        if: {
+          $or: [
+            { cols: '50-50' },
+            { cols: '40-40' }
+          ]
         }
       },
       three: {
