@@ -5,12 +5,16 @@ module.exports = {
         label: 'Footer Links',
         type: 'relationship',
         withType: '@apostrophecms/page'
+      },
+      siteTitle: {
+        label: 'Site Title',
+        type: 'string'
       }
     },
     group: {
-      footer: {
-        label: 'Footer',
-        fields: [ '_footerLinks' ]
+      general: {
+        label: 'General',
+        fields: [ 'siteTitle', '_footerLinks' ]
       }
     }
   }

@@ -5,6 +5,11 @@
     margin-top: 0;
   }
 
+  & > *:last-child,
+  & > [contenteditable] > *:last-child {
+    margin-bottom: 0;
+  }
+
   a,
   a:visited {
     color: rgb(101, 22, 221);
@@ -46,6 +51,11 @@
     font-size: 2.4em;
     letter-spacing: -1px;
   }
+  margin-bottom: $spacer;
+}
+
+.container-widget .demo-rte {
+  margin-bottom: 0;
 }
 
 .demo-rte h2,

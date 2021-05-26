@@ -2,7 +2,7 @@
 {% import "link.html" as link %}
 {% set widget = data.widget %}
 
-<div class="cta-links-widget">
+<div class="widget cta-links-widget">
   <ol class="cta-links-widget__items">
     {% for item in data.widget.links %}
       {% set path = apos.helper.linkPath(item) %}

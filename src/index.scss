@@ -1,4 +1,5 @@
 $outerWidth: 1100px;
+$spacer: 30px;
 
 @import '_header';
 @import '_article';
@@ -13,6 +14,10 @@ $outerWidth: 1100px;
 
 body {
   margin: 0;
+}
+
+.widget {
+  margin-bottom: $spacer;
 }
 
 .demo-video {
@@ -102,7 +107,8 @@ main {
 
 .general-content .demo-rte {
   max-width: 680px;
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .page-title-wrapper {

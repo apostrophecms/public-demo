@@ -4,7 +4,7 @@
 
 {% set title = data.piece.title or data.page.title %}
 {% block title %}
-  {{ title }}
+  {{ title }} - {{ data.global.siteTitle or 'ApostropheCMS Demo'}}
   {% if not title %}
     {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
   {% endif %}
