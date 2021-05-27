@@ -52,6 +52,12 @@ module.exports = {
           }
         }
       },
+      _articles: {
+        label: 'Related articles',
+        type: 'relationshipReverse',
+        withType: 'article',
+        reverseOf: '_topics'
+      },
       arrayField: {
         label: 'Array field',
         type: 'array',
@@ -157,10 +163,10 @@ module.exports = {
         min: 3,
         max: 9
       },
-      oembedField: {
-        label: 'Embedder',
-        type: 'oembed'
-      },
+      // oembedField: {
+      //   label: 'Embedder',
+      //   type: 'oembed'
+      // },
       passwordField: {
         label: 'Password',
         type: 'password'
@@ -237,7 +243,7 @@ module.exports = {
           'arrayField',
           'photoField',
           'singleton',
-          'oembedField',
+          // 'oembedField',
           'main'
         ]
       }

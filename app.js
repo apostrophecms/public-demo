@@ -65,7 +65,8 @@ require('apostrophe')({
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
     'article-page': {},
-    topic: {}
+    topic: {},
+    'topic-page': {}
 
   }
 });

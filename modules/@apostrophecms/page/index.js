@@ -13,6 +13,10 @@ module.exports = {
         label: 'Article Index'
       },
       {
+        name: 'topic-page',
+        label: 'Topic Index'
+      },
+      {
         name: '@apostrophecms/home-page',
         label: 'Home'
       }

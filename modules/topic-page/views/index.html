@@ -1,0 +1,34 @@
+{% import '@apostrophecms/pager:macros.html' as pager with context %}
+
+{% fragment topicsList(topics) %}
+  <ul class="article-topics">
+    {% for topic in topics %}
+      <li>{{ topic.title }}</li>
+    {% endfor %}
+  </ul>
+{% endfragment %}
+
+{% extends "layout.html" %}
+
+{# topic index page is full width #}
+{% block sideNav %}{% endblock %}
+
+{% block main %}
+  <section class="article-index">
+    <header class="article-intro">
+      <h1>{{ data.page.title }}</h1>
+    </header>
+    {% for topic in data.pieces %}
+        <div class="article-excerpt">
+        <h2>{{ topic.title }}</h2>
+        {{ apos.log(topic) }}
+        {% if topic._articles and topic._articles.length > 0 %}
+          {% render topicsList(topic._articles) %}
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+  </section>
+
+{% endblock %}
