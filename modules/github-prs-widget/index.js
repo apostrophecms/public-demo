@@ -9,9 +9,9 @@ module.exports = {
     return {
       async prs(req, data) {
         const w = data.widget;
-        // const body = await self.apos.http.get(`https://api.github.com/repos/${w.repo}/pulls?state=${w.state}&per_page=${w.limit}`);
+        const body = await self.apos.http.get(`https://api.github.com/repos/${w.repo}/pulls?state=${w.state}&per_page=${w.limit}`);
         return {
-          response: null,
+          response: body,
           widget: w
         };
       }
