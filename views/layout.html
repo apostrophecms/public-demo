@@ -99,8 +99,6 @@
             target: item.linkTarget,
             class: 'footer-links__link'
           })}}
-          {# {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
-          <a {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a> #}
         {% endfor %}
       </nav>
     {% endif %}
