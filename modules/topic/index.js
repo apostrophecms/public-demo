@@ -72,12 +72,12 @@ module.exports = {
       attachmentField: {
         label: 'Attachment',
         type: 'attachment',
-        group: 'office'
+        fileGroup: 'office'
       },
       photoField: {
         label: 'Photo attachment',
         type: 'attachment',
-        group: 'image'
+        fileGroup: 'images'
       },
       booleanField: {
         label: 'Boolean',
