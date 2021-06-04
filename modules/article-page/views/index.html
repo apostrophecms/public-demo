@@ -9,6 +9,8 @@
 {% block main %}
   <section class="article-index">
     <header class="article-intro">
+      {{ apos.log(article) }}
+      {{ apos.log(article._topics) }}
       <h1>{{ data.page.title }}</h1>
       {% area data.page, 'intro' %}
     </header>

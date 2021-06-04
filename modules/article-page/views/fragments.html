@@ -1,7 +1,7 @@
 {% fragment topicsList(topics) %}
   <ul class="article-topics">
     {% for topic in topics %}
-      <li>{{ topic.title }}</li>
+      <li>{{ topic.title }} {{ topic._fields.relevance }}</li>
     {% endfor %}
   </ul>
 {% endfragment %}

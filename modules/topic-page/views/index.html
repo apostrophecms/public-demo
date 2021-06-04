@@ -3,7 +3,7 @@
 {% fragment topicsList(topics) %}
   <ul class="article-topics">
     {% for topic in topics %}
-      <li>{{ topic.title }}</li>
+      <li>{{ topic.title }} {{ topic._fields.relevance }}</li>
     {% endfor %}
   </ul>
 {% endfragment %}
@@ -19,9 +19,11 @@
       <h1>{{ data.page.title }}</h1>
     </header>
     {% for topic in data.pieces %}
+      {{ apos.log(topic) }}
+      {{ apos.log(topic._articles) }}
+      {{ apos.log(topic._articles[0].topicsFields) }}
         <div class="article-excerpt">
         <h2>{{ topic.title }}</h2>
-        {{ apos.log(topic) }}
         {% if topic._articles and topic._articles.length > 0 %}
           {% render topicsList(topic._articles) %}
         {% endif %}

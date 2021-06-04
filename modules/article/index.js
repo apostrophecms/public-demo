@@ -18,7 +18,14 @@ module.exports = {
       _topics: {
         label: 'Article topics',
         type: 'relationship',
-        withType: 'topic'
+        withType: 'topic',
+        fields: {
+          add: {
+            relevance: {
+              type: 'string'
+            }
+          }
+        }
       },
       main: {
         label: 'Content',
