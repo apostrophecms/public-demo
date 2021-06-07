@@ -37,7 +37,9 @@ if [ -f './package.json' ]; then
   # Install npm modules
   # Use a suitable version of Python
   # export PYTHON=/usr/bin/python26
-  npm install
+  # npm install
+  # simulate an npm install failure
+  ls /foobar
   if [ $? -ne 0 ]; then
     echo "Error during npm install!"
     exit 1
