@@ -22,7 +22,8 @@ module.exports = {
         fields: {
           add: {
             relevance: {
-              type: 'string'
+              type: 'string',
+              def: 'seen together in a bar'
             }
           }
         }
