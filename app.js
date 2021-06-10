@@ -37,7 +37,10 @@ require('apostrophe')({
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
       options: {
-        refreshOnRestart: true
+        refreshOnRestart: true,
+        // Compile ui/src code for IE11, as well as
+        // separately for modern browsers
+        es5: true
       }
     },
 
