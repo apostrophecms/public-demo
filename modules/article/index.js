@@ -10,7 +10,7 @@ module.exports = {
           max: 1,
           widgets: {
             '@apostrophecms/rich-text': {
-              toolbar: [ 'Bold', 'Italic' ]
+              toolbar: [ 'bold', 'italic' ]
             }
           }
         }
