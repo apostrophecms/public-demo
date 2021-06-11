@@ -15,6 +15,40 @@ module.exports = {
           }
         }
       },
+      condition: {
+        label: 'Condition',
+        help: 'If Foo or Qux are checked, get a hidden field',
+        type: 'checkboxes',
+        choices: [
+          {
+            value: 'foo',
+            label: 'Foo'
+          },
+          {
+            value: 'bar',
+            label: 'Bar'
+          },
+          {
+            value: 'baz',
+            label: 'Baz'
+          },
+          {
+            value: 'qux',
+            label: 'Qux'
+          }
+        ]
+      },
+      conditionalField: {
+        if: {
+          $or: [
+            { condition: 'foo' },
+            { condition: 'qux' }
+          ],
+        },
+        type: 'string',
+        label: 'It\'s a secret to everyone',
+        help: 'Dee dee dee-deeeeeee'
+      },
       _topics: {
         label: 'Article topics',
         type: 'relationship',
@@ -41,6 +75,13 @@ module.exports = {
         fields: [
           'main',
           '_topics'
+        ]
+      },
+      conditions: {
+        label: 'Conditions',
+        fields: [
+          'condition',
+          'conditionalField'
         ]
       }
     }

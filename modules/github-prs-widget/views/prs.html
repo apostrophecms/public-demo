@@ -1,0 +1,23 @@
+{% if not data.response %}
+  Something isn't right :(
+{% elif data.response.message %}
+  <h3>{{ data.response.message }}</h3>
+{% else %}
+  <ol class="gh-pr-widget__items">
+    {% for item in data.response %}
+      <li class="gh-pr-widget__item">
+        <h2 class="gh-pr-widget__subtitle">
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </h2>
+        <a target="_blank" href="{{ item.user.html_url }}" class="gh-pr-widget__details">
+          <img class="gh-pr-widget__avatar" src="{{ item.user.avatar_url }}" alt="item.user.login">
+          <p class="gh-pr-widget__login">{{ item.user.login }}</p>
+        </a>
+        <div class="gh-pr-widget__subdetails">
+          <p class="gh-pr-widget__subdetail">Opened on {{ item.created_at | date('MMMM D YYYY') }}</p>
+          <p class="gh-pr-widget__subdetail">Number {{ item.number }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+{% endif %}

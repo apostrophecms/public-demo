@@ -1,0 +1,35 @@
+.footer {
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  right: 20px;
+  color: white;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links {
+  display: flex;
+  pointer-events: auto;
+  background-image: linear-gradient(
+    90deg
+    , #FF623A 0%, #FF613C 32%, #EE3874 69%, #A24D9B 99%);
+  box-shadow: 0 0 31px 2px rgba(0,0,0,0.28);
+  border-radius: 19px;
+  padding: 12px 30px;
+  a {
+    padding-right: 32px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

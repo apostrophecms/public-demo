@@ -1,9 +1,11 @@
 {# Automatically extends the right outer layout and also handles AJAX siutations #}
 {% extends data.outerLayout %}
+{% import '@apostrophecms/template:macros/arrows.html' as arrows with context %}
+{% import "link.html" as link %}
 
 {% set title = data.piece.title or data.page.title %}
 {% block title %}
-  {{ title }}
+  {{ title }} - {{ data.global.siteTitle or 'ApostropheCMS Demo'}}
   {% if not title %}
     {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
   {% endif %}
@@ -14,7 +16,7 @@
     This block outputs its contents in the HTML document's <head>.
     It is a good place to put extra <script> <link> and <meta> tags.
   #}
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
 {% endblock %}
 
 {% block beforeMain %}
@@ -23,27 +25,13 @@
       <a class="site-home" href="/">
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
-      {# children of the home page #}
-      <nav class="nav">
-        <ol class="nav-items">
-          {% for page in data.home._children %}
-            {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
-            <li class="nav-item">
-              <a class="nav-link" {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
-            </li>
-          {% endfor %}
-          {% if not data.user %}
-            <li class="nav-item nav-item--login">
-              <a class="nav-link nav-link--login" href="/login">Login</a>
-            </li>
-          {% endif %}
-        </ol>
-      </nav>
     </div>
+  </header>
+  {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
     {% if data.page and data.page._ancestors.length %}
       <div class="inner">
-        <nav class="breadcrumb">
+        <nav class="purple breadcrumb">
           {% for page in data.page._ancestors %}
             <a href="{{ page._url }}">{{ page.title }}</a>
           {% endfor %}
@@ -54,23 +42,32 @@
         </nav>
       </div>
     {% endif %}
-  </header>
-  <div class="layout">
-    {% block sideNav %}
-      {% if data.page and (not data.piece) and data.page._children.length %}
-        {% set placeheld = false %}
-        <section class="side-nav">
-          {# Side nav: children of the current page #}
-          {% if data.page._children.length %}
-            <nav class="children">
-              {% for page in data.page._children %}
-                <h4><a href="{{ page._url }}">{{ page.title }}</a></h4>
-              {% endfor %}
-            </nav>
-          {% endif %}
-        </section>
+  {% endblock %}
+  {% block pageTitle %}
+    <div class="page-title-wrapper">
+      {% set title = data.page.title %}
+      {% if data.piece %}
+        {% set title = data.piece.title %}
       {% endif %}
-    {% endblock %}
+      <h1 class="page-title">{{ title }}</h1>
+      {% block subnav %}
+        {% if data.page and (not data.piece) and data.page._children.length %}
+          {% set placeheld = false %}
+          <section class="sub-nav">
+            {# Side nav: children of the current page #}
+            {% if data.page._children.length %}
+              <nav class="children">
+                {% for page in data.page._children %}
+                  <a class="button button--small" href="{{ page._url }}">{{ page.title }}</a>
+                {% endfor %}
+              </nav>
+            {% endif %}
+          </section>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+  <div class="layout">
     <main>
 {% endblock %}
 
@@ -85,17 +82,19 @@
 {% block afterMain %}
     </main>
   </div>
-  <footer>
-    {% if data.global._footerLinks.length %}
+  <footer class="footer">
+    {% if data.global.footerLinks.length %}
       <nav class="footer-links">
-        {% for page in data.global._footerLinks %}
-          {% set current = data.page._id == page._id or apos.util.find(data.page._ancestors, '_id', page._id) %}
-          <a {{ ('class="current-page"' if current) | safe }} href="{{ page._url }}">{{ page.title }}</a>
+        {% for item in data.global.footerLinks %}
+          {% set path = apos.helper.linkPath(item) %}
+          {{ link.render({
+            label: item.linkText,
+            path: path,
+            target: item.linkTarget,
+            class: 'footer-links__link'
+          })}}
         {% endfor %}
       </nav>
     {% endif %}
   </footer>
-  {#
-    This would be a great place to put a global footer.
-  #}
 {% endblock %}

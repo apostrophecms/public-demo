@@ -9,6 +9,8 @@ require('apostrophe')({
 
   modules: {
 
+    '@apostrophecms/open-graph': {},
+
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
@@ -43,9 +45,12 @@ require('apostrophe')({
 
     // A home for our own project-specific javascript and SASS assets
     asset: {},
-
-    // A custom widget with two columns
-    'two-column-widget': {},
+    helper: {},
+    'cta-links-widget': {},
+    'columns-widget': {},
+    'container-widget': {},
+    'button-widget': {},
+    'github-prs-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},
