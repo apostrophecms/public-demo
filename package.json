@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "node app",
-    "dev": "CORE_DEV=1 nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
+    "dev": "APOS_DEV=1 nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
     "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
     "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
   },
