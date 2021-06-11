@@ -6,7 +6,7 @@
   <ol class="cta-links-widget__items">
     {% for item in data.widget.links %}
       {% set path = apos.helper.linkPath(item) %}
-      <li class="cta-links-widget__item" id="{{ item._id }}">
+      <li class="cta-links-widget__item" class="{{ item._id }}">
         {{ link.render({
           label: item.linkText,
           path: path,
@@ -35,7 +35,7 @@
 
 <style>
   {% for item in data.widget.links %}
-    #{{ item._id }}:hover a {
+    .{{ item._id }}:hover a {
       background-color: {{ item.color }}
     }
   {% endfor %}

@@ -9,6 +9,8 @@ require('apostrophe')({
 
   modules: {
 
+    '@apostrophecms/open-graph': {},
+
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
