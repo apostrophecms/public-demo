@@ -19,7 +19,11 @@
         {% area data.page, 'ctaLinks' %}
       </div>
       <div class="general-content">
-        {% area data.page, 'main' %}
+        {% area data.page, 'main' with {
+          'page-title': {
+            flavor: 'Cherry'
+          }
+        } %}
       </div>
     </div>
   </div>
