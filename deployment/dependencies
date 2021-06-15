@@ -45,5 +45,4 @@ if [ -f './package.json' ]; then
 fi
 
 node app @apostrophecms/migration:migrate &&
-npm run build &&
 node app @apostrophecms/asset:build
