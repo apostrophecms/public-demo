@@ -1,5 +1,3 @@
-const areaConfig = require('../../lib/area').basicConfig;
-
 module.exports = {
   extend: '@apostrophecms/widget-type',
   icons: {
@@ -40,7 +38,7 @@ module.exports = {
       radius: {
         type: 'boolean',
         label: 'Border Radius',
-        help: 'Adds a 10px border radius',
+        help: 'Adds a 20px border radius',
         def: false
       }
     }

@@ -9,7 +9,7 @@
   {% set class = class + ' button-widget--alignment-' + widget.alignment %}
 {% endif %}
 
-<div class="widget button-widget {{ class }}" id="widget._id">
+<div class="widget button-widget {{ class }}" id="{{ widget._id }}">
   {{ link.render({
     label: widget.linkText,
     path: path,
