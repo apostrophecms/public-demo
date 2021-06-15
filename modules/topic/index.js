@@ -5,7 +5,9 @@ module.exports = {
       string: {
         label: 'Super long string title that is entirely too long to be very helpful',
         type: 'string',
-        help: 'One cannot separate orchestras from cheerful magicians. The fructed knowledge reveals itself as an unkempt tub to those who look. This could be, or perhaps few can name a crimpy thailand that isn\'t a shadeless literature. A timer can hardly be considered an unfilled chalk without also being a priest. The almanacs could be said to resemble chaster beards.'
+        min: 5,
+        max: 10,
+        help: 'Between 5 and 10 characters, inclusive. One cannot separate orchestras from cheerful magicians. The fructed knowledge reveals itself as an unkempt tub to those who look. This could be, or perhaps few can name a crimpy thailand that isn\'t a shadeless literature. A timer can hardly be considered an unfilled chalk without also being a priest. The almanacs could be said to resemble chaster beards.'
       },
       blockString: {
         label: 'Text area',

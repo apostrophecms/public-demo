@@ -1,0 +1,22 @@
+.side-nav {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  display: flex;
+  background: #f7f7f7;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 20px;
+
+  a,
+  a:visited {
+    font-family: 'Inter', sans-serif;
+    color: rgb(101, 22, 221);
+    text-decoration: none;
+  }
+}
+
+.peers, 
+.children {
+  margin: 32px;
+}
