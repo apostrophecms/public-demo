@@ -14,7 +14,8 @@ module.exports = {
       },
       siteTitle: {
         label: 'Site Title',
-        type: 'string'
+        type: 'string',
+        def: 'Awesome Site'
       }
     },
     group: {
