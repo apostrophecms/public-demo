@@ -1,5 +1,3 @@
-const path = require('path');
-
 require('apostrophe')({
   shortName: 'a3-demo',
 

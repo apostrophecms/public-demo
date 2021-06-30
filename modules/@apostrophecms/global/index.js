@@ -8,7 +8,7 @@ module.exports = {
         titleField: 'linkText',
         fields: {
           add: {
-            ...linkConfig.link,
+            ...linkConfig.link
           }
         }
       },

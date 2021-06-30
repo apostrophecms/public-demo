@@ -1,4 +1,3 @@
-const { link } = require('../../lib/link');
 module.exports = {
   options: {
     alias: 'helper'

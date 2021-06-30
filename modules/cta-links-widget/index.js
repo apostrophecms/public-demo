@@ -1,5 +1,5 @@
-const areaConfig = require('../../lib/area').basicConfig;
 const linkConfig = require('../../lib/link');
+
 module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
@@ -42,7 +42,7 @@ module.exports = {
             }
           }
         }
-      },
+      }
     }
   }
 };

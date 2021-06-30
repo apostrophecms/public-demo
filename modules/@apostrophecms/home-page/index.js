@@ -18,7 +18,7 @@ module.exports = {
           }
         }
       },
-      'ctaLinks': {
+      ctaLinks: {
         type: 'area',
         contextual: true,
         max: 1,
