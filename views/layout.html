@@ -103,7 +103,7 @@
     {% if data.global.footerLinks.length %}
       <nav class="footer-links">
         {% for item in data.global.footerLinks %}
-          {% set path = apos.helper.linkPath(item) %}
+          {% set path = apos.helper.linkPath(item) + '?utm_source=demo' %}
           {{ link.render({
             label: item.linkText,
             path: path,
