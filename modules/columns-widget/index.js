@@ -24,7 +24,7 @@ module.exports = {
           {
             label: '33% / 33% / 33%',
             value: '33-33-33'
-          },
+          }
         ]
       },
       one: {

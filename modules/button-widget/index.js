@@ -21,9 +21,19 @@ module.exports = {
         type: 'select',
         label: 'Button Alignment',
         choices: [
-          { label: 'Left', value: 'left', def: true },
-          { label: 'Center', value: 'center' },
-          { label: 'Right', value: 'right' },
+          {
+            label: 'Left',
+            value: 'left',
+            def: true
+          },
+          {
+            label: 'Center',
+            value: 'center'
+          },
+          {
+            label: 'Right',
+            value: 'right'
+          }
         ]
       }
     }

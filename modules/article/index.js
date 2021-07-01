@@ -43,7 +43,7 @@ module.exports = {
           $or: [
             { condition: 'foo' },
             { condition: 'qux' }
-          ],
+          ]
         },
         type: 'string',
         label: 'It\'s a secret to everyone',

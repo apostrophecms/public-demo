@@ -10,22 +10,24 @@ module.exports = {
       async prs(req, data) {
         const w = data.widget;
         const token = self.options.token;
-        const options = token ? {
-          headers: {
-            'Authorization': `token ${token}`
+        const options = token
+          ? {
+            headers: {
+              Authorization: `token ${token}`
+            }
           }
-        } : {};
+          : {};
         let body = {};
         try {
           body = await self.apos.http.get(
-            `https://api.github.com/repos/${w.repo}/pulls?state=${w.state}&per_page=${w.limit}`, 
+            `https://api.github.com/repos/${w.repo}/pulls?state=${w.state}&per_page=${w.limit}`,
             options
           );
         } catch (error) {
           if (error.status === 403 && !token) {
-            body.message = 'Rate limit exceeded, see README for providing a GitHub API token'
+            body.message = 'Rate limit exceeded, see README for providing a GitHub API token';
           } else {
-            body.message = 'Something went wrong :('
+            body.message = 'Something went wrong :(';
           }
         }
         return {
@@ -71,6 +73,6 @@ module.exports = {
     }
   },
   icons: {
-    'github': 'Github'
+    github: 'Github'
   }
 };
