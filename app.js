@@ -15,6 +15,24 @@ require('apostrophe')({
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
 
+    '@apostrophecms/i18n': {
+      options: {
+        locales: {
+          en: {
+            label: 'USA'
+          },
+          'en-CA': {
+            label: 'Canada (EN)'
+          },
+          'fr-CA': {
+            label: 'Canada (FR)'
+          }
+        }
+      }
+    },
+
+    'ui-localizations': {},
+
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
       options: {
