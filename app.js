@@ -19,13 +19,20 @@ require('apostrophe')({
       options: {
         locales: {
           en: {
-            label: 'USA'
+            label: 'English'
           },
           'en-CA': {
-            label: 'Canada (EN)'
+            label: 'Canadian English',
+            prefix: '/ca/en'
           },
-          'fr-CA': {
-            label: 'Canada (FR)'
+          'en-FR': {
+            label: 'Canadian French',
+            prefix: '/ca/fr'
+          },
+          'es-MX': {
+            label: 'Mexico',
+            // Test with Chrome, or configure in /etc/hosts
+            hostname: 'example-mx.localhost'
           }
         }
       }
