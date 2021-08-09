@@ -32,7 +32,7 @@ require('apostrophe')({
           'es-MX': {
             label: 'Mexico',
             // Test with Chrome, or configure in /etc/hosts
-            hostname: 'example-mx.localhost'
+            hostname: 'example-mx.localhost:3000'
           }
         }
       }
