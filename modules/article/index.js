@@ -122,5 +122,18 @@ module.exports = {
         }
       });
     });
+    const req = self.apos.task.getReq();
+    console.log(req.__('admin req test of req.__ fallback helper'));
+    console.log(req.res.__('admin req test of res.__ fallback helper'));
+  },
+  handlers(self) {
+    return {
+      '@apostrophecms/page:beforeSend': {
+        testWarning(req) {
+          console.log(req.__('normal req test of req.__ fallback helper'));
+          console.log(req.res.__('normal res test of req.__ fallback helper'));
+        }
+      }
+    };
   }
 };
