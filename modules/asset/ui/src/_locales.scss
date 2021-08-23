@@ -1,0 +1,59 @@
+.locales {
+  position: relative;
+  text-align: right;
+  order: 0;
+
+  @media screen and (min-width: 680px) {
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+}
+
+.locales__toggler__text {
+  visibility: hidden;
+  position: absolute;
+
+  @media screen and (min-width: 680px) {
+    visibility: visible;
+    position: static;
+  }
+}
+
+.locales__toggler {
+  cursor: pointer;
+
+  &[aria-expanded="true"] {
+    border-radius: 10px 10px 0px;
+  }
+}
+
+.locales__list {
+  position: absolute;
+  right: 0;
+  list-style: none;
+  border: 3px solid black;
+  border-radius: 10px 0px 10px 10px;
+  margin-top: -3px;
+  padding: 10px;
+  background-color: white;
+
+  @media screen and (min-width: 680px) {
+    position: static;
+  }
+}
+
+.locales__item {
+  margin-bottom: 5px;
+
+  a,
+  a:visited {
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  a:active,
+  a:hover {
+    text-decoration: underline;
+  }
+}
