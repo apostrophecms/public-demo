@@ -14,7 +14,7 @@
     "url": ""
   },
   "dependencies": {
-    "apostrophe": "github:apostrophecms/apostrophe"
+    "apostrophe": "github:apostrophecms/apostrophe#static-i18n-demo"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
