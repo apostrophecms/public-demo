@@ -6,7 +6,9 @@ export default () => {
     return;
   }
 
-  toggler.addEventListener('click', toggleLocales);
+  apos.util.onReadyAndRefresh(() => {
+    toggler.addEventListener('click', toggleLocales);
+  });
 
   function toggleLocales () {
     const expanded = toggler.getAttribute('aria-expanded') === 'true' || false;
@@ -14,4 +16,5 @@ export default () => {
     toggler.setAttribute('aria-expanded', !expanded);
     localeList.hidden = expanded;
   }
+
 };
