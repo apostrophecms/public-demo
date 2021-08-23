@@ -4,12 +4,17 @@
   </button>
   <ul class="locales__list" data-locales hidden>
     {% for localization in data.localizations %}
-      <li class="locales__item {{ 'is-missing' if not localization._url }}">
-        {% if not localization.current %}
+      <li class="locales__item">
+        {% if localization._url and not localization.current %}
           <a href="{{ localization._url or localization.homePageUrl }}">
         {% endif %}
         {{ localization.label }} ({{ localization.locale }})
-        {% if not localization.current %}
+        {% if not localization._url %}
+          🔴
+        {% else %}
+          🟢
+        {% endif %}
+        {% if localization._url and not localization.current %}
           </a>
         {% endif %}
       </li>
