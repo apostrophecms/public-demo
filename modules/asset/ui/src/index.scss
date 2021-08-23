@@ -8,6 +8,7 @@ $brand-mustard: #cc9300;
 $brand-purple: #b327bf;
 $brand-blue: #66f;
 $brand-seafoam: #00bf9a;
+$link-color: rgb(101, 22, 221);
 
 @import '_header';
 @import '_article';
@@ -18,6 +19,7 @@ $brand-seafoam: #00bf9a;
 @import '_columns';
 @import '_container';
 @import '_button';
+@import '_locales';
 @import '_pr-widget';
 @import '_footer';
 
