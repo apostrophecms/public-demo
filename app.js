@@ -6,7 +6,6 @@ require('apostrophe')({
   // configuring user accounts.
 
   modules: {
-
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
@@ -22,17 +21,48 @@ require('apostrophe')({
             label: 'English'
           },
           'en-CA': {
-            label: 'Canadian English',
-            prefix: '/ca/en'
+            label: 'Canada (EN)',
+            prefix: '/en-ca'
           },
           'fr-CA': {
-            label: 'Canadian French',
-            prefix: '/ca/fr'
+            label: 'Canada (FR)',
+            prefix: '/fr-ca'
           },
-          'es-MX': {
-            label: 'Mexico',
-            // Test with Chrome, or configure in /etc/hosts
-            hostname: 'example-mx.localhost:3000'
+          fr: {
+            label: 'France',
+            prefix: '/fr'
+          },
+          de: {
+            label: 'Germany',
+            prefix: '/de'
+          },
+          nl: {
+            label: 'Netherlands',
+            prefix: '/nl'
+          },
+          sv: {
+            label: 'Sweeden',
+            prefix: '/sv'
+          },
+          cs: {
+            label: 'Czech Republic',
+            prefix: '/cs'
+          },
+          hu: {
+            label: 'Hungary',
+            prefix: '/hu'
+          },
+          is: {
+            label: 'Iceland',
+            prefix: '/is'
+          },
+          no: {
+            label: 'Norway',
+            prefix: '/no'
+          },
+          pl: {
+            label: 'Polish',
+            prefix: '/pl'
           }
         }
       }
@@ -83,6 +113,5 @@ require('apostrophe')({
     // Paginated index of articles, and with pages for individual articles
     'article-page': {},
     topic: {}
-
   }
 });
