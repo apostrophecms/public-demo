@@ -1,5 +1,7 @@
 .header {
   position: relative;
+  display: flex;
+  flex-direction: column;
   font-family: 'Inter', sans-serif;
   margin: 40px 0 20px;
 }
@@ -7,6 +9,7 @@
 .header .inner {
   max-width: 1100px;
   display: flex;
+  order: 1; // To allow locales to be placed first.
   justify-content: center;
   align-items: center;
   margin: 0 auto;
