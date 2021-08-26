@@ -23,11 +23,11 @@ require('apostrophe')({
           },
           'en-CA': {
             label: 'Canadian English',
-            prefix: '/ca/en'
+            prefix: '/ca-en'
           },
           'fr-CA': {
             label: 'Canadian French',
-            prefix: '/ca/fr'
+            prefix: '/ca-fr'
           },
           'es-MX': {
             label: 'Mexico',
