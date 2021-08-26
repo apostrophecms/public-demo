@@ -38,7 +38,7 @@ require('apostrophe')({
       }
     },
 
-    'ui-localizations': {},
+    'localizations': {},
 
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
