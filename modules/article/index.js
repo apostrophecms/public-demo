@@ -54,6 +54,11 @@ module.exports = {
         type: 'relationship',
         withType: 'topic'
       },
+      _author: {
+        label: 'Author',
+        type: 'relationship',
+        withType: '@apostrophecms/user'
+      },
       main: {
         label: 'Content',
         type: 'area',
