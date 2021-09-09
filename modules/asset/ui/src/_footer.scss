@@ -10,6 +10,7 @@
   justify-content: center;
 }
 
+
 .footer-links {
   display: flex;
   pointer-events: auto;
@@ -30,6 +31,11 @@
     }
     &:last-child {
       padding-right: 0;
+    }
+  }
+  .missing {
+    a {
+      color: #ddd;
     }
   }
 }
