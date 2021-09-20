@@ -1,10 +1,10 @@
+*/.DS_Store
 # ignore vim swapfiles
 *.swp
 /storybook-static
 /public/apos-frontend
 /apos-build
 /apos-frontend
-/package-lock.json
 /locales
 npm-debug.log
 /data
@@ -12,6 +12,7 @@ npm-debug.log
 /public/apos-minified
 /data/temp/uploadfs
 /modules/asset/ui/public/site.js
+/modules/asset/ui/public/site.css
 node_modules
 # This folder is created on the fly and contains symlinks updated at startup (we'll come up with a Windows solution that actually copies things)
 /public/modules

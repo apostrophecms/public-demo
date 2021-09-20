@@ -1,0 +1,14 @@
+{% set w = data.widget %}
+{% set styleString = '' %}
+{% if w.backgroundColor %}
+  {% set styleString = styleString + 'background-color: ' + w.backgroundColor + ';' %}
+{% endif %}
+{% if w.borderColor %}
+  {% set styleString = styleString + 'border: 10px solid ' + w.borderColor + ';' %}
+{% endif %}
+{% if w.radius %}
+  {% set styleString = styleString + 'border-radius: 20px;' %}
+{% endif %}
+<div class="widget container-widget" style="{{ styleString }}">
+  {% area w, 'content' %}
+</div>

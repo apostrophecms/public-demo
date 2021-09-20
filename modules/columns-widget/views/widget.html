@@ -1,0 +1,15 @@
+<div class="widget widget-columns widget-columns--{{ data.widget.cols }}">
+  <div class="widget-columns__column">
+    {% area data.widget, 'one' with data.contextOptions %}
+  </div>
+  {% if data.widget.cols === '40-40' or data.widget.cols === '50-50' %}
+  <div class="widget-columns__column">
+    {% area data.widget, 'two' with data.contextOptions %}
+  </div>
+  {% endif %}
+  {% if data.widget.cols === '33-33-33' %}
+    <div class="widget-columns__column">
+      {% area data.widget, 'three' with data.contextOptions %}
+    </div>
+  {% endif %}
+</div>

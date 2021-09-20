@@ -1,5 +1,3 @@
-const path = require('path');
-
 require('apostrophe')({
   shortName: 'a3-demo',
 
@@ -16,15 +14,6 @@ require('apostrophe')({
 
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
-
-    // If a template is not found somewhere else, serve it from the top-level
-    // `views/` folder of the project
-
-    '@apostrophecms/template': {
-      options: {
-        viewsFolderFallback: path.join(__dirname, 'views')
-      }
-    },
 
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
@@ -50,18 +39,14 @@ require('apostrophe')({
       }
     },
 
-    // For a good experience user-testing our admin UI
-    '@apostrophecms/storybook': {
-      options: {
-        domain: 'ui.apos.dev'
-      }
-    },
-
     // A home for our own project-specific javascript and SASS assets
     asset: {},
-
-    // A custom widget with two columns
-    'two-column-widget': {},
+    helper: {},
+    'cta-links-widget': {},
+    'columns-widget': {},
+    'container-widget': {},
+    'button-widget': {},
+    'github-prs-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},
@@ -72,8 +57,8 @@ require('apostrophe')({
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
     'article-page': {},
+    topic: {},
 
-    '@apostrophecms/palette': {}
-
+    '@apostrophecms-pro/palette': {}
   }
 });

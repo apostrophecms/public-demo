@@ -1,16 +1,11 @@
 {
   "name": "a3-demo",
-  "version": "1.0.0-prealpha",
+  "version": "1.0.0",
   "description": "Apostrophe 3 Demo Site",
   "main": "app.js",
   "scripts": {
-    "build": "webpack && npm run apostrophe-build",
-    "apostrophe-build": "node app @apostrophecms/asset:build",
     "start": "node app",
-    "dev": "nodemon --delay 1000ms -x \"npm run build && nodemon app.js\"",
-    "storybook": "node app @apostrophecms/storybook:run",
-    "storybook-build": "node app @apostrophecms/storybook:build ./storybook-static",
-    "storybook-deploy": "node app @apostrophecms/storybook:deploy",
+    "dev": "APOS_DEV=1 nodemon --delay 1000ms -x \"nodemon app.js\"",
     "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
     "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
   },
@@ -19,10 +14,10 @@
     "url": ""
   },
   "dependencies": {
-    "apostrophe": "apostrophecms/apostrophe#3.0",
-    "extract-css-chunks-webpack-plugin": "^4.8.0",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "@apostrophecms-pro/palette": "^3.0.0-alpha.9",
+    "apostrophe": "github:apostrophecms/apostrophe",
+    "require-all": "^3.0.0",
+    "webpack": "^5.53.0"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
@@ -43,28 +38,17 @@
     "ignore": [
       "lib/modules/*/public/js/*.js",
       "locales/*.json",
-      "public/modules/**/*.less",
-      "public/modules/**/*.js",
       "public/uploads",
-      "public/apos-minified/*.js",
-      "public/css/master-*.less",
-      "modules/asset/ui/public/site.js",
+      "public/apos-frontend",
+      "modules/asset/ui/public",
       "data"
     ],
     "ext": "json, js, html, scss, vue"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^4.3.0",
-    "eslint": "^7.8.0",
+    "eslint": "^7.32.0",
     "eslint-config-apostrophe": "^3.4.0",
     "eslint-plugin-node": "^11.1.0",
-    "node-dev": "^5.2.0",
-    "nodemon": "^2.0.4",
-    "sass": "^1.26.11",
-    "sass-loader": "^10.0.2",
-    "style-loader": "^1.2.1"
+    "nodemon": "^2.0.12"
   }
 }

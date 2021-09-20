@@ -10,15 +10,49 @@ module.exports = {
           max: 1,
           widgets: {
             '@apostrophecms/rich-text': {
-              toolbar: [ 'Bold', 'Italic' ]
+              toolbar: [ 'bold', 'italic' ]
             }
           }
         }
       },
-      target: {
-        label: 'New Color',
-        help: 'This color could help us!',
-        type: 'color'
+      condition: {
+        label: 'Condition',
+        help: 'If Foo or Qux are checked, get a hidden field',
+        type: 'checkboxes',
+        choices: [
+          {
+            value: 'foo',
+            label: 'Foo'
+          },
+          {
+            value: 'bar',
+            label: 'Bar'
+          },
+          {
+            value: 'baz',
+            label: 'Baz'
+          },
+          {
+            value: 'qux',
+            label: 'Qux'
+          }
+        ]
+      },
+      conditionalField: {
+        if: {
+          $or: [
+            { condition: 'foo' },
+            { condition: 'qux' }
+          ]
+        },
+        type: 'string',
+        label: 'It\'s a secret to everyone',
+        help: 'Dee dee dee-deeeeeee'
+      },
+      _topics: {
+        label: 'Article topics',
+        type: 'relationship',
+        withType: 'topic'
       },
       main: {
         label: 'Content',
@@ -32,21 +66,35 @@ module.exports = {
       basics: {
         label: 'Basics',
         fields: [
-          'radios',
           'title',
-          'visibility',
           'blurb'
         ]
       },
       main: {
         label: 'Content',
         fields: [
-          'main'
+          'main',
+          '_topics'
+        ]
+      },
+      conditions: {
+        label: 'Conditions',
+        fields: [
+          'condition',
+          'conditionalField'
         ]
       }
     }
   },
-  components(self, options) {
+  columns: {
+    add: {
+      _topics: {
+        label: 'Topics',
+        component: 'DemoCellRelation'
+      }
+    }
+  },
+  components(self) {
     return {
       async recent(req, data) {
         return {
@@ -55,7 +103,7 @@ module.exports = {
       }
     };
   },
-  init(self, options) {
+  init(self) {
     // blurb used to be a string; now we've decided it should be
     // a rich text widget. Make the conversion with a migration
     self.apos.migration.add('blurb', async () => {

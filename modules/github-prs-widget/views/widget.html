@@ -1,0 +1,6 @@
+<section class="widget gh-pr-widget">
+  <h1 class="gh-pr-widget__title">
+    {{ data.widget.state | capitalize }} PRs for {{ data.widget.repo}}
+  </h1>
+  {% component "github-prs-widget:prs" with { widget: data.widget } %}
+</section>

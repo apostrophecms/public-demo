@@ -1,0 +1,140 @@
+@use 'sass:math';
+
+$outerWidth: 1100px;
+$spacer: 50px;
+
+$brand-red: #ea433a;
+$brand-mustard: #cc9300;
+$brand-purple: #b327bf;
+$brand-blue: #66f;
+$brand-seafoam: #00bf9a;
+
+@import '_header';
+@import '_article';
+@import '_pager';
+@import '_subnav';
+@import '_rich-text';
+@import '_cta';
+@import '_columns';
+@import '_container';
+@import '_button';
+@import '_pr-widget';
+@import '_footer';
+
+body {
+  margin: 0;
+  padding-bottom: 90px;
+}
+
+.widget {
+  margin-bottom: $spacer;
+}
+
+.demo-video {
+  width: 100%;
+}
+
+.demo-image {
+  max-width: 100%;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: $outerWidth;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.site-home {
+  display: inline-block;
+}
+
+.site-logo {
+  display: block;
+  height: 55px;
+}
+
+.home {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-title {
+  margin: 20px 0 10px;
+  font-weight: 400;
+}
+
+.home .content {
+  font-family: 'Inter', sans-serif;
+  flex-grow: 1;
+  margin-left: 30px;
+}
+
+.home-cta {
+  margin: 10px 0 50px;
+  .cta-links-widget {
+    margin-top: 20px;
+  }
+}
+
+.purple {
+  color: #6617dc;
+}
+
+.placeholder {
+  opacity: 0.5;
+  margin: 40px 0;
+  font-style: italic;
+}
+
+.tip {
+  font-family: 'Caveat', cursive;
+  color: #6617dc;
+}
+
+.meta {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.general-content .demo-rte {
+  max-width: 680px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.page-title-wrapper {
+  margin-bottom: 80px;
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -3px;
+  text-align: center;
+  @media only screen and (max-width: 800px) {
+    font-size: 50px;
+    letter-spacing: -1px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 40px;
+  }
+}

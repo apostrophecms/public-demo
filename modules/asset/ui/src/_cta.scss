@@ -1,0 +1,39 @@
+.cta-links-widget__item {
+  position: relative;
+  margin: 0 20px;
+}
+
+.cta-links-widget__help-label {
+  font-family: 'Caveat', cursive;
+  position: relative;
+  display: block;
+  width: 220px;
+  font-size: 21px;
+  line-height: 1;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.cta-links-widget__items {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.cta-links-widget__arrow {
+  position: absolute;
+  color: currentColor;
+}
+
+.cta-links-widget__arrow--right {
+  left: -60px;
+  top: -30px;
+  transform: rotate(-10deg);
+}
+
+.cta-links-widget__arrow--left {
+  right: -90px;
+  top: -40px;
+  transform: rotate(10deg);
+}

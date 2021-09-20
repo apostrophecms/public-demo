@@ -1,0 +1,23 @@
+{% fragment topicsList(topics) %}
+  <ul class="article-topics meta">
+    {% for topic in topics %}
+      <li>{{ topic.title }}</li>
+    {% endfor %}
+  </ul>
+{% endfragment %}
+
+{% fragment indexItem(article) %}
+  <div class="article-excerpt">
+    {% if article._topics and article._topics.length > 0 %}
+      {% render topicsList(article._topics) %}
+    {% endif %}
+    <h2>
+      <a href="{{ article._url }}">{{ article.title }}</a>
+    </h2>
+    {% if not apos.area.isEmpty(article, 'blurb') %}
+      <p class="article-blurb">{% area article, 'blurb' %}</p>
+    {% else %}
+      <p class="placeholder">No blurb for this article</p>
+    {% endif %}
+  </div>
+{% endfragment %}

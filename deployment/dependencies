@@ -8,6 +8,8 @@
 # (we're in a deployment dir, which is a subdir of 'deployments', which
 # is a subdir of the project's main dir)
 
+export NODE_ENV=production
+
 HERE=`pwd`
 mkdir -p ../../data
 ln -s ../../data $HERE/data
@@ -42,9 +44,5 @@ if [ -f './package.json' ]; then
   fi
 fi
 
-node app @apostrophecms/migration:migrate
-# Generate new static asset files for this
-# deployment of the app without shutting down
-# (TODO: for 3.0 this is actually disruptive because
-# we don't have a generation identifier yet)
-npm run build
+node app @apostrophecms/migration:migrate &&
+node app @apostrophecms/asset:build

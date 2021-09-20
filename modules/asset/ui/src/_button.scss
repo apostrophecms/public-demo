@@ -1,0 +1,36 @@
+.button {
+  font-family: 'Inter', sans-serif;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 16px 32px;
+  text-decoration: none;
+  transition: background-color 250ms ease 0s;
+  &:hover {
+    background-color: bisque;
+  }
+}
+
+.button--small {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.button-widget {
+  display: flex;
+}
+
+.button-widget--alignment-left { justify-content: flex-start; }
+.button-widget--alignment-center { justify-content: center; }
+.button-widget--alignment-right { justify-content: flex-end; }
+.button-widget--block-true .button { 
+  display: block;
+  width: 100%;
+}
+
+.container-widget .button-widget { margin-bottom: 10px; }
