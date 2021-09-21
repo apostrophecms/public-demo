@@ -3,6 +3,7 @@ module.exports = {
     alias: 'helper'
   },
   init(self) {
+    self.enableBrowserData('public');
     self.addHelpers({
       linkPath: (link) => {
         if (!link) {
@@ -19,5 +20,14 @@ module.exports = {
         return path;
       }
     });
+  },
+  methods(self) {
+    return {
+      getBrowserData(req) {
+        return {
+          cats: [ 'pypy', 'spyspy' ]
+        };
+      }
+    };
   }
 };
