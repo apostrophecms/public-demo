@@ -1,0 +1,15 @@
+.locales {
+
+  &__btn {
+    padding: 0.3rem;
+    border: 2px solid $brand-purple;
+  }
+
+  &__list {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}

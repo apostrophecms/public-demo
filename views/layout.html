@@ -33,17 +33,36 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block beforeMain %}
-  <header class="header">
+  {# <header class="header">
     <div class="inner">
       <a class="site-home" href="/">
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
     </div>
-  </header>
+  </header> #}
+  <div class="locales" data-locales-selector>
+    <button class="locales__btn" data-locales-toggle aria-expanded="false">
+      Toggle locales 🌐
+    </button>
+    <ul class="locales__list" data-locales>
+      {% for localization in data.localizations %}
+        <li class="locales__item">
+          {% if localization._url and not localization.current %}
+            <a href="{{ localization._url or localization.homePageUrl }}">
+          {% endif %}
+          {{ localization.label }} ({{ localization.locale }})
+          {% if localization._url and not localization.current %}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
   {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
     {% if data.page and data.page._ancestors.length %}
