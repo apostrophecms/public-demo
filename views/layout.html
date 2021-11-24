@@ -37,31 +37,36 @@
 {% endblock %}
 
 {% block beforeMain %}
-  {# <header class="header">
+  {% if data.localizations.length > 1 %}
+    <div class="locales" data-locales-selector>
+      {% for localization in data.localizations %}
+        {% if localization.current %}
+          <button class="locales__btn button" data-locales-toggle aria-expanded="false">
+            {{ localization.label }} ({{ localization.locale }})
+          </button>
+        {% endif %}
+      {% endfor %}
+      <ul class="locales__list" data-locales>
+        {% for localization in data.localizations %}
+          {% if localization._url and not localization.current %}
+            <li class="locales__item">
+              <a class="locales__link" href="{{ localization._url or localization.homePageUrl }}">
+                {{ localization.label }} ({{ localization.locale }})
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <header class="header">
     <div class="inner">
       <a class="site-home" href="/">
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
     </div>
-  </header> #}
-  <div class="locales" data-locales-selector>
-    <button class="locales__btn" data-locales-toggle aria-expanded="false">
-      Toggle locales 🌐
-    </button>
-    <ul class="locales__list" data-locales>
-      {% for localization in data.localizations %}
-        <li class="locales__item">
-          {% if localization._url and not localization.current %}
-            <a href="{{ localization._url or localization.homePageUrl }}">
-          {% endif %}
-          {{ localization.label }} ({{ localization.locale }})
-          {% if localization._url and not localization.current %}
-            </a>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+  </header>
 
   {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
