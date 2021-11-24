@@ -3,14 +3,14 @@ export default () => {
   const toggleBtn = localesSelectorElem.querySelector('[data-locales-toggle]');
   const localesList = localesSelectorElem.querySelector('.locales__list');
 
-  toggleBtn.addEventListener('click', () => {
-    if (localesList.classList.contains('active')) {
+  window.addEventListener('click', ({ target }) => {
+    if (localesList.classList.contains('active') && !localesSelectorElem.contains(target)) {
       localesList.classList.remove('active');
-    } else {
-      localesList.classList.add('active');
     }
-    console.log('localesList.classList ===> ', localesList.classList);
   });
 
-  console.log('toggleBtn ===> ', toggleBtn);
+  toggleBtn.addEventListener('click', () => {
+    const shouldRemove = localesList.classList.contains('active');
+    localesList.classList[shouldRemove ? 'remove' : 'add']('active');
+  });
 };
