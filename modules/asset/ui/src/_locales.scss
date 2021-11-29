@@ -9,14 +9,14 @@
   cursor: pointer;
 
   &[aria-expanded="true"] {
-    border-radius: 10px 10px 0px 10px;
+    border-radius: 10px 10px 0px;
   }
 }
 
 .locales__list {
   list-style: none;
   border: 3px solid black;
-  border-radius: 10px 0px 10px;
+  border-radius: 10px 0px 10px 10px;
   margin-top: -3px;
   padding: 10px;
   background-color: white;
