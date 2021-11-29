@@ -1,18 +1,22 @@
-<div class="locales">
+<div class="locales" data-locales>
   <button class="locales__toggler button button--small" data-locales-toggle aria-expanded="false">
-    <span class="locales__toggler__text">Toggle locales</span> 🌐
-  </button>
-  <ul class="locales__list" data-locales hidden>
     {% for localization in data.localizations %}
-      <li class="locales__item">
-        {% if localization._url and not localization.current %}
+      {% if localization.current %}
+        <span class="locales__toggler__text">
+          {{ localization.label }} ({{ localization.locale }})
+        </span>
+      {% endif %}
+  {% endfor %}
+  </button>
+  <ul class="locales__list" data-locales-list hidden>
+    {% for localization in data.localizations %}
+      {% if localization._url and not localization.current %}
+        <li class="locales__item">
           <a href="{{ localization._url or localization.homePageUrl }}">
-        {% endif %}
-        {{ localization.label }} ({{ localization.locale }})
-        {% if localization._url and not localization.current %}
+            {{ localization.label }} ({{ localization.locale }})
           </a>
-        {% endif %}
-      </li>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
