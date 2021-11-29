@@ -1,6 +1,6 @@
 require('apostrophe')({
   shortName: 'a3-demo',
-
+  baseUrl: 'http://localhost:3000',
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and
   // configuring user accounts.
@@ -14,6 +14,10 @@ require('apostrophe')({
 
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
+
+    '@apostrophecms/i18n': {},
+
+    localizations: {},
 
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {

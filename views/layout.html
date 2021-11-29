@@ -2,6 +2,7 @@
 {% extends data.outerLayout %}
 {% import '@apostrophecms/template:macros/arrows.html' as arrows with context %}
 {% import "link.html" as link %}
+{% import "locales.html" as locales %}
 
 {% set title = data.piece.title or data.page.title %}
 {% block title %}
@@ -33,7 +34,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block beforeMain %}
@@ -43,6 +44,7 @@
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
     </div>
+    {% include "locales.html" %}
   </header>
   {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
