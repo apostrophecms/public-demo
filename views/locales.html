@@ -1,5 +1,10 @@
 <div class="locales" data-locales>
-  <button class="locales__toggler button button--small" data-locales-toggle aria-expanded="false">
+  <button
+    class="locales__toggler button button--small"
+    data-locales-toggle
+    aria-expanded="false"
+    aria-controls="locales-list"
+  >
     {% for localization in data.localizations %}
       {% if localization.current %}
         <span class="locales__toggler__text">
@@ -8,7 +13,7 @@
       {% endif %}
   {% endfor %}
   </button>
-  <ul class="locales__list" data-locales-list hidden>
+  <ul id="locales-list" class="locales__list" data-locales-list hidden>
     {% for localization in data.localizations %}
       {% if localization._url and not localization.current %}
         <li class="locales__item">
