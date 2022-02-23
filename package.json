@@ -14,6 +14,7 @@
     "url": ""
   },
   "dependencies": {
+    "@apostrophecms/seo": "github:apostrophecms/seo",
     "apostrophe": "github:apostrophecms/apostrophe"
   },
   "author": "Apostrophe Technologies, Inc",

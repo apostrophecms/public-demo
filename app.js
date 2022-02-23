@@ -43,6 +43,7 @@ require('apostrophe')({
         refreshOnRestart: true
       }
     },
+    '@apostrophecms/seo': {},
 
     // A home for our own project-specific javascript and SASS assets
     asset: {},
