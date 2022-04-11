@@ -17,6 +17,4 @@ It is possible to analyze the size of the admin UI webpack bundle:
 APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build
 ```
 
-This will display a visualization in your browser.
-
-As of this writing, we are not optimizing the webpack build for production, so expect to see big numbers.
+This will display a visualization in your browser. Bear in mind that the admin UI bundle is only ever present for logged-in users, generally those with editing privileges and not the general public.
