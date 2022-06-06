@@ -1,5 +1,21 @@
 module.exports = {
   extend: '@apostrophecms/piece-type',
+  methods(self) {
+    return {
+      getSelectChoices() {
+        return [
+          {
+            label: 'This One',
+            value: 'thisOne'
+          },
+          {
+            label: 'That One',
+            value: 'thatOne'
+          }
+        ];
+      }
+    };
+  },
   fields: {
     add: {
       string: {
@@ -55,9 +71,14 @@ module.exports = {
       arrayField: {
         label: 'Array field',
         type: 'array',
-        titleField: 'firstString',
+        titleField: 'selectField',
         fields: {
           add: {
+            selectField: {
+              type: 'select',
+              label: 'Title field uses this select',
+              choices: 'getSelectChoices'
+            },
             firstString: {
               type: 'string',
               label: 'The primary string'
