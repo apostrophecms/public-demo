@@ -14,8 +14,8 @@
     "url": ""
   },
   "dependencies": {
-    "@apostrophecms/seo": "github:apostrophecms/seo",
-    "apostrophe": "github:apostrophecms/apostrophe"
+    "@apostrophecms/seo": "^1.1.1",
+    "apostrophe": "^3.26.0"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
