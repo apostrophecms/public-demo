@@ -3,7 +3,7 @@ module.exports = {
   options: {
     name: 'githubPrs',
     label: 'GitHub Pull Requests',
-    icon: 'github'
+    previewImage: 'png'
   },
   components(self) {
     return {

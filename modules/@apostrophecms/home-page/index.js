@@ -30,8 +30,8 @@ module.exports = {
       },
       main: {
         type: 'area',
-        contextual: true,
         options: {
+          expanded: true,
           widgets: require('../../../lib/area').fullConfig
         }
       }

@@ -1,11 +1,8 @@
 module.exports = {
   extend: '@apostrophecms/widget-type',
-  icons: {
-    'border-outside': 'BorderOutside'
-  },
   options: {
     label: 'Container',
-    icon: 'border-outside'
+    previewImage: 'png'
   },
   fields: {
     add: {
