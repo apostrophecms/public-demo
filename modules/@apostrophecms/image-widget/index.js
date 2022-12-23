@@ -41,25 +41,7 @@ module.exports = {
           subtype: '_image'
         }
       }
-    },
-    order: [ 'subtype', 'openaiImage', '_image' ]
-  },
-  extendMethods(self) {
-    return {
-      async load(_super, req, widgets) {
-        await _super(req, widgets);
-        for (const widget of widgets) {
-          if ((widget.subtype === 'openaiImage') && widget.openaiImage) {
-            const image = await self.apos.image.find(req, { _id: widget.openaiImage.imageId.replace(':published', ':draft') }).toObject();
-            if (image) {
-              widget._image = [ image ];
-            } else {
-              widget._image = [];
-            }
-          }
-        }
-      }
-    };
+    }
   },
   methods(self) {
     return {
@@ -72,13 +54,13 @@ module.exports = {
       },
       async convertOpenaiImageInput(req, field, data, object) {
         const input = data[field.name];
-        console.log('>>!!', field.name, JSON.stringify(data, null, '  '));
-        const id = self.apos.launder.id(input && input.imageId);
+        console.log('>>', input);
+        const id = self.apos.launder.id(input && input._id);
         if (!id) {
           if (field.required) {
             throw self.apos.error('notfound');
           }
-          object[field.name] = null;
+          data[field.name] = null;
           return;
         }
         const image = await self.apos.image.find(req, { _id: id.replace(':published', ':draft') }).toObject();
@@ -86,14 +68,24 @@ module.exports = {
           if (field.required) {
             throw self.apos.error('notfound');
           }
-          object[field.name] = null;
+          data[field.name] = null;
           return;
         }
         console.log('I did find an image in there');
-        object[field.name] = {
-          imageId: id,
-          prompt: self.apos.launder.string(input.prompt)
-        };
+        data[field.name] = image;
+      }
+    };
+  },
+  extendMethods(self) {
+    return {
+      async sanitize(_super, req, input, options) {
+        if ((input.subtype === 'openaiImage') && input.openaiImage) {
+          input._image = [ input.openaiImage ];
+          input.subtype = '_image';
+          input.openAiImage = null;
+          console.log('>>>> Saving it as:', input);
+        }
+        return _super(req, input, options);
       }
     };
   },
