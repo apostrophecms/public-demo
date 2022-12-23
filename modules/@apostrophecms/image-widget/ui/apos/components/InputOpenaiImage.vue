@@ -38,7 +38,8 @@ export default {
       prompt: '',
       generateError: false,
       busy: false,
-      next: null
+      next: null,
+      previewUrl: null
     };
   },
   computed: {
@@ -49,9 +50,7 @@ export default {
       };
     },
     imageUrl() {
-      console.log('imageUrl');
-      console.log(JSON.stringify(null, this.next, '  '));
-      return this.next && this.next.attachment._urls.full;
+      return this.previewUrl;
     }
   },
   methods: {
@@ -78,7 +77,11 @@ export default {
         });
         console.log(image);
         console.log('assigning to next');
-        this.next = image;
+        this.previewUrl = image.attachment._urls.full;
+        this.next = {
+          prompt,
+          imageId: image._id
+        };
       } catch (e) {
         this.generateError = true;
       } finally {
