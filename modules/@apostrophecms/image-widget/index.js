@@ -60,7 +60,7 @@ module.exports = {
           if (field.required) {
             throw self.apos.error('notfound');
           }
-          data[field.name] = null;
+          object[field.name] = null;
           return;
         }
         const image = await self.apos.image.find(req, { _id: id.replace(':published', ':draft') }).toObject();
@@ -68,11 +68,11 @@ module.exports = {
           if (field.required) {
             throw self.apos.error('notfound');
           }
-          data[field.name] = null;
+          object[field.name] = null;
           return;
         }
         console.log('I did find an image in there');
-        data[field.name] = image;
+        object[field.name] = image;
       }
     };
   },
