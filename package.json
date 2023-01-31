@@ -36,6 +36,7 @@
       "lib/modules/*/public/js/*.js",
       "locales/*.json",
       "public/uploads",
+      "ui/*",
       "public/apos-frontend",
       "modules/asset/ui/public",
       "data"
