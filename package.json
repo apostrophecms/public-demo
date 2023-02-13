@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@apostrophecms/seo": "^1.1.1",
-    "apostrophe": "^3.26.0"
+    "apostrophe": "3.40.0-alpha"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
