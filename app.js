@@ -18,7 +18,7 @@ require('apostrophe')({
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
 
-    localizations: {},
+    '@apostrophecms/ai-helper': {},
 
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
@@ -63,7 +63,8 @@ require('apostrophe')({
     'article-widget': {},
     // Paginated index of articles, and with pages for individual articles
     'article-page': {},
-    topic: {}
+    topic: {},
+    localizations: {}
 
   }
 });
