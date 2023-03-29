@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@apostrophecms/seo": "^1.1.1",
-    "@apostrophecms/ai-helper": "^1.0.0",
+    "@apostrophecms/ai-helper": "apostrophecms/ai-helper#poc",
     "apostrophe": "^3.26.0"
   },
   "author": "Apostrophe Technologies, Inc",
