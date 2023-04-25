@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@apostrophecms/seo": "^1.1.1",
-    "@apostrophecms/ai-helper": "apostrophecms/ai-helper#poc",
-    "apostrophe": "apostrophecms/apostrophe#floating-menu-test"
+    "@apostrophecms/ai-helper": "apostrophecms/ai-helper",
+    "apostrophe": "apostrophecms/apostrophe"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
