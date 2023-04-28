@@ -32,7 +32,7 @@ module.exports = {
         type: 'area',
         options: {
           expanded: true,
-          widgets: require('../../../lib/area').fullConfig
+          groups: require('../../../lib/area').fullConfigExpandedGroups
         }
       }
     },
