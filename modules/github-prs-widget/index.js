@@ -4,7 +4,8 @@ module.exports = {
     name: 'githubPrs',
     label: 'GitHub Pull Requests',
     previewImage: 'png',
-    icon: 'github'
+    icon: 'github',
+    description: 'Display a list of pull requests from a GitHub repository'
   },
   components(self) {
     return {
