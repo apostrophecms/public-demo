@@ -2,7 +2,9 @@ module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Container',
-    previewImage: 'png'
+    description: 'A stylized container for other widgets',
+    previewImage: 'svg',
+    icon: 'box-shadow'
   },
   fields: {
     add: {
@@ -39,5 +41,8 @@ module.exports = {
         def: false
       }
     }
+  },
+  icons: {
+    boxShadow: 'BoxShadow'
   }
 };

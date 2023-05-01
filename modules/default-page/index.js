@@ -9,7 +9,8 @@ module.exports = {
       main: {
         type: 'area',
         options: {
-          widgets: require('../../lib/area').fullConfig
+          expanded: true,
+          groups: require('../../lib/area').fullConfigExpandedGroups
         }
       }
     },
