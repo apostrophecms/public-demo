@@ -3,7 +3,9 @@ module.exports = {
   options: {
     name: 'article',
     label: 'Recent Articles',
-    icon: 'text-subject'
+    description: 'Display a list of recent or curated articles',
+    icon: 'text-subject',
+    previewImage: 'svg'
   },
   fields: {
     add: {

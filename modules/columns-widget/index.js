@@ -4,7 +4,9 @@ module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Columns',
-    icon: 'pillar'
+    icon: 'pillar',
+    description: 'Create flexible layouts for your content.',
+    previewImage: 'svg'
   },
   fields: {
     add: {

@@ -4,7 +4,9 @@ module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'CTA Links',
-    icon: 'link-icon'
+    icon: 'link-icon',
+    previewImage: 'svg',
+    description: 'Add stylized CTA links to the page'
   },
   fields: {
     add: {

@@ -6,4 +6,4 @@
 # the server
 
 USER=nodeapps
-SERVER=staging.apos.dev
+SERVER=demo.apos.dev
