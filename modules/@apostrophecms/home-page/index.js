@@ -1,3 +1,5 @@
+const areaConfig = require('../../../lib/area').basicConfig;
+
 module.exports = {
   options: {
     label: 'Home Page',
@@ -10,12 +12,7 @@ module.exports = {
         contextual: true,
         max: 1,
         options: {
-          widgets: {
-            '@apostrophecms/rich-text': {
-              toolbar: [],
-              styles: []
-            }
-          }
+          widgets: areaConfig
         }
       },
       ctaLinks: {
