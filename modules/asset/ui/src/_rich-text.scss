@@ -1,5 +1,5 @@
 .demo-rte {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   & > *:first-child,
   & > [contenteditable] > *:first-child {
     margin-top: 0;
@@ -36,7 +36,9 @@
     font-size: 1rem;
   }
 
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     margin: 30px 0;
     line-height: 1.2em;
   }
@@ -78,8 +80,52 @@
   text-align: center;
 }
 
-.highlight-red { color: $brand-red; }
-.highlight-mustard { color: $brand-mustard; }
-.highlight-purple { color: $brand-purple; }
-.highlight-blue { color: $brand-blue; }
-.highlight-seafoam { color: $brand-seafoam; }
+.highlight-red {
+  color: $brand-red;
+}
+.highlight-mustard {
+  color: $brand-mustard;
+}
+.highlight-purple {
+  color: $brand-purple;
+}
+.highlight-blue {
+  color: $brand-blue;
+}
+.highlight-seafoam {
+  color: $brand-seafoam;
+}
+
+// image alignment stuff
+.image-float-left,
+.image-float-right,
+.image-center,
+.image-full {
+  img {
+    width: 100%;
+  }
+}
+
+.image-float-left,
+.image-float-right,
+.image-center {
+  width: 50%;
+}
+
+.image-float-left {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+.image-float-right {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+.image-center {
+  margin: auto;
+}
+
+.image-full {
+  width: 100%;
+}
