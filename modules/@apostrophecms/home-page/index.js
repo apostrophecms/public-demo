@@ -20,9 +20,7 @@ module.exports = {
                 'strike',
                 'link',
                 'undo',
-                'redo',
-                'image',
-                'table'
+                'redo'
               ],
               insert: richTextArea.insert
             }
