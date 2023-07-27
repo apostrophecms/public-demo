@@ -16,19 +16,14 @@ module.exports = {
           widgets: {
             '@apostrophecms/rich-text': {
               toolbar: [
-                'styles',
                 'italic',
                 'strike',
                 'link',
-                'alignLeft',
-                'alignCenter',
-                'alignRight',
-                'table',
-                'image',
                 'undo',
-                'redo'
+                'redo',
+                'image',
+                'table'
               ],
-              styles: richTextArea.styles,
               insert: richTextArea.insert
             }
           }
