@@ -1,3 +1,6 @@
+const { fullConfig, fullConfigExpandedGroups } = require('../../../lib/area');
+const richTextArea = fullConfig['@apostrophecms/rich-text'];
+
 module.exports = {
   options: {
     label: 'Home Page',
@@ -12,8 +15,14 @@ module.exports = {
         options: {
           widgets: {
             '@apostrophecms/rich-text': {
-              toolbar: [],
-              styles: []
+              toolbar: [
+                'italic',
+                'strike',
+                'link',
+                'undo',
+                'redo'
+              ],
+              insert: richTextArea.insert
             }
           }
         }
@@ -32,7 +41,7 @@ module.exports = {
         type: 'area',
         options: {
           expanded: true,
-          groups: require('../../../lib/area').fullConfigExpandedGroups
+          groups: fullConfigExpandedGroups
         }
       }
     },
@@ -41,7 +50,9 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
-          'main'
+          'main',
+          'cta',
+          'ctaLinks'
         ]
       }
     }
