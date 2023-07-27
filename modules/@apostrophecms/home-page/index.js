@@ -1,4 +1,5 @@
-const areaConfig = require('../../../lib/area').basicConfig;
+const { fullConfig, fullConfigExpandedGroups } = require('../../../lib/area');
+const richTextArea = fullConfig['@apostrophecms/rich-text'];
 
 module.exports = {
   options: {
@@ -12,7 +13,13 @@ module.exports = {
         contextual: true,
         max: 1,
         options: {
-          widgets: areaConfig
+          widgets: {
+            '@apostrophecms/rich-text': {
+              toolbar: richTextArea.toolbar,
+              styles: richTextArea.styles,
+              insert: richTextArea.insert
+            }
+          }
         }
       },
       ctaLinks: {
@@ -29,7 +36,7 @@ module.exports = {
         type: 'area',
         options: {
           expanded: true,
-          groups: require('../../../lib/area').fullConfigExpandedGroups
+          groups: fullConfigExpandedGroups
         }
       }
     },
@@ -38,7 +45,9 @@ module.exports = {
         label: 'Basics',
         fields: [
           'title',
-          'main'
+          'main',
+          'cta',
+          'ctaLinks'
         ]
       }
     }
