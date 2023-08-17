@@ -14,8 +14,9 @@
     "url": ""
   },
   "dependencies": {
+    "@apostrophecms/import-export": "github:apostrophecms/import-export",
     "@apostrophecms/seo": "^1.1.1",
-    "apostrophe": "^3.26.0"
+    "apostrophe": "github:apostrophecms/apostrophe"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
