@@ -8,6 +8,16 @@ module.exports = {
         label: 'French',
         prefix: '/fr'
       }
-    }
+    },
+    adminLocales: [
+      {
+        label: 'French',
+        value: 'fr'
+      },
+      {
+        label: 'English',
+        value: 'en'
+      }
+    ]
   }
 };
