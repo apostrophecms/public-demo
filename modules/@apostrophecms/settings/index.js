@@ -3,7 +3,6 @@ module.exports = {
     subforms: {
       title: {
         fields: [ 'title' ],
-        previewComponent: 'SettingsDisplayNamePreview',
         protection: true,
         reload: true
       },
