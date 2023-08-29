@@ -38,16 +38,15 @@
 {% endblock %}
 
 {% block beforeMain %}
-  <header class="header">
+  {# <header class="header">
     <div class="inner">
       <a class="site-home" href="/">
         <img class="site-logo" src="/images/apos-dark.svg" alt="Apostrophe" />
       </a>
     </div>
     {% include "locales.html" %}
-  </header>
-  {% block breadcrumbs %}
-    {# Breadcrumb trail to the current page or piece. Not on the home page #}
+  </header> #}
+  {# {% block breadcrumbs %}
     {% if data.page and data.page._ancestors.length %}
       <div class="inner">
         <nav class="purple breadcrumb">
@@ -61,7 +60,7 @@
         </nav>
       </div>
     {% endif %}
-  {% endblock %}
+  {% endblock %} #}
   {% block pageTitle %}
     <div class="page-title-wrapper">
       {% set title = data.page.title %}
