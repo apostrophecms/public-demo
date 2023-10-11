@@ -15,6 +15,16 @@ module.exports = {
           }
         }
       },
+      featuredImage: {
+        type: 'area',
+        label: 'Image',
+        options: {
+          max: 1,
+          widgets: {
+            '@apostrophecms/image': {}
+          }
+        }
+      },
       condition: {
         label: 'Condition',
         help: 'If Foo or Qux are checked, get a hidden field',
@@ -122,5 +132,19 @@ module.exports = {
         }
       });
     });
+  },
+  apiRoutes(self) {
+    return {
+      get: {
+        async fetch(req) {
+          const articles = await self.find(req)
+            .areas([ 'featuredImage' ])
+            .toArray();
+          return {
+            articles
+          };
+        }
+      }
+    }
   }
 };
