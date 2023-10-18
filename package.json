@@ -14,7 +14,7 @@
     "url": ""
   },
   "dependencies": {
-    "@apostrophecms/import-export": "^1.0.2",
+    "@apostrophecms/import-export": "^1.0.0",
     "@apostrophecms/seo": "^1.1.1",
     "apostrophe": "^3.26.0"
   },
