@@ -16,7 +16,7 @@
   "dependencies": {
     "@apostrophecms/import-export": "^1.0.0",
     "@apostrophecms/seo": "^1.1.1",
-    "apostrophe": "^3.26.0"
+    "apostrophe": "apostrophecms/apostrophe#hotfix-3.61.1"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
