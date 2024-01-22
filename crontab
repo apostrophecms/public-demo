@@ -1,0 +1,2 @@
+* * * * * echo `date` >> /tmp/cron-test-log.txt
+* * * * * node app help
