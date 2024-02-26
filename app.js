@@ -67,7 +67,3 @@ require('apostrophe')({
     '@apostrophecms/import-export': {}
   }
 });
-
-setInterval(() => {
-  console.log(Date.now());
-}, 1000);
