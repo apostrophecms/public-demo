@@ -96,6 +96,40 @@
   color: $brand-seafoam;
 }
 
+.type-mono {
+  font-family: "Fira Code", monospace;
+}
+
+.type-wide-tracking {
+  letter-spacing: 8px !important;
+}
+
+.type-red-underline {
+  text-decoration: underline;
+  text-decoration-color: $brand-red;
+}
+
+.type-rainbow-hover {
+  background-image: linear-gradient(
+    to right,
+    $brand-red,
+    $brand-mustard,
+    $brand-purple,
+    $brand-blue,
+    $brand-seafoam
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  transition: background-position 0.5s;
+  background-size: 200% auto;
+  background-position: 100%;
+  background-repeat: repeat;
+  &:hover {
+    background-position: 0;
+  }
+}
+
 // image alignment stuff
 .image-float-left,
 .image-float-right,
