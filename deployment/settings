@@ -7,7 +7,7 @@
 # of /opt/stagecoach/apps
 
 # Should match the repo name = short name = everything name!
-PROJECT=a3-demo
+PROJECT=public-demo
 
 DIR=/opt/stagecoach/apps/$PROJECT
 
