@@ -19,6 +19,49 @@ require('apostrophe')({
     // least have a minimal configuration here to turn them on: `moduleName: {}`
 
     localizations: {},
+    '@apostrophecms-pro/palette': {
+
+      // BROKEN
+      fields: {
+        add: {
+          backgroundColor: {
+            type: 'string',
+            label: 'Page Background',
+            selector: 'body',
+            property: 'color'
+          }
+        },
+        group: {
+          colors: {
+            label: 'Colors',
+            fields: [ 'backgroundColor' ]
+          }
+        }
+      }
+
+      // WORKING
+      // fields: {
+      //   add: {
+      //     backgroundColor: {
+      //       type: 'string',
+      //       label: 'Page Background',
+      //       selector: 'body',
+      //       property: 'color'
+      //     }
+      //   },
+      //   group: {
+      //     colors: {
+      //       label: 'Colors',
+      //       group: {
+      //         FunctionalColors: {
+      //           label: 'Functional Colors',
+      //           fields: [ 'backgroundColor' ]
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+    },
 
     // Custom CSS classes for standard apostrophe widgets
     '@apostrophecms/rich-text-widget': {
