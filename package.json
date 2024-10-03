@@ -14,9 +14,9 @@
     "url": ""
   },
   "dependencies": {
-    "@apostrophecms/import-export": "^1.3.0",
-    "@apostrophecms/seo": "^1.2.1",
-    "apostrophe": "^4.0.0"
+    "@apostrophecms/import-export": "^2.4.1",
+    "@apostrophecms/seo": "^1.2.3",
+    "apostrophe": "^4.8.0"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
