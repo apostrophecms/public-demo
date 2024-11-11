@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extend: '@apostrophecms/piece-page-type',
   options: {
     label: 'Article Index Page',

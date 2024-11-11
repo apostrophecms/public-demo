@@ -1,4 +1,7 @@
-module.exports = {
+import { basicConfig } from '../../lib/area.js';
+import { aposBrandColors } from '../../lib/options.js';
+
+export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Container',
@@ -11,7 +14,7 @@ module.exports = {
       content: {
         type: 'area',
         options: {
-          widgets: require('../../lib/area').basicConfig
+          widgets: basicConfig
         }
       },
       backgroundColor: {
@@ -20,7 +23,7 @@ module.exports = {
         help: 'Background color of the container',
         options: {
           pickerOptions: {
-            presetColors: require('../../lib/options').aposBrandColors
+            presetColors: aposBrandColors
           }
         }
       },
@@ -30,7 +33,7 @@ module.exports = {
         help: 'Border color of the container',
         options: {
           pickerOptions: {
-            presetColors: require('../../lib/options').aposBrandColors
+            presetColors: aposBrandColors
           }
         }
       },

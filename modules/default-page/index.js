@@ -1,4 +1,6 @@
-module.exports = {
+import { fullConfigExpandedGroups } from '../../lib/area.js';
+
+export default {
   extend: '@apostrophecms/page-type',
   options: {
     label: 'Default Page',
@@ -10,7 +12,7 @@ module.exports = {
         type: 'area',
         options: {
           expanded: true,
-          groups: require('../../lib/area').fullConfigExpandedGroups
+          groups: fullConfigExpandedGroups
         }
       }
     },

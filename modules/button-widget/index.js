@@ -1,5 +1,6 @@
-const linkConfig = require('../../lib/link');
-module.exports = {
+import linkConfig from '../../lib/link.js';
+
+export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Button',

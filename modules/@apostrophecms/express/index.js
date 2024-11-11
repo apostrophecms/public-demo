@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   options: {
     // So baseUrl can be autodetected when behind nginx
     trustProxy: true,

@@ -1,4 +1,7 @@
-require('apostrophe')({
+import apostrophe from 'apostrophe';
+
+apostrophe({
+  root: import.meta,
   shortName: 'public-demo',
 
   // The baseUrl should be overridden in environment variables for other environments.
@@ -17,7 +20,7 @@ require('apostrophe')({
 
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
-
+    '@apostrophecms/vite': {},
     localizations: {},
 
     // Custom CSS classes for standard apostrophe widgets
@@ -40,7 +43,8 @@ require('apostrophe')({
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
       options: {
-        refreshOnRestart: true
+        // refreshOnRestart: true,
+        hmr: 'apos'
       }
     },
     '@apostrophecms/seo': {},

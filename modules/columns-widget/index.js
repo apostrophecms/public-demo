@@ -1,6 +1,6 @@
-const areaConfig = require('../../lib/area').basicConfig;
+import { basicConfig as areaConfig } from '../../lib/area.js';
 
-module.exports = {
+export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'Columns',

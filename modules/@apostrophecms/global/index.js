@@ -1,5 +1,5 @@
-const linkConfig = require('../../../lib/link');
-module.exports = {
+import linkConfig from '../../../lib/link.js';
+export default {
   fields: {
     add: {
       footerLinks: {

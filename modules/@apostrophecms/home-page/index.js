@@ -1,7 +1,6 @@
-const { fullConfig, fullConfigExpandedGroups } = require('../../../lib/area');
+import { fullConfig, fullConfigExpandedGroups } from '../../../lib/area.js';
 const richTextArea = fullConfig['@apostrophecms/rich-text'];
-
-module.exports = {
+export default {
   options: {
     label: 'Home Page',
     pluralLabel: 'Home Pages'

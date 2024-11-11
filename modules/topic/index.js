@@ -1,4 +1,6 @@
-module.exports = {
+import { fullConfig } from '../../lib/area.js';
+
+export default {
   extend: '@apostrophecms/piece-type',
   fields: {
     add: {
@@ -25,7 +27,7 @@ module.exports = {
         label: 'Content',
         type: 'area',
         options: {
-          widgets: require('../../lib/area').fullConfig
+          widgets: fullConfig
         }
       },
       singleton: {
