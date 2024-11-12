@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Apostrophe Public Demo Site",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node app",
     "dev": "APOS_DEV=1 nodemon --delay 1000ms -x \"nodemon app.js\"",
@@ -16,7 +17,8 @@
   "dependencies": {
     "@apostrophecms/import-export": "^2.4.1",
     "@apostrophecms/seo": "^1.2.3",
-    "apostrophe": "^4.8.0"
+    "@apostrophecms/vite": "^1.0.0-beta.1",
+    "apostrophe": "^4.9.0"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",

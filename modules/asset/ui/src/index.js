@@ -1,4 +1,4 @@
-import localToggle from './_locales';
+import localToggle from './_locales.js';
 
 export default () => {
   localToggle();

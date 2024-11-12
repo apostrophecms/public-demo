@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   options: {
     label: 'Rich Text',
     description: 'Add styled text to your page',

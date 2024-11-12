@@ -1,6 +1,6 @@
-const linkConfig = require('../../lib/link');
+import linkConfig from '../../lib/link.js';
 
-module.exports = {
+export default {
   extend: '@apostrophecms/widget-type',
   options: {
     label: 'CTA Links',
