@@ -18,37 +18,65 @@
             ]"
             @click="select(theme.name)"
             >
-            <div class="t-meta">{{ metaSample }}</div>
-            <div class="t-headline">Theme {{ theme.name }}</div>
-            <div class="t-body">{{ bodySample }}</div>
-            <div class="colors">
-              <div class="color primary"/>
-              <div class="color secondary"/>
-              <div class="color tertiary"/>
+            <div class="type-sample" :style="`font-family: ${theme.fonts.headline}`">
+              Aa
+            </div>
+            <div class="colors-sample">
+              <div class="color-sample" :style="`background-color: ${theme.colors.one}`" />
+              <div class="color-sample" :style="`background-color: ${theme.colors.two}`" />
+              <div class="color-sample" :style="`background-color: ${theme.colors.three}`" />
+              <div class="color-sample" :style="`background-color: ${theme.colors.four}`" />
+              <div class="color-sample" :style="`background-color: ${theme.colors.five}`" />
+            </div>
+            <div class="button-sample">
+              <button class="button">
+                <span>Read More</span>
+                <svg viewBox="0 0 24 24"><g style="display: inline; fill: rgb(15, 20, 25);"><path d="M12.957 4.54L20.414 12l-7.457 7.46-1.414-1.42L16.586 13H3v-2h13.586l-5.043-5.04 1.414-1.42z" style="border-width: 0px; display: inline; fill: rgb(15, 20, 25); text-decoration: none solid rgb(15, 20, 25);"></path></g></svg>
+              </button>
             </div>
           </div>
         </div>
-        <div class="preview" :class="currentValue">
-          <div class="t-meta" style="margin-bottom: 15px;">Some small text</div>
-          <div class="t-headline">To be more specific, those winters are nothing more than edges.</div>
-          <p class="t-body">A growth is a sentence from the right perspective. Authors often misinterpret the port as a grasping spandex, when in actuality it feels more like a carping share.</p>
-          <div class="card a">
+        <div
+          class="preview"
+          :class="currentValue"
+          :style="`background-color: ${themes[currentValue].colors.one}`"
+        >
+          <div
+            class="t-meta"
+            style="margin-bottom: 25px; letter-spacing: 1px;"
+            :style="`font-family: ${themes[currentValue].fonts.meta}`"
+          >
+            Philadelphia, PA, 10:24am
+          </div>
+          <div
+            class="t-headline"
+            :style="`font-family: ${themes[currentValue].fonts.headline}`"
+          >
+            Bigger, <strong>bolder</strong>, and <em>better</em>.
+          </div>
+          <p
+            class="t-body"
+            :style="`font-family: ${themes[currentValue].fonts.body}`"
+          >
+            A growth is a sentence from the right perspective. Authors often misinterpret the port as a grasping spandex, when in actuality it feels more like a carping share.
+          </p>
+          <!-- <div class="card a">
             <div class="pill">
-              <div class="t-meta">Head's up</div>
+              <div class="t-meta" :style="`font-family: ${themes[currentValue].fonts.meta}`">Head's up</div>
             </div>
-              <div class="t-headline">You are approaching an overage</div>
+              <div class="t-headline" :style="`font-family: ${themes[currentValue].fonts.headline}`">You are approaching an overage</div>
               <div class="bars">
                 <div class="text">
-                  <span class="t-meta">Current Usage: kW/hrs</span>
-                  <span class="t-meta">Limit: 300</span>
+                  <span class="t-meta" :style="`font-family: ${themes[currentValue].fonts.meta}`">Current Usage: kW/hrs</span>
+                  <span class="t-meta" :style="`font-family: ${themes[currentValue].fonts.meta}`">Limit: 300</span>
                 </div>
                 <div class="boxes">
-                  <div class="box a" :style="`background-color:${theme.colors.primary}`" />
-                  <div class="box b bg-primary" />
-                  <div class="box c bg-tertiary" />
+                  <div class="box a" :style="`background-color:${themes[currentValue].colors.one}`" />
+                  <div class="box b" :style="`background-color:${themes[currentValue].colors.three}`" />
+                  <div class="box c" :style="`background-color:${themes[currentValue].colors.five}`"/>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -68,52 +96,73 @@
 <script>
 import AposInputSelectLogic from '../logic/AposInputSelect';
 export default {
-  name: 'AposInputSelect',
+  name: 'ThemeField',
   mixins: [ AposInputSelectLogic ],
   data() {
     return {
       currentValue: 'one',
-      themes: [
-        {
+      themes: {
+        one: {
           name: 'one',
           fonts: {
-            meta: '"courier new", courier, andale mono, "free mono", monospace;',
-            headline: "verdana, geneva, tahoma, kalimati, sans-serif;",
+            meta: "'Consolas', 'Monaco', monospace;'",
+            headline: "'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif;",
             body: "tahoma, geneva, verdana, kalimati, sans-serif;"
           },
           colors: {
-            primary: '#C699FE',
-            secondary: '#F8FE6E',
-            tertiary: '#1A1A1A'
+            one: '#FFFFFF',
+            two: '#F5F5F5',
+            three: '#D9D9D9',
+            four: '#797979',
+            five: '#000000',
           }
         },
-        {
+        two: {
           name: 'two',
           fonts: {
-            meta: '"courier new", courier, andale mono, "free mono", monospace;',
-            headline: "verdana, geneva, tahoma, kalimati, sans-serif;",
-            body: "tahoma, geneva, verdana, kalimati, sans-serif;"
+            meta: "'Dejavu Sans', 'Arial', 'Verdana', sans-serif'",
+            headline: "'Rockwell', 'Courier Bold', 'Courier', 'Georgia', 'Times'",
+            body: "'Georgia', 'Times', 'Times New Roman', serif;"
           },
           colors: {
-            primary: '#FD6333',
-            secondary: '#8C67F7',
-            tertiary: '#2AA88F'
+            one: '#FFFFFF',
+            two: '#E1DFD9',
+            three: '#209D50',
+            four: '#1D231C',
+            five: '#000000',
           }
         },
-        {
+        three: {
           name: 'three',
           fonts: {
             meta: '"courier new", courier, andale mono, "free mono", monospace;',
-            headline: "verdana, geneva, tahoma, kalimati, sans-serif;",
-            body: "tahoma, geneva, verdana, kalimati, sans-serif;"
+            headline: "'Gill Sans', 'Gill Sans MT', 'Calibri', sans-serif",
+            body: "Lucida Sans', 'Helvetica', 'Arial', sans-serif"
           },
           colors: {
-            primary: '#6C42E0',
-            secondary: '#FACC15',
-            tertiary: '#4ADE80'
+            one: '#FCF0F0',
+            two: '#D1C8F4',
+            three: '#AE9DEF',
+            four: '#9B2929',
+            five: '#531A4A',
+          }
+        },
+        four: {
+          name: 'four',
+          fonts: {
+            meta: "'Gill Sans', 'Gill Sans MT', 'Calibri', sans-serif",
+            headline: "'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Calisto MT', 'Times New Roman', serif",
+            body: "'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', serif;"
+          },
+          colors: {
+            one: '#EAE6DD',
+            two: '#EED286',
+            three: '#7CB4B2',
+            four: '#34659B',
+            five: '#2D2D2A',
           }
         }
-      ],
+      },
       metaSample: 'Some small text',
       bodySample: 'A growth is a sentence from the right perspective. Authors often misinterpret the port as a grasping spandex, when in actuality it feels more like a carping share.',
     };
@@ -130,6 +179,12 @@ export default {
 .apos-field__wrapper--theme {
   max-width: none !important;
 }
+.apos-modal__rail.apos-modal__rail--right {
+  display: none;
+}
+.apos-modal__main--with-rails {
+  grid-template-columns: 15% 1fr !important;
+}
 </style>
 
 <style scoped lang="scss">
@@ -141,7 +196,8 @@ export default {
 
   .theme {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     border: 1px solid var(--a-base-6);
     padding: 20px;
@@ -160,16 +216,57 @@ export default {
 
   }
 
-  .t-meta {
-    font-size: 12px;
+  .type-sample {
+    font-size: 52px;
   }
 
-  .t-headline {
-    font-size: 32px;
+  .button-sample {
+    .button {
+      font-size: 15px;
+      padding: 8px 20px;
+      align-items: center;
+      border-width: 0px;
+      box-sizing: border-box;
+      color: rgb(15, 20, 25);
+      display: flex;
+      // font-family: TwitterChirp, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 16px;
+      text-decoration: none solid rgb(15, 20, 25);
+      unicode-bidi: isolate;
+      white-space-collapse: preserve;
+      width: 100%;
+      white-space: nowrap;
+    }
+    svg {
+      border-width: 0px;
+    color: rgb(15, 20, 25);
+    display: block;
+    fill: rgb(15, 20, 25);
+    flex-shrink: 0;
+    height: 18.75px;
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none solid rgb(15, 20, 25);
+    vertical-align: text-bottom;
+    padding-left: 8px;
+    }
   }
 
-  .t-body {
-    font-size: 16px;
+  .colors-sample {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,  minmax(10px, max-content)) ;
+    max-width: 50%;
+  }
+
+  .color-sample {
+    height: 90px;
+    width: 70px;
+    border-radius: 4px;
+    border: 1px solid #cccccc2d;
   }
 
   .themes {
@@ -189,7 +286,6 @@ export default {
     align-items: center;
     justify-content: center;
     height: 30px;
-    // border: 1px solid var(--a-base-8);
   }
 
   .card {
@@ -239,92 +335,19 @@ export default {
     width: 60%;
     background-color: var(--a-base-10);
     border-radius: 16px;
-    padding: 30px;
+    padding: 50px 30px;
+    border: 1px solid #ededed;
 
-    // .one {
-    //   .bg-primary { background-color: }
-    // }
-
-    // .t-meta {
-    //   font-size: 14px;
-    // }
-
-    // .t-headline {
-    //   font-size: 64px;
-    // }
-
-    // .t-body {
-    //   font-size: 18px;
-    // }
-  }
-  .one {
     .t-meta {
-      font-family:"courier new", courier, andale mono, "free mono", monospace;
+      font-size: 14px;
     }
-
     .t-headline {
-      font-family:verdana, geneva, tahoma, kalimati, sans-serif;
+      font-size: 72px;
     }
-
     .t-body {
-      font-family: tahoma, geneva, verdana, kalimati, sans-serif;
-    }
-
-
-    .primary {
-      background-color: #C699FE;
-    }
-    .secondary {
-      background-color: #F8FE6E;
-    }
-    .tertiary {
-      background-color: #1A1A1A;
-    }
-  }
-
-  .two {
-    .t-meta {
-      font-family:georgia, "times new roman", norasi, serif;
-    }
-
-    .t-headline {
-      font-family:impact, haettenschweiler, "arial narrow bold", sans-serif;
-    }
-
-    .t-body {
-      font-family:arial, sans-serif;
-    }
-    .primary {
-      background-color: #FD6333;
-    }
-    .secondary {
-      background-color: #8C67F7;
-    }
-    .tertiary {
-      background-color: #2AA88F;
-    }
-  }
-
-  .three {
-    .t-meta {
-      font-family:"century gothic","avant garde",'apple gothic',sans-serif
-    }
-
-    .t-headline {
-      font-family: consolas, monospace;
-    }
-
-    .t-body {
-      font-family:georgia, "times new roman", norasi, serif;
-    }
-    .primary {
-      background-color: #6C42E0;
-    }
-    .secondary {
-      background-color: #FACC15;
-    }
-    .tertiary {
-      background-color: #4ADE80;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-top: 10px;
     }
   }
 

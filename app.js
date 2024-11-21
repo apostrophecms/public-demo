@@ -12,7 +12,26 @@ apostrophe({
   // configuring user accounts.
 
   modules: {
-
+    '@apostrophecms-pro/palette': {
+      // options: {
+      fields: {
+        add: {
+          backgroundColor: {
+            type: 'color',
+            label: 'Page Background',
+            selector: 'body',
+            property: 'color'
+          }
+        },
+        group: {
+          colors: {
+            label: 'Colors',
+            fields: [ 'backgroundColor' ]
+          }
+        }
+      }
+      // }
+    },
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective

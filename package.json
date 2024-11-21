@@ -15,6 +15,7 @@
     "url": ""
   },
   "dependencies": {
+    "@apostrophecms-pro/palette": "^4.3.2",
     "@apostrophecms/import-export": "^2.4.1",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.0.0-beta.1",
