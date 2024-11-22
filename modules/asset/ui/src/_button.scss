@@ -1,13 +1,14 @@
 .button {
   font-family: 'Inter', sans-serif;
+  font-family: var(--t-font-body);
   display: inline-block;
   text-decoration: none;
   text-align: center;
   color: black;
   font-size: 20px;
   font-weight: 500;
-  border: 3px solid black;
-  border-radius: 10px;
+  border: 3px solid var(--t-color-two);
+  border-radius: var(--t-radius);
   padding: 16px 32px;
   text-decoration: none;
   transition: background-color 250ms ease 0s;

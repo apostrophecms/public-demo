@@ -1,5 +1,6 @@
 .demo-rte {
   font-family: "Inter", sans-serif;
+  font-family: var(--t-font-body);
   & > *:first-child,
   & > [contenteditable] > *:first-child {
     margin-top: 0;
@@ -39,6 +40,7 @@
   h2,
   h3,
   h4 {
+    font-family: var(--t-font-headline);
     margin: 30px 0;
     line-height: 1.2em;
   }
@@ -62,6 +64,7 @@
 
 .demo-rte h2,
 .h2 .demo-rte p {
+  font-family: var(--t-font-headline);
   margin: 0 0 50px;
   font-size: 80px;
   font-weight: 700;
@@ -98,6 +101,7 @@
 
 .type-mono {
   font-family: "Fira Code", monospace;
+  font-family: var(--t-font-meta);
 }
 
 .type-wide-tracking {

@@ -22,10 +22,12 @@ $link-color: rgb(101, 22, 221);
 @import '_locales';
 @import '_pr-widget';
 @import '_footer';
+@import '_theme';
 
 body {
   margin: 0;
   padding-bottom: 90px;
+  background-color: var(--t-color-one);
 }
 
 .widget {
@@ -68,6 +70,7 @@ main {
 
 .home {
   font-family: 'Inter', sans-serif;
+  font-family: var(--t-font-body);
   display: flex;
   width: 100%;
   margin: 0 auto;
@@ -80,6 +83,7 @@ main {
 
 .home .content {
   font-family: 'Inter', sans-serif;
+  font-family: var(--t-font-body);
   flex-grow: 1;
   margin-left: 30px;
 }
@@ -108,6 +112,7 @@ main {
 
 .meta {
   font-family: "IBM Plex Mono", monospace;
+  font-family: var(--t-font-meta);
   font-size: 0.8rem;
   letter-spacing: 1px;
   margin: 0 0 10px;
@@ -126,6 +131,7 @@ main {
 
 h1 {
   font-family: 'Inter', sans-serif;
+  font-family: var(--t-headline);
   margin: 0;
   font-size: 80px;
   font-weight: 700;
@@ -138,5 +144,21 @@ h1 {
   }
   @media only screen and (max-width: 600px) {
     font-size: 40px;
+  }
+}
+
+.apos-palette {
+  width: 360px !important;
+
+  .apos-field--inline .apos-field__label {
+    font-size: 12px !important;
+  }
+
+  .apos-field.apos-field--range {
+    display: flex !important;
+  }
+
+  .apos-range__value {
+    min-width: 60px !important;
   }
 }
