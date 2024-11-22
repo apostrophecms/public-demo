@@ -13,7 +13,6 @@ apostrophe({
 
   modules: {
     '@apostrophecms-pro/palette': {
-      // options: {
       fields: {
         add: {
           fontMeta: {
@@ -210,7 +209,6 @@ apostrophe({
           }
         }
       }
-      // }
     },
     // Apostrophe module configuration
 
