@@ -16,7 +16,7 @@ export default {
           four: '#797979',
           five: '#000000'
         },
-        radius: '5px'
+        radius: 5
       },
       two: {
         name: 'two',
@@ -32,7 +32,7 @@ export default {
           four: '#1D231C',
           five: '#000000'
         },
-        radius: '2px'
+        radius: 2
       },
       three: {
         name: 'three',
@@ -48,7 +48,7 @@ export default {
           four: '#9B2929',
           five: '#531A4A'
         },
-        radius: '10px'
+        radius: 10
       },
       four: {
         name: 'four',
@@ -64,61 +64,51 @@ export default {
           four: '#34659B',
           five: '#2D2D2A'
         },
-        radius: '30px'
+        radius: 30
       }
     }
   },
-  fields: {
-    add: {
-      theme: {
-        label: 'Theme',
-        type: 'theme',
-        def: 'two',
-        choices: [
-          {
-            label: 'One',
-            value: 'one'
-          },
-          {
-            label: 'Twp',
-            value: 'two'
-          },
-          {
-            label: 'Three',
-            value: 'three'
-          },
-          {
-            label: 'Four',
-            value: 'four'
+  fields: (self, options) => {
+    return {
+      add: {
+        theme: {
+          label: 'Theme',
+          type: 'theme',
+          themesConfig: self.options.themes,
+          choices: Object.entries(self.options.themes).map(i => {
+            return {
+              name: i[1].name,
+              value: i[1].name
+            };
+          })
+        },
+        footerLinks: {
+          label: 'Footer Links',
+          type: 'array',
+          titleField: 'linkText',
+          fields: {
+            add: {
+              ...linkConfig.link
+            }
           }
-        ]
-      },
-      footerLinks: {
-        label: 'Footer Links',
-        type: 'array',
-        titleField: 'linkText',
-        fields: {
-          add: {
-            ...linkConfig.link
-          }
+        },
+        siteTitle: {
+          label: 'Site Title',
+          type: 'string',
+          def: 'Awesome Site'
         }
       },
-      siteTitle: {
-        label: 'Site Title',
-        type: 'string',
-        def: 'Awesome Site'
+      group: {
+        theme: {
+          label: 'Theme',
+          fields: [ 'theme' ]
+        },
+        general: {
+          label: 'General',
+          fields: [ 'siteTitle', 'footerLinks' ]
+        }
       }
-    },
-    group: {
-      theme: {
-        label: 'Theme',
-        fields: [ 'theme' ]
-      },
-      general: {
-        label: 'General',
-        fields: [ 'siteTitle', 'footerLinks' ]
-      }
-    }
+    };
   },
   handlers(self, options) {
     return {
@@ -142,7 +132,7 @@ export default {
             doc.colorThree = themeConfig.colors.three;
             doc.colorFour = themeConfig.colors.four;
             doc.colorFive = themeConfig.colors.five;
-            doc.radius = parseInt(themeConfig.radius.split('px')[0]);
+            doc.radius = themeConfig.radius;
 
             await palette.update(req, doc);
             await self.apos.notify(req, 'Theme updated. Some palette values have been overwritten', {

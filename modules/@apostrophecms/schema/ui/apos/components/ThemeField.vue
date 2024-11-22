@@ -35,7 +35,7 @@
               <button
                 class="button"
                 :style="[
-                  { 'border-radius': theme.radius },
+                  { 'border-radius':`${theme.radius}px` },
                   { 'background-color': theme.colors.two },
                   { 'border': `1px solid ${theme.colors.four}` },
                 ]"
@@ -269,75 +269,7 @@ export default {
   data() {
     return {
       next: (this.modelValue.data == null) ? null : this.modelValue.data,
-      currentValue: 'one',
-      themes: {
-        one: {
-          name: 'one',
-          fonts: {
-            meta: "'Consolas', 'Monaco', monospace'",
-            headline: "'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', sans-serif",
-            body: "tahoma, geneva, verdana, kalimati, sans-serif"
-          },
-          colors: {
-            one: '#FFFFFF',
-            two: '#F5F5F5',
-            three: '#D9D9D9',
-            four: '#797979',
-            five: '#000000',
-          },
-          radius: '5px'
-        },
-        two: {
-          name: 'two',
-          fonts: {
-            meta: "'Dejavu Sans', 'Arial', 'Verdana', sans-serif'",
-            headline: "'Rockwell', 'Courier Bold', 'Courier', 'Georgia', 'Times'",
-            body: "'Georgia', 'Times', 'Times New Roman', serif"
-          },
-          colors: {
-            one: '#FFFFFF',
-            two: '#E1DFD9',
-            three: '#209D50',
-            four: '#1D231C',
-            five: '#000000',
-          },
-          radius: '2px'
-        },
-        three: {
-          name: 'three',
-          fonts: {
-            meta: '"courier new", courier, andale mono, "free mono", monospace',
-            headline: "'Gill Sans', 'Gill Sans MT', 'Calibri', sans-serif",
-            body: "Lucida Sans', 'Helvetica', 'Arial', sans-serif"
-          },
-          colors: {
-            one: '#FCF0F0',
-            two: '#D1C8F4',
-            three: '#AE9DEF',
-            four: '#9B2929',
-            five: '#531A4A',
-          },
-          radius: '10px'
-        },
-        four: {
-          name: 'four',
-          fonts: {
-            meta: "'Gill Sans', 'Gill Sans MT', 'Calibri', sans-serif",
-            headline: "'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Calisto MT', 'Times New Roman', serif",
-            body: "'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', serif"
-          },
-          colors: {
-            one: '#EAE6DD',
-            two: '#EED286',
-            three: '#7CB4B2',
-            four: '#34659B',
-            five: '#2D2D2A',
-          },
-          radius: '30px'
-        }
-      },
-      metaSample: 'Some small text',
-      bodySample: 'A growth is a sentence from the right perspective. Authors often misinterpret the port as a grasping spandex, when in actuality it feels more like a carping share. Those minibuses are nothing more than fights. To be more specific, unpeeled beats show us how squares can be shirts.',
+      themes: this.field.themesConfig,
       headshots: [
         'https://www.studiocabrelli.com/wp-content/uploads/2020/05/headshot-photographer-paris@studiocabrelli_0002.jpg',
         'https://www.eastcoastcapture.com/wp-content/uploads/2024/03/93d00b8396a14377ad35972239b97bc0-copy-400x400.jpeg',
@@ -402,7 +334,6 @@ export default {
      background-color: var(--a-base-9);
      border-color: var(--a-primary-transparent-25);
    }
-
  }
 
  .type-sample {
@@ -427,18 +358,17 @@ export default {
      white-space: nowrap;
    }
    svg {
-     border-width: 0px;
-   color: rgb(15, 20, 25);
-   display: block;
-   fill: rgb(15, 20, 25);
-   flex-shrink: 0;
-   height: 18.75px;
-   overflow-clip-margin: content-box;
-   overflow: hidden;
-   position: relative;
-   text-decoration: none solid rgb(15, 20, 25);
-   vertical-align: text-bottom;
-   padding-left: 8px;
+    border-width: 0px;
+    color: rgb(15, 20, 25);
+    display: block;
+    fill: rgb(15, 20, 25);
+    flex-shrink: 0;
+    height: 18.75px;
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none solid rgb(15, 20, 25);
+    padding-left: 8px;
    }
  }
 
@@ -538,8 +468,6 @@ export default {
  }
 
  .card {
-   // background-color: white;
-   // border-radius: 16px;
    padding: 20px;
  }
 
