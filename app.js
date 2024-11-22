@@ -20,6 +20,7 @@ apostrophe({
 
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
+    'styleguide-page': {},
     '@apostrophecms/vite': {},
     localizations: {},
 
