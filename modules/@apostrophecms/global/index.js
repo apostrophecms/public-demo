@@ -124,16 +124,16 @@ export default {
     return {
       beforeSave: {
         async reflectTheme(req, doc, options) {
-          console.log('saved global');
-          console.log(req.data.global.theme);
-          console.log(doc.theme);
           const oldVal = req.data.global.theme;
           const newVal = doc.theme;
+
           if (oldVal !== newVal) {
+
             const themeConfig = self.options.themes[newVal];
             const palette = self.apos.modules['@apostrophecms-pro/palette'];
             const docs = await palette.find(req, {}).toArray();
             const doc = docs[0];
+
             doc.fontMeta = themeConfig.fonts.meta;
             doc.fontBody = themeConfig.fonts.body;
             doc.fontHeadline = themeConfig.fonts.headline;
@@ -142,14 +142,16 @@ export default {
             doc.colorThree = themeConfig.colors.three;
             doc.colorFour = themeConfig.colors.four;
             doc.colorFive = themeConfig.colors.five;
-            doc.radius = themeConfig.radius;
+            doc.radius = parseInt(themeConfig.radius.split('px')[0]);
+
             await palette.update(req, doc);
-            await self.apos.notify(req, 'Theme updated. Some palette values have been overwritten');
-            console.log(docs);
-            // console.log(self.apos.modules['@apostrophecms-pro/palette']);
-            // console.log('go');
-            // console.log(self.options.themes);
+            await self.apos.notify(req, 'Theme updated. Some palette values have been overwritten', {
+              type: 'success',
+              dismiss: true,
+              icon: 'close-circle-icon'
+            });
           };
+
         }
       }
     };

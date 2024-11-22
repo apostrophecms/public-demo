@@ -148,6 +148,24 @@ apostrophe({
             property: 'font-family',
             valueTemplate: 'var(%VALUE%)'
           },
+          buttonBackground: {
+            label: 'Button Background Color',
+            type: 'color',
+            options: {
+              pickerOptions: {
+                presetColors: [
+                  '--t-color-one',
+                  '--t-color-two',
+                  '--t-color-three',
+                  '--t-color-four',
+                  '--t-color-five'
+                ]
+              }
+            },
+            selector: '.button',
+            property: 'background-color',
+            valueTemplate: 'var(%VALUE%)'
+          },
           buttonBorder: {
             label: 'Button Border Color',
             type: 'color',
@@ -186,6 +204,7 @@ apostrophe({
             label: 'Buttons',
             fields: [
               'buttonFont',
+              'buttonBackground',
               'buttonBorder'
             ]
           }
