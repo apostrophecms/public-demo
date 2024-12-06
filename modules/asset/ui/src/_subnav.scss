@@ -13,3 +13,19 @@
 .children {
   margin-top: 40px;
 }
+
+.children {
+  @media (max-width: 680px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  @container (max-width: 680px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+}

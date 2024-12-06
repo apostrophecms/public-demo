@@ -19,6 +19,18 @@
   display: flex;
   justify-content: center;
   list-style-type: none;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  @container (max-width: 680px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 }
 
 .cta-links-widget__arrow {

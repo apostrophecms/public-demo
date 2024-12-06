@@ -1,6 +1,15 @@
 .widget-columns {
   display: flex;
   justify-content: space-between;
+  gap: 5%;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
+  
+  @container (max-width: 680px) {
+    flex-direction: column;
+  }
 }
 
 .widget-columns__column {
@@ -8,9 +17,13 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  margin-right: 5%;
-  &:last-child {
-    margin-right: 0;
+
+  @media (max-width: 680px) {
+    width: 100% !important;
+  }
+  
+  @container (max-width: 680px) {
+    width: 100% !important;
   }
 }
 
@@ -28,6 +41,12 @@
     width: 40%;
     flex-basis: auto;
     flex: unset;
+  }
+}
+
+.widget-columns--50-50 {
+  .widget-columns__column {
+    width: 50%;
   }
 }
 

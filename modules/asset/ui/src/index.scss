@@ -48,6 +48,14 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0 20px;
+
+  @media (max-width: 680px) {
+    display: block;
+  }
+  
+  @container (max-width: 680px) {
+    display: block;
+  }
 }
 
 main {
@@ -70,6 +78,7 @@ main {
   font-family: 'Inter', sans-serif;
   display: flex;
   width: 100%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -82,6 +91,16 @@ main {
   font-family: 'Inter', sans-serif;
   flex-grow: 1;
   margin-left: 30px;
+
+  @media (max-width: 680px) {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  
+  @container (max-width: 680px) {
+    max-width: 100%;
+    margin-left: 0;
+  }
 }
 
 .home-cta {
@@ -138,5 +157,23 @@ h1 {
   }
   @media only screen and (max-width: 600px) {
     font-size: 40px;
+  }
+
+  @container (max-width: 800px) {
+    font-size: 50px;
+    letter-spacing: -1px;
+  }
+  @container (max-width: 600px) {
+    font-size: 40px;
+  }
+}
+
+h1, h2, h3, h4 {
+  @media (max-width: 680px) {
+    text-align: center;
+  }
+  
+  @container (max-width: 680px) {
+    text-align: center;
   }
 }

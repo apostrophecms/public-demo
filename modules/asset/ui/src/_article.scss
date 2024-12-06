@@ -39,9 +39,26 @@
 .article-excerpts {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
+  
+  @container (max-width: 680px) {
+    flex-direction: column;
+  }
+
   .article-excerpt {
     width: 30%;
-    margin: 1%;
+
+    @media (max-width: 680px) {
+      width: 100%;
+    }
+    
+    @container (max-width: 680px) {
+      width: 100%;
+    }
   }
 }
 

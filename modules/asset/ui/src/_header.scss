@@ -20,6 +20,16 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  @container (max-width: 680px) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .breadcrumb a {
@@ -36,6 +46,14 @@
     display: inline-block;
     text-decoration: none;
     color: black;
+
+    @media (max-width: 680px) {
+      content: none;
+    }
+    
+    @container (max-width: 680px) {
+      content: none;
+    }
   }
   &:last-child:after {
     content: ''
