@@ -137,7 +137,11 @@ export default {
       },
       colorField: {
         type: 'color',
-        label: 'Color'
+        label: 'Color',
+        def: '#eee',
+        options: {
+          disableSpectrum: true
+        }
       },
       dateField: {
         label: 'Date',
