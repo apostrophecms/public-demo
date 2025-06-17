@@ -177,3 +177,17 @@ h1, h2, h3, h4 {
     text-align: center;
   }
 }
+
+#apos-notification .apos-notifications {
+  bottom: 140px;
+  transform: scale(1.5);
+}
+
+#apos-notification {
+  display: none !important;
+}
+
+// #apos-notification .apos-notifications .apos-notification__label,
+// #apos-notification .apos-notifications .apos-notification__progress-value {
+//   font-size: 32px;
+// }
