@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:22-slim
 
 # Create app directory
 RUN mkdir -p /app
