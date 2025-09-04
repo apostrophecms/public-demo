@@ -1,0 +1,27 @@
+.widget-percent {
+  display: block;
+  margin: 16px auto;
+}
+
+.widget-pixels {
+  display: block;
+  margin: 16px auto;
+  max-width: 100%;
+}
+
+.widget-one-half {
+  display: block;
+  margin: 16px auto;
+  width: 50%;
+}
+
+.widget-full {
+  display: block;
+  margin: 16px auto;
+  width: 100%;
+}
+
+.bp-image-widget {
+  // Otherwise it doesn't heed the box
+  width: 100%;
+}

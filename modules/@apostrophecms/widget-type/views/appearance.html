@@ -1,0 +1,8 @@
+<div {% if data.attrs.containerStyle %}style="{{ data.attrs.containerStyle }}"{% endif %}>
+  <div
+    {% if data.attrs.style %}style="{{ data.attrs.style }}"{% endif %}
+    class="{{ data.attrs.class }}"
+  >
+    {{ data.content | safe }}
+  </div>
+</div>
