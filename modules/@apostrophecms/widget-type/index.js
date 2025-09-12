@@ -67,6 +67,7 @@ export default {
           ]
         },
         appearanceBorder: {
+          label: 'Border Thickness',
           type: 'range',
           min: 1,
           max: 32,
@@ -86,6 +87,7 @@ export default {
           }
         },
         appearanceBorderRadius: {
+          label: 'Border Radius',
           type: 'range',
           min: 0,
           max: 32,
@@ -105,6 +107,7 @@ export default {
           }
         },
         appearanceBorderColor: {
+          label: 'Border Color',
           type: 'color',
           def: '#008800',
           if: {
@@ -121,6 +124,54 @@ export default {
             ]
           }
         },
+        appearanceBackgroundColor: {
+          label: 'Background Color',
+          type: 'color',
+          required: false          
+        },
+        appearanceBoxShadow: {
+          label: 'Shadow',
+          type: 'boolean',
+          def: false
+        },
+        appearanceBoxShadowX: {
+          label: 'Shadow X Offset',
+          type: 'range',
+          min: -32,
+          max: 32,
+          def: 4,
+          if: {
+            appearanceBoxShadow: true
+          }
+        },
+        appearanceBoxShadowY: {
+          label: 'Shadow Y Offset',
+          type: 'range',
+          min: -32,
+          max: 32,
+          def: 4,
+          if: {
+            appearanceBoxShadow: true
+          }
+        },
+        appearanceBoxShadowBlur: {
+          label: 'Shadow Blur',
+          type: 'range',
+          min: 0,
+          max: 32,
+          def: 2,
+          if: {
+            appearanceBoxShadow: true
+          }
+        },
+        appearanceBoxShadowColor: {
+          label: 'Shadow Color',
+          type: 'color',
+          def: 'gray',
+          if: {
+            appearanceBoxShadow: true
+          }
+        }
       },
       group: {
         appearance: {
@@ -132,7 +183,13 @@ export default {
             'appearanceBorderStyle',
             'appearanceBorder',
             'appearanceBorderColor',
-            'appearanceBorderRadius'
+            'appearanceBorderRadius',
+            'appearanceBackgroundColor',
+            'appearanceBoxShadow',
+            'appearanceBoxShadowX',
+            'appearanceBoxShadowY',
+            'appearanceBoxShadowBlur',
+            'appearanceBoxShadowColor'
           ]
         }
       }
@@ -181,7 +238,6 @@ export default {
           content,
           attrs: {
             style: self.widgetAppearanceStyle(widget),
-            containerStyle: self.widgetAppearanceContainerStyle(widget),
             class: self.widgetAppearanceClass(widget)
           }
         });
@@ -191,30 +247,39 @@ export default {
   methods(self) {
     return {
       widgetAppearanceStyle(widget) {
-        let borderBox = false;
+        let box = false;
         const styles = [];
         if (widget.appearanceWidth !== 100) {
           styles.push(`width: ${widget.appearanceWidth}%`);
+          box = true;
         }
         if (widget.appearancePadding !== 0) {
-          borderBox = true;
+          box = true;
           styles.push(`padding: ${widget.appearancePadding}%`);
         }
         if (widget.appearanceBorderStyle !== '') {
-          borderBox = true;
+          box = true;
           styles.push(`border: ${widget.appearanceBorder}px ${widget.appearanceBorderStyle} ${widget.appearanceBorderColor}`);
           if (widget.appearanceBorderRadius > 0) {
             styles.push(`border-radius: ${widget.appearanceBorderRadius}px`);
           }
         }
-        if (borderBox) {
-          styles.push('box-sizing: border-box');
+        if (widget.appearanceBackgroundColor) {
+          styles.push(`background-color: ${widget.appearanceBackgroundColor}`);
         }
-        return styles.join(';');
-      },
-      widgetAppearanceContainerStyle(widget) {
-        const styles = [ 'display: flex', 'width: 100%' ];
-        styles.push(`justify-content: ${widget.appearanceAlignment}`);
+        if (widget.appearanceBoxShadow) {
+          styles.push(`box-shadow: ${widget.appearanceBoxShadowX}px ${widget.appearanceBoxShadowY}px ${widget.appearanceBoxShadowBlur}px ${widget.appearanceBoxShadowColor}`);
+        }
+        if (box) {
+          styles.push('box-sizing: border-box');
+          if (widget.appearanceAlignment === 'center') {
+            styles.push('margin-left: auto', 'margin-right: auto');
+          } else if (widget.appearanceAlignment === 'left') {
+            styles.push('margin-right: auto');
+          } else if (widget.appearanceAlignment === 'right') {
+            styles.push('margin-left: auto');
+          }
+        }
         return styles.join(';');
       },
       widgetAppearanceClass(widget) {

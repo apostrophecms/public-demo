@@ -16,32 +16,6 @@ export default {
         options: {
           widgets: basicConfig
         }
-      },
-      backgroundColor: {
-        type: 'color',
-        label: 'Background Color',
-        help: 'Background color of the container',
-        options: {
-          pickerOptions: {
-            presetColors: aposBrandColors
-          }
-        }
-      },
-      borderColor: {
-        type: 'color',
-        label: 'Border Color',
-        help: 'Border color of the container',
-        options: {
-          pickerOptions: {
-            presetColors: aposBrandColors
-          }
-        }
-      },
-      radius: {
-        type: 'boolean',
-        label: 'Border Radius',
-        help: 'Adds a 20px border radius',
-        def: false
       }
     }
   },
