@@ -1,5 +1,4 @@
-import { fullConfig, fullConfigExpandedGroups } from '../../../lib/area.js';
-const richTextArea = fullConfig['@apostrophecms/rich-text'];
+import { fullConfigExpandedGroups } from '../../../lib/area.js';
 export default {
   options: {
     label: 'Home Page',
@@ -7,35 +6,6 @@ export default {
   },
   fields: {
     add: {
-      cta: {
-        type: 'area',
-        contextual: true,
-        max: 1,
-        options: {
-          widgets: {
-            '@apostrophecms/rich-text': {
-              toolbar: [
-                'italic',
-                'strike',
-                'link',
-                'undo',
-                'redo'
-              ],
-              insert: richTextArea.insert
-            }
-          }
-        }
-      },
-      ctaLinks: {
-        type: 'area',
-        contextual: true,
-        max: 1,
-        options: {
-          widgets: {
-            'cta-links': {}
-          }
-        }
-      },
       main: {
         type: 'area',
         options: {
@@ -49,11 +19,26 @@ export default {
         label: 'Basics',
         fields: [
           'title',
-          'main',
-          'cta',
-          'ctaLinks'
+          'main'
         ]
       }
     }
+  },
+  init(self) {
+    self.apos.migration.add('simpleHomePage', async () => {
+      await self.apos.migration.eachDoc({
+        type: '@apostrophecms/home-page'
+      }, 5, async (doc) => {
+        const rt = doc.cta.items[0];
+        if (rt) {
+          rt.content = rt.content.replace(/<p>/g, '<h1>');
+          rt.content = rt.content.replace(/<\/p>/g, '</h1>');
+        }
+        doc.main.items = [...doc.cta.items, ...doc.ctaLinks.items, ...doc.main.items];
+        delete doc.cta;
+        delete doc.ctaLinks;
+        self.apos.doc.db.replaceOne({ _id: doc._id }, doc);
+      });
+    });
   }
 };
