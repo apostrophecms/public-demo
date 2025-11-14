@@ -22,6 +22,12 @@ export default {
         type: 'relationship',
         withType: 'topic'
       },
+      _image: {
+        label: 'Featured Image',
+        type: 'relationship',
+        withType: '@apostrophecms/image',
+        aspectRatio: [ 2, 1 ]
+      },
       main: {
         label: 'Content',
         type: 'area',
@@ -42,6 +48,7 @@ export default {
         label: 'Content',
         fields: [
           'main',
+          '_image',
           '_topics'
         ]
       }
@@ -58,8 +65,10 @@ export default {
   components(self) {
     return {
       async recent(req, data) {
+        console.log(data.display);
         return {
-          articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray()
+          articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray(),
+          display: data.display
         };
       }
     };

@@ -1,9 +1,10 @@
 .header {
   position: relative;
   display: flex;
+  align-items: center;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
-  margin: 50px 0 20px;
+  margin: 20px 0;
 }
 
 .header .inner {

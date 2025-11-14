@@ -11,10 +11,6 @@ export default {
   fields: {
     add: {
       ...linkConfig.link,
-      color: {
-        type: 'color',
-        label: 'Hover Color'
-      },
       block: {
         type: 'boolean',
         label: 'Full Width',

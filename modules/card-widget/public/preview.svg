@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="137px" height="89px" viewBox="0 0 137 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bitmap</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="137" height="89" rx="3"></rect>
+    </defs>
+    <g id="Widget-Preview" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy" transform="translate(-181.000000, -1171.000000)">
+            <g id="Group-6" transform="translate(30.000000, 462.000000)">
+                <g id="Group-8" transform="translate(0.000000, 512.000000)">
+                    <g id="Group-5-Copy-9" transform="translate(150.000000, 197.000000)">
+                        <g id="Bitmap" transform="translate(1.000000, 0.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask" fill="#F9F9F9" fill-rule="nonzero" xlink:href="#path-1"></use>
+                            <g id="Group-15" mask="url(#mask-2)">
+                                <g transform="translate(9.743019, 12.000000)">
+                                    <path d="M29.9740186,0 L153.24382,0 C156.564889,0 159.256981,2.68055672 159.256981,5.98739496 L159.256981,31.1344538 C159.256981,34.441292 156.564889,37.1218487 153.24382,37.1218487 L29.9740186,37.1218487 C26.6529497,37.1218487 23.9608575,34.441292 23.9608575,31.1344538 L23.9608575,5.98739496 C23.9608575,2.68055672 26.6529497,0 29.9740186,0" id="Shape" stroke="#000000" stroke-width="2.4" fill="none" fill-rule="nonzero"></path>
+                                    <text id="Editor-Experience" stroke="none" fill="#000000" fill-rule="nonzero" font-family="Inter-Medium, Inter" font-size="13.2" font-weight="400" letter-spacing="-0.162000006">
+                                        <tspan x="39.1133064" y="24.3592437">Editor Experience</tspan>
+                                    </text>
+                                    <text id="Learn-about-Pages," stroke="none" fill="none" fill-rule="nonzero" font-family="NanumPen, Nanum Pen" font-size="14.4" font-weight="normal">
+                                        <tspan x="40.2983906" y="54.2962185" fill="#FF4700">Learn about Pages,</tspan>
+                                    </text>
+                                    <text id="Widgets,-Pieces-and" stroke="none" fill="none" fill-rule="nonzero" font-family="NanumPen, Nanum Pen" font-size="14.4" font-weight="normal">
+                                        <tspan x="36.3942229" y="66.8697479" fill="#FF4700">Widgets, Pieces and</tspan>
+                                    </text>
+                                    <text id="other-common-building" stroke="none" fill="none" fill-rule="nonzero" font-family="NanumPen, Nanum Pen" font-size="14.4" font-weight="normal">
+                                        <tspan x="29.7983906" y="79.4432773" fill="#FF4700">other common building</tspan>
+                                    </text>
+                                    <path d="M28.3242226,64.5445378 C41.6052549,59.92483 36.3404903,19.1011452 2.2569813,32.5078792" id="Path" stroke="#FF4700" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="bevel" transform="translate(18.650771, 47.181092) rotate(-172.000000) translate(-18.650771, -47.181092) "></path>
+                                    <path d="M10.2334925,26.6086424 C12.4626922,34.4518927 11.946823,30.9496847 6.53623912,32.5960392" id="Path" stroke="#FF4700" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="bevel" transform="translate(9.004917, 29.602341) rotate(-76.000000) translate(-9.004917, -29.602341) "></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

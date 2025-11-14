@@ -53,10 +53,12 @@ apostrophe({
     asset: {},
     helper: {},
     'cta-links-widget': {},
-    'columns-widget': {},
-    'container-widget': {},
+    // 'columns-widget': {},
+    // 'container-widget': {},
     'button-widget': {},
     'github-prs-widget': {},
+    'hero-widget': {},
+    'card-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},

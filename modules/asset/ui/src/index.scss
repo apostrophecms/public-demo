@@ -10,6 +10,39 @@ $brand-blue: #66f;
 $brand-seafoam: #00bf9a;
 $link-color: rgb(101, 22, 221);
 
+:root {
+  --nav-color: #4a4b64;
+  --nav-hover-color: #0b1ae9;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #4a4b64;
+  --nav-dropdown-hover-color: #0b1ae9;
+  --default-color: #4a4b64;
+  --heading-color: #242859;
+  --accent-color: #0b1ae9;
+  --surface-color: #f6f6f6;
+  --background-color: #ffffff;
+  --contrast-color: #ffffff;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Quicksand", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+}
+
+.dark {
+  --nav-color: #c8c6e3;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #03051f;
+  --nav-dropdown-background-color: #1f2240;
+  --nav-dropdown-color: #c8c6e3;
+  --nav-dropdown-hover-color: #ffffff;
+  --background-color: #05071e;
+  --default-color: #e8e7f7;
+  --heading-color: #ffffff;
+  --accent-color: #524dd3;
+  --surface-color: #131428;
+  --contrast-color: #ffffff;
+}
+
 @import '_header';
 @import '_article';
 @import '_pager';
@@ -22,10 +55,22 @@ $link-color: rgb(101, 22, 221);
 @import '_locales';
 @import '_pr-widget';
 @import '_footer';
+// new
+@import '_nav';
+@import '_hero';
+@import '_card';
+@import '_misc';
 
 body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  padding: 0;
   margin: 0;
-  padding-bottom: 90px;
+}
+
+a {
+ color: var(--nav-color);
 }
 
 .widget {
@@ -38,6 +83,7 @@ body {
 
 .demo-image {
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .layout {
@@ -71,11 +117,11 @@ main {
 
 .site-logo {
   display: block;
-  height: 55px;
+  width: 180px;
 }
 
 .home {
-  font-family: 'Inter', sans-serif;
+  // font-family: 'Inter', sans-serif;
   display: flex;
   width: 100%;
   max-width: 100%;
@@ -83,12 +129,12 @@ main {
 }
 
 .home-title {
-  margin: 20px 0 10px;
+  margin: 20px auto 10px;
   font-weight: 400;
 }
 
 .home .content {
-  font-family: 'Inter', sans-serif;
+  // font-family: 'Inter', sans-serif;
   flex-grow: 1;
   margin-left: 30px;
 
@@ -121,16 +167,21 @@ main {
 }
 
 .tip {
-  font-family: 'Caveat', cursive;
+  // font-family: 'Caveat', cursive;
   color: #6617dc;
 }
 
 .meta {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
+  display: inline-block;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 1px;
-  margin: 0 0 10px;
-  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 .general-content .demo-rte {
@@ -143,7 +194,7 @@ main {
 }
 
 h1 {
-  font-family: 'Inter', sans-serif;
+  // font-family: 'Inter', sans-serif;
   margin: 0;
   font-size: 80px;
   font-weight: 700;
@@ -184,6 +235,10 @@ h1, h2, h3, h4 {
 
 #apos-notification {
   display: none !important;
+}
+
+.ProseMirror > * + * {
+  margin-top: 0 !important;
 }
 
 // #apos-notification .apos-notifications .apos-notification__label,

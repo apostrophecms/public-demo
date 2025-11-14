@@ -13,6 +13,21 @@ export default {
         type: 'integer',
         label: 'Limit',
         def: 5
+      },
+      display: {
+        type: 'select',
+        label: 'Display orientation',
+        def: 'vertical',
+        choices: [
+          {
+            label: 'Vertical',
+            value: 'vertical'
+          },
+          {
+            label: 'Horizontal',
+            value: 'horizontal'
+          }
+        ]
       }
     }
   },

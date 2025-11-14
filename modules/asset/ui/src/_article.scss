@@ -1,38 +1,86 @@
-.article-excerpt {
-  font-family: 'Inter', sans-serif;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #fff;
-  border: 4px solid black;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-  transform: translateY(0px);
-  &:hover {
-    transform: translateY(-2px) scale(1.01);
+[data-apos-area] .article-widget [data-apos-area] {
+  padding: 0;
+}
+
+.article-widget {
+  display: flex;
+  gap: 1rem;
+
+  h3 {
+    font-size: 1.5em;
+    margin: 0.5rem 0;
   }
+
+  .demo-rte {
+    margin-bottom: 0;
+  }
+}
+
+.article-widget--display-vertical {
+  flex-direction: column;
+}
+
+.article-excerpt-content {
+  padding: 1rem;
+}
+
+.article-widget--display-horizontal {
+  gap: 2%;
+  justify-content: center;
+
+  .article-excerpt {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  // @media (max-width: 800px) {
+
+  // }
+  // @media (max-width: 600px) {
+  //   font-size: 40px;
+  // }
+}
+
+.article-excerpt-image-container {
+  height: 260px;
+}
+
+.article-excerpt {
+  background-color: var(--surface-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--default-color), transparent 92%);
+  margin-bottom: 30px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px color-mix(in srgb, var(--default-color), transparent 85%);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+  }
+}
+
+.article-excerpt-image {
+  max-width: 100%;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .article-title-wrapper {
   margin-bottom: 50px;
 }
 
-.article-blurb {
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: none;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  font-size: 1rem;
+.article-topics {
+  display: flex;
+  margin: 1rem 0;
+  gap: 5px;
 }
 
 .article-excerpt a {
-  color: black;
-  font-size: 28px;
-  line-height: 1.2;
   text-decoration: none;
   &:hover {
-    text-decoration: underline;
-    color: #6617dc;
+    color: var(--accent-color);
   }
 }
 
@@ -110,23 +158,6 @@
 
 .latest-article h2 {
   opacity: 0.5;
-}
-
-.article-topics {
-  display: flex;
-  flex-flow: row wrap;
-  list-style: none;
-  padding-left: 0;
-  margin-top: 30px;
-  font-family: 'Inter', sans-serif;
-
-  li {
-    border: 1px solid #828282;
-    padding: 0.5em;
-    border-radius: 10px;
-    margin-right: 0.5rem;
-    font-size: 10px;
-  }
 }
 
 .article-topics.inner {
