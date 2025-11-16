@@ -1,19 +1,27 @@
+// export default () => {
+//   apos.util.onReady(() => {
+//     const toggle = document.querySelector('[data-mode-switch] input');
+//     toggle.addEventListener('change', function (evt) {
+//       console.log('change');
+//       console.log(evt);
+//     });
+//   });
+// };
+
 export default () => {
-  // apos.util.onReadyAndRefresh(() => {
-    console.log('sup data');
+  apos.util.onReadyAndRefresh(() => {
     const toggle = document.querySelector('[data-mode-switch] input');
-    console.log(toggle);
-    toggle.addEventListener('change', function (evt) {
-      console.log(evt);
-      // console.log(this.value);
-    });
-    toggle.addEventListener('input', function (evt) {
-      console.log(evt);
-      // console.log(this.value);
-    });
-    toggle.addEventListener('click', function (evt) {
-      console.log('click clack');
-      // console.log(this.value);
-    });
-  // });
+
+    if (!toggle) {
+      return;
+    }
+
+    toggle.addEventListener('change', toggleMode);
+
+    // window.addEventListener('click', clickOutside);
+
+    function toggleMode (event) {
+      console.log('change');
+    }
+  });
 };

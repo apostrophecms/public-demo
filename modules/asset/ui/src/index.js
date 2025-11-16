@@ -1,8 +1,8 @@
-// import localToggle from './_locales.js';
+import localToggle from './_locales.js';
 import modeToggle from './_dark-light-switch.js';
 
 export default () => {
-  // localToggle();
+  localToggle();
   modeToggle();
 
   console.log('look at me, I am project level js');
