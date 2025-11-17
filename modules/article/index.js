@@ -51,7 +51,8 @@ export default {
         label: 'Basics',
         fields: [
           'title',
-          'blurb'
+          'blurb',
+          'publishedDate'
         ]
       },
       main: {
@@ -69,6 +70,10 @@ export default {
       _topics: {
         label: 'Topics',
         component: 'DemoCellRelation'
+      },
+      _image: {
+        label: 'Featured Image',
+        component: 'DemoCellImage'
       }
     }
   },
