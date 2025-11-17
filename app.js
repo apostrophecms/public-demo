@@ -7,6 +7,8 @@ apostrophe({
   // The baseUrl should be overridden in environment variables for other environments.
   baseUrl: 'http://localhost:3000',
 
+  bundles: [ '@apostrophecms/blog' ],
+
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and
   // configuring user accounts.
@@ -71,5 +73,7 @@ apostrophe({
     'article-page': {},
     topic: {},
     '@apostrophecms/import-export': {}
+    // '@apostrophecms/blog': {},
+    // '@apostrophecms/blog-page': {}
   }
 });

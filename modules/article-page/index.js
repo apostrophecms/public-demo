@@ -11,20 +11,18 @@ export default {
         options: {
           limit: 1,
           widgets: {
-            '@apostrophecms/rich-text': {
-              toolbar: [
-                'styles',
-                'bold',
-                'italic',
-                'link',
-                'blockquote'
-              ]
-            }
+            '@apostrophecms/rich-text': {}
           }
         }
-
       }
     }
+  },
+  methods(self) {
+    return {
+      async beforeIndex(req) {
+        req.data._topics = await self.apos.topic.find(req).sort({ createdAt: -1 }).toArray();
+      }
+    };
   }
   // Infers from its name that it will display an index of articles,
   // as well as serving subpages for them

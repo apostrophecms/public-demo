@@ -1,35 +1,14 @@
-<div class="widget article-widget article-widget--display-{{ data.display }}">
+{% import 'article-page:fragments.html' as fragments with context %}
+
+<div class="widget 
+  article-widget
+  article-excerpts
+  {% if data.display %}
+  article-excerpts--display-{{ data.display }}
+  {% endif%}">
   {% if data.articles.length %}
     {% for article in data.articles %}
-      {% set attachment = apos.image.first(article._image) %}
-      {% set url = apos.attachment.url(attachment, { size: size }) %}
-      <div class="article-excerpt">
-        <div class="article-excerpt-image-container">
-          <img class="article-excerpt-image" src="{{ url }}" alt="{{ attachment.title }}" />
-        </div>
-        <div class="article-excerpt-content">
-          {% if not article._url %}
-            <p class="meta purple">
-              <em>You will need to publish an Article Index page for article links to work.</em>
-            </p>
-          {% endif %}
-          {% if article._topics.length %}
-            <div class="article-topics">
-              {% for topic in article._topics %}
-                <span class="chip">{{ topic.title }}</span>
-              {% endfor %}
-            </div>
-          {% endif %}
-          <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
-          <article>
-            {% if not apos.area.isEmpty(article, 'blurb') %}
-              {% area article, 'blurb' %}
-            {% else %}
-              <p class="placeholder">No blurb for this article</p>
-            {% endif %}
-          </article>
-        </div>
-      </div>
+      {% render fragments.excerpt(article) %}
     {% endfor %}
   {% else %}
     <p>There are no articles yet. Try adding one.</p>

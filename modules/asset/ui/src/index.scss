@@ -88,7 +88,7 @@ a {
 
 .layout {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   max-width: $outerWidth;
   margin-left: auto;
@@ -216,6 +216,15 @@ h1 {
   @container (max-width: 600px) {
     font-size: 40px;
   }
+
+  // &.small {
+  //   font-size: 32px;
+  //   letter-spacing: -1px;
+  // }
+
+  // &.left {
+  //   text-align: left;
+  // }
 }
 
 h1, h2, h3, h4 {
@@ -240,8 +249,3 @@ h1, h2, h3, h4 {
 .ProseMirror > * + * {
   margin-top: 0 !important;
 }
-
-// #apos-notification .apos-notifications .apos-notification__label,
-// #apos-notification .apos-notifications .apos-notification__progress-value {
-//   font-size: 32px;
-// }

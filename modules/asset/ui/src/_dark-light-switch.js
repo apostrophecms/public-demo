@@ -1,18 +1,9 @@
-// export default () => {
-//   apos.util.onReady(() => {
-//     const toggle = document.querySelector('[data-mode-switch] input');
-//     toggle.addEventListener('change', function (evt) {
-//       console.log('change');
-//       console.log(evt);
-//     });
-//   });
-// };
-
 export default () => {
   apos.util.onReadyAndRefresh(() => {
     const toggle = document.querySelector('[data-mode-switch] input');
 
     if (!toggle) {
+      console.log('bail');
       return;
     }
 

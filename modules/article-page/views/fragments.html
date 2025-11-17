@@ -1,23 +1,34 @@
-{% fragment topicsList(topics) %}
-  <ul class="article-topics meta">
-    {% for topic in topics %}
-      <li>{{ topic.title }}</li>
-    {% endfor %}
-  </ul>
-{% endfragment %}
-
-{% fragment indexItem(article) %}
+{% fragment excerpt(article) %}
+  {% set attachment = apos.image.first(article._image) %}
+  {% set url = apos.attachment.url(attachment, { size: size }) %}
   <div class="article-excerpt">
-    {% if article._topics and article._topics.length > 0 %}
-      {% render topicsList(article._topics) %}
-    {% endif %}
-    <h2>
-      <a href="{{ article._url }}">{{ article.title }}</a>
-    </h2>
-    {% if not apos.area.isEmpty(article, 'blurb') %}
-      <p class="article-blurb">{% area article, 'blurb' %}</p>
-    {% else %}
-      <p class="placeholder">No blurb for this article</p>
-    {% endif %}
+    <div class="article-excerpt-image-container">
+      <img class="article-excerpt-image" src="{{ url }}" alt="{{ attachment.title }}" />
+    </div>
+    <div class="article-excerpt-content">
+      {% if not article._url %}
+        <p class="meta purple">
+          <em>You will need to publish an Article Index page for article links to work.</em>
+        </p>
+      {% endif %}
+      {% if article._topics.length %}
+        <div class="article-topics">
+          {% for topic in article._topics %}
+            <span class="chip">{{ topic.title }}</span>
+          {% endfor %}
+        </div>
+        <div class="article-published">
+          {{ article.publishedDate }}
+        </div>
+      {% endif %}
+      <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
+      <article>
+        {% if not apos.area.isEmpty(article, 'blurb') %}
+          {% area article, 'blurb' %}
+        {% else %}
+          <p class="placeholder">No blurb for this article</p>
+        {% endif %}
+      </article>
+    </div>
   </div>
 {% endfragment %}

@@ -2,6 +2,12 @@ import { fullConfig } from '../../lib/area.js';
 
 export default {
   extend: '@apostrophecms/piece-type',
+  options: {
+    sort: {
+      publishedDate: -1,
+      createdAt: -1
+    }
+  },
   fields: {
     add: {
       blurb: {
@@ -16,6 +22,10 @@ export default {
             }
           }
         }
+      },
+      publishedDate: {
+        label: 'Published Date',
+        type: 'date'
       },
       _topics: {
         label: 'Article topics',
@@ -65,7 +75,6 @@ export default {
   components(self) {
     return {
       async recent(req, data) {
-        console.log(data.display);
         return {
           articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray(),
           display: data.display

@@ -2,43 +2,31 @@
   padding: 0;
 }
 
-.article-widget {
-  display: flex;
-  gap: 1rem;
-
-  h3 {
-    font-size: 1.5em;
-    margin: 0.5rem 0;
-  }
-
-  .demo-rte {
-    margin-bottom: 0;
-  }
-}
-
-.article-widget--display-vertical {
+.article-excerpts--display-vertical {
   flex-direction: column;
 }
 
-.article-excerpt-content {
-  padding: 1rem;
-}
-
-.article-widget--display-horizontal {
+.article-excerpts--display-horizontal {
+  display: flex;
   gap: 2%;
   justify-content: center;
 
   .article-excerpt {
     flex: 1;
-    max-width: 600px;
   }
+}
 
-  // @media (max-width: 800px) {
+.article-excerpts--display-grid {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr; 
+  gap: 8px 10px; 
+  grid-template-areas: 
+    ". . . ."; 
+}
 
-  // }
-  // @media (max-width: 600px) {
-  //   font-size: 40px;
-  // }
+.article-excerpt-content {
+  padding: 1rem;
 }
 
 .article-excerpt-image-container {
@@ -57,6 +45,10 @@
     transform: translateY(-8px);
     box-shadow: 0 20px 40px color-mix(in srgb, var(--default-color), transparent 85%);
     border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+  }
+
+  .demo-rte {
+    margin-bottom: 0;
   }
 }
 
@@ -84,28 +76,23 @@
   }
 }
 
-.article-excerpts {
+.article-topic-filters {
+  list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-
-  @media (max-width: 680px) {
-    flex-direction: column;
-  }
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
   
-  @container (max-width: 680px) {
-    flex-direction: column;
-  }
+  a {
+    text-decoration: none;
 
-  .article-excerpt {
-    width: 30%;
-
-    @media (max-width: 680px) {
-      width: 100%;
+    &.active {
+      color: var(--nav-hover-color);
     }
-    
-    @container (max-width: 680px) {
-      width: 100%;
+    &:hover {
+      text-decoration: underline;
+      color: var(--nav-hover-color);
     }
   }
 }
@@ -152,15 +139,15 @@
 }
 
 .article-intro {
-  font-family: 'Inter', sans-serif;
+  // font-family: 'Inter', sans-serif;
   margin-bottom: 40px;
 }
 
-.latest-article h2 {
-  opacity: 0.5;
-}
+// .latest-article h2 {
+//   opacity: 0.5;
+// }
 
-.article-topics.inner {
-  display: flex;
-  justify-content: center;
-}
+// .article-topics.inner {
+//   display: flex;
+//   justify-content: center;
+// }

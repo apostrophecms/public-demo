@@ -1,7 +1,10 @@
 // import { fullConfig } from '../../lib/area.js';
 
 export default {
-  extend: '@apostrophecms/piece-type'
+  extend: '@apostrophecms/piece-type',
+  options: {
+    alias: 'topic'
+  }
   // fields: {
   //   add: {
   //     string: {

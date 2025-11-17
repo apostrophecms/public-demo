@@ -81,7 +81,6 @@
         Get Started
       </a>
     </div>
-    {% include "locales.html" %}
   </header>
   {# <header class="header">
     <div class="inner">
@@ -114,6 +113,7 @@
         {% set title = data.piece.title %}
       {% endif %}
       <h1 class="page-title">{{ title }}</h1>
+      <!--
       {% block subnav %}
         {% if data.page and (not data.piece) and data.page._children.length %}
           {% set placeheld = false %}
@@ -129,6 +129,7 @@
           </section>
         {% endif %}
       {% endblock %}
+      -->
     </div>
   {% endblock %}
   <div class="layout">
