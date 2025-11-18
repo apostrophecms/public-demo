@@ -19,7 +19,7 @@
     "@apostrophecms/import-export": "^2.4.1",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.0.0-beta.1",
-    "apostrophe": "^4.9.0"
+    "apostrophe": "apostrophecms/apostrophe#npm-errors"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
