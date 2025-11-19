@@ -1,6 +1,7 @@
 .price-card-widget {
   display: flex;
   flex-direction: column;
+  height: 100%;
   padding: 20px;
   background: var(--surface-color);
   border-radius: 12px;
@@ -77,7 +78,7 @@
   flex-direction: column;
   margin: 1rem 0 4rem;
   padding: 1.5rem 0 0;
-  border-top: 1px solid var(--faint-color);
+  border-top: 1px solid var(--medium-color);
   list-style-type: none;
   gap: 0.45rem;
 

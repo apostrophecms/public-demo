@@ -13,7 +13,14 @@ export default {
         options: {
           expanded: true,
           groups: fullConfigExpandedGroups
-        }
+        },
+        def: [
+          '@apostrophecms/rich-text',
+          '@apostrophecms/rich-text',
+          '@apostrophecms/image',
+          '@apostrophecms/video',
+          '@apostrophecms/rich-text'
+        ]
       }
     },
     group: {

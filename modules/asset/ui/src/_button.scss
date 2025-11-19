@@ -23,18 +23,6 @@
   }
 }
 
-// .button.primary {
-//   background: var(--accent-color);
-//   color: var(--contrast-color);
-//   border: 2px solid var(--accent-color);
-
-//   &:hover {
-//     background: color-mix(in srgb, var(--accent-color), black 10%);
-//     border-color: color-mix(in srgb, var(--accent-color), black 10%);
-//     transform: translateY(-2px);
-//   }
-// }
-
 .button.outline {
   background: transparent;
   color: var(--accent-color);

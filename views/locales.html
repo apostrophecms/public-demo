@@ -1,6 +1,6 @@
 <div class="locales" data-locales>
   <button
-    class="locales__toggler button button--small"
+    class="locales__toggler"
     data-locales-toggle
     aria-expanded="false"
     aria-controls="locales-list"
@@ -11,7 +11,7 @@
           {{ localization.label }} ({{ localization.locale }})
         </span>
       {% endif %}
-  {% endfor %}
+    {% endfor %}
   </button>
   <ul id="locales-list" class="locales__list" data-locales-list hidden>
     {% for localization in data.localizations %}

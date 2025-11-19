@@ -197,3 +197,33 @@
 .image-full {
   max-width: 100%;
 }
+
+// Table overrides
+
+.layout [data-rich-text] table:not([class]) td,
+.layout [data-rich-text] table:not([class]) th,
+.layout .tiptap table:not([class]) td,
+.layout .tiptap table:not([class]) th,
+.layout .tableWrapper table td,
+.layout .tableWrapper table th,
+.layout .apos-rich-text-table td,
+.layout .apos-rich-text-table th {
+  border: 1px solid var(--faint-color);
+}
+
+.layout [data-rich-text] table:not([class]) th,
+.layout .tiptap table:not([class]) th,
+.layout .tableWrapper table th,
+.layout .apos-rich-text-table th {
+  padding: 1rem 0;
+  background-color: var(--faint-color);
+  vertical-align: middle;
+}
+
+.layout th {
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
