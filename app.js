@@ -25,22 +25,9 @@ apostrophe({
     '@apostrophecms/vite': {},
     localizations: {},
 
-    // Custom CSS classes for standard apostrophe widgets
-    '@apostrophecms/rich-text-widget': {
-      options: {
-        className: 'demo-rte'
-      }
-    },
-    '@apostrophecms/image-widget': {
-      options: {
-        className: 'demo-image'
-      }
-    },
-    '@apostrophecms/video-widget': {
-      options: {
-        className: 'demo-video'
-      }
-    },
+    '@apostrophecms/rich-text-widget': {},
+    '@apostrophecms/image-widget': {},
+    '@apostrophecms/video-widget': {},
     // Manages apostrophe's overall asset pipeline
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
@@ -61,6 +48,7 @@ apostrophe({
     'github-prs-widget': {},
     'hero-widget': {},
     'card-widget': {},
+    'price-card-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},

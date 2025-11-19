@@ -7,6 +7,11 @@
   background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 90%), color-mix(in srgb, var(--accent-color), transparent 85%));
   padding: 6px 12px;
   border-radius: 20px;
+  text-decoration: none;
+}
+
+a.chip:hover {
+  filter: brightness(4);
 }
 
 .mode-switch {

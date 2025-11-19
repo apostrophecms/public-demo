@@ -1,0 +1,25 @@
+.demo-video {
+  width: 100%;
+}
+
+.demo-image {
+  max-width: 100%;
+  border-radius: 10px;
+
+  .widget {
+    margin-bottom: 0;
+  }
+}
+
+.demo-image__wrapper {
+  margin: 0;
+}
+
+.demo-image__caption {
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.widget.demo-image__wrapper .widget {
+  margin-bottom: 0 !important;
+}

@@ -20,7 +20,7 @@
 .breadcrumb {
   display: flex;
   justify-content: center;
-  // margin-bottom: 20px;
+  margin-bottom: 1rem;
 
   @media (max-width: 680px) {
     flex-direction: column;
@@ -34,7 +34,6 @@
 }
 
 .breadcrumb a {
-  font-family: "IBM Plex Mono", monospace;
   font-size: .8em;
   display: inline-block;
   text-decoration: none;

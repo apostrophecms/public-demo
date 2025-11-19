@@ -17,10 +17,11 @@ $link-color: rgb(101, 22, 221);
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #4a4b64;
   --nav-dropdown-hover-color: #0b1ae9;
+  --faint-color: #afafaf;
   --default-color: #4a4b64;
   --heading-color: #242859;
   --accent-color: #0b1ae9;
-  --surface-color: #f6f6f6;
+  --surface-color: #efefef;
   --background-color: #ffffff;
   --contrast-color: #ffffff;
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -36,6 +37,7 @@ $link-color: rgb(101, 22, 221);
   --nav-dropdown-color: #c8c6e3;
   --nav-dropdown-hover-color: #ffffff;
   --background-color: #05071e;
+  --faint-color: #696871;
   --default-color: #e8e7f7;
   --heading-color: #ffffff;
   --accent-color: #524dd3;
@@ -46,11 +48,11 @@ $link-color: rgb(101, 22, 221);
 @import '_header';
 @import '_article';
 @import '_pager';
-@import '_subnav';
+// @import '_subnav';
 @import '_rich-text';
-@import '_cta';
-@import '_columns';
-@import '_container';
+// @import '_cta';
+// @import '_columns';
+// @import '_container';
 @import '_button';
 @import '_locales';
 @import '_pr-widget';
@@ -60,6 +62,13 @@ $link-color: rgb(101, 22, 221);
 @import '_hero';
 @import '_card';
 @import '_misc';
+@import '_media';
+@import '_widget';
+@import '_price-card';
+
+// [data-apos-area] [data-apos-area] {
+//   padding: 0 !important;
+// }
 
 body {
   color: var(--default-color);
@@ -71,19 +80,6 @@ body {
 
 a {
  color: var(--nav-color);
-}
-
-.widget {
-  margin-bottom: $spacer;
-}
-
-.demo-video {
-  width: 100%;
-}
-
-.demo-image {
-  max-width: 100%;
-  border-radius: 10px;
 }
 
 .layout {
@@ -149,16 +145,12 @@ main {
   }
 }
 
-.home-cta {
-  margin: 10px 0 50px;
-  .cta-links-widget {
-    margin-top: 20px;
-  }
-}
-
-.purple {
-  color: #6617dc;
-}
+// .home-cta {
+//   margin: 10px 0 50px;
+//   .cta-links-widget {
+//     margin-top: 20px;
+//   }
+// }
 
 .placeholder {
   opacity: 0.5;
@@ -191,6 +183,13 @@ main {
 
 .page-title-wrapper {
   margin-bottom: 80px;
+}
+
+.page-title {
+  font-size: 50px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  line-height: 0.9;
 }
 
 h1 {

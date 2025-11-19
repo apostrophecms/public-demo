@@ -12,11 +12,13 @@
       {% endif %}
       <h1 class="page-title">{{ title }}</h1>
     </div>
-    <div class="inner article-topics">
-      {% if article._topics and article._topics.length > 0 %}
-        {% render fragments.topicsList(article._topics) %}
-      {% endif %}
-    </div>
+    {% if article._topics.length %}
+      <div class="inner article-topics article-topics--show">
+        {% for topic in article._topics %}
+          <a href="{{ article._parentSlug }}?topics={{ topic.slug }}" class="chip">{{ topic.title }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
 
