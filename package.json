@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node app",
-    "dev": "APOS_DEV=1 nodemon --delay 1000ms -x \"nodemon app.js\"",
+    "dev": "cross-env APOS_DEV=1 nodemon --delay 1000ms -x \"nodemon app.js\"",
     "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
-    "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
+    "analyze-bundle": "cross-env APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,9 @@
   "dependencies": {
     "@apostrophecms/import-export": "^2.4.1",
     "@apostrophecms/seo": "^1.2.3",
-    "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.9.0"
+    "@apostrophecms/vite": "apostrophecms/vite",
+    "apostrophe": "apostrophecms/apostrophe",
+    "cross-env": "^10.1.0"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
