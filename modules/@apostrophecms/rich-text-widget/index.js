@@ -4,6 +4,9 @@ export default {
     description: 'Add styled text to your page',
     previewImage: 'png',
     className: 'widget demo-rte',
+    defaultData: {
+      content: '<h2>A new page!!!!</h2>'
+    },
     imageStyles: [
       {
         value: 'image-full',

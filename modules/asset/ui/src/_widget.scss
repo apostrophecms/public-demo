@@ -1,10 +1,6 @@
 .widget {
   margin-bottom: $spacer;
 
-  &.layout-widget {
-    // margin-bottom: 0;
-  }
-
   .widget {
     margin-bottom: math.div($spacer, 2);
   }

@@ -2,9 +2,11 @@
   {% set attachment = apos.image.first(article._image) %}
   {% set url = apos.attachment.url(attachment, { size: size }) %}
   <div class="article-excerpt">
-    <div class="article-excerpt-image-container">
-      <img class="article-excerpt-image" src="{{ url }}" alt="{{ attachment.title }}" />
-    </div>
+    {% if url %}
+      <a class="article-excerpt-image-container" href="{{ article._url }}">
+        <img class="article-excerpt-image" src="{{ url }}" alt="{{ attachment.title }}" />
+      </a>
+    {% endif %}
     <div class="article-excerpt-content">
       {% if not article._url %}
         <p class="meta">
@@ -19,7 +21,7 @@
         </div>
       {% endif %}
         <div class="article-published">
-          {{ article.publishedDate }}
+          {{ apos.helper.formatDate(article.publishedDate) }}
         </div>
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
       <article>

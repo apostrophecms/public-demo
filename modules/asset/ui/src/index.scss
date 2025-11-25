@@ -25,6 +25,7 @@ $link-color: rgb(101, 22, 221);
   --surface-color: #efefef;
   --background-color: #ffffff;
   --contrast-color: #ffffff;
+  --mobile-nav-bg: #242859F0;
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Quicksand", sans-serif;
   --nav-font: "Poppins", sans-serif;
@@ -50,16 +51,11 @@ $link-color: rgb(101, 22, 221);
 @import '_header';
 @import '_article';
 @import '_pager';
-// @import '_subnav';
 @import '_rich-text';
-// @import '_cta';
-// @import '_columns';
-// @import '_container';
 @import '_button';
 @import '_locales';
 @import '_pr-widget';
 @import '_footer';
-// new
 @import '_nav';
 @import '_hero';
 @import '_card';
@@ -67,10 +63,6 @@ $link-color: rgb(101, 22, 221);
 @import '_media';
 @import '_widget';
 @import '_price-card';
-
-// [data-apos-area] [data-apos-area] {
-//   padding: 0 !important;
-// }
 
 body {
   color: var(--default-color);
@@ -118,51 +110,10 @@ main {
   width: 180px;
 }
 
-.home {
-  // font-family: 'Inter', sans-serif;
-  display: flex;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.home-title {
-  margin: 20px auto 10px;
-  font-weight: 400;
-}
-
-.home .content {
-  // font-family: 'Inter', sans-serif;
-  flex-grow: 1;
-  margin-left: 30px;
-
-  @media (max-width: 680px) {
-    max-width: 100%;
-    margin-left: 0;
-  }
-  
-  @container (max-width: 680px) {
-    max-width: 100%;
-    margin-left: 0;
-  }
-}
-
-// .home-cta {
-//   margin: 10px 0 50px;
-//   .cta-links-widget {
-//     margin-top: 20px;
-//   }
-// }
-
 .placeholder {
   opacity: 0.5;
   margin: 40px 0;
   font-style: italic;
-}
-
-.tip {
-  // font-family: 'Caveat', cursive;
-  color: #6617dc;
 }
 
 .meta {
@@ -195,7 +146,6 @@ main {
 }
 
 h1 {
-  // font-family: 'Inter', sans-serif;
   margin: 0;
   font-size: 80px;
   font-weight: 700;
@@ -217,24 +167,15 @@ h1 {
   @container (max-width: 600px) {
     font-size: 40px;
   }
-
-  // &.small {
-  //   font-size: 32px;
-  //   letter-spacing: -1px;
-  // }
-
-  // &.left {
-  //   text-align: left;
-  // }
 }
 
 h1, h2, h3, h4 {
   @media (max-width: 680px) {
-    text-align: center;
+    // text-align: center;
   }
   
   @container (max-width: 680px) {
-    text-align: center;
+    // text-align: center;
   }
 }
 

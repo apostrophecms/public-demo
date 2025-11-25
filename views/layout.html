@@ -48,7 +48,7 @@
           {# <img class="site-logo" src="/images/apostrophecms-primary.svg" alt="ApostropheCMS Demo" /> #}
         </a>
       </h2>
-      <nav class="nav">
+      <nav class="nav" role="navigation">
         <ul>
           <li>
             <a
@@ -71,29 +71,49 @@
             {% endif %}
           {% endfor %}
         </ul>
-
       </nav>
-      
       <div class="nav-bar__end">
         {% include "locales.html" %}
-      <a
-        href="https://apostrophecms.com?utm_source=demo"
-        target="_blank"
-        class="callout-button"
-      >
-        ApostropheCMS
-      </a>
       </div>
+      <button class="nav__mobile-button" data-mobile-trigger aria-controls="mobile-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        <span>Menu</span>
+      </button>
     </div>
   </header>
-  {# <header class="header">
-    <div class="inner">
-      <a class="site-home" href="/">
-        
-      </a>
+  <div class="mobile-nav" data-mobile-nav="hidden" aria-hidden="true">
+    <button class="mobile-nav__close-trigger" data-mobile-close-trigger>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      <span>Close</span>
+    </button>
+    <nav id="mobile-nav" class="mobile-nav__nav" role="navigation">
+      <ul>
+        <li>
+          <a
+            {% if data.page.slug === data.home.slug %}
+              class="active"
+            {% endif %}
+            href="{{ data.home._url }}"
+          >{{ data.home.title }}</a>
+        </li>
+        {% for page in data.home._children %}
+          {% if page.visibility === 'public' %}
+            <li>
+              <a
+                {% if data.page.slug === page.slug %}
+                  class="active"
+                {% endif %}
+                href="{{ page._url }}"
+              >{{ page.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="mobile-nav__locales">
+      {% include "locales.html" %}
     </div>
-    {% include "locales.html" %}
-  </header> #}
+  </div>
   {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
     {% if data.page and data.page._ancestors.length %}

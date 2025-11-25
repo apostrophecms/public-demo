@@ -2,6 +2,8 @@
 
 {% extends "layout.html" %}
 {% set article = data.piece %}
+{% set attachment = apos.image.first(article._image) %}
+{% set url = apos.attachment.url(attachment, { size: size }) %}
 
 {% block pageTitle %}
   <div class="article-title-wrapper">
@@ -24,6 +26,9 @@
 
 {% block main %}
   <article class="article-show general-content">
+    {% if url %}
+      <img class="article-show__image" src="{{ url }}" alt="{{ article.title }}">
+    {% endif %}
     {% area article, 'main' %}
   </article>
 {% endblock %}

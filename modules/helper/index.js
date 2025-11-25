@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export default {
   options: {
     alias: 'helper'
@@ -17,6 +19,9 @@ export default {
           path = link.linkUrl;
         }
         return path;
+      },
+      formatDate: (date) => {
+        return dayjs(date).format('MMMM D, YYYY');
       }
     });
   }
