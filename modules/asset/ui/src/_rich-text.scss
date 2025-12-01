@@ -68,7 +68,7 @@
     font-weight: 500;
   }
 
-  margin-bottom: $spacer;
+  margin-bottom: var(--widget-spacer);
 }
 
 .apos-layout__item .demo-rte {

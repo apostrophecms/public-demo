@@ -1,6 +1,6 @@
 .nav-bar {
-  // z-index: 1;
-  // position: fixed;
+  z-index: 5;
+  position: fixed;
   box-sizing: border-box;
   left: auto;
   right: auto;
@@ -103,9 +103,11 @@
     box-shadow: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
     color: white;
     align-items: center;
+    justify-content: center;
   }
 }
 

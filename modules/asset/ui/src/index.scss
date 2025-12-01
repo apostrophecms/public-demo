@@ -1,8 +1,6 @@
 @use 'sass:math';
 
 $outerWidth: 1100px;
-$spacer: 50px;
-
 $brand-red: #ea433a;
 $brand-mustard: #cc9300;
 $brand-purple: #b327bf;
@@ -29,6 +27,13 @@ $link-color: rgb(101, 22, 221);
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Quicksand", sans-serif;
   --nav-font: "Poppins", sans-serif;
+  --widget-spacer: 50px;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    --widget-spacer: 30px;
+  }
 }
 
 .dark {
@@ -47,6 +52,7 @@ $link-color: rgb(101, 22, 221);
   --surface-color: #131428;
   --contrast-color: #ffffff;
 }
+
 
 @import '_header';
 @import '_article';
@@ -132,6 +138,10 @@ main {
 .general-content .demo-rte {
   margin-right: auto;
   margin-left: auto;
+
+  @media screen and (max-width: 600px) {
+    overflow: scroll;
+  }
 }
 
 .page-title-wrapper {

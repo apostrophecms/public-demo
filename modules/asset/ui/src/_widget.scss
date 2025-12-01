@@ -1,7 +1,7 @@
 .widget {
-  margin-bottom: $spacer;
+  margin-bottom: var(--widget-spacer);
 
   .widget {
-    margin-bottom: math.div($spacer, 2);
+    margin-bottom: calc(var(--widget-spacer) / 2);
   }
 }
