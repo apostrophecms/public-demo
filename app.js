@@ -69,6 +69,9 @@ apostrophe({
     topic: {},
 
     // Import and export content
-    '@apostrophecms/import-export': {}
+    '@apostrophecms/import-export': {},
+
+    // Tour
+    tour: {}
   }
 });
