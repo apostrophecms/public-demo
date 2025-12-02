@@ -1,0 +1,60 @@
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  padding: 0;
+  margin: 0;
+}
+
+a {
+ color: var(--nav-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: var(--max-layout-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+
+  @media (max-width: 680px) {
+    display: block;
+  }
+  
+  @container (max-width: 680px) {
+    display: block;
+  }
+}
+
+.site-home {
+  display: inline-block;
+}
+
+.site-logo {
+  display: block;
+  width: 180px;
+}
+
+.placeholder {
+  opacity: 0.5;
+  margin: 40px 0;
+  font-style: italic;
+}
+
+.general-content .demo-rte {
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (max-width: 600px) {
+    overflow: scroll;
+  }
+}

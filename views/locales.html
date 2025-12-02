@@ -9,7 +9,9 @@
       {% if localization.current %}
         <span class="locales__toggler__text">
           <div class="locales__toggler__flag" style="background-image: url(https://flagsapi.com/{{ localization.flag }}/flat/32.png)"></div>
-          {{ localization.label }}
+          <span class="locales__toggler__active-label">
+            {{ localization.label }}
+          </span>
           <svg class="locales__toggler__chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
         </span>
       {% endif %}

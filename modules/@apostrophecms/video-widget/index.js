@@ -2,7 +2,7 @@ export default {
   options: {
     label: 'Video',
     description: 'Add a video player from services like YouTube',
-    previewImage: 'jpg',
+    previewImage: 'svg',
     className: 'widget demo-video'
   }
 };

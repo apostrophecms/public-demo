@@ -1,4 +1,5 @@
 .nav-bar {
+  font-family: var(--nav-font);
   z-index: 5;
   position: fixed;
   box-sizing: border-box;
@@ -18,6 +19,15 @@
 .nav-bar h2 {
   margin: 0;
   padding: 0;
+
+  a {
+    text-decoration: none;
+    color: var(--nav-color);
+
+    &:hover {
+      color: var(--nav-hover-color);
+    }
+  }
 }
 
 .nav-bar__end {

@@ -133,14 +133,12 @@
   margin: 0 auto 50px;
 
   h1 {
-    font-family: 'Inter', sans-serif;
     font-size: 5em;
     line-height: 1.3;
     margin-top: 30px;
   }
 
   .meta {
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: normal;
     letter-spacing: 1px;
@@ -156,30 +154,10 @@
   }
 }
 
-.related {
-  margin-top: 50px;
-  padding: 30px;
-  background-color: #f7f7f7;
-
-  .inner {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-}
-
 .article-intro {
-  // font-family: 'Inter', sans-serif;
   margin-bottom: 40px;
 }
 
-// .latest-article h2 {
-//   opacity: 0.5;
-// }
-
-// .article-topics.inner {
-//   display: flex;
-//   justify-content: center;
-// }
 .article-show__image {
   max-width: 100%;
   border-radius: 1rem;

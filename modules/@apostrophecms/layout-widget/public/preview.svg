@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="410px" height="135px" viewBox="0 0 410 135" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>layout</title>
+    <defs>
+        <path d="M0,0 L410,0 L410,135 L0,135 L0,0 Z" id="path-1"></path>
+        <linearGradient x1="50%" y1="144.535209%" x2="50%" y2="6.16297582e-31%" id="linearGradient-2">
+            <stop stop-color="#FAFBFF" offset="0%"></stop>
+            <stop stop-color="#B9D2FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="layout" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#ADC4FE" xlink:href="#path-1"></use>
+        <rect id="Rectangle" fill="#FFFFFD" x="15" y="15" width="380" height="105" rx="8"></rect>
+        <rect id="Rectangle-Copy" stroke="#587FEA" stroke-width="2" fill="#F2F6FD" x="31" y="30" width="78" height="74" rx="4"></rect>
+        <rect id="Rectangle-Copy-2" stroke="#587FEA" stroke-width="2" fill="#F2F6FD" opacity="0.5" x="126" y="30" width="158" height="74" rx="4"></rect>
+        <rect id="Rectangle-Copy-4" stroke="#587FEA" stroke-width="2" fill="url(#linearGradient-2)" x="126" y="30" width="112" height="74" rx="4"></rect>
+        <rect id="Rectangle-Copy-5" stroke="#3D58A0" stroke-width="2" fill="#F2F6FD" x="122" y="26" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-6" stroke="#3D58A0" stroke-width="2" fill="#F2F6FD" x="233" y="26" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-8" stroke="#3D58A0" stroke-width="2" fill="#F2F6FD" x="122" y="100" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-7" stroke="#3D58A0" stroke-width="2" fill="#F2F6FD" x="233" y="100" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-3" stroke="#587FEA" stroke-width="2" fill="#F2F6FD" x="301" y="30" width="78" height="74" rx="4"></rect>
+        <rect id="Rectangle-Copy-9" stroke="#587FEA" stroke-width="2" fill="#FFFFFD" x="232" y="54" width="12" height="26" rx="4"></rect>
+        <g id="Group" stroke-width="1" transform="translate(223.5, 67) rotate(90) translate(-223.5, -67)translate(213, 57)">
+            <path d="M20.6681336,6.33333333 L20.0029338,13.6666667 L18.6725343,15.6666667 L15.0139356,19 L11.3553369,19 L5.36853899,19 L3.04033982,16.6666667 L0.0469408811,13.3333333 L0.0469408811,9.66666667 L1.37734041,8.66666667 L3.04033982,8 L4.37073935,6.33333333 L4.37073935,3 L6.33333333,1.66666667 L8.66666667,3 L10.3333333,0 L12.6666667,1.66666667 L14,1.66666667 L16.3333333,2.66666667 L17.6666667,4.66666667 L20,4 C20,4.44444444 20.2227112,5.22222222 20.6681336,6.33333333 Z" id="Path-2" fill="#FFFFFD"></path>
+            <path d="M16.8092415,6.875 L16.8092415,3.75 C16.8092415,2.36928813 15.8711082,1.25 14.7138622,1.25 C13.5566162,1.25 12.618483,2.36928813 12.618483,3.75 L12.618483,5.5" id="Path" stroke="#3D58A0" stroke-width="2.66666667" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M12.618483,5 L12.618483,2.5 C12.618483,1.11928813 11.6803497,1.13686838e-13 10.5231037,1.13686838e-13 C9.36585771,1.13686838e-13 8.42772446,1.11928813 8.42772446,2.5 L8.42772446,5" id="Path" stroke="#3D58A0" stroke-width="2.66666667" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M8.42772446,4.875 L8.42772446,3.75 C8.42772446,2.36928813 7.48959121,1.25 6.3323452,1.25 C5.17509919,1.25 4.23696594,2.36928813 4.23696594,3.75 L4.23696594,10" id="Path" stroke="#3D58A0" stroke-width="2.66666667" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M4.23696594,10 C4.23696594,8.61928813 3.2988327,7.5 2.14158669,7.5 C0.984340678,7.5 0.0462074298,8.61928813 0.0462074298,10" id="Path" stroke="#3D58A0" stroke-width="2.66666667" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16.8092415,6.25 C16.8092415,4.86928813 17.7473747,3.75 18.9046207,3.75 C20.0618668,3.75 21,4.86928813 21,6.25 L21,10 C21,15.5228475 17.247467,20 12.618483,20 L8.42772446,20 C3.79874042,20 -0.494675954,15.5068053 0.0462074298,10 C0.373610439,6.66666667 4.23696594,8.61928813 4.23696594,10" id="Path" stroke="#3D58A0" stroke-width="2.66666667" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+        <g id="Group" stroke-width="1" transform="translate(235, 59)" fill="#3D58A0">
+            <circle id="Oval" cx="1" cy="1" r="1"></circle>
+            <circle id="Oval-Copy" cx="5" cy="1" r="1"></circle>
+            <circle id="Oval-Copy-3" cx="1" cy="6" r="1"></circle>
+            <circle id="Oval-Copy-2" cx="5" cy="6" r="1"></circle>
+            <circle id="Oval-Copy-5" cx="1" cy="11" r="1"></circle>
+            <circle id="Oval-Copy-4" cx="5" cy="11" r="1"></circle>
+            <circle id="Oval-Copy-7" cx="1" cy="16" r="1"></circle>
+            <circle id="Oval-Copy-6" cx="5" cy="16" r="1"></circle>
+        </g>
+    </g>
+</svg>

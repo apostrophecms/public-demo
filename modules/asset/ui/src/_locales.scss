@@ -1,22 +1,10 @@
 .locales {
   position: relative;
-  // text-align: right;
-  // top: -30px;
-  // right: 20px;
+}
 
-  // @media (max-width: 680px) {
-  //   position: relative;
-  //   top: auto;
-  //   right: auto;
-  //   padding: 0 20px 20px;
-  // }
-  
-  // @container (max-width: 680px) {
-  //   position: relative;
-  //   top: auto;
-  //   right: auto;
-  //   padding: 0 20px 20px;
-  // }
+.locales__toggler__active-label {
+  position: relative;
+  top: 2px;
 }
 
 .locales__toggler__flag {
@@ -37,7 +25,7 @@
 
 .locales__toggler__chevron {
   position: relative;
-  top: 1px;
+  top: 3px;
   width: 13px;
   height: auto;
   left: -2px;
@@ -101,7 +89,6 @@
   }
   a,
   a:visited {
-    // color: $link-color;
     text-decoration: none;
   }
 
