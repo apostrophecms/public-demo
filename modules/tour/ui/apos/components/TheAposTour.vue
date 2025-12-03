@@ -2,68 +2,72 @@
 import introJs from 'intro.js';
 import { ref, onMounted, computed, watch } from 'vue'
 import { useModalStore } from 'Modules/@apostrophecms/ui/stores/modal';
-// import { useLocalStorageWithExpiry } from '../composables/useLocalStorageWithExpiry';
+import { useTour } from '../composables/useTour';
+
 import introFlow from '../lib/flows/intro';
+import hints from '../lib/hints'
 
-const INTRO_TTL_MS = 30 * 24 * 60 * 60 * 1000;
-// const storage = useLocalStorageWithExpiry('apos:tour', { defaultTtlMs: INTRO_TTL_MS });
-const hints = [
-  { hint: 'First hint', element: '[data-apos-test="localePickerTrigger"]' },
-  { hint: 'Second hint', element: '.apos-admin-bar__logo'},
-  { hint: 'third hint', element: '.site-logo'},
-  { hint: 'make the thing', element: '.apos-modal__header__main .apos-button--primary', modal: true},
-];
-const flows = ref([
+const flows = ref({
   introFlow
-]);
+});
 
-const store = useModalStore();
-const stack = computed(() => store.stack);
-
-watch(stack, async (newStack, oldStack) => {
-  console.log('STACK CHANGE');
-  console.log(newStack);
-})
-
-const modalLaunched = (modal) => {
-  console.log('launched', modal);
-  hint.removeHints();
-  setTimeout(() => {
-  hint.setOptions({
-    hints: hints.filter(h => h.modal)
-  });
-  hint.addHints();
-  }, 50);
-}
-
-const modalClosed = (modal) => {
-  console.log('closed', modal);
-}
-
+const modalStore = useModalStore();
+const { setValue, getValue, data, resetStore } = useTour();
+// const modalStack = computed(() => modalStore.stack);
+const activeModal = computed(() => modalStore.activeModal);
 const hint = introJs.hint();
 
+hint.onhintclose(hint => { 
+  setValue(hint.id, true);
+});
+
+watch(activeModal, async (newModal) => {
+  refreshHints();
+})
+
+const refreshHints = () => {
+  hint.removeHints();
+  setTimeout(() => {
+    hint.setOptions({
+      hints: getViableHints()
+    });
+    hint.addHints();
+  }, 50);
+};
+
+const refreshFlows = () => {
+  for (const key in flows.value) {
+    if (document.querySelector(flows.value[key].el)) {
+      flows.value[key].run(introJs, setValue);
+    }
+  }
+}
+
+const getViableHints = () => {
+  return hints
+    .filter(h => activeModal.value ? h.modal : !h.modal)
+    .filter(h => !getValue(h.id))
+}
+
+const resetHandler = () => {
+  window.addEventListener('keydown', e => {
+    if (e.metaKey && e.shiftKey && e.key === '0') {
+      e.preventDefault();
+      resetStore();
+      console.log('Store reset')
+    }
+  });
+}
+
 onMounted(() => {
-  apos.bus.$on('modal-launched', modalLaunched);
-  apos.bus.$on('modal-resolved', modalClosed);
+  console.log('Store at startup', data.value);
+  resetHandler();
   
   setTimeout(() => {
-
-    // introFlow(introJs);
-    
-    hint.setOptions({
-      hints: hints.filter(h => !h.modal)
-    });
-
-    hint.addHints();
+    refreshFlows();
+    refreshHints();
   }, 2000);
-  // storage.clearExpired();
-  // const introCompleted = storage.getItem('intro');
-  // if (!introCompleted) {
-  //   // intro(introJsConstructor);
-  // }
 
-  // console.log(test);
-  // storage.setItem('stuTest', 'fun');
 });
 </script>
 

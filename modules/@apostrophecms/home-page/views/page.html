@@ -5,6 +5,8 @@
 
 {% extends "layout.html" %}
 
+{% block bodyClass %}{{ super() }} home-page{% endblock %}
+
 {# Home page is full width #}
 {% block pageTitle %}
   <h1 class="home-title" style="font-size: 14px;">
