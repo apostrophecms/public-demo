@@ -2,6 +2,8 @@
 
 {% extends "layout.html" %}
 {% set article = data.piece %}
+{% set attachment = apos.image.first(article._image) %}
+{% set url = apos.attachment.url(attachment, { size: size }) %}
 
 {% block pageTitle %}
   <div class="article-title-wrapper">
@@ -12,16 +14,21 @@
       {% endif %}
       <h1 class="page-title">{{ title }}</h1>
     </div>
-    <div class="inner article-topics">
-      {% if article._topics and article._topics.length > 0 %}
-        {% render fragments.topicsList(article._topics) %}
-      {% endif %}
-    </div>
+    {% if article._topics.length %}
+      <div class="inner article-topics article-topics--show">
+        {% for topic in article._topics %}
+          <a href="{{ article._parentSlug }}?topics={{ topic.slug }}" class="chip">{{ topic.title }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
 
 {% block main %}
   <article class="article-show general-content">
+    {% if url %}
+      <img class="article-show__image" src="{{ url }}" alt="{{ article.title }}">
+    {% endif %}
     {% area article, 'main' %}
   </article>
 {% endblock %}

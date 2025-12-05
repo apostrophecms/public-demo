@@ -1,0 +1,7 @@
+.widget {
+  margin-bottom: var(--widget-spacer);
+
+  .widget {
+    margin-bottom: calc(var(--widget-spacer) / 2);
+  }
+}

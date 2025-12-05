@@ -1,7 +1,6 @@
 {# Automatically extends the right outer layout and also handles AJAX situations #}
 {% extends data.outerLayout %}
-{% import '@apostrophecms/template:macros/arrows.html' as arrows with context %}
-{% import "link.html" as link %}
+{% import 'link.html' as link %}
 {% import "locales.html" as locales %}
 
 {# {% block bodyClass %}dark{% endblock %} #}
@@ -36,19 +35,20 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block beforeMain %}
   <header class="header">
     <div class="nav-bar">
       <h2>
-        <a>
+        <a href="/">
           Acme Co.
-          {# <img class="site-logo" src="/images/apostrophecms-primary.svg" alt="ApostropheCMS Demo" /> #}
         </a>
       </h2>
-      <nav class="nav">
+      <nav class="nav" role="navigation">
         <ul>
           <li>
             <a
@@ -71,30 +71,54 @@
             {% endif %}
           {% endfor %}
         </ul>
-
       </nav>
-      <a
-        href="https://apostrophecms.com"
-        target="_blank"
-        class="callout-button"
-      >
-        Get Started
-      </a>
+      <div class="nav-bar__end">
+        {% include "locales.html" %}
+      </div>
+      <button class="nav__mobile-button" data-mobile-trigger aria-controls="mobile-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        <span>Menu</span>
+      </button>
     </div>
   </header>
-  {# <header class="header">
-    <div class="inner">
-      <a class="site-home" href="/">
-        
-      </a>
+  <div class="mobile-nav" data-mobile-nav="hidden" aria-hidden="true">
+    <button class="mobile-nav__close-trigger" data-mobile-close-trigger>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      <span>Close</span>
+    </button>
+    <nav id="mobile-nav" class="mobile-nav__nav" role="navigation">
+      <ul>
+        <li>
+          <a
+            {% if data.page.slug === data.home.slug %}
+              class="active"
+            {% endif %}
+            href="{{ data.home._url }}"
+          >{{ data.home.title }}</a>
+        </li>
+        {% for page in data.home._children %}
+          {% if page.visibility === 'public' %}
+            <li>
+              <a
+                {% if data.page.slug === page.slug %}
+                  class="active"
+                {% endif %}
+                href="{{ page._url }}"
+              >{{ page.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="mobile-nav__locales">
+      {% include "locales.html" %}
     </div>
-    {% include "locales.html" %}
-  </header> #}
+  </div>
   {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
     {% if data.page and data.page._ancestors.length %}
       <div class="inner">
-        <nav class="purple breadcrumb">
+        <nav class="breadcrumb">
           {% for page in data.page._ancestors %}
             <a href="{{ page._url }}">{{ page.title }}</a>
           {% endfor %}
@@ -113,23 +137,6 @@
         {% set title = data.piece.title %}
       {% endif %}
       <h1 class="page-title">{{ title }}</h1>
-      <!--
-      {% block subnav %}
-        {% if data.page and (not data.piece) and data.page._children.length %}
-          {% set placeheld = false %}
-          <section class="sub-nav">
-            {# Side nav: children of the current page #}
-            {% if data.page._children.length %}
-              <nav class="children">
-                {% for page in data.page._children %}
-                  <a class="button button--small" href="{{ page._url }}">{{ page.title }}</a>
-                {% endfor %}
-              </nav>
-            {% endif %}
-          </section>
-        {% endif %}
-      {% endblock %}
-      -->
     </div>
   {% endblock %}
   <div class="layout">
@@ -196,6 +203,7 @@
       </div>
     </div>
   </footer>
+  {# Light/Dark mode switch #}
   <div class="mode-switch" data-mode-switch>
     <label>
       <input class="toggle-checkbox" type="checkbox">

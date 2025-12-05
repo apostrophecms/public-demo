@@ -1,5 +1,4 @@
-{# {% import '@apostrophecms/template:macros/arrows.html' as arrows with context %} #}
-{% import "link.html" as link %}
+{% import 'link.html' as link %}
 {% import '@apostrophecms/template:macros/icons.html' as icons with context %}
 {% set widget = data.widget %}
 
@@ -8,9 +7,11 @@
   card-widget--bg-{{ widget.bg }}
   card-widget--orientation-{{ widget.orientation }}
 ">
-  <div class="card__icon">
-    {{ icons[widget.icon]() }}
-  </div>
+  {% if widget.icon %}
+    <div class="card__icon">
+      {{ icons[widget.icon]() }}
+    </div>
+  {% endif %}
   <div class="card__content">
     <div class="card__title">
       {{ widget.title }}

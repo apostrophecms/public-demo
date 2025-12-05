@@ -53,3 +53,11 @@
     text-decoration: underline;
   }
 }
+
+
+@media only screen and (max-width: 800px) {
+  .footer__section {
+    grid-template-columns: 1fr;
+    grid-template-areas: "."
+  }
+}

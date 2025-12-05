@@ -7,8 +7,6 @@ apostrophe({
   // The baseUrl should be overridden in environment variables for other environments.
   baseUrl: 'http://localhost:3000',
 
-  bundles: [ '@apostrophecms/blog' ],
-
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and
   // configuring user accounts.
@@ -23,57 +21,54 @@ apostrophe({
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here to turn them on: `moduleName: {}`
     '@apostrophecms/vite': {},
-    localizations: {},
 
-    // Custom CSS classes for standard apostrophe widgets
-    '@apostrophecms/rich-text-widget': {
-      options: {
-        className: 'demo-rte'
-      }
-    },
-    '@apostrophecms/image-widget': {
-      options: {
-        className: 'demo-image'
-      }
-    },
-    '@apostrophecms/video-widget': {
-      options: {
-        className: 'demo-video'
-      }
-    },
     // Manages apostrophe's overall asset pipeline
     '@apostrophecms/asset': {
       // When not in production, refresh the page on restart
-      options: {
-        // refreshOnRestart: true,
-        hmr: 'apos'
-      }
+      // options: {
+      //   // refreshOnRestart: true,
+      //   hmr: 'apos'
+      // }
     },
+
+    localizations: {},
+
+    // Manage page and piece SEO metadata
     '@apostrophecms/seo': {},
 
     // A home for our own project-specific javascript and SASS assets
     asset: {},
+
+    // Template helpers
     helper: {},
+
+    // Widgets
+    '@apostrophecms/rich-text-widget': {},
+    '@apostrophecms/image-widget': {},
+    '@apostrophecms/video-widget': {},
     'cta-links-widget': {},
-    // 'columns-widget': {},
-    // 'container-widget': {},
     'button-widget': {},
     'github-prs-widget': {},
     'hero-widget': {},
     'card-widget': {},
+    'price-card-widget': {},
 
     // A page type for ordinary pages
     'default-page': {},
 
     // A piece type for articles
     article: {},
+
     // Tease an article on any page
     'article-widget': {},
+
     // Paginated index of articles, and with pages for individual articles
     'article-page': {},
+
+    // A piece type for categorizing articles
     topic: {},
+
+    // Import and export content
     '@apostrophecms/import-export': {}
-    // '@apostrophecms/blog': {},
-    // '@apostrophecms/blog-page': {}
   }
 });

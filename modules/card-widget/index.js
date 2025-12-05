@@ -1,5 +1,7 @@
 import linkConfig from '../../lib/link.js';
+import iconChoices from '../../lib/iconChoices.js';
 import { klona } from 'klona';
+
 const localLinkConfig = klona(linkConfig.link);
 
 localLinkConfig.linkText.if =
@@ -29,52 +31,7 @@ export default {
       icon: {
         label: 'Icon',
         type: 'select',
-        choices: [
-          {
-            label: 'Clock',
-            value: 'clock'
-          },
-          {
-            label: 'Building',
-            value: 'building'
-          },
-          {
-            label: 'Landmark',
-            value: 'landmark'
-          },
-          {
-            label: 'CPU',
-            value: 'cpu'
-          },
-          {
-            label: 'Trophy',
-            value: 'trophy'
-          },
-          {
-            label: 'Earth',
-            value: 'earth'
-          },
-          {
-            label: 'People',
-            value: 'people'
-          },
-          {
-            label: 'Chart',
-            value: 'chart'
-          },
-          {
-            label: 'Rocket',
-            value: 'rocket'
-          },
-          {
-            label: 'Package',
-            value: 'package'
-          },
-          {
-            label: 'Editor',
-            value: 'editor'
-          }
-        ]
+        choices: iconChoices
       },
       bg: {
         label: 'Card has a background color?',
