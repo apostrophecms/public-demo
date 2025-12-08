@@ -18,7 +18,7 @@
     "@apostrophecms/import-export": "^2.4.1",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.9.0",
+    "apostrophe": "^4.24.1",
     "intro.js": "^8.3.2"
   },
   "author": "Apostrophe Technologies, Inc",
