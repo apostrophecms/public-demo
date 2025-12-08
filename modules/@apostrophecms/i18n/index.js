@@ -35,7 +35,7 @@ export default {
       '@apostrophecms/page:beforeSend': {
         async addLocalizations(_super, req) {
           await _super(req);
-          req.data.localizations.forEach(locale => {
+          req.data.localizations?.forEach(locale => {
             locale.flag = self.locales[locale.locale].flag || locale.locale.toUpperCase();
           });
         }
