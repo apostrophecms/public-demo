@@ -27,6 +27,15 @@ export const useTourStore = defineStore('tour', {
     reset() {
       this.data = {};
       this.persistToLocalStorage();
+    },
+
+    clearRunningAction() {
+      for (const key in this.data) {
+        if (this.data[key] === 'running') {
+          delete this.data[key];
+        }
+      }
+      this.persistToLocalStorage();
     }
   }
 });
