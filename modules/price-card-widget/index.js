@@ -6,11 +6,14 @@ const localIcons = klona(iconChoices);
 
 export default {
   extend: '@apostrophecms/widget-type',
+  icons: {
+    'card-bulleted-icon': 'CardBulleted'
+  },
   options: {
     label: 'Pricing Card',
-    icon: 'link-icon',
+    icon: 'card-bulleted-icon',
     previewImage: 'svg',
-    description: 'Add a pricing card'
+    description: 'A card that can display pricing and feature sets.'
   },
   fields: {
     add: {
