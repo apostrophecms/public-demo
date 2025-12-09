@@ -1,41 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="137px" height="89px" viewBox="0 0 137 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Bitmap</title>
+<svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Price Cards</title>
     <defs>
-        <rect id="path-1" x="0" y="0" width="137" height="89" rx="3"></rect>
+        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
+        <rect id="path-2" x="-3.55271368e-15" y="0" width="42" height="55" rx="4.82809591"></rect>
+        <rect id="path-4" x="-3.55271368e-15" y="0" width="42" height="55" rx="4.82809591"></rect>
     </defs>
-    <g id="Widget-Preview" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-Copy" transform="translate(-181.000000, -1171.000000)">
-            <g id="Group-6" transform="translate(30.000000, 462.000000)">
-                <g id="Group-8" transform="translate(0.000000, 512.000000)">
-                    <g id="Group-5-Copy-9" transform="translate(150.000000, 197.000000)">
-                        <g id="Bitmap" transform="translate(1.000000, 0.000000)">
-                            <mask id="mask-2" fill="white">
-                                <use xlink:href="#path-1"></use>
-                            </mask>
-                            <use id="Mask" fill="#F9F9F9" fill-rule="nonzero" xlink:href="#path-1"></use>
-                            <g id="Group-15" mask="url(#mask-2)">
-                                <g transform="translate(9.743019, 12.000000)">
-                                    <path d="M29.9740186,0 L153.24382,0 C156.564889,0 159.256981,2.68055672 159.256981,5.98739496 L159.256981,31.1344538 C159.256981,34.441292 156.564889,37.1218487 153.24382,37.1218487 L29.9740186,37.1218487 C26.6529497,37.1218487 23.9608575,34.441292 23.9608575,31.1344538 L23.9608575,5.98739496 C23.9608575,2.68055672 26.6529497,0 29.9740186,0" id="Shape" stroke="#000000" stroke-width="2.4" fill="none" fill-rule="nonzero"></path>
-                                    <text id="Editor-Experience" stroke="none" fill="#000000" fill-rule="nonzero" font-family="Inter-Medium, Inter" font-size="13.2" font-weight="400" letter-spacing="-0.162000006">
-                                        <tspan x="39.1133064" y="24.3592437">Editor Experience</tspan>
-                                    </text>
-                                    <text id="Learn-about-Pages," stroke="none" fill="none" fill-rule="nonzero" font-family="NanumPen, Nanum Pen" font-size="14.4" font-weight="normal">
-                                        <tspan x="40.2983906" y="54.2962185" fill="#FF4700">Learn about Pages,</tspan>
-                                    </text>
-                                    <text id="Widgets,-Pieces-and" stroke="none" fill="none" fill-rule="nonzero" font-family="NanumPen, Nanum Pen" font-size="14.4" font-weight="normal">
-                                        <tspan x="36.3942229" y="66.8697479" fill="#FF4700">Widgets, Pieces and</tspan>
-                                    </text>
-                                    <text id="other-common-building" stroke="none" fill="none" fill-rule="nonzero" font-family="NanumPen, Nanum Pen" font-size="14.4" font-weight="normal">
-                                        <tspan x="29.7983906" y="79.4432773" fill="#FF4700">other common building</tspan>
-                                    </text>
-                                    <path d="M28.3242226,64.5445378 C41.6052549,59.92483 36.3404903,19.1011452 2.2569813,32.5078792" id="Path" stroke="#FF4700" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="bevel" transform="translate(18.650771, 47.181092) rotate(-172.000000) translate(-18.650771, -47.181092) "></path>
-                                    <path d="M10.2334925,26.6086424 C12.4626922,34.4518927 11.946823,30.9496847 6.53623912,32.5960392" id="Path" stroke="#FF4700" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="bevel" transform="translate(9.004917, 29.602341) rotate(-76.000000) translate(-9.004917, -29.602341) "></path>
-                                </g>
-                            </g>
+    <g id="Price-Cards" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#ADC4FE" xlink:href="#path-1"></use>
+        <g id="Group" stroke-width="1" transform="translate(10, 4)">
+            <rect id="Mask" fill="#FFFFFD" x="0" y="6" width="110" height="69" rx="8"></rect>
+            <g transform="translate(9.0555, 13)" id="Group-Copy">
+                <g id="Rectangle">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="1.20702403" width="39.5859519" height="52.5859519" rx="4.82809591"></rect>
+                    <g id="close" mask="url(#mask-3)" fill="#2C5AD8" fill-rule="nonzero" stroke="#2B5AD8" stroke-width="0.65">
+                        <g transform="translate(6, 36)" id="Path">
+                            <polygon points="3 1.30214286 2.69785714 1 1.5 2.19785714 0.302142857 1 0 1.30214286 1.19785714 2.5 0 3.69785714 0.302142857 4 1.5 2.80214286 2.69785714 4 3 3.69785714 1.80214286 2.5"></polygon>
+                        </g>
+                    </g>
+                    <g id="close-copy" mask="url(#mask-3)" fill="#2C5AD8" fill-rule="nonzero" stroke="#2B5AD8" stroke-width="0.65">
+                        <g transform="translate(6, 43)" id="Path">
+                            <polygon points="3 1.30214286 2.69785714 1 1.5 2.19785714 0.302142857 1 0 1.30214286 1.19785714 2.5 0 3.69785714 0.302142857 4 1.5 2.80214286 2.69785714 4 3 3.69785714 1.80214286 2.5"></polygon>
+                        </g>
+                    </g>
+                    <g id="check-bold" mask="url(#mask-3)" fill="#2C5AD8" fill-rule="nonzero">
+                        <g transform="translate(5, 29)" id="Path">
+                            <polygon points="1.64112051 5 0 3.4015444 0.747885835 2.67310167 1.64112051 3.54568855 4.25211416 1 5 1.72844273"></polygon>
                         </g>
                     </g>
                 </g>
+                <line x1="15.9445474" y1="32" x2="32.9445474" y2="32" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                <text id="25" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="5.94454745" y="24">25</tspan>
+                </text>
+                <text id="/mo" font-family="Helvetica-Bold, Helvetica" font-size="8" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="20.9445474" y="24">/mo</tspan>
+                </text>
+                <line x1="15.9445474" y1="39" x2="32.9445474" y2="39" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="15.9445474" y1="46" x2="32.9445474" y2="46" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+            </g>
+            <g id="Group-Copy" transform="translate(59.0555, 13)">
+                <g id="Rectangle">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-4"></use>
+                    </mask>
+                    <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="1.20702403" width="39.5859519" height="52.5859519" rx="4.82809591"></rect>
+                    <g id="star" mask="url(#mask-5)" fill="#2C5AD8" fill-rule="nonzero">
+                        <g transform="translate(8, 8)" id="Path">
+                            <polygon points="25 3.42947368 27.472 5 26.816 2.04 29 0.0484210526 26.124 -0.212631579 25 -3 23.876 -0.212631579 21 0.0484210526 23.18 2.04 22.528 5"></polygon>
+                        </g>
+                    </g>
+                    <g id="check-bold" mask="url(#mask-5)" fill="#2C5AD8" fill-rule="nonzero">
+                        <g transform="translate(5, 29)">
+                            <polygon id="Path" points="2.64112051 5 1 3.4015444 1.74788584 2.67310167 2.64112051 3.54568855 5.25211416 1 6 1.72844273"></polygon>
+                            <polygon id="Path-Copy" points="2.64112051 12 1 10.4015444 1.74788584 9.67310167 2.64112051 10.5456885 5.25211416 8 6 8.72844273"></polygon>
+                            <polygon id="Path-Copy-2" points="2.64112051 19 1 17.4015444 1.74788584 16.6731017 2.64112051 17.5456885 5.25211416 15 6 15.7284427"></polygon>
+                        </g>
+                    </g>
+                </g>
+                <line x1="15.9445474" y1="32" x2="32.9445474" y2="32" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                <text id="99" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="5.94454745" y="24">99</tspan>
+                </text>
+                <text id="/mo" font-family="Helvetica-Bold, Helvetica" font-size="8" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="20.9445474" y="24">/mo</tspan>
+                </text>
+                <line x1="15.9445474" y1="39" x2="32.9445474" y2="39" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="15.9445474" y1="46" x2="32.9445474" y2="46" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
             </g>
         </g>
     </g>

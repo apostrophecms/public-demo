@@ -46,7 +46,6 @@ apostrophe({
     '@apostrophecms/rich-text-widget': {},
     '@apostrophecms/image-widget': {},
     '@apostrophecms/video-widget': {},
-    'cta-links-widget': {},
     'button-widget': {},
     'github-prs-widget': {},
     'hero-widget': {},

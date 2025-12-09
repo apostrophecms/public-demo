@@ -46,14 +46,6 @@
   all: unset;
   cursor: pointer;
 
-  // @media (max-width: 680px) {
-  //   width: 100%;
-  // }
-  
-  // @container (max-width: 680px) {
-  //   width: 100%;
-  // }
-
   &[aria-expanded="true"] {
     border-radius: 10px 10px 0px;
   }

@@ -47,18 +47,8 @@
     max-width: 80vw;
   }
 
-  @container (max-width: 600px) {
-    // font-size: 40px;
-  }
-
   @media (max-width: 800px) {
     max-width: 80vw;
-    // font-size: 50px;
-    // letter-spacing: -1px;
-  }
-
-  @media (max-width: 600px) {
-    // font-size: 40px;
   }
 }
 

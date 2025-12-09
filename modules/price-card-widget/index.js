@@ -4,19 +4,16 @@ import { klona } from 'klona';
 const localLinkConfig = klona(linkConfig.link);
 const localIcons = klona(iconChoices);
 
-// localLinkConfig.linkText.if =
-// localLinkConfig.linkType.if =
-// localLinkConfig.linkTarget.if = {
-//   orientation: 'vertical'
-// };
-
 export default {
   extend: '@apostrophecms/widget-type',
+  icons: {
+    'card-bulleted-icon': 'CardBulleted'
+  },
   options: {
     label: 'Pricing Card',
-    icon: 'link-icon',
+    icon: 'card-bulleted-icon',
     previewImage: 'svg',
-    description: 'Add a pricing card'
+    description: 'A card that can display pricing and feature sets.'
   },
   fields: {
     add: {
