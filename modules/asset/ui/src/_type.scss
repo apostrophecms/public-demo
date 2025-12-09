@@ -28,13 +28,6 @@ h1, h2, h3, h4 {
   &:not([class^="apos"]) {
     font-family: var(--heading-font);
   }
-  @media (max-width: 680px) {
-    // text-align: center;
-  }
-  
-  @container (max-width: 680px) {
-    // text-align: center;
-  }
 }
 
 .meta {

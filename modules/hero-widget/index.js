@@ -6,23 +6,7 @@ export default {
     label: 'Hero',
     icon: 'link-icon',
     previewImage: 'svg',
-    description: 'Add a main hero to your page',
-    defaultData: {
-      content: "\
-        <h2>Transforming Ideas Into Digital Reality</h2>\
-        <p>\
-          We create innovative digital solutions that drive growth and elevate your \
-          brand. From web development to digital marketing, we're your partners in \
-          digital transformation.\
-        </p>\
-      ",
-      links: [{
-        linkText: 'Placeholder button',
-        linkType: 'custom',
-        style: 'primary',
-        linkUrl: 'http://google.com'
-      }],
-    }
+    description: 'Add a main hero to your page'
   },
   fields: {
     add: {

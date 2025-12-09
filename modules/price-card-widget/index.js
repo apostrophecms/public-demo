@@ -4,12 +4,6 @@ import { klona } from 'klona';
 const localLinkConfig = klona(linkConfig.link);
 const localIcons = klona(iconChoices);
 
-// localLinkConfig.linkText.if =
-// localLinkConfig.linkType.if =
-// localLinkConfig.linkTarget.if = {
-//   orientation: 'vertical'
-// };
-
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
