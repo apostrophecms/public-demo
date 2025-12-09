@@ -20,12 +20,12 @@
           <div class="apos-tour-settings__content">
             <div class="apos-tour-settings__toggle-wrapper">
               <p class="apos-tour-settings__description">
-                Resetting the tour requires a page refresh.
+                Resetting the tour may require a page refresh.
               </p>
 
               <div class="apos-tour-settings__buttons">
-                <AposButton type="default" label="Reset Tour" @click="resetTour" />
                 <AposButton type="default" label="Disable Tour" @click="disableTour" />
+                <AposButton type="primary" label="Reset Tour" @click="resetTour" />
               </div>
             </div>
           </div>
@@ -40,11 +40,8 @@ import { ref, onMounted } from 'vue';
 import Close from '@apostrophecms/vue-material-design-icons/Close.vue';
 import { useTour } from '../composables/useTour';
 
-const { setTourValue, getTourValue, data, resetTourStore } = useTour();
+const { setTourValue, resetTourStore } = useTour();
 
-// ----------------------------------------
-// modal state
-// ----------------------------------------
 const modal = ref({
   active: false,
   type: 'overlay',
@@ -52,21 +49,14 @@ const modal = ref({
   disableHeader: true
 });
 
-// ----------------------------------------
-// lifecycle
-// ----------------------------------------
 onMounted(() => {
   modal.value.active = true;
 });
 
-// ----------------------------------------
-// methods
-// ----------------------------------------
 function close() {
   modal.value.showModal = false;
 }
 
-// the template calls these
 function resetTour() {
   resetTourStore();
   close();
@@ -80,7 +70,7 @@ function resetTour() {
 function disableTour() {
   setTourValue('disabled', true);
   close();
-  apos.notify('Tour disabled', {
+  apos.notify('Tour disabled. Re-enable it through the Tour menu in the admin bar', {
     type: 'success',
     dismiss: true,
     icon: 'bullhorn-icon'
@@ -154,7 +144,11 @@ function disableTour() {
 
   .apos-tour-settings__buttons {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
+    
+    :deep(.apos-button) {
+      min-width: 140px;
+    }
   }
 
   .apos-tour-settings__description {

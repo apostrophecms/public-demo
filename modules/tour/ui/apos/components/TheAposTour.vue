@@ -8,13 +8,15 @@ import introFlow from '../lib/flows/intro';
 import managePieceFlow from '../lib/flows/managePiece';
 import editPieceFlow from '../lib/flows/editPiece';
 import manageMediaFlow from '../lib/flows/manageMedia';
+import managePagesFlow from '../lib/flows/managePages';
 import hints from '../lib/hints'
 
 const flows = ref({
   introFlow,
   managePieceFlow,
   editPieceFlow,
-  manageMediaFlow
+  manageMediaFlow,
+  managePagesFlow
 });
 
 const modalStore = useModalStore();
@@ -23,7 +25,7 @@ const activeModal = computed(() => modalStore.activeModal);
 const isTourDisabled = computed(() => !!getTourValue('disabled'));
 const hint = introJs.hint();
 
-hint.onhintclose(hint => { 
+hint.onHintClose(hint => { 
   setTourValue(hint.id, true);
 });
 
@@ -35,16 +37,20 @@ const refreshTour = () => {
   if (!isTourDisabled.value) {
     refreshHints();
     refreshFlows();
+  } else {
+    hint.destroy();
   }
 }
 
 const refreshHints = () => {
-  hint.removeHints();
+  hint.destroy();
   setTimeout(() => {
     hint.setOptions({
-      hints: getViableHints()
+      hints: hints
+        .filter(h => activeModal.value ? h.modal : !h.modal)
+        .filter(h => !getTourValue(h.id))
     });
-    hint.addHints();
+    hint.render();
   }, 50);
 };
 
@@ -71,21 +77,20 @@ const refreshFlows = () => {
   }
 }
 
-const getViableHints = () => {
-  return hints
-    .filter(h => activeModal.value ? h.modal : !h.modal)
-    .filter(h => !getTourValue(h.id))
-}
-
 onMounted(() => {
+
+  // Reset any unresolved flows
   clearRunning();
+
   apos.bus.$on('admin-menu-click', (item) => {
     if (item === 'tour-settings') {
       apos.modal.execute('AposModalTourSettings', {});
     }
   });
 
-  console.log('Store at startup', data.value);
+  apos.bus.$on('refresh-tour', (item) => {
+    refreshTour();
+  });
   
   setTimeout(() => {
     refreshTour();
@@ -177,6 +182,10 @@ onMounted(() => {
 
   .introjs-tooltiptext {
     padding: 0px 20px 20px;
+  }
+
+  .introjs-hints .introjs-tooltiptext {
+    padding: 15px 20px 20px;
   }
 
   .introjs-tooltipbuttons {

@@ -3,9 +3,9 @@ import {
 } from '../helpers.js';
 
 const flow = {
-  id: 'editPiece',
-  componentName: 'AposDocEditor',
-  moduleName: [ 'article', 'topic' ],
+  id: 'managePages',
+  componentName: 'AposPagesManager',
+  moduleName: [ '@apostrophecms/page' ],
 
   async run(introJs, setValue) {
     let skipped = false;
@@ -42,19 +42,14 @@ const flow = {
           exitOnEsc: false,
           steps: [
             {
-              title: 'Edit content',
-              element: '.apos-modal .apos-doc-editor__body',
-              intro: 'This column show your contents data'
+              title: 'Create a new page',
+              element: '.apos-modal .apos-button.apos-button--primary',
+              intro: 'Click here to create a new page'
             },
             {
-              title: 'Content tabs',
-              element: '.apos-modal .apos-modal__rail--left',
-              intro: 'Content is organized into tabs. Clicking tabs will reveal the content within. '
-            },
-            {
-              title: 'Save changes',
-              element: '.apos-modal .apos-button-split--type-primary',
-              intro: 'Once you\'ve made edits you can use this button to save your work.'
+              title: 'Manage the page tree',
+              element: '.apos-modal .apos-tree__list',
+              intro: 'The page tree shows you the structure of your site. Drag and drop the tree nodes to nest or re-order pages.'
             }
           ]
         },
@@ -64,7 +59,7 @@ const flow = {
 
     tours.forEach(t => (t.instance = createTour(t)));
 
-    await wait(1000);
+    await wait(300);
     const first = tours[0].instance;
     first.start();
   }

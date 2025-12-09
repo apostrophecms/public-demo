@@ -37,7 +37,6 @@ const flow = {
 
     const tours = [
       {
-        // PART ONE
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -101,11 +100,6 @@ const flow = {
         },
         onExit: async () => {
           setValue(flow.id, 'complete');
-          // document
-          //   .querySelectorAll('.apos-modal .apos-media-manager-display__cell button')[1]
-          //   .click();
-          // await wait(50);
-          // tours[1].instance.start();
         }
       }
     ];
@@ -115,7 +109,6 @@ const flow = {
     await wait(300);
     document.querySelector('.apos-modal__body-main').scrollTop = 0;
     const first = tours[0].instance;
-    console.log('start first');
     first.start();
   }
 };

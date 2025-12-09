@@ -1,14 +1,14 @@
 export default [
   {
-    id: 'localePicker',
-    hint: 'The locales menu allows you to switch among locales configured for your site',
-    element: '[data-apos-test="localePickerTrigger"]',
+    id: 'tourSettings',
+    hint: 'You can disable or restart the tour in this menu',
+    element: '[data-apos-test="tour-settingsTrigger"]',
     position: 'bottom-middle-aligned'
   },
   {
-    id: 'createPiece',
-    hint: 'Click to create a new piece of content',
-    element: '.apos-modal__header__main .apos-button--primary',
-    modal: true
+    id: 'breakpointPreview',
+    hint: 'Toggle breakpoints to preview your site in different device sizes.',
+    element: '.apos-admin-bar__breakpoint-preview-mode',
+    position: 'bottom-middle-aligned'
   }
 ];

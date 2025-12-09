@@ -21,13 +21,17 @@ const flow = {
       tour.onSkip(async () => {
         skipped = true;
         setValue(flow.id, 'skipped');
-        if (cfg.onSkip) await cfg.onSkip(tour);
+        if (cfg.onSkip) {
+          await cfg.onSkip(tour);
+        }
       });
 
       tour.onExit(async () => {
         if (!skipped) {
           await wait(50);
-          if (cfg.onExit) await cfg.onExit(tour);
+          if (cfg.onExit) {
+            await cfg.onExit(tour);
+          }
         }
       });
 
@@ -38,7 +42,6 @@ const flow = {
 
     const tours = [
       {
-        // PART ONE
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -57,7 +60,6 @@ const flow = {
       },
 
       {
-        // PART TWO
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -92,7 +94,6 @@ const flow = {
       },
 
       {
-        // PART THREE
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -115,7 +116,6 @@ const flow = {
       },
 
       {
-        // PART FOUR
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -129,15 +129,41 @@ const flow = {
           ]
         },
         onExit: () => {
-          selectEditable('.apos-rich-text-editor__editor', 'h2');
-          typewriter('This website is yours!');
-          document.querySelector('.apos-rich-text-editor__editor').click();
-          tours[4].instance.start();
+          if (window.apos?.adminBar?.editMode) {
+            selectEditable('.apos-rich-text-editor__editor', 'h2');
+            typewriter('This website is yours!');
+            document.querySelector('.apos-rich-text-editor__editor').click();
+            tours[5].instance.start();
+          } else {
+            tours[4].instance.start();
+          }
+
         }
       },
 
       {
-        // PART FIVE
+        options: {
+          showBullets: false,
+          exitOnEsc: false,
+          steps: [
+            {
+              title: 'Enable Edit Mode',
+              element: '.apos-admin-bar__control-set--mode-and-settings button',
+              intro: 'Click the Edit button to begin editing the page.'
+            }
+          ]
+        },
+        onExit: async () => {
+          document.querySelector('.apos-admin-bar__control-set--mode-and-settings button').click();
+          await wait(1400);
+          selectEditable('.apos-rich-text-editor__editor', 'h2');
+          typewriter('This website is yours!');
+          document.querySelector('.apos-rich-text-editor__editor').click();
+          tours[5].instance.start();
+        }
+      },
+
+      {
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -158,12 +184,11 @@ const flow = {
             230
           );
           await wait(200);
-          tours[5].instance.start();
+          tours[6].instance.start();
         }
       },
 
       {
-        // PART SIX
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -187,12 +212,11 @@ const flow = {
             )
             .click();
           await wait(200);
-          tours[6].instance.start();
+          tours[7].instance.start();
         }
       },
 
       {
-        // PART SEVEN
         options: {
           showBullets: false,
           exitOnEsc: false,
@@ -200,20 +224,38 @@ const flow = {
             {
               title: 'Adding content',
               element: '.apos-modal__inner',
-              intro:
-                'Select a widget from the menu to add it to the page'
+              intro: 'Select a widget from the menu to add it to the page',
+              position: 'top-middle-aligned'
             }
           ]
         },
         onExit: async () => {
           document.querySelector('.apos-modal__overlay').click();
-          await wait(50);
-          tours[7].instance.start();
+          await wait(100);
+          document.querySelector('.apos-admin-bar__control-set__group [data-apos-test="contextMenuTrigger"] button').click();
+          await wait(100);
+          tours[8].instance.start();
         }
       },
 
       {
-        // PART EIGHT
+        options: {
+          showBullets: false,
+          exitOnEsc: false,
+          steps: [
+            {
+              title: 'Manage your document',
+              element: '[data-apos-test="context-menu-content"]',
+              intro: 'The document context menu allows you edit additional details of your page, discard the current draft, localize the page to another language, and more.'
+            }
+          ]
+        },
+        onExit: () => {
+          tours[9].instance.start();
+        }
+      },
+
+      {
         options: {
           showBullets: false,
           tooltipClass: 'large',
@@ -233,10 +275,8 @@ const flow = {
       }
     ];
 
-    // ---------- instantiate everything ----------
     tours.forEach(t => (t.instance = createTour(t)));
 
-    // ---------- start the first tour ----------
     const first = tours[0].instance;
     first.start();
     await wait(50);
@@ -254,8 +294,14 @@ const flow = {
 
       skip.addEventListener('click', () => {
         skipped = true;
-        setValue(flow.id, true);
+        setValue('disabled', true);
         first.exit();
+        apos.bus.$emit('refresh-tour', {});
+        apos.notify('Tour disabled. Re-enable it through the Tour menu in the admin bar', {
+          type: 'success',
+          dismiss: true,
+          icon: 'bullhorn-icon'
+        });
       });
 
       container.insertBefore(skip, next);
