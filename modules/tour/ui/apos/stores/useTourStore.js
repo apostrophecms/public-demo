@@ -14,18 +14,23 @@ export const useTourStore = defineStore('tour', {
       localStorage.setItem('apos-demo-tour', JSON.stringify(this.data));
     },
 
-    set(key, value) {
+    setTourValue(key, value) {
       this.data[key] = value;
       this.persistToLocalStorage();
     },
 
-    remove(key) {
+    deleteTourValue(key) {
       delete this.data[key];
       this.persistToLocalStorage();
     },
 
-    reset() {
+    resetTour() {
       this.data = {};
+      this.persistToLocalStorage();
+    },
+
+    disableTour() {
+      this.data.disabled = true;
       this.persistToLocalStorage();
     },
 

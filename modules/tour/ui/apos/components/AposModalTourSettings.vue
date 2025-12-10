@@ -24,8 +24,8 @@
               </p>
 
               <div class="apos-tour-settings__buttons">
-                <AposButton type="default" label="Disable Tour" @click="disableTour" />
-                <AposButton type="primary" label="Reset Tour" @click="resetTour" />
+                <AposButton type="default" label="Disable Tour" @click="disable" />
+                <AposButton type="primary" label="Reset Tour" @click="reset" />
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ import { ref, onMounted } from 'vue';
 import Close from '@apostrophecms/vue-material-design-icons/Close.vue';
 import { useTour } from '../composables/useTour';
 
-const { setTourValue, resetTourStore } = useTour();
+const { setTourValue, disableTour, resetTour } = useTour();
 
 const modal = ref({
   active: false,
@@ -57,8 +57,8 @@ function close() {
   modal.value.showModal = false;
 }
 
-function resetTour() {
-  resetTourStore();
+function reset() {
+  resetTour();
   close();
   apos.notify('Tour reset. Refresh the page to trigger the tour', {
     type: 'success',
@@ -67,8 +67,8 @@ function resetTour() {
   });
 }
 
-function disableTour() {
-  setTourValue('disabled', true);
+function disable() {
+  disableTour();
   close();
   apos.notify('Tour disabled. Re-enable it through the Tour menu in the admin bar', {
     type: 'success',

@@ -3,7 +3,7 @@ import {
 } from '../helpers.js';
 
 const flow = {
-  id: 'managePages',
+  id: 'managePagesFlow',
   componentName: 'AposPagesManager',
   moduleName: [ '@apostrophecms/page' ],
 

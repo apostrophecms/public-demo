@@ -3,7 +3,7 @@ import {
 } from '../helpers.js';
 
 const flow = {
-  id: 'manageMedia',
+  id: 'manageMediaFlow',
   componentName: 'AposMediaManager',
   moduleName: [ '@apostrophecms/image' ],
 

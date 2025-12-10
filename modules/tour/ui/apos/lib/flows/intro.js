@@ -6,10 +6,10 @@ import {
 } from '../helpers.js';
 
 const flow = {
-  id: 'intro',
+  id: 'introFlow',
   el: '.home-page',
 
-  async run(introJs, setValue) {
+  async run(introJs, setValue, disableTour) {
     let skipped = false;
     setValue(flow.id, 'running');
 
@@ -294,7 +294,7 @@ const flow = {
 
       skip.addEventListener('click', () => {
         skipped = true;
-        setValue('disabled', true);
+        disableTour();
         first.exit();
         apos.bus.$emit('refresh-tour', {});
         apos.notify('Tour disabled. Re-enable it through the Tour menu in the admin bar', {

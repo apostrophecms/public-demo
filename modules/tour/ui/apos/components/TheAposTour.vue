@@ -3,6 +3,7 @@ import introJs from 'intro.js';
 import { ref, onMounted, computed, watch } from 'vue'
 import { useModalStore } from 'Modules/@apostrophecms/ui/stores/modal';
 import { useTour } from '../composables/useTour';
+import { initAnalyticsTracking } from '../lib/analyticsTracking';
 
 import introFlow from '../lib/flows/intro';
 import managePieceFlow from '../lib/flows/managePiece';
@@ -20,13 +21,13 @@ const flows = ref({
 });
 
 const modalStore = useModalStore();
-const { setTourValue, getTourValue, data, clearRunning } = useTour();
+const { setTourValue, getTourValue, clearRunning, disableTour, resetTour } = useTour();
 const activeModal = computed(() => modalStore.activeModal);
 const isTourDisabled = computed(() => !!getTourValue('disabled'));
 const hint = introJs.hint();
 
 hint.onHintClose(hint => { 
-  setTourValue(hint.id, true);
+  setTourValue(hint.id, 'complete');
 });
 
 watch(activeModal, async (newModal) => {
@@ -70,7 +71,7 @@ const refreshFlows = () => {
             && activeModal.value?.componentName === flows.value[key].componentName
           )
         ) {
-          flows.value[key].run(introJs, setTourValue);
+          flows.value[key].run(introJs, setTourValue, disableTour);
         }
       }
     }
@@ -81,6 +82,9 @@ onMounted(() => {
 
   // Reset any unresolved flows
   clearRunning();
+
+  // Initiate umami tracking
+  initAnalyticsTracking();
 
   apos.bus.$on('admin-menu-click', (item) => {
     if (item === 'tour-settings') {

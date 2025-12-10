@@ -3,7 +3,7 @@ import {
 } from '../helpers.js';
 
 const flow = {
-  id: 'editPiece',
+  id: 'editPieceFlow',
   componentName: 'AposDocEditor',
   moduleName: [ 'article', 'topic' ],
 

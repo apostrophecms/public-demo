@@ -10,11 +10,11 @@ export function useTour() {
   }
 
   function setTourValue(key, value) {
-    store.set(key, value);
+    store.setTourValue(key, value);
   }
 
-  function resetTourStore() {
-    store.reset();
+  function resetTour() {
+    store.resetTour();
   }
 
   function clearRunning() {
@@ -22,14 +22,14 @@ export function useTour() {
   }
 
   function disableTour() {
-    store.reset();
+    store.disableTour();
   }
 
   return {
     data,
     getTourValue,
     setTourValue,
-    resetTourStore,
+    resetTour,
     disableTour,
     clearRunning
   };
