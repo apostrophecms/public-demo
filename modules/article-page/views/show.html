@@ -7,7 +7,7 @@
 
 {% block pageTitle %}
   <div class="article-title-wrapper">
-    <div class="inner">
+    <div class="layout">
       {% set title = data.page.title %}
       {% if data.piece %}
         {% set title = data.piece.title %}
@@ -15,7 +15,7 @@
       <h1 class="page-title">{{ title }}</h1>
     </div>
     {% if article._topics.length %}
-      <div class="inner article-topics article-topics--show">
+      <div class="layout article-topics article-topics--show">
         {% for topic in article._topics %}
           <a href="{{ article._parentSlug }}?topics={{ topic.slug }}" class="chip">{{ topic.title }}</a>
         {% endfor %}

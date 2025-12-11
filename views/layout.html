@@ -117,7 +117,7 @@
   {% block breadcrumbs %}
     {# Breadcrumb trail to the current page or piece. Not on the home page #}
     {% if data.page and data.page._ancestors.length %}
-      <div class="inner">
+      <div class="layout">
         <nav class="breadcrumb">
           {% for page in data.page._ancestors %}
             <a href="{{ page._url }}">{{ page.title }}</a>
