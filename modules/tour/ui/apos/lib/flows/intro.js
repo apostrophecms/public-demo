@@ -68,19 +68,19 @@ const flow = {
               title: 'The admin bar',
               element: '.apos-admin-bar',
               intro:
-                'This is the admin bar. Here you can access content, manage media, edit user settings, and more. '
+                'The admin bar gives you access to content, allows you to manage media, edit user settings, and more. '
             },
             {
               title: 'Pages',
               element: '.apos-admin-bar__item',
               intro:
-                'The pages menu let\'s you manage pages and reorganize your page tree'
+                'The Pages Manager let\'s you create pages, edit existing ones, and reorganize your page tree.'
             },
             {
               title: 'Global settings',
               element:
                 '[data-apos-test="@apostrophecms/global:singleton-editorTrigger"]',
-              intro: 'Edit the global settings for your site.'
+              intro: 'Global Settings let you manage site-wide content and options like logos, navigation, and contact details from one central, easy-to-update location.'
             }
           ]
         },
@@ -101,7 +101,7 @@ const flow = {
             {
               title: 'Manage images and media',
               element: '[data-apos-test="context-menu-content"]',
-              intro: 'Manage your media library here.'
+              intro: 'Click here to open the Media Manager, where you can upload, organize, and manage all of your images and files.'
             }
           ]
         },
@@ -123,8 +123,7 @@ const flow = {
             {
               title: 'Easily switch locales',
               element: '.apos-context-menu__pane',
-              intro:
-                'This menu shows the available locales for your current page. Click one to switch to that locale.'
+              intro: 'Sites can be localized into many languages. The locale switcher lets you view the site in a specific language so you can manage that locale\'s content.'
             }
           ]
         },
@@ -171,7 +170,7 @@ const flow = {
             {
               title: 'Edit content in-context',
               element: '.apos-area-widget-wrapper',
-              intro: 'Click into content on the page to begin editing'
+              intro: 'Hover and click into content on the page to begin editing and re-arranging your content.'
             }
           ]
         },
@@ -198,7 +197,7 @@ const flow = {
               element:
                 '.apos-area-widget-controls--add--top.apos-is-visible button',
               intro:
-                'Click the plus buttons to add additional widgets to the page'
+                'Click the PLUS buttons to add additional widgets to the page. These appear above and below any widget.'
             }
           ]
         },
@@ -246,7 +245,12 @@ const flow = {
             {
               title: 'Manage your document',
               element: '[data-apos-test="context-menu-content"]',
-              intro: 'The document context menu allows you edit additional details of your page, discard the current draft, localize the page to another language, and more.'
+              intro: 'From the document context menu you can edit additional details of your page, discard the current draft, localize the page to another language, and more.'
+            },
+            {
+              title: 'Publish your changes',
+              element: '.apos-admin-bar__btn.apos-admin-bar__context-button',
+              intro: 'When you\'re happy with your content clicking Publish will push it to the live site.'
             }
           ]
         },
@@ -265,7 +269,7 @@ const flow = {
             {
               title: 'Explore ApostropheCMS',
               intro:
-                'Those are the basics of working in ApostropheCMS. Look for pulsing bubbles to get more information about using ApostropheCMS\'s UI. Have fun!'
+                'Those are the basics of working in ApostropheCMS. Look for pulsing bubbles for more information about using ApostropheCMS\'s UI. Have fun!'
             }
           ]
         },

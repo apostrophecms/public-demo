@@ -44,17 +44,17 @@ const flow = {
             {
               title: 'Create new content',
               element: '.apos-modal .apos-button.apos-button--primary',
-              intro: 'Click here to create a new piece of content'
+              intro: 'Click here to create a new piece of content.'
             },
             {
               title: 'Edit existing content',
               element: '.apos-modal__body-main',
-              intro: 'The table shows your sites existing content. Click an item to edit.'
+              intro: 'The table shows your site\'s existing content. Click an item to edit it.'
             },
             {
               title: 'Find content',
               element: '.apos-modal .apos-manager-toolbar.apos-toolbar .apos-toolbar__group--right',
-              intro: 'Filter and search this content type using the filter tools'
+              intro: 'Filter and search this content type using the filter tools.'
             },
             {
               title: 'Apply batch actions',

@@ -45,7 +45,7 @@ const flow = {
             {
               title: 'Media manager',
               intro:
-                'The media manager show your site\'s existing media'
+                'This is the Media Manager, where you can upload, organize, and manage all of your site\'s images.'
             }
           ]
         },
@@ -65,7 +65,7 @@ const flow = {
             {
               title: 'Filter by tag',
               element: '.apos-modal .apos-tag-list',
-              intro: 'Filter media by tags'
+              intro: 'Click the tag names to filter media.'
             }
           ]
         },
@@ -94,7 +94,7 @@ const flow = {
               title: 'Editing media',
               scrollToElement: false,
               element: '.apos-modal .apos-media-manager__sidebar',
-              intro: 'Once you\'ve selected a piece of media and editor will appear on the right'
+              intro: 'Once you\'ve selected a piece of media an editor will appear on the right.'
             }
           ]
         },

@@ -5,7 +5,7 @@ import {
 const flow = {
   id: 'editPieceFlow',
   componentName: 'AposDocEditor',
-  moduleName: [ 'article', 'topic' ],
+  moduleName: [ 'article', 'topic', '@apostrophecms/page' ],
 
   async run(introJs, setValue) {
     let skipped = false;
@@ -42,11 +42,6 @@ const flow = {
           exitOnEsc: false,
           steps: [
             {
-              title: 'Edit content',
-              element: '.apos-modal .apos-doc-editor__body',
-              intro: 'This column show your contents data'
-            },
-            {
               title: 'Content tabs',
               element: '.apos-modal .apos-modal__rail--left',
               intro: 'Content is organized into tabs. Clicking tabs will reveal the content within. '
@@ -54,7 +49,7 @@ const flow = {
             {
               title: 'Save changes',
               element: '.apos-modal .apos-button-split--type-primary',
-              intro: 'Once you\'ve made edits you can use this button to save your work.'
+              intro: 'Once you\'ve made edits you can use this button to publish your work.'
             }
           ]
         },

@@ -19,15 +19,11 @@ export function initAnalyticsTracking() {
 
       let event;
 
-      console.log(name, tourElement, val);
-
       if (tourElement) {
         event = `${tourElement}: ${val}`;
       } else {
         event = name;
       }
-
-      console.log(`want to track ${event}`);
 
       window.umami.track(event);
     });

@@ -123,12 +123,8 @@ onMounted(() => {
   }
 
   .introjs-helperLayer {
-    box-shadow: rgba(33, 33, 33, 0.1) 0px 0px 1px 2px,
-      rgba(33, 33, 33, 0.1) 0px 0px 0px 5000px !important;
-  }
-
-  .introjs-tooltipReferenceLayer {
-    // color: white;
+    box-shadow: rgba(33, 33, 33, 0.25) 0px 0px 1px 2px,
+      rgba(33, 33, 33, 0.25) 0px 0px 0px 5000px !important;
   }
 
   .introjs-button {
@@ -189,7 +185,12 @@ onMounted(() => {
   }
 
   .introjs-hints .introjs-tooltiptext {
-    padding: 15px 20px 20px;
+    padding: 25px;
+
+    .introjs-tooltiptext {
+      padding: 0;
+      margin-bottom: 20px;
+    }
   }
 
   .introjs-tooltipbuttons {
@@ -217,4 +218,3 @@ onMounted(() => {
   }
 
 </style>
-
