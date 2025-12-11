@@ -14,6 +14,19 @@
       {% endif %}
       <h1 class="page-title">{{ title }}</h1>
     </div>
+    <div class="article-details">
+      {% if article._author.length %}
+        <div class="article-detail article-author">
+          Written by 
+          <a href="{{ article._parentSlug }}?author={{ article._author[0].slug }}">
+            {{ article._author[0].title }}
+          </a>
+        </div>
+      {% endif %}
+      <div class="article-detail article-published">
+        {{ apos.helper.formatDate(article.publishedDate) }}
+      </div>
+    </div>
     {% if article._topics.length %}
       <div class="inner article-topics article-topics--show">
         {% for topic in article._topics %}

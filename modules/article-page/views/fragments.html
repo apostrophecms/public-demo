@@ -20,9 +20,14 @@
           {% endfor %}
         </div>
       {% endif %}
-        <div class="article-published">
-          {{ apos.helper.formatDate(article.publishedDate) }}
+      {% if article._author.length %}
+        <div class="article-detail article-author">
+          Written by {{ article._author[0].title }}
         </div>
+      {% endif %}
+      <div class="article-detail article-published">
+        {{ apos.helper.formatDate(article.publishedDate) }}
+      </div>
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
       <article>
         {% if not apos.area.isEmpty(article, 'blurb') %}

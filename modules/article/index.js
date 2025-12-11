@@ -32,6 +32,12 @@ export default {
         type: 'relationship',
         withType: 'topic'
       },
+      _author: {
+        label: 'Author',
+        type: 'relationship',
+        withType: '@apostrophecms/user',
+        max: 1
+      },
       _image: {
         label: 'Featured Image',
         type: 'relationship',
@@ -59,7 +65,14 @@ export default {
         label: 'Content',
         fields: [
           'main',
-          '_image',
+          '_image'
+        ]
+      },
+      utility: {
+        fields: [
+          'slug',
+          'visibility',
+          '_author',
           '_topics'
         ]
       }
@@ -69,6 +82,10 @@ export default {
     add: {
       _topics: {
         label: 'Topics',
+        component: 'DemoCellRelation'
+      },
+      _author: {
+        label: 'Author',
         component: 'DemoCellRelation'
       },
       _image: {
