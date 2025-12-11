@@ -1,5 +1,4 @@
 .demo-rte {
-  font-family: "Inter", sans-serif;
   & > *:first-child,
   & > [contenteditable] > *:first-child {
     margin-top: 0;
@@ -12,7 +11,7 @@
 
   a,
   a:visited {
-    color: $link-color;
+    color: var(--link-color);
     text-decoration: none;
   }
 
@@ -27,33 +26,58 @@
   }
 
   p {
-    color: rgb(0, 0, 0);
+    margin-top: 0;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: none;
     font-weight: 400;
     line-height: 1.6;
     transition: all 250ms ease 0s;
     font-size: 1rem;
+
+    &.large {
+      font-size: 1.3rem;
+      line-height: 1.7;
+    }
   }
 
   h2,
   h3,
-  h4 {
-    margin: 30px 0;
+  h4,
+  h5 {
+    font-family: var(--heading-font);
+    margin-top: 0;
+    margin-bottom: 2rem;
     line-height: 1.2em;
   }
 
+  h3 {
+    font-size: 2.8em;
+    letter-spacing: -1px;
+    line-height: 1em;
+  }
+
   h4 {
-    font-size: 1.6em;
+    font-size: 1.8em;
     line-height: 1.2em;
     font-weight: 600;
   }
 
-  h3 {
-    font-size: 2.4em;
-    letter-spacing: -1px;
+  h5 {
+    font-size: 1.3em;
+    line-height: 1.2em;
+    font-weight: 500;
   }
-  margin-bottom: $spacer;
+
+  margin-bottom: var(--widget-spacer);
+}
+
+.apos-layout__item .demo-rte {
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 1rem;
+  }
 }
 
 .container-widget .demo-rte {
@@ -62,7 +86,7 @@
 
 .demo-rte h2,
 .h2 .demo-rte p {
-  margin: 0 0 50px;
+  margin-bottom: 1rem;
   font-size: 80px;
   font-weight: 700;
   line-height: 1.1;
@@ -83,24 +107,28 @@
   }
 }
 
+.home-tite {
+  font-size: 14px;
+}
+
 .home-cta.h2 p {
   text-align: center;
 }
 
 .highlight-red {
-  color: $brand-red;
+  color: var(--brand-red);
 }
 .highlight-mustard {
-  color: $brand-mustard;
+  color: var(--brand-mustard);
 }
 .highlight-purple {
-  color: $brand-purple;
+  color: var(--brand-purple);
 }
 .highlight-blue {
-  color: $brand-blue;
+  color: var(--brand-blue);
 }
 .highlight-seafoam {
-  color: $brand-seafoam;
+  color: var(--brand-seafoam);
 }
 
 .type-mono {
@@ -113,22 +141,22 @@
 
 .type-red-underline {
   text-decoration: underline;
-  text-decoration-color: $brand-red;
+  text-decoration-color: var(--brand-red);
 }
 
 .type-seafoam-underline {
   text-decoration: underline;
-  text-decoration-color: $brand-seafoam;
+  text-decoration-color: var(--brand-seafoam);
 }
 
 .type-rainbow-hover {
   background-image: linear-gradient(
     to right,
-    $brand-red,
-    $brand-mustard,
-    $brand-purple,
-    $brand-blue,
-    $brand-seafoam
+    var(--brand-red),
+    var(--brand-mustard),
+    var(--brand-purple),
+    var(--brand-blue),
+    var(--brand-seafoam)
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -174,4 +202,38 @@
 
 .image-full {
   max-width: 100%;
+}
+
+// Table overrides
+
+.layout [data-rich-text] table:not([class]) td,
+.layout [data-rich-text] table:not([class]) th,
+.layout .tiptap table:not([class]) td,
+.layout .tiptap table:not([class]) th,
+.layout .tableWrapper table td,
+.layout .tableWrapper table th,
+.layout .apos-rich-text-table td,
+.layout .apos-rich-text-table th {
+  border: 1px solid var(--faint-color);
+}
+
+.layout [data-rich-text] table:not([class]) th,
+.layout .tiptap table:not([class]) th,
+.layout .tableWrapper table th,
+.layout .apos-rich-text-table th {
+  padding: 1rem 0;
+  background-color: var(--faint-color);
+  vertical-align: middle;
+}
+
+.layout th {
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.ProseMirror > * + * {
+  margin-top: 0 !important;
 }

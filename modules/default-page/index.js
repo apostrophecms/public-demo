@@ -4,7 +4,7 @@ export default {
   extend: '@apostrophecms/page-type',
   options: {
     label: 'Default Page',
-    pluralLabel: 'Default Pages'
+    pluralLabel: 'Default Pages',
   },
   fields: {
     add: {
@@ -13,7 +13,12 @@ export default {
         options: {
           expanded: true,
           groups: fullConfigExpandedGroups
-        }
+        },
+        def: [
+          'hero',
+          '@apostrophecms/layout',
+          '@apostrophecms/rich-text',
+        ]
       }
     },
     group: {
@@ -27,3 +32,4 @@ export default {
     }
   }
 };
+

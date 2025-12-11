@@ -1,24 +1,47 @@
 .button {
-  font-family: 'Inter', sans-serif;
   display: inline-block;
   text-decoration: none;
   text-align: center;
   color: black;
-  font-size: 20px;
+  font-size: 1.1rem;
   font-weight: 500;
-  border: 3px solid black;
-  border-radius: 10px;
-  padding: 16px 32px;
+  border-radius: 50px;
+  padding: 15px 30px;
   text-decoration: none;
   transition: background-color 250ms ease 0s;
+
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border: 2px solid var(--accent-color);
+
   &:hover {
-    background-color: bisque;
+    background: color-mix(in srgb, var(--accent-color), black 10%);
+    border-color: color-mix(in srgb, var(--accent-color), black 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.button.outline {
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+
+  &:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    transform: translateY(-2px);
   }
 }
 
 .button--small {
-  padding: 12px 24px;
-  font-size: 16px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px 0 20px;
+  border-radius: 12px;
+  font-size: .875rem;
+  line-height: 1rem;
 }
 
 .button-widget {

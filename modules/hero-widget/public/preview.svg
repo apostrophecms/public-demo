@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>hero</title>
+    <defs>
+        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="hero" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#ADC4FE" xlink:href="#path-1"></use>
+        <rect id="Rectangle-Copy-11" fill="#FFFFFD" x="10" y="10" width="110" height="69" rx="8"></rect>
+        <g id="Group" stroke-width="1" transform="translate(42, 58)">
+            <rect id="Rectangle-Copy-11" fill="#2C5AD8" x="0" y="0" width="21" height="10" rx="5"></rect>
+            <rect id="Rectangle-Copy-12" stroke="#ADC4FE" x="26.5" y="0.5" width="20" height="9" rx="4.5"></rect>
+        </g>
+        <g id="Group" stroke-width="1" transform="translate(24, 25)" stroke="#ADC4FE" stroke-linecap="round">
+            <line x1="18.5" y1="0.5" x2="63.5" y2="0.5" id="Line" stroke-width="7"></line>
+            <line x1="0.5" y1="12.5" x2="81.5" y2="12.5" id="Line-Copy" stroke-width="7"></line>
+            <line x1="15" y1="23.5" x2="67" y2="23.5" id="Line-Copy-2" stroke-width="3"></line>
+        </g>
+    </g>
+</svg>

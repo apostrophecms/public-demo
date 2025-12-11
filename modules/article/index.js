@@ -2,6 +2,12 @@ import { fullConfig } from '../../lib/area.js';
 
 export default {
   extend: '@apostrophecms/piece-type',
+  options: {
+    sort: {
+      publishedDate: -1,
+      createdAt: -1
+    }
+  },
   fields: {
     add: {
       blurb: {
@@ -17,10 +23,20 @@ export default {
           }
         }
       },
+      publishedDate: {
+        label: 'Published Date',
+        type: 'date'
+      },
       _topics: {
         label: 'Article topics',
         type: 'relationship',
         withType: 'topic'
+      },
+      _image: {
+        label: 'Featured Image',
+        type: 'relationship',
+        withType: '@apostrophecms/image',
+        aspectRatio: [ 2, 1 ]
       },
       main: {
         label: 'Content',
@@ -35,13 +51,15 @@ export default {
         label: 'Basics',
         fields: [
           'title',
-          'blurb'
+          'blurb',
+          'publishedDate'
         ]
       },
       main: {
         label: 'Content',
         fields: [
           'main',
+          '_image',
           '_topics'
         ]
       }
@@ -52,6 +70,10 @@ export default {
       _topics: {
         label: 'Topics',
         component: 'DemoCellRelation'
+      },
+      _image: {
+        label: 'Featured Image',
+        component: 'DemoCellImage'
       }
     }
   },
@@ -59,7 +81,8 @@ export default {
     return {
       async recent(req, data) {
         return {
-          articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray()
+          articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray(),
+          display: data.display
         };
       }
     };

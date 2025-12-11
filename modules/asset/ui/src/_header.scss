@@ -1,9 +1,10 @@
 .header {
   position: relative;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  font-family: 'Inter', sans-serif;
-  margin: 50px 0 20px;
+  height: 62px;
+  margin: 20px 0 40px 0;
 }
 
 .header .inner {
@@ -19,7 +20,7 @@
 .breadcrumb {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 
   @media (max-width: 680px) {
     flex-direction: column;
@@ -33,7 +34,6 @@
 }
 
 .breadcrumb a {
-  font-family: "IBM Plex Mono", monospace;
   font-size: .8em;
   display: inline-block;
   text-decoration: none;
@@ -63,32 +63,4 @@
 .current-page {
   color: inherit;
   text-decoration: none;
-}
-
-.nav-items {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  margin: 0 20px;
-}
-
-.nav-link {
-  display: inline-block;
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1;
-  letter-spacing: .5px;
-  text-decoration: none;
-  color: black;
-  transition: background-color 250ms ease 0s;
-  &:hover {
-    text-decoration: underline;
-  }
 }

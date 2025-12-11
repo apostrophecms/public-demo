@@ -1,0 +1,54 @@
+{% import 'link.html' as link %}
+{% import '@apostrophecms/template:macros/icons.html' as icons with context %}
+{% set widget = data.widget %}
+
+<div class="
+  widget price-card-widget
+  price-card-widget--featured-{{ widget.featured }}
+  price-card-widget--has-badge-{{ widget.badge }}
+">
+  {% if widget.badge %}
+    <div class="price-card__badge">
+      <div class="price-card__chip chip">
+        {% if widget.badgeIcon %}
+          <span class="price-card__badge-icon">{{ icons[widget.badgeIcon]() }}</span>
+        {% endif %}
+        <span class="price-card__badge-label">{{ widget.badgeLabel or 'No label entered' }}</span>
+      </div>
+    </div>
+  {% endif %}
+  <h3 class="price-card__title">
+    {{ widget.title }}
+  </h3>
+  <p class="price-card__content">
+    {{ widget.content }}
+  </p>
+  <div class="price-card__price">
+    <span class="price-card__price-text">{{ widget.priceText or 'No price text' }}</span>
+    {% if widget.priceTextUnit %}
+      <span class="price-card__price-detail">{{ widget.priceTextUnit }}</span>
+    {% endif %}
+  </div>
+  {% if widget.priceDetail %}
+    <p class="price-card__price-detail">{{ widget.priceDetail }}</p>
+  {% endif %}
+  {% if widget.features.length %}
+    <ol class="price-card__features">
+      {% for feature in widget.features %}
+        <li>{{ feature.item }}</li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+  {% if widget.linkText %}
+    <div class="price-card__link">
+      {% set path = apos.helper.linkPath(item) %}
+        {{ link.render({
+          label: widget.linkText,
+          path: path,
+          target: widget.linkTarget,
+          class: 'button button--small price-card__button'
+        })}}
+    </div>
+  {% endif %}
+</div>
+

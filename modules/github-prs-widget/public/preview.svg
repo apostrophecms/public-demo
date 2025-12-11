@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>GH</title>
+    <defs>
+        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
+        <rect id="path-2" x="0" y="6" width="110" height="69" rx="8"></rect>
+    </defs>
+    <g id="GH" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#ADC4FE" xlink:href="#path-1"></use>
+        <g id="Group" stroke-width="1" transform="translate(10, 4)">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Mask" fill="#FFFFFD" xlink:href="#path-2"></use>
+            <g mask="url(#mask-3)">
+                <g transform="translate(17, 30)">
+                    <line x1="31" y1="3" x2="76" y2="3" id="Line-Copy-4" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="31" y1="11" x2="64" y2="11" id="Line-Copy-3" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="31" y1="19" x2="74" y2="19" id="Line-Copy-5" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <g id="Group-Copy" stroke="none" stroke-width="1" fill-rule="evenodd">
+                        <circle id="Oval" fill="#2C5AD8" cx="11" cy="11" r="11"></circle>
+                        <g id="Group" transform="translate(5, 5)" stroke="#FFFFFD" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+                            <path d="M7.93950282,12 L7.93950282,9.6 C8.02446778,8.84837384 7.80509928,8.09407471 7.32877184,7.5 C9.1609648,7.5 10.9931578,6.3 10.9931578,4.2 C11.0420162,3.45 10.8282604,2.712 10.3824268,2.1 C10.5534314,1.41 10.5534314,0.69 10.3824268,0 C10.3824268,0 9.77169578,0 8.55023381,0.9 C6.93790401,0.6 5.27671572,0.6 3.66438592,0.9 C2.44292395,0 1.83219296,0 1.83219296,0 C1.64897366,0.69 1.64897366,1.41 1.83219296,2.1 C1.38750337,2.70953011 1.17167049,3.45167199 1.22146197,4.2 C1.22146197,6.3 3.05365493,7.5 4.88584789,7.5 C4.64766281,7.794 4.47055082,8.13 4.36672655,8.49 C4.26290229,8.85 4.23236574,9.228 4.2751169,9.6 L4.2751169,12" id="Path"></path>
+                            <path d="M4.2751169,9.6 C1.52072016,10.8 1.22146197,8.4 0,8.4" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-Copy-2" mask="url(#mask-3)">
+                <g transform="translate(17, -2)">
+                    <line x1="31" y1="3" x2="76" y2="3" id="Line-Copy-4" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="31" y1="11" x2="64" y2="11" id="Line-Copy-3" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="31" y1="19" x2="74" y2="19" id="Line-Copy-5" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <g id="Group-Copy" stroke="none" stroke-width="1" fill-rule="evenodd">
+                        <circle id="Oval" fill="#2C5AD8" cx="11" cy="11" r="11"></circle>
+                        <g id="Group" transform="translate(5, 5)" stroke="#FFFFFD" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+                            <path d="M7.93950282,12 L7.93950282,9.6 C8.02446778,8.84837384 7.80509928,8.09407471 7.32877184,7.5 C9.1609648,7.5 10.9931578,6.3 10.9931578,4.2 C11.0420162,3.45 10.8282604,2.712 10.3824268,2.1 C10.5534314,1.41 10.5534314,0.69 10.3824268,0 C10.3824268,0 9.77169578,0 8.55023381,0.9 C6.93790401,0.6 5.27671572,0.6 3.66438592,0.9 C2.44292395,0 1.83219296,0 1.83219296,0 C1.64897366,0.69 1.64897366,1.41 1.83219296,2.1 C1.38750337,2.70953011 1.17167049,3.45167199 1.22146197,4.2 C1.22146197,6.3 3.05365493,7.5 4.88584789,7.5 C4.64766281,7.794 4.47055082,8.13 4.36672655,8.49 C4.26290229,8.85 4.23236574,9.228 4.2751169,9.6 L4.2751169,12" id="Path"></path>
+                            <path d="M4.2751169,9.6 C1.52072016,10.8 1.22146197,8.4 0,8.4" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-Copy-3" mask="url(#mask-3)">
+                <g transform="translate(17, 62)">
+                    <line x1="31" y1="3" x2="76" y2="3" id="Line-Copy-4" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="31" y1="11" x2="64" y2="11" id="Line-Copy-3" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="31" y1="19" x2="74" y2="19" id="Line-Copy-5" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>
+                    <g id="Group-Copy" stroke="none" stroke-width="1" fill-rule="evenodd">
+                        <circle id="Oval" fill="#2C5AD8" cx="11" cy="11" r="11"></circle>
+                        <g id="Group" transform="translate(5, 5)" stroke="#FFFFFD" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+                            <path d="M7.93950282,12 L7.93950282,9.6 C8.02446778,8.84837384 7.80509928,8.09407471 7.32877184,7.5 C9.1609648,7.5 10.9931578,6.3 10.9931578,4.2 C11.0420162,3.45 10.8282604,2.712 10.3824268,2.1 C10.5534314,1.41 10.5534314,0.69 10.3824268,0 C10.3824268,0 9.77169578,0 8.55023381,0.9 C6.93790401,0.6 5.27671572,0.6 3.66438592,0.9 C2.44292395,0 1.83219296,0 1.83219296,0 C1.64897366,0.69 1.64897366,1.41 1.83219296,2.1 C1.38750337,2.70953011 1.17167049,3.45167199 1.22146197,4.2 C1.22146197,6.3 3.05365493,7.5 4.88584789,7.5 C4.64766281,7.794 4.47055082,8.13 4.36672655,8.49 C4.26290229,8.85 4.23236574,9.228 4.2751169,9.6 L4.2751169,12" id="Path"></path>
+                            <path d="M4.2751169,9.6 C1.52072016,10.8 1.22146197,8.4 0,8.4" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

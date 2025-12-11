@@ -1,0 +1,22 @@
+{% import 'link.html' as link %}
+{% set widget = data.widget %}
+
+<div class="widget hero-widget">
+  <div class="hero-widget__content">
+    {% area widget, 'content' %}
+  </div>
+  {% if widget.links.length %}
+    <div class="hero-widget__buttons">
+      {% for item in widget.links %}
+        {% set path = apos.helper.linkPath(item) %}
+        {% set class = 'button ' + item.style %}
+          {{ link.render({
+            label: item.linkText,
+            path: path,
+            target: item.linkTarget,
+            class: class
+          })}}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

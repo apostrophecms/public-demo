@@ -3,7 +3,7 @@ export default {
   options: {
     name: 'githubPrs',
     label: 'GitHub Pull Requests',
-    previewImage: 'png',
+    previewImage: 'svg',
     icon: 'github',
     description: 'Display a list of pull requests from a GitHub repository'
   },

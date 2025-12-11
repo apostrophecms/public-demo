@@ -1,0 +1,36 @@
+{% import 'link.html' as link %}
+{% import '@apostrophecms/template:macros/icons.html' as icons with context %}
+{% set widget = data.widget %}
+
+<div class="
+  widget card-widget
+  card-widget--bg-{{ widget.bg }}
+  card-widget--orientation-{{ widget.orientation }}
+">
+  {% if widget.icon %}
+    <div class="card__icon">
+      {{ icons[widget.icon]() }}
+    </div>
+  {% endif %}
+  <div class="card__content">
+    <div class="card__title">
+      {{ widget.title }}
+    </div>
+    <div class="card__text">
+      {{ widget.content }}
+    </div>
+  </div>
+  {% if widget.linkText %}
+    <div class="card__link">
+      {% set path = apos.helper.linkPath(item) %}
+      {% set class = 'button ' + item.style %}
+        {{ link.render({
+          label: widget.linkText,
+          path: path,
+          target: widget.linkTarget,
+          class: class
+        })}}
+    </div>
+  {% endif %}
+</div>
+
