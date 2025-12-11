@@ -77,6 +77,12 @@ const flow = {
                 'The Pages Manager let\'s you create pages, edit existing ones, and reorganize your page tree.'
             },
             {
+              title: 'Articles',
+              element: '[action-test-label="article-manager-button"]',
+              intro:
+                'Content types like articles can be created once, customized as needed, and displayed anywhere across your site.'
+            },
+            {
               title: 'Global settings',
               element:
                 '[data-apos-test="@apostrophecms/global:singleton-editorTrigger"]',
