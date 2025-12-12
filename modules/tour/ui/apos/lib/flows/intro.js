@@ -52,7 +52,7 @@ const flow = {
             {
               title: 'Welcome to the ApostropheCMS demo tour',
               intro:
-                'Welcome aboard! This quick tour will show you how to create, edit, and organize content in ApostropheCMS. You’ll see where things live, how to make changes safely, how to edit content in-context, and how to publish when you’re ready.'
+                'Great to have you here. This brief tour highlights how content editing works in ApostropheCMS, from in-context updates to layout controls and publishing. You’ll get a clear sense of how editors move quickly while staying fully in control of their changes.'
             }
           ]
         },
