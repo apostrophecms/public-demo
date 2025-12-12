@@ -63,6 +63,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'The admin bar',
@@ -105,6 +106,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Manage images and media',
@@ -127,6 +129,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Easily switch locales',
@@ -152,6 +155,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Enable Edit Mode',
@@ -174,6 +178,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Edit content in-context',
@@ -199,6 +204,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Add content to the page',
@@ -227,6 +233,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Adding content',
@@ -247,6 +254,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Custom widgets',
@@ -267,6 +275,7 @@ const flow = {
         options: {
           showBullets: false,
           exitOnEsc: false,
+          doneLabel: 'Next',
           steps: [
             {
               title: 'Manage your document',
