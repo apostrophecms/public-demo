@@ -95,6 +95,8 @@ const flow = {
             .querySelector('[data-apos-test="media-dropdown"] button')
             .click();
           await wait(50);
+          document.activeElement.blur();
+          await wait(50);
           tours[2].instance.start();
         }
       },
@@ -237,9 +239,27 @@ const flow = {
         onExit: async () => {
           document.querySelector('.apos-modal__overlay').click();
           await wait(100);
+          tours[8].instance.start();
+        }
+      },
+
+      {
+        options: {
+          showBullets: false,
+          exitOnEsc: false,
+          steps: [
+            {
+              title: 'Custom widgets',
+              element: '[data-apos-test="widget:github-prs"]',
+              intro: 'Here is a custom widget that queries the GitHub API for pull requests on a given repository. Edit the widget to see how it works.',
+            }
+          ]
+        },
+        onExit: async () => {
+          await wait(50);
           document.querySelector('.apos-admin-bar__control-set__group [data-apos-test="contextMenuTrigger"] button').click();
           await wait(100);
-          tours[8].instance.start();
+          tours[9].instance.start();
         }
       },
 
@@ -261,7 +281,8 @@ const flow = {
           ]
         },
         onExit: () => {
-          tours[9].instance.start();
+          document.body.click();
+          tours[10].instance.start();
         }
       },
 

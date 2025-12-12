@@ -110,7 +110,7 @@ onMounted(() => {
   .introjs-tour,
   .introjs-hints {
     pointer-events: none;
-    z-index: 9999999;
+    z-index: 999999;
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -120,6 +120,10 @@ onMounted(() => {
     & > * {
       pointer-events: auto;
     }
+  }
+
+  .introjs-tour {
+    z-index: 9999999;
   }
 
   .introjs-helperLayer {
