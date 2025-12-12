@@ -13,10 +13,10 @@
           <em>You will need to publish an Article Index page for article links to work.</em>
         </p>
       {% endif %}
-      {% if article._topics.length %}
+      {% if article._categories.length %}
         <div class="article-topics">
-          {% for topic in article._topics %}
-            <a href="{{ article._parentSlug }}?topics={{ topic.slug }}" class="chip">{{ topic.title }}</a>
+          {% for category in article._categories %}
+            <a href="{{ article._parentSlug }}?categories={{ category.slug }}" class="chip">{{ category.title }}</a>
           {% endfor %}
         </div>
       {% endif %}
