@@ -32,6 +32,12 @@ export default {
         type: 'relationship',
         withType: 'article-category'
       },
+      _author: {
+        label: 'Author',
+        type: 'relationship',
+        withType: '@apostrophecms/user',
+        max: 1
+      },
       _image: {
         label: 'Featured Image',
         type: 'relationship',
@@ -58,8 +64,15 @@ export default {
       main: {
         label: 'Content',
         fields: [
-          'main',
           '_image',
+          'main'
+        ]
+      },
+      utility: {
+        fields: [
+          'slug',
+          'visibility',
+          '_author',
           '_categories'
         ]
       }
@@ -69,6 +82,10 @@ export default {
     add: {
       _categories: {
         label: 'Categories',
+        component: 'DemoCellRelation'
+      },
+      _author: {
+        label: 'Author',
         component: 'DemoCellRelation'
       },
       _image: {
