@@ -7,16 +7,6 @@
   margin: 20px 0 40px 0;
 }
 
-.header .inner {
-  max-width: 1100px;
-  display: flex;
-  order: 1; // To allow locales to be placed first.
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 10px 0;
-}
-
 .breadcrumb {
   display: flex;
   justify-content: center;
