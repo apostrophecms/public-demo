@@ -65,7 +65,7 @@ apostrophe({
     'article-page': {},
 
     // A piece type for categorizing articles
-    topic: {},
+    'article-category': {},
 
     // Import and export content
     '@apostrophecms/import-export': {},

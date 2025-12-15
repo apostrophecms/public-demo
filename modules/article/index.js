@@ -27,10 +27,10 @@ export default {
         label: 'Published Date',
         type: 'date'
       },
-      _topics: {
-        label: 'Article topics',
+      _categories: {
+        label: 'Article Categories',
         type: 'relationship',
-        withType: 'topic'
+        withType: 'article-category'
       },
       _image: {
         label: 'Featured Image',
@@ -60,15 +60,15 @@ export default {
         fields: [
           'main',
           '_image',
-          '_topics'
+          '_categories'
         ]
       }
     }
   },
   columns: {
     add: {
-      _topics: {
-        label: 'Topics',
+      _categories: {
+        label: 'Categories',
         component: 'DemoCellRelation'
       },
       _image: {

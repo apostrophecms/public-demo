@@ -20,7 +20,7 @@ export default {
   methods(self) {
     return {
       async beforeIndex(req) {
-        req.data._topics = await self.apos.topic.find(req).sort({ createdAt: -1 }).toArray();
+        req.data._categories = await self.apos.category.find(req).sort({ createdAt: -1 }).toArray();
       }
     };
   }
