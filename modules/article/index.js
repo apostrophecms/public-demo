@@ -27,10 +27,10 @@ export default {
         label: 'Published Date',
         type: 'date'
       },
-      _topics: {
-        label: 'Article topics',
+      _categories: {
+        label: 'Article Categories',
         type: 'relationship',
-        withType: 'topic'
+        withType: 'article-category'
       },
       _author: {
         label: 'Author',
@@ -64,8 +64,8 @@ export default {
       main: {
         label: 'Content',
         fields: [
-          'main',
-          '_image'
+          '_image',
+          'main'
         ]
       },
       utility: {
@@ -73,15 +73,15 @@ export default {
           'slug',
           'visibility',
           '_author',
-          '_topics'
+          '_categories'
         ]
       }
     }
   },
   columns: {
     add: {
-      _topics: {
-        label: 'Topics',
+      _categories: {
+        label: 'Categories',
         component: 'DemoCellRelation'
       },
       _author: {

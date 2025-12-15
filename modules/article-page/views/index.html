@@ -15,19 +15,19 @@
         <li>
           <a
           href="?"
-          {% if not data.query.topics %}
+          {% if not data.query.categories %}
             class="active"
           {% endif %}
           >All Articles</a>
         </li>
-        {% for topic in data._topics %}
+        {% for category in data._categories %}
           <li>
             <a 
-            href="?topics={{ topic.slug }}"
-            {% if data.query.topics and data.query.topics === topic.slug %}
+            href="?categories={{ category.slug }}"
+            {% if data.query.categories and data.query.categories === category.slug %}
               class="active"
             {% endif %}
-            >{{ topic.title }}</a>
+            >{{ category.title }}</a>
           </li>
         {% endfor %}
       </ul>

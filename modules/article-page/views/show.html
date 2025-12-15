@@ -7,7 +7,7 @@
 
 {% block pageTitle %}
   <div class="article-title-wrapper">
-    <div class="inner">
+    <div class="layout">
       {% set title = data.page.title %}
       {% if data.piece %}
         {% set title = data.piece.title %}
@@ -27,10 +27,10 @@
         {{ apos.helper.formatDate(article.publishedDate) }}
       </div>
     </div>
-    {% if article._topics.length %}
+    {% if article._categories.length %}
       <div class="inner article-topics article-topics--show">
-        {% for topic in article._topics %}
-          <a href="{{ article._parentSlug }}?topics={{ topic.slug }}" class="chip">{{ topic.title }}</a>
+        {% for category in article._categories %}
+          <a href="{{ article._parentSlug }}?categories={{ category.slug }}" class="chip">{{ category.title }}</a>
         {% endfor %}
       </div>
     {% endif %}
