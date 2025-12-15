@@ -10,14 +10,12 @@ export default {
           '@apostrophecms/image-tag',
           '@apostrophecms/file-tag'
         ]
-      },
-      {
-        name: 'pieces',
-        label: 'Content',
-        items: [
-          'article'
-        ]
       }
+    ],
+    order: [
+      '@apostrophecms/image',
+      'article',
+      'article-category'
     ]
   }
 };
