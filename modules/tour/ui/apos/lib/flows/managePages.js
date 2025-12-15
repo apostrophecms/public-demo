@@ -39,12 +39,11 @@ const flow = {
       {
         options: {
           showBullets: false,
-          exitOnEsc: false,
           steps: [
             {
               title: 'Create a new page',
               element: '.apos-modal .apos-button.apos-button--primary',
-              intro: 'Click here to create a new page.'
+              intro: 'Click here to create a new page'
             },
             {
               title: 'Manage the page tree',

@@ -21,13 +21,25 @@ const flows = ref({
 });
 
 const modalStore = useModalStore();
-const { setTourValue, getTourValue, clearRunning, disableTour, resetTour } = useTour();
+const {
+  setTourValue,
+  getTourValue,
+  clearRunning,
+  disableTour,
+} = useTour();
 const activeModal = computed(() => modalStore.activeModal);
 const isTourDisabled = computed(() => !!getTourValue('disabled'));
 const hint = introJs.hint();
 
 hint.onHintClose(hint => { 
   setTourValue(hint.id, 'complete');
+});
+
+hint.onHintClick(hint => {
+  document.addEventListener('click', () => {
+    setTourValue(hint.id, 'complete');
+    refreshHints();
+  }, { once: true });
 });
 
 watch(activeModal, async (newModal) => {
@@ -124,6 +136,11 @@ onMounted(() => {
 
   .introjs-tour {
     z-index: 9999999;
+  }
+
+  .introjs-hint-dot {
+    width: 70px;
+    left: -28px;
   }
 
   .introjs-helperLayer {

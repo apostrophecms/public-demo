@@ -188,8 +188,9 @@ const flow = {
           ]
         },
         onExit: async () => {
+          await wait(100);
           document.querySelectorAll('.apos-area-widget-guard')[9].click();
-          await wait(200);
+          await wait(300);
           scrollToTargetAdjusted(
             '.apos-area-widget-controls--add--top.apos-is-visible button',
             null,

@@ -39,7 +39,6 @@ const flow = {
       {
         options: {
           showBullets: false,
-          exitOnEsc: false,
           steps: [
             {
               title: 'Create new content',

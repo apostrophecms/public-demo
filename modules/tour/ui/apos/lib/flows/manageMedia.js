@@ -39,7 +39,6 @@ const flow = {
       {
         options: {
           showBullets: false,
-          exitOnEsc: false,
           tooltipClass: 'large',
           steps: [
             {
@@ -49,12 +48,18 @@ const flow = {
             }
           ]
         },
-        onExit: () => tours[1].instance.start()
+        onExit: async () => {
+          await wait(200);
+          if (!document.querySelector('.apos-modal .apos-media-uploader')) {
+            skipped = true;
+          } else {
+            tours[1].instance.start();
+          }
+        }
       },
       {
         options: {
           showBullets: false,
-          exitOnEsc: false,
           scrollToElement: false,
           steps: [
             {
@@ -81,7 +86,6 @@ const flow = {
       {
         options: {
           showBullets: false,
-          exitOnEsc: false,
           scrollToElement: false,
           steps: [
             {
