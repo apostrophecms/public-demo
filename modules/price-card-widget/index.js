@@ -10,23 +10,23 @@ export default {
     'card-bulleted-icon': 'CardBulleted'
   },
   options: {
-    label: 'Pricing Card',
+    label: 'project:pricingCard',
     icon: 'card-bulleted-icon',
     previewImage: 'svg',
-    description: 'A card that can display pricing and feature sets.'
+    description: 'project:pricingCardDescription'
   },
   fields: {
     add: {
       title: {
-        label: 'Title',
+        label: 'project:title',
         type: 'string'
       },
       content: {
-        label: 'Description Content',
+        label: 'project:content',
         type: 'string'
       },
       badge: {
-        label: 'Add a badge to the card?',
+        label: 'project:addBadge',
         type: 'boolean',
         def: false
       },
@@ -34,7 +34,7 @@ export default {
         if: {
           badge: true
         },
-        label: 'Icon',
+        label: 'project:icon',
         type: 'select',
         choices: localIcons
       },
@@ -42,38 +42,38 @@ export default {
         if: {
           badge: true
         },
-        label: 'Badge Label',
+        label: 'project:badgeLabel',
         type: 'string'
       },
       featured: {
-        label: 'A featured card has a special background',
+        label: 'project:specialBackground',
         type: 'boolean',
         def: false
       },
       priceText: {
-        label: 'Price text',
-        help: 'Ex. $20, Custom, etc',
+        label: 'project:priceText',
+        help: 'project:priceTextHelp',
         type: 'string'
       },
       priceTextUnit: {
-        label: 'Price Unit Interval',
-        help: 'Optional Ex. /mo, /year',
+        label: 'project:priceUnit',
+        help: 'project:priceUnitHelp',
         type: 'string'
       },
       priceDetail: {
-        label: 'Additional price details',
+        label: 'project:priceDetail',
         type: 'string'
       },
       features: {
         type: 'array',
         inline: true,
-        label: 'List of Features',
-        help: 'A list of features this package includes',
+        label: 'project:listOfFeature',
+        help: 'project:listOfFeatureHelp',
         fields: {
           add: {
             item: {
               type: 'string',
-              label: 'Feature'
+              label: 'project:feature'
             }
           }
         }

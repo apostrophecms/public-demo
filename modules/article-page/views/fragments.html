@@ -10,7 +10,7 @@
     <div class="article-excerpt-content">
       {% if not article._url %}
         <p class="meta">
-          <em>You will need to publish an Article Index page for article links to work.</em>
+          <em>{{ __t('project:needArticleIndex') }}</em>
         </p>
       {% endif %}
       {% if article._categories.length %}
@@ -22,7 +22,7 @@
       {% endif %}
       {% if article._author.length %}
         <div class="article-detail article-author">
-          Written by {{ article._author[0].title }}
+          {{ __t('project:writtenBy') }} {{ article._author[0].title }}
         </div>
       {% endif %}
       <div class="article-detail article-published">
@@ -33,7 +33,7 @@
         {% if not apos.area.isEmpty(article, 'blurb') %}
           {% area article, 'blurb' %}
         {% else %}
-          <p class="placeholder">No blurb for this article</p>
+          <p class="placeholder">{{ __t('project:noSummary') }}</p>
         {% endif %}
       </article>
     </div>

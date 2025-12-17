@@ -3,7 +3,7 @@ export default {
     groups: [
       {
         name: 'media',
-        label: 'Media',
+        label: 'project:media',
         items: [
           '@apostrophecms/image',
           '@apostrophecms/file',

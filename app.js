@@ -31,8 +31,6 @@ apostrophe({
       // }
     },
 
-    localizations: {},
-
     // Manage page and piece SEO metadata
     '@apostrophecms/seo': {},
 

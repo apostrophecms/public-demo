@@ -1,12 +1,13 @@
 import { fullConfigExpandedGroups } from '../../../lib/area.js';
 export default {
   options: {
-    label: 'Home Page',
-    pluralLabel: 'Home Pages'
+    label: 'project:homePage',
+    pluralLabel: 'project:homePages'
   },
   fields: {
     add: {
       main: {
+        label: 'project:main',
         type: 'area',
         options: {
           expanded: true,
@@ -16,7 +17,7 @@ export default {
     },
     group: {
       basics: {
-        label: 'Basics',
+        label: 'project:basics',
         fields: [
           'title',
           'main'

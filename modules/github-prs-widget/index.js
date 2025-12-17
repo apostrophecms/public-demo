@@ -2,10 +2,10 @@ export default {
   extend: '@apostrophecms/widget-type',
   options: {
     name: 'githubPrs',
-    label: 'GitHub Pull Requests',
+    label: 'project:ghPrLabel',
     previewImage: 'svg',
     icon: 'github',
-    description: 'Display a list of pull requests from a GitHub repository'
+    description: 'project:ghPrDescription'
   },
   components(self) {
     return {
@@ -43,14 +43,14 @@ export default {
     add: {
       repo: {
         type: 'string',
-        label: 'Repo',
+        label: 'project:repo',
         def: 'apostrophecms/apostrophe',
-        help: 'Formatted like {ORG_NAME}/{REPO_NAME}',
+        help: 'project:formattedLike',
         required: true
       },
       limit: {
         type: 'integer',
-        label: 'Limit',
+        label: 'project:limit',
         def: 5,
         required: true,
         max: 100,
@@ -58,16 +58,16 @@ export default {
       },
       state: {
         type: 'select',
-        label: 'State',
+        label: 'project:state',
         required: true,
         choices: [
           {
-            label: 'Open',
+            label: 'project:open',
             value: 'open',
             def: true
           },
           {
-            label: 'Closed',
+            label: 'project:closed',
             value: 'closed'
           }
         ]

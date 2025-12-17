@@ -10,7 +10,7 @@ export default {
         prefix: '/fr'
       },
       mx: {
-        label: 'Spanish (MX)',
+        label: 'Spanish',
         flag: 'MX',
         prefix: '/mx'
       },
@@ -27,8 +27,21 @@ export default {
       {
         label: 'English',
         value: 'en'
+      },
+      {
+        label: 'Spanish',
+        value: 'mx'
+      },
+      {
+        label: 'German',
+        value: 'de'
       }
     ]
+  },
+  i18n: {
+    project: {
+      browser: true
+    }
   },
   extendHandlers(self) {
     return {

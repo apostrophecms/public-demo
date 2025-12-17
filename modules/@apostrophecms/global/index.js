@@ -1,24 +1,15 @@
-import { fullConfig } from '../../../lib/area.js';
-
 export default {
   fields: {
     add: {
       siteTitle: {
-        label: 'Site Title',
+        label: 'project:siteTitle',
         type: 'string',
-        def: 'Awesome Site'
-      },
-      footerContent: {
-        label: 'Footer Content',
-        type: 'area',
-        options: {
-          widgets: fullConfig
-        }
+        def: 'project:apostropheCmsSite'
       }
     },
     group: {
       general: {
-        label: 'General',
+        label: 'project:general',
         fields: [ 'siteTitle', 'footerLinks' ]
       }
     }

@@ -1,7 +1,7 @@
 export default {
   options: {
-    label: 'Layout',
-    description: 'Create flexible column layouts',
+    label: 'project:layout',
+    description: 'project:layoutDescription',
     previewImage: 'svg'
   }
 };

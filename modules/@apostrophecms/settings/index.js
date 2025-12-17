@@ -16,11 +16,11 @@ export default {
 
     groups: {
       account: {
-        label: 'Account',
+        label: 'project:account',
         subforms: [ 'title', 'changePassword' ]
       },
       preferences: {
-        label: 'Preferences',
+        label: 'project:preferences',
         subforms: [ 'adminLocale' ]
       }
     }

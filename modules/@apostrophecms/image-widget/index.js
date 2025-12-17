@@ -1,7 +1,7 @@
 export default {
   options: {
-    label: 'Image',
-    description: 'Display images on your page',
+    label: 'project:image',
+    description: 'project:imageDescription',
     previewImage: 'svg',
     inlineStyles: false,
     className: 'widget demo-image'

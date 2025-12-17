@@ -6,15 +6,15 @@ export default {
     types: [
       {
         name: 'default-page',
-        label: 'Default'
+        label: 'project:defaultPage'
       },
       {
         name: 'article-page',
-        label: 'Article Index'
+        label: 'project:articleIndexPage'
       },
       {
         name: '@apostrophecms/home-page',
-        label: 'Home'
+        label: 'project:home'
       }
     ]
   }

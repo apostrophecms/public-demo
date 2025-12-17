@@ -11,6 +11,6 @@
       {% render fragments.excerpt(article) %}
     {% endfor %}
   {% else %}
-    <p>There are no articles yet. Try adding one.</p>
+    <p>{{ __t('project:noArticles') }}</p>
   {% endif %}
 </div>
