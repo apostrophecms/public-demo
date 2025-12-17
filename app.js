@@ -71,6 +71,6 @@ apostrophe({
     '@apostrophecms/import-export': {},
 
     // Tour
-    tour: {}
+    // tour: {}
   }
 });
