@@ -17,12 +17,12 @@ export function initAnalyticsTracking() {
         return;
       }
 
-      let event;
+      let event = 'Tour:';
 
       if (tourElement) {
-        event = `${tourElement}: ${val}`;
+        event += `${tourElement}:${val}`;
       } else {
-        event = name;
+        event += `:${name}`;
       }
 
       window.umami.track(event);

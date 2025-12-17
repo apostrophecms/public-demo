@@ -2,9 +2,6 @@ export default {
   options: {
     name: 'tour'
   },
-  icons: {
-    'bullhorn-icon': 'Bullhorn'
-  },
   init(self, options) {
     self.prependNodes('body', 'ui');
     self.apos.adminBar.add(
@@ -13,7 +10,8 @@ export default {
       true,
       {
         contextUtility: true,
-        icon: 'bullhorn-icon',
+        displayLabel: true,
+        icon: 'help-circle-icon',
         tooltip: 'Tour Settings',
         modal: 'AposModalShareDraft'
       }
