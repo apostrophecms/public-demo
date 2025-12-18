@@ -1,7 +1,7 @@
 export default {
   options: {
-    label: 'Video',
-    description: 'Add a video player from services like YouTube',
+    label: 'project:video',
+    description: 'project:videoDescription',
     previewImage: 'svg',
     className: 'widget demo-video'
   }

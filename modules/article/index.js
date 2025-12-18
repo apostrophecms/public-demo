@@ -3,6 +3,8 @@ import { fullConfig } from '../../lib/area.js';
 export default {
   extend: '@apostrophecms/piece-type',
   options: {
+    label: 'project:article',
+    pluralLabel: 'project:articles',
     sort: {
       publishedDate: -1,
       createdAt: -1
@@ -12,8 +14,8 @@ export default {
     add: {
       blurb: {
         type: 'area',
-        label: 'Blurb',
-        help: 'A short summary.',
+        label: 'project:articleBlurb',
+        help: 'project:articleBlurbHelp',
         options: {
           max: 1,
           widgets: {
@@ -24,28 +26,28 @@ export default {
         }
       },
       publishedDate: {
-        label: 'Published Date',
+        label: 'project:articlePublishedDate',
         type: 'date'
       },
       _categories: {
-        label: 'Article Categories',
+        label: 'project:articleCategories',
         type: 'relationship',
         withType: 'article-category'
       },
       _author: {
-        label: 'Author',
+        label: 'project:articleAuthor',
         type: 'relationship',
         withType: '@apostrophecms/user',
         max: 1
       },
       _image: {
-        label: 'Featured Image',
+        label: 'project:articleFeaturedImage',
         type: 'relationship',
         withType: '@apostrophecms/image',
         aspectRatio: [ 2, 1 ]
       },
       main: {
-        label: 'Content',
+        label: 'project:content',
         type: 'area',
         options: {
           widgets: fullConfig
@@ -54,7 +56,7 @@ export default {
     },
     group: {
       basics: {
-        label: 'Basics',
+        label: 'project:basics',
         fields: [
           'title',
           'blurb',
@@ -62,7 +64,7 @@ export default {
         ]
       },
       main: {
-        label: 'Content',
+        label: 'project:content',
         fields: [
           '_image',
           'main'
@@ -81,15 +83,15 @@ export default {
   columns: {
     add: {
       _categories: {
-        label: 'Categories',
+        label: 'project:articleCategoriesColumn',
         component: 'DemoCellRelation'
       },
       _author: {
-        label: 'Author',
+        label: 'project:articleAuthorColumn',
         component: 'DemoCellRelation'
       },
       _image: {
-        label: 'Featured Image',
+        label: 'project:articleFeaturedImageColumn',
         component: 'DemoCellImage'
       }
     }

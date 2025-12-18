@@ -3,34 +3,34 @@ import linkConfig from '../../lib/link.js';
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Button',
+    label: 'project:button',
     icon: 'cursor-default-click-icon',
     previewImage: 'svg',
-    description: 'Add a button that links to a page or URL'
+    description: 'project:buttonDescription'
   },
   fields: {
     add: {
       ...linkConfig.link,
       block: {
         type: 'boolean',
-        label: 'Full Width',
+        label: 'project:fullWidth',
         def: false
       },
       alignment: {
         type: 'select',
-        label: 'Button Alignment',
+        label: 'project:buttonAlignment',
         choices: [
           {
-            label: 'Left',
+            label: 'project:left',
             value: 'left',
             def: true
           },
           {
-            label: 'Center',
+            label: 'project:center',
             value: 'center'
           },
           {
-            label: 'Right',
+            label: 'project:right',
             value: 'right'
           }
         ]

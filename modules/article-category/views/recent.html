@@ -3,7 +3,9 @@
     <div class="article-excerpt">
       {% if not article._url %}
           <p class="meta">
-            <em>You will need to publish an Article Index page for article links to work.</em>
+            <em>
+              {{ __t('project:needArticleIndex') }}
+            </em>
           </p>
       {% endif %}
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
@@ -11,11 +13,11 @@
         {% if not apos.area.isEmpty(article, 'blurb') %}
            <p class="article-blurb">{% area article, 'blurb' %}</p>
         {% else %}
-          <p class="placeholder">No blurb for this article</p>
+          <p class="placeholder">{{ __t('project:noSummary') }}</p>
         {% endif %}
       </article>
     </div>
   {% endfor %}
 {% else %}
-  <p>There are no articles yet. Try adding one.</p>
+  <p>{{ __t('project:noArticles') }}</p>
 {% endif %}

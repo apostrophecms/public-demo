@@ -27,8 +27,21 @@ export default {
       {
         label: 'English',
         value: 'en'
+      },
+      {
+        label: 'Spanish (MX)',
+        value: 'mx'
+      },
+      {
+        label: 'German',
+        value: 'de'
       }
     ]
+  },
+  i18n: {
+    project: {
+      browser: true
+    }
   },
   extendHandlers(self) {
     return {

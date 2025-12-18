@@ -3,16 +3,16 @@ import linkConfig from '../../lib/link.js';
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Hero',
+    label: 'project:hero',
     icon: 'link-icon',
     previewImage: 'svg',
-    description: 'Add a main hero to your page'
+    description: 'project:heroDescription'
   },
   fields: {
     add: {
       content: {
-        label: 'Text Content',
-        help: 'The text content for the hero',
+        label: 'project:textContent',
+        help: 'project:textContentHelp',
         type: 'area',
         max: 1,
         options: {
@@ -26,19 +26,19 @@ export default {
               styles: [
                 {
                   tag: 'p',
-                  label: 'Paragraph (P)'
+                  label: 'project:rtParagraph'
                 },
                 {
                   tag: 'h2',
-                  label: 'Heading 2 (H2)'
+                  label: 'project:rtH2'
                 },
                 {
                   tag: 'h3',
-                  label: 'Heading 3 (H3)'
+                  label: 'project:rtH3'
                 },
                 {
                   tag: 'h4',
-                  label: 'Heading 4 (H4)'
+                  label: 'project:rtH4'
                 }
               ]
             }
@@ -46,8 +46,8 @@ export default {
         }
       },
       links: {
-        label: 'Button links',
-        help: 'Add button links to the bottom of the hero',
+        label: 'project:buttonLinks',
+        help: 'project:buttonLinksDescription',
         type: 'array',
         titleField: 'linkText',
         fields: {
@@ -55,15 +55,15 @@ export default {
             ...linkConfig.link,
             style: {
               type: 'select',
-              label: 'Style',
+              label: 'project:style',
               choices: [
                 {
-                  label: 'Primary',
+                  label: 'project:primary',
                   value: 'primary',
                   def: true
                 },
                 {
-                  label: 'Outline',
+                  label: 'project:outline',
                   value: 'outline'
                 }
               ]

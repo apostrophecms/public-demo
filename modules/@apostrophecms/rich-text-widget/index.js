@@ -1,25 +1,25 @@
 export default {
   options: {
-    label: 'Rich Text',
-    description: 'Add styled text to your page',
+    label: 'project:richText',
+    description: 'project:richTextDescription',
     previewImage: 'svg',
     className: 'widget demo-rte',
     imageStyles: [
       {
         value: 'image-full',
-        label: 'Full Width'
+        label: 'project:fullWidth'
       },
       {
         value: 'image-center',
-        label: 'Center'
+        label: 'project:center'
       },
       {
         value: 'image-float-left',
-        label: 'Float Left'
+        label: 'project:left'
       },
       {
         value: 'image-float-right',
-        label: 'Float Right'
+        label: 'project:right'
       }
     ]
   }
