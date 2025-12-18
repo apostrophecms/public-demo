@@ -9,10 +9,10 @@ export default {
         label: 'French',
         prefix: '/fr'
       },
-      mx: {
+      es: {
         label: 'Spanish',
         flag: 'MX',
-        prefix: '/mx'
+        prefix: '/es'
       },
       de: {
         label: 'German',
@@ -30,7 +30,7 @@ export default {
       },
       {
         label: 'Spanish',
-        value: 'mx'
+        value: 'es'
       },
       {
         label: 'German',
