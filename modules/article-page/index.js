@@ -1,12 +1,13 @@
 export default {
   extend: '@apostrophecms/piece-page-type',
   options: {
-    label: 'Article Index Page',
-    pluralLabel: 'Article Index Pages'
+    label: 'project:articleIndexPage',
+    pluralLabel: 'project:articleIndexPages'
   },
   fields: {
     add: {
       intro: {
+        label: 'project:articleIntro',
         type: 'area',
         options: {
           limit: 1,

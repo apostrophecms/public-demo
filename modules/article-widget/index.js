@@ -2,8 +2,8 @@ export default {
   extend: '@apostrophecms/widget-type',
   options: {
     name: 'article',
-    label: 'Recent Articles',
-    description: 'Display a list of recent or curated articles',
+    label: 'project:articleRecentArticles',
+    description: 'project:articleWidgetDescription',
     icon: 'text-subject',
     previewImage: 'svg'
   },
@@ -11,20 +11,20 @@ export default {
     add: {
       limit: {
         type: 'integer',
-        label: 'Limit',
+        label: 'project:limit',
         def: 5
       },
       display: {
         type: 'select',
-        label: 'Display orientation',
+        label: 'project:articleOrientation',
         def: 'vertical',
         choices: [
           {
-            label: 'Vertical',
+            label: 'project:vertical',
             value: 'vertical'
           },
           {
-            label: 'Horizontal',
+            label: 'project:horizontal',
             value: 'horizontal'
           }
         ]

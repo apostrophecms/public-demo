@@ -13,42 +13,42 @@ localLinkConfig.linkTarget.if = {
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Card',
+    label: 'project:card',
     icon: 'link-icon',
     previewImage: 'svg',
-    description: 'Add a card'
+    description: 'project:cardAdd'
   },
   fields: {
     add: {
       title: {
-        label: 'Title',
+        label: 'project:title',
         type: 'string'
       },
       content: {
-        label: 'Content',
+        label: 'project:content',
         type: 'string'
       },
       icon: {
-        label: 'Icon',
+        label: 'project:icon',
         type: 'select',
         choices: iconChoices
       },
       bg: {
-        label: 'Card has a background color?',
+        label: 'project:cardBackground',
         type: 'boolean',
         def: true
       },
       orientation: {
-        label: 'Orientation',
+        label: 'project:orientation',
         type: 'select',
         choices: [
           {
             value: 'horizontal',
-            label: 'Horizontal'
+            label: 'project:horizontal'
           },
           {
             value: 'vertical',
-            label: 'Vertical'
+            label: 'project:vertical'
           }
         ],
         def: 'horizontal'
@@ -56,18 +56,18 @@ export default {
       ...localLinkConfig,
       style: {
         type: 'select',
-        label: 'Link Style',
+        label: 'project:linkStyle',
         if: {
           orientation: 'vertical'
         },
         choices: [
           {
-            label: 'Primary',
+            label: 'project:primary',
             value: 'primary',
             def: true
           },
           {
-            label: 'Outline',
+            label: 'project:outline',
             value: 'outline'
           }
         ]
