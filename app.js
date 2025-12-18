@@ -13,6 +13,17 @@ apostrophe({
 
   modules: {
 
+    // TEMPORARY, REMOVE ME
+    '@apostrophecms-pro/automatic-translation': {
+      options: {
+        provider: 'deepl',
+        targetsMapping: {
+          en: 'en-US'
+        }
+      }
+    },
+    '@apostrophecms-pro/automatic-translation-deepl': {},
+
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
