@@ -22,8 +22,8 @@
   </div>
   {% if widget.linkText %}
     <div class="card__link">
-      {% set path = apos.helper.linkPath(item) %}
-      {% set class = 'button ' + item.style %}
+      {% set path = apos.helper.linkPath(widget) %}
+      {% set class = 'button ' + widget.style %}
         {{ link.render({
           label: widget.linkText,
           path: path,

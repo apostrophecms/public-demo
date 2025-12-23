@@ -10,7 +10,7 @@ export default {
     group: {
       general: {
         label: 'project:general',
-        fields: [ 'siteTitle', 'footerLinks' ]
+        fields: [ 'siteTitle' ]
       }
     }
   }
