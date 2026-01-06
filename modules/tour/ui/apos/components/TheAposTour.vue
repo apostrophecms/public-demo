@@ -117,7 +117,11 @@ onMounted(() => {
 
 
 <style lang="scss">
-  @import 'intro.js/introjs.css';
+  @import 'intro.js/dist/introjs.css';
+
+  .introjs-tour-active {
+    overflow: hidden;
+  }
 
   .introjs-tour,
   .introjs-hints {

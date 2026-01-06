@@ -1,5 +1,6 @@
 import {
-  wait
+  wait,
+  deferredClick
 } from '../helpers.js';
 
 const flow = {
@@ -70,24 +71,15 @@ const flow = {
             {
               title: 'Filter by tag',
               element: '.apos-modal .apos-tag-list',
-              intro: 'Click the tag names to filter media.'
-            }
-          ]
-        },
-        onExit: async () => {
-          document
-            .querySelectorAll('.apos-modal .apos-media-manager-display__cell button')[14]
-            .click();
-          document.querySelector('.apos-modal__body-main').scrollTop = 0;
-          await wait(100);
-          tours[2].instance.start();
-        }
-      },
-      {
-        options: {
-          showBullets: false,
-          scrollToElement: false,
-          steps: [
+              intro: 'Click the tag names to filter media.',
+              onComplete: async () => {
+                await deferredClick(() =>
+                  document.querySelectorAll('.apos-modal .apos-media-manager-display__cell button')[14]
+                );
+                document.querySelector('.apos-modal__body-main').scrollTop = 0;
+                await wait(100);
+              }
+            },
             {
               title: 'Selecting media',
               element: '.apos-modal .apos-is-selected',

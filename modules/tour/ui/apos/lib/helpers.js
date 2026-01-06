@@ -1,5 +1,54 @@
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+const clearScreen = async function() {
+  window.dispatchEvent(new KeyboardEvent('keydown', { keyCode: 27 }));
+  await deferredClick(() =>
+    document.body
+  );
+  removeSyntheticOverlays();
+};
+
+const deferredClick = async function(getEl) {
+  // let current call stack + framework guards finish
+  await new Promise(resolve => setTimeout(resolve, 0));
+
+  // wait for next paint (important for apos / reactive UIs)
+  await new Promise(requestAnimationFrame);
+
+  const el = typeof getEl === 'function'
+    ? getEl()
+    : getEl;
+
+  if (el) {
+    el.click();
+  } else {
+    console.log('deferredClick element not found');
+  }
+};
+
+const waitForEl = (selector, {
+  interval = 500,
+  timeout = Infinity
+} = {}) =>
+  new Promise((resolve, reject) => {
+    const start = Date.now();
+
+    const tick = () => {
+      const el = document.querySelector(selector);
+      if (el) {
+        return resolve(el);
+      }
+
+      if (Date.now() - start >= timeout) {
+        return reject(new Error(`waitForEl timeout: ${selector}`));
+      }
+
+      setTimeout(tick, interval);
+    };
+
+    tick();
+  });
+
 async function typewriter(text, {
   minDelay = 40,
   maxDelay = 150
@@ -62,9 +111,62 @@ function scrollToTargetAdjusted(selector, index, offset = 45) {
   });
 }
 
+function createSyntheticOverlay(targetEl, opts = {}) {
+  const houseClass = 'tour-synthetic-overlay';
+  const {
+    className = null,
+    styles = {}
+  } = opts;
+
+  const rects = [ targetEl, ...targetEl.querySelectorAll('*') ]
+    .map(el => el.getBoundingClientRect())
+    .filter(r => r.width || r.height);
+
+  const bounds = rects.reduce(
+    (acc, r) => ({
+      top: Math.min(acc.top, r.top),
+      left: Math.min(acc.left, r.left),
+      right: Math.max(acc.right, r.right),
+      bottom: Math.max(acc.bottom, r.bottom)
+    }),
+    {
+      top: Infinity,
+      left: Infinity,
+      right: -Infinity,
+      bottom: -Infinity
+    }
+  );
+
+  const overlay = document.createElement('div');
+  overlay.className = `${houseClass} ${className || null}`;
+
+  Object.assign(overlay.style, {
+    position: 'fixed',
+    top: `${bounds.top}px`,
+    left: `${bounds.left}px`,
+    width: `${bounds.right - bounds.left}px`,
+    height: `${bounds.bottom - bounds.top}px`,
+    pointerEvents: 'none',
+    boxSizing: 'border-box',
+    zIndex: '999999',
+    ...styles
+  });
+
+  document.body.appendChild(overlay);
+  return overlay;
+}
+function removeSyntheticOverlays() {
+  document.querySelectorAll('.tour-synthetic-overlay').forEach(element => element.remove());
+}
+
 export {
   wait,
+  waitForEl,
   typewriter,
   selectEditable,
-  scrollToTargetAdjusted
+  scrollToTargetAdjusted,
+  deferredClick,
+  clearScreen,
+  createSyntheticOverlay,
+  removeSyntheticOverlays
 };
