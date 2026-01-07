@@ -1,8 +1,13 @@
 import {
   wait,
+  waitForEl,
   typewriter,
   selectEditable,
-  scrollToTargetAdjusted
+  scrollToTargetAdjusted,
+  deferredClick,
+  clearScreen,
+  createSyntheticOverlay,
+  deferredNextButtonFocus
 } from '../helpers.js';
 
 const flow = {
@@ -58,244 +63,236 @@ const flow = {
         },
         onExit: () => tours[1].instance.start()
       },
-
       {
         options: {
           showBullets: false,
           exitOnEsc: false,
-          doneLabel: 'Next',
+          disableInteraction: true,
           steps: [
             {
               title: 'The admin bar',
               element: '.apos-admin-bar',
               intro:
-                'The admin bar gives you access to content, allows you to manage media, edit user settings, and more. '
+                'The admin bar gives you access to content, allows you to manage media, edit user settings, and more.',
+              onComplete: async () => {
+                await clearScreen();
+              }
             },
             {
               title: 'Pages',
               element: '.apos-admin-bar__item',
               intro:
-                'The Pages Manager let\'s you create pages, edit existing ones, and reorganize your page tree.'
+                'The Pages Manager let\'s you create pages, edit existing ones, and reorganize your page tree.',
+              onComplete: async () => {
+                await clearScreen();
+              }
             },
             {
               title: 'Articles',
               element: '[action-test-label="article-manager-button"]',
               intro:
-                'Content types like articles can be created once, customized as needed, and displayed anywhere across your site.'
+                'Content types like articles can be created once, customized as needed, and displayed anywhere across your site.',
+              onComplete: async () => {
+                await clearScreen();
+              }
             },
             {
               title: 'Global settings',
               element:
                 '[data-apos-test="@apostrophecms/global:singleton-editorTrigger"]',
-              intro: 'Global Settings let you manage site-wide content and options like logos, navigation, and contact details from one central, easy-to-update location.'
-            }
-          ]
-        },
-        onExit: async () => {
-          document
-            .querySelector('[data-apos-test="media-dropdown"] button')
-            .click();
-          await wait(50);
-          document.activeElement.blur();
-          await wait(50);
-          tours[2].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              intro: 'Global Settings let you manage site-wide content and options like logos, navigation, and contact details from one central, easy-to-update location.',
+              onComplete: async () => {
+                await clearScreen();
+                await deferredClick(() =>
+                  document.querySelector('[data-apos-test="project:media-dropdown"] button')
+                );
+                await wait(100);
+                document.activeElement.blur();
+                await wait(50);
+                createSyntheticOverlay(
+                  document.querySelector('[data-apos-test="project:media-dropdown"]').parentElement,
+                  {
+                    className: 'tour-media-overlay'
+                  }
+                );
+                deferredNextButtonFocus();
+              }
+            },
             {
               title: 'Manage images and media',
-              element: '[data-apos-test="context-menu-content"]',
-              intro: 'Click here to open the Media Manager, where you can upload, organize, and manage all of your images and files.'
-            }
-          ]
-        },
-        onExit: async () => {
-          document.body.click();
-          document
-            .querySelector('[data-apos-test="localePickerTrigger"] button')
-            .click();
-          await wait(50);
-          tours[3].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              // element: '[data-apos-test="context-menu-content"]',
+              element: '.tour-media-overlay',
+              intro: 'Click here to open the Media Manager, where you can upload, organize, and manage all of your images and files.',
+              onComplete: async () => {
+                await clearScreen();
+                await deferredClick(() =>
+                  document.querySelector('[data-apos-test="localePickerTrigger"] button')
+                );
+                await wait(100);
+                document.activeElement.blur();
+                createSyntheticOverlay(
+                  document.querySelector('[data-apos-test="localePickerTrigger"]').parentElement,
+                  {
+                    className: 'locale-picker-overlay'
+                  }
+                );
+                deferredNextButtonFocus();
+              }
+            },
             {
               title: 'Easily switch locales',
-              element: '.apos-context-menu__pane',
-              intro: 'Sites can be localized into many languages. The locale switcher lets you view the site in a specific language so you can manage that locale\'s content.'
-            }
-          ]
-        },
-        onExit: () => {
-          if (window.apos?.adminBar?.editMode) {
-            selectEditable('.apos-rich-text-editor__editor', 'h2');
-            typewriter('This website is yours!');
-            document.querySelector('.apos-rich-text-editor__editor').click();
-            tours[5].instance.start();
-          } else {
-            tours[4].instance.start();
-          }
-
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              // element: '.apos-context-menu__pane',
+              element: '.locale-picker-overlay',
+              intro: 'Sites can be localized into many languages. The locale switcher lets you view the site in a specific language so you can manage that locale\'s content.',
+              onComplete: async () => {
+                await clearScreen();
+                if (window.apos?.adminBar?.editMode) {
+                  scrollToTargetAdjusted(
+                    '.apos-rich-text-editor__editor',
+                    null,
+                    230
+                  );
+                  selectEditable('.apos-rich-text-editor__editor', 'h2');
+                  typewriter('This website is yours!', {
+                    minDelay: 20,
+                    maxDelay: 70
+                  });
+                  await deferredClick(() =>
+                    document.querySelector('.apos-rich-text-editor__editor')
+                  );
+                  deferredNextButtonFocus();
+                }
+              }
+            },
             {
               title: 'Enable Edit Mode',
               element: '.apos-admin-bar__control-set--mode-and-settings button',
-              intro: 'Click the Edit button to begin editing the page.'
-            }
-          ]
-        },
-        onExit: async () => {
-          document.querySelector('.apos-admin-bar__control-set--mode-and-settings button').click();
-          await wait(1400);
-          selectEditable('.apos-rich-text-editor__editor', 'h2');
-          typewriter('This website is yours!');
-          document.querySelector('.apos-rich-text-editor__editor').click();
-          tours[5].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              intro: 'Click the Edit button to begin editing the page.',
+              skipIf: async () => {
+                return window.apos?.adminBar?.editMode;
+              },
+              onComplete: async () => {
+                await clearScreen();
+                await deferredClick(() =>
+                  document.querySelector('.apos-admin-bar__control-set--mode-and-settings button')
+                );
+                await waitForEl('.apos-rich-text-editor__editor');
+                scrollToTargetAdjusted(
+                  '.apos-rich-text-editor__editor',
+                  null,
+                  230
+                );
+                selectEditable('.apos-rich-text-editor__editor', 'h2');
+                typewriter('This website is yours!', {
+                  minDelay: 20,
+                  maxDelay: 70
+                });
+                await deferredClick(() =>
+                  document.querySelector('.apos-rich-text-editor__editor')
+                );
+              }
+            },
             {
               title: 'Edit content in-context',
               element: '.apos-area-widget-wrapper',
-              intro: 'Hover and click into content on the page to begin editing and re-arranging your content.'
-            }
-          ]
-        },
-        onExit: async () => {
-          await wait(100);
-          document.querySelectorAll('.apos-area-widget-guard')[9].click();
-          await wait(300);
-          scrollToTargetAdjusted(
-            '.apos-area-widget-controls--add--top.apos-is-visible button',
-            null,
-            230
-          );
-          await wait(200);
-          tours[6].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              intro: 'Hover and click into content on the page to begin editing and re-arranging your content.',
+              onComplete: async () => {
+                await clearScreen();
+                await wait(100);
+                await deferredClick(() =>
+                  document.querySelectorAll('.apos-area-widget-guard')[9]
+                );
+                await wait(300);
+                scrollToTargetAdjusted(
+                  '.apos-area-widget-controls--add--top.apos-is-visible button',
+                  null,
+                  230
+                );
+                await wait(200);
+              }
+            },
             {
               title: 'Add content to the page',
               element:
                 '.apos-area-widget-controls--add--top.apos-is-visible button',
               intro:
-                'Click the PLUS buttons to add additional widgets to the page. These appear above and below any widget.'
-            }
-          ]
-        },
-        onExit: async () => {
-          document.body.click();
-          document.querySelectorAll('.apos-area-widget-guard')[9].click();
-          await wait(200);
-          document
-            .querySelector(
-              '.apos-area-widget-controls--add--top.apos-is-visible button'
-            )
-            .click();
-          await wait(200);
-          tours[7].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+                'Click the PLUS buttons to add additional widgets to the page. These appear above and below any widget.',
+              onComplete: async () => {
+                await clearScreen();
+                await deferredClick(() =>
+                  document.querySelectorAll('.apos-area-widget-guard')[9]
+                );
+                await wait(200);
+                await deferredClick(() =>
+                  document.querySelector('.apos-area-widget-controls--add--top.apos-is-visible button')
+                );
+                await wait(200);
+                deferredNextButtonFocus();
+              }
+            },
             {
               title: 'Adding content',
               element: '.apos-modal__inner',
               intro: 'Select a widget from the menu to add it to the page',
-              position: 'top-middle-aligned'
-            }
-          ]
-        },
-        onExit: async () => {
-          document.querySelector('.apos-modal__overlay').click();
-          await wait(100);
-          tours[8].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              position: 'top-middle-aligned',
+              onComplete: async () => {
+                await clearScreen();
+                await deferredClick(() =>
+                  document.querySelector('.apos-modal__overlay')
+                );
+                await wait(100);
+                scrollToTargetAdjusted(
+                  '[data-apos-test="widget:github-prs"]',
+                  null,
+                  230
+                );
+              }
+            },
             {
               title: 'Custom widgets',
               element: '[data-apos-test="widget:github-prs"]',
               intro: 'Here is a custom widget that queries the GitHub API for pull requests on a given repository. Edit the widget to see how it works.',
-            }
-          ]
-        },
-        onExit: async () => {
-          await wait(50);
-          document.querySelector('.apos-admin-bar__control-set__group [data-apos-test="contextMenuTrigger"] button').click();
-          await wait(100);
-          tours[9].instance.start();
-        }
-      },
-
-      {
-        options: {
-          showBullets: false,
-          exitOnEsc: false,
-          doneLabel: 'Next',
-          steps: [
+              position: 'left',
+              onComplete: async () => {
+                await clearScreen();
+                await wait(50);
+                await deferredClick(() =>
+                  document.querySelector('.apos-admin-bar__control-set__group [data-apos-test="contextMenuTrigger"] button')
+                );
+                await wait(100);
+                createSyntheticOverlay(
+                  document.querySelector('.apos-admin-bar__control-set__group [data-apos-test="contextMenuTrigger"]').parentElement,
+                  {
+                    className: 'document-context-menu-overlay'
+                  }
+                );
+                deferredNextButtonFocus();
+              }
+            },
             {
               title: 'Manage your document',
-              element: '[data-apos-test="context-menu-content"]',
-              intro: 'From the document context menu you can edit additional details of your page, discard the current draft, localize the page to another language, and more.'
+              // element: '[data-apos-test="context-menu-content"]',
+              element: '.document-context-menu-overlay',
+              intro: 'From the document context menu you can edit additional details of your page, discard the current draft, localize the page to another language, and more.',
+              onComplete: async () => {
+                await clearScreen();
+              }
             },
             {
               title: 'Publish your changes',
               element: '.apos-admin-bar__btn.apos-admin-bar__context-button',
-              intro: 'When you\'re happy with your content clicking Publish will push it to the live site.'
+              intro: 'When you\'re happy with your content clicking Publish will push it to the live site.',
+              onComplete: async () => {
+                await clearScreen();
+              }
             }
           ]
         },
         onExit: () => {
           document.body.click();
-          tours[10].instance.start();
+          tours[2].instance.start();
         }
       },
-
       {
         options: {
           showBullets: false,

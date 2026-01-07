@@ -19,8 +19,8 @@
     "@apostrophecms/import-export": "^2.4.1",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.24.1",
-    "intro.js": "^8.3.2",
+    "apostrophe": "github:apostrophecms/apostrophe",
+    "intro.js": "github:stuartromanek/intro.js",
     "klona": "^2.0.6",
     "tiny-emitter": "^2.1.0"
   },
