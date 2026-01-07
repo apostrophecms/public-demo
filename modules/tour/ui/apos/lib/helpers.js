@@ -9,10 +9,7 @@ const clearScreen = async function() {
 };
 
 const deferredClick = async function(getEl) {
-  // let current call stack + framework guards finish
   await new Promise(resolve => setTimeout(resolve, 0));
-
-  // wait for next paint (important for apos / reactive UIs)
   await new Promise(requestAnimationFrame);
 
   const el = typeof getEl === 'function'
@@ -159,6 +156,12 @@ function removeSyntheticOverlays() {
   document.querySelectorAll('.tour-synthetic-overlay').forEach(element => element.remove());
 }
 
+function deferredNextButtonFocus() {
+  setTimeout(() => {
+    document.querySelector('.introjs-nextbutton')?.focus();
+  }, 200);
+}
+
 export {
   wait,
   waitForEl,
@@ -168,5 +171,6 @@ export {
   deferredClick,
   clearScreen,
   createSyntheticOverlay,
-  removeSyntheticOverlays
+  removeSyntheticOverlays,
+  deferredNextButtonFocus
 };

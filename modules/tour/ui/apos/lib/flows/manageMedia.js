@@ -1,6 +1,7 @@
 import {
   wait,
-  deferredClick
+  deferredClick,
+  deferredNextButtonFocus
 } from '../helpers.js';
 
 const flow = {
@@ -78,6 +79,7 @@ const flow = {
                 );
                 document.querySelector('.apos-modal__body-main').scrollTop = 0;
                 await wait(100);
+                deferredNextButtonFocus();
               }
             },
             {

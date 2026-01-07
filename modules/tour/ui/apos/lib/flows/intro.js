@@ -6,7 +6,8 @@ import {
   scrollToTargetAdjusted,
   deferredClick,
   clearScreen,
-  createSyntheticOverlay
+  createSyntheticOverlay,
+  deferredNextButtonFocus
 } from '../helpers.js';
 
 const flow = {
@@ -114,6 +115,7 @@ const flow = {
                     className: 'tour-media-overlay'
                   }
                 );
+                deferredNextButtonFocus();
               }
             },
             {
@@ -134,6 +136,7 @@ const flow = {
                     className: 'locale-picker-overlay'
                   }
                 );
+                deferredNextButtonFocus();
               }
             },
             {
@@ -150,10 +153,14 @@ const flow = {
                     230
                   );
                   selectEditable('.apos-rich-text-editor__editor', 'h2');
-                  typewriter('This website is yours!');
+                  typewriter('This website is yours!', {
+                    minDelay: 20,
+                    maxDelay: 70
+                  });
                   await deferredClick(() =>
                     document.querySelector('.apos-rich-text-editor__editor')
                   );
+                  deferredNextButtonFocus();
                 }
               }
             },
@@ -176,7 +183,10 @@ const flow = {
                   230
                 );
                 selectEditable('.apos-rich-text-editor__editor', 'h2');
-                typewriter('This website is yours!');
+                typewriter('This website is yours!', {
+                  minDelay: 20,
+                  maxDelay: 70
+                });
                 await deferredClick(() =>
                   document.querySelector('.apos-rich-text-editor__editor')
                 );
@@ -217,6 +227,7 @@ const flow = {
                   document.querySelector('.apos-area-widget-controls--add--top.apos-is-visible button')
                 );
                 await wait(200);
+                deferredNextButtonFocus();
               }
             },
             {
@@ -230,12 +241,18 @@ const flow = {
                   document.querySelector('.apos-modal__overlay')
                 );
                 await wait(100);
+                scrollToTargetAdjusted(
+                  '[data-apos-test="widget:github-prs"]',
+                  null,
+                  230
+                );
               }
             },
             {
               title: 'Custom widgets',
               element: '[data-apos-test="widget:github-prs"]',
               intro: 'Here is a custom widget that queries the GitHub API for pull requests on a given repository. Edit the widget to see how it works.',
+              position: 'left',
               onComplete: async () => {
                 await clearScreen();
                 await wait(50);
@@ -249,6 +266,7 @@ const flow = {
                     className: 'document-context-menu-overlay'
                   }
                 );
+                deferredNextButtonFocus();
               }
             },
             {
