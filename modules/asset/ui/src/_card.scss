@@ -72,7 +72,7 @@
 .card__title-container,
 .card__text-container {
   .apos-area-widget-inner {
-    min-height: 0;
+    min-height: 0 !important;
   }
 }
 h3.card__title {
