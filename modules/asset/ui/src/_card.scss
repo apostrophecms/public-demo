@@ -42,6 +42,15 @@
       height: auto;
     }
   }
+
+  [data-apos-area],
+  .apos-rich-text-editor__editor .ProseMirror {
+    padding: 0;
+  }
+
+  &.widget .widget {
+    margin-bottom: 0;
+  }
 }
 
 .card__content {
@@ -65,16 +74,25 @@
   }
 }
 
-.card__title {
+.card__title-container,
+.card__text-container {
+  .apos-area-widget-inner {
+    min-height: 0;
+  }
+}
+h3.card__title {
   font-size: 1.5rem;
   font-weight: 600;
+  letter-spacing: 0;
+  font-family: var(--default-font);
   color: var(--heading-color);
   line-height: 1;
 }
 
-.card__text {
+p.card__text {
   font-size: 1rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-family: var(--default-font);
   font-weight: 400;
   line-height: 1.3;
 }

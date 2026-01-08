@@ -42,11 +42,17 @@
 {% endblock %}
 
 {% block beforeMain %}
+  {% set attachment = apos.image.first(data.global._siteLogo) %}
+  {% set url = apos.attachment.url(attachment, { size: 'one-third' }) %}
   <header class="header">
     <div class="nav-bar">
       <h2>
         <a href="/">
-          Acme Co.
+          {% if attachment %}
+            <img src="{{ url }}" alt="{{ data.global.siteTitle }}">
+          {% else %}
+            {{ data.global.siteTitle }}
+          {% endif %}
         </a>
       </h2>
       <nav class="nav" role="navigation">

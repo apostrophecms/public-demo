@@ -16,17 +16,58 @@ export default {
     label: 'project:card',
     icon: 'link-icon',
     previewImage: 'svg',
-    description: 'project:cardAdd'
+    description: 'project:cardAdd',
+    initialModal: false,
   },
   fields: {
     add: {
-      title: {
+      titleRT: {
         label: 'project:title',
-        type: 'string'
+        type: 'area',
+        def: [
+          'card-title-rt',
+        ],
+        options: {
+          max: 1,
+          widgets: {
+            'card-title-rt': {
+              toolbar: [
+                'styles'
+              ],
+              styles: [
+                {
+                  tag: 'h3',
+                  label: 'project:rtH3',
+                  class: 'card__title'
+                }
+              ]
+            }
+          }
+        }
       },
-      content: {
+      contentRT: {
         label: 'project:content',
-        type: 'string'
+        type: 'area',
+        def: [
+          'card-content-rt',
+        ],
+        options: {
+          max: 1,
+          widgets: {
+            'card-content-rt': {
+              toolbar: [
+                'styles'
+              ],
+              styles: [
+                {
+                  tag: 'p',
+                  label: 'project:rtParagraph',
+                  class: 'card__title'
+                }
+              ]
+            }
+          }
+        }
       },
       icon: {
         label: 'project:icon',
@@ -71,6 +112,65 @@ export default {
             value: 'outline'
           }
         ]
+      }
+    }
+  },
+  init(self) {
+    self.addTextMigration();
+  },
+  methods(self) {
+    return {
+      async addTextMigration() {
+        self.apos.migration.add('card-widget-text-migration', () => {
+
+          return self.apos.migration.eachWidget({}, async (doc, widget, dotPath) => {
+
+              if (widget.type !== 'card') {
+                return;
+              }
+
+              const ensureArea = (key) => {
+                if (!widget[key]) {
+                  return;
+                }
+
+                const rtKey = `${key}RT`;
+
+                if (!widget[rtKey]) {
+                  widget[rtKey] = {
+                    _id: self.apos.util.generateId(),
+                    items: [],
+                    metaType: 'area'
+                  };
+                }
+
+                if (!widget[rtKey].items.length) {
+                  widget[rtKey].items.push(makeItem(key, widget[key]));
+                }
+              };
+
+              const makeItem = (key, content) => ({
+                _id: self.apos.util.generateId(),
+                metaType: 'widget',
+                type: `card-${key}-rt`,
+                content:
+                  key === 'title'
+                    ? `<h3 class="card__title">${content}</h3>`
+                    : `<p class="card__text">${content}</p>`,
+                permalinkIds: [],
+                imageIds: []
+              });
+
+              ensureArea('title');
+              ensureArea('content');
+
+              return self.apos.doc.db.updateOne(
+                { _id: doc._id },
+                { $set: { [dotPath]: widget } }
+              );
+            }
+          );
+        });
       }
     }
   }
