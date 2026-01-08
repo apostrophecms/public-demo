@@ -16,7 +16,7 @@ export default {
     group: {
       general: {
         label: 'project:general',
-        fields: [ 'siteTitle', '_siteLogo' ]
+        fields: [ 'siteTitle', '_siteLogo', 'favicon' ]
       }
     }
   }

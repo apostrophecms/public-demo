@@ -34,16 +34,16 @@ apostrophe({
     '@apostrophecms/vite': {},
 
     // Manages apostrophe's overall asset pipeline
-    '@apostrophecms/asset': {
-      // When not in production, refresh the page on restart
-      // options: {
-      //   // refreshOnRestart: true,
-      //   hmr: 'apos'
-      // }
-    },
+    '@apostrophecms/asset': {},
 
     // Manage page and piece SEO metadata
     '@apostrophecms/seo': {},
+
+    // Manage site's favicon via the Global Settings menu
+    '@apostrophecms/favicon': {},
+
+    // Manage page and piece open graph data
+    '@apostrophecms/open-graph': {},
 
     // A home for our own project-specific javascript and SASS assets
     asset: {},

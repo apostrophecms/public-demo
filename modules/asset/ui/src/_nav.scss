@@ -32,6 +32,8 @@
   img {
     width: 100px;
     max-height: 50px;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -51,7 +53,6 @@
 .mobile-nav {
   display: none;
   z-index: 9999;
-  
   flex-direction: column;
   align-items: center;
   justify-content: center;
