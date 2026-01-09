@@ -200,7 +200,10 @@ const flow = {
                 await clearScreen();
                 await wait(100);
                 await deferredClick(() =>
-                  document.querySelectorAll('.apos-area-widget-guard')[9]
+                  document
+                    .querySelector('#addContentDemo')
+                    .closest('[data-apos-test="widget:@apostrophecms/layout"]')
+                    .querySelector('.apos-area-widget-guard')
                 );
                 await wait(300);
                 scrollToTargetAdjusted(
@@ -220,7 +223,10 @@ const flow = {
               onComplete: async () => {
                 await clearScreen();
                 await deferredClick(() =>
-                  document.querySelectorAll('.apos-area-widget-guard')[9]
+                  document
+                    .querySelector('#addContentDemo')
+                    .closest('[data-apos-test="widget:@apostrophecms/layout"]')
+                    .querySelector('.apos-area-widget-guard')
                 );
                 await wait(200);
                 await deferredClick(() =>
