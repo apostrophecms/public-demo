@@ -1,5 +1,5 @@
 <script setup>
-import introJs from 'intro.js';
+import introJs from 'intro.js/dist/intro.js';
 import { ref, onMounted, computed, watch } from 'vue'
 import { useModalStore } from 'Modules/@apostrophecms/ui/stores/modal';
 import { useTour } from '../composables/useTour';
@@ -32,11 +32,16 @@ const isTourDisabled = computed(() => !!getTourValue('disabled'));
 const hint = introJs.hint();
 
 hint.onHintClose(hint => { 
+  console.log('onHintClose');
   setTourValue(hint.id, 'complete');
 });
 
 hint.onHintClick(hint => {
   document.addEventListener('click', () => {
+    setTourValue(hint.id, 'complete');
+    refreshHints();
+  }, { once: true });
+  document.querySelector(`[data-hint-id="${hint.id}"]`).addEventListener('click', () => {
     setTourValue(hint.id, 'complete');
     refreshHints();
   }, { once: true });
