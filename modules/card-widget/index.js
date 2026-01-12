@@ -17,7 +17,7 @@ export default {
     icon: 'link-icon',
     previewImage: 'svg',
     description: 'project:cardAdd',
-    initialModal: false,
+    initialModal: false
   },
   fields: {
     add: {
@@ -25,7 +25,7 @@ export default {
         label: 'project:title',
         type: 'area',
         def: [
-          'card-title-rt',
+          'card-title-rt'
         ],
         options: {
           max: 1,
@@ -49,7 +49,7 @@ export default {
         label: 'project:content',
         type: 'area',
         def: [
-          'card-content-rt',
+          'card-content-rt'
         ],
         options: {
           max: 1,
@@ -125,53 +125,53 @@ export default {
 
           return self.apos.migration.eachWidget({}, async (doc, widget, dotPath) => {
 
-              if (widget.type !== 'card') {
+            if (widget.type !== 'card') {
+              return;
+            }
+
+            const ensureArea = (key) => {
+              if (!widget[key]) {
                 return;
               }
 
-              const ensureArea = (key) => {
-                if (!widget[key]) {
-                  return;
-                }
+              const rtKey = `${key}RT`;
 
-                const rtKey = `${key}RT`;
+              if (!widget[rtKey]) {
+                widget[rtKey] = {
+                  _id: self.apos.util.generateId(),
+                  items: [],
+                  metaType: 'area'
+                };
+              }
 
-                if (!widget[rtKey]) {
-                  widget[rtKey] = {
-                    _id: self.apos.util.generateId(),
-                    items: [],
-                    metaType: 'area'
-                  };
-                }
+              if (!widget[rtKey].items.length) {
+                widget[rtKey].items.push(makeItem(key, widget[key]));
+              }
+            };
 
-                if (!widget[rtKey].items.length) {
-                  widget[rtKey].items.push(makeItem(key, widget[key]));
-                }
-              };
+            const makeItem = (key, content) => ({
+              _id: self.apos.util.generateId(),
+              metaType: 'widget',
+              type: `card-${key}-rt`,
+              content:
+                key === 'title'
+                  ? `<h3 class="card__title">${content}</h3>`
+                  : `<p class="card__text">${content}</p>`,
+              permalinkIds: [],
+              imageIds: []
+            });
 
-              const makeItem = (key, content) => ({
-                _id: self.apos.util.generateId(),
-                metaType: 'widget',
-                type: `card-${key}-rt`,
-                content:
-                  key === 'title'
-                    ? `<h3 class="card__title">${content}</h3>`
-                    : `<p class="card__text">${content}</p>`,
-                permalinkIds: [],
-                imageIds: []
-              });
+            ensureArea('title');
+            ensureArea('content');
 
-              ensureArea('title');
-              ensureArea('content');
-
-              return self.apos.doc.db.updateOne(
-                { _id: doc._id },
-                { $set: { [dotPath]: widget } }
-              );
-            }
+            return self.apos.doc.db.updateOne(
+              { _id: doc._id },
+              { $set: { [dotPath]: widget } }
+            );
+          }
           );
         });
       }
-    }
+    };
   }
 };

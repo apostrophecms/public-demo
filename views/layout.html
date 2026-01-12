@@ -30,7 +30,12 @@
       <h2>
         <a href="/">
           {% if logoAttachment %}
-            <img src="{{ logoUrl }}" alt="{{ data.global.siteTitle }}">
+            <img
+              src="{{ logoUrl }}"
+              alt="{{ data.global.siteTitle }}"
+              width="{{ apos.attachment.getWidth(logoAttachment) }}"
+              height="{{ apos.attachment.getHeight(logoAttachment) }}"
+            >
           {% else %}
             {{ data.global.siteTitle }}
           {% endif %}
