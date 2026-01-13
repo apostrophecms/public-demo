@@ -1,0 +1,38 @@
+import { type TooltipProps } from "../../tooltip/tooltip";
+import { TourStep } from "../steps";
+export declare const Header: ({ title, skipLabel, renderAsHtml, onSkipClick, }: {
+    title: string;
+    skipLabel: string;
+    renderAsHtml?: boolean;
+    onSkipClick: (e: any) => void;
+}) => HTMLDivElement;
+export type TourTooltipProps = Omit<TooltipProps, "hintMode" | "position" | "element"> & {
+    step: TourStep;
+    steps: TourStep[];
+    currentStep: number;
+    bullets: boolean;
+    onBulletClick: (stepNumber: number) => void;
+    buttons: boolean;
+    nextLabel: string;
+    onNextClick: (e: any) => void;
+    prevLabel: string;
+    onPrevClick: (e: any) => void;
+    skipLabel: string;
+    onSkipClick: (e: any) => void;
+    buttonClass: string;
+    nextToDone: boolean;
+    doneLabel: string;
+    hideNext: boolean;
+    hidePrev: boolean;
+    progress: boolean;
+    progressBarAdditionalClass: string;
+    stepNumbers: boolean;
+    stepNumbersOfLabel: string;
+    scrollToElement: boolean;
+    scrollPadding: number;
+    dontShowAgain: boolean;
+    dontShowAgainLabel: string;
+    renderAsHtml?: boolean;
+    onDontShowAgainChange: (checked: boolean) => void;
+};
+export declare const TourTooltip: ({ step, currentStep, steps, onBulletClick, bullets, buttons, nextLabel, onNextClick, prevLabel, onPrevClick, skipLabel, onSkipClick, buttonClass, nextToDone, doneLabel, hideNext, hidePrev, progress, progressBarAdditionalClass, stepNumbers, stepNumbersOfLabel, scrollToElement, scrollPadding, dontShowAgain, onDontShowAgainChange, dontShowAgainLabel, renderAsHtml, ...props }: TourTooltipProps) => HTMLDivElement;
