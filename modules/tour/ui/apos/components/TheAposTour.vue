@@ -1,5 +1,5 @@
 <script setup>
-import introJs from 'intro.js/dist/intro.js';
+import introJs from '../lib/vendor/intro.js/intro.module.js';
 import { ref, onMounted, computed, watch } from 'vue'
 import { useModalStore } from 'Modules/@apostrophecms/ui/stores/modal';
 import { useTour } from '../composables/useTour';
@@ -122,7 +122,7 @@ onMounted(() => {
 
 
 <style lang="scss">
-  @import 'intro.js/dist/introjs.css';
+  @import '../lib/vendor/intro.js/introjs.css';
 
   .introjs-tour-active {
     overflow: hidden;

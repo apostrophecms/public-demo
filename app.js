@@ -23,6 +23,7 @@ apostrophe({
       }
     },
     '@apostrophecms-pro/automatic-translation-deepl': {},
+    // END TEMPORARY
 
     // Apostrophe module configuration
 
