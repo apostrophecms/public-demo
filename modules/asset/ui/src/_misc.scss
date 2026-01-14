@@ -1,4 +1,4 @@
-.chip {
+.chip, .meta {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -8,6 +8,10 @@
   padding: 6px 12px;
   border-radius: 20px;
   text-decoration: none;
+}
+
+h6.meta {
+  display: inline-block;
 }
 
 a.chip:hover {
