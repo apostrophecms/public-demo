@@ -17,10 +17,14 @@
     It is a good place to put extra <script> <link> and <meta> tags.
   #}
 
-  <link rel="preload" href="{{ apos.asset.url('/fonts/poppins.woff2')}}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/quicksand.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/roboto.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/roboto-italic.woff2" as="font" type="font/woff2" crossorigin>
+  {# <link rel="preload" href="{{ apos.asset.url('/fonts/poppins.subset.woff2')}}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ apos.asset.url('/fonts/quicksand.subset.woff2')}}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ apos.asset.url('/fonts/roboto.subset.woff2')}}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ apos.asset.url('/fonts/roboto-italic.subset.woff2')}}" as="font" type="font/woff2" crossorigin> #}
+  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/poppins.subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/quicksand.subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/roboto.subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/roboto-italic.subset.woff2" as="font" type="font/woff2" crossorigin>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="1a2adc69-6612-42f4-b909-b65a15da1e29"></script>
 {% endblock %}
 
@@ -200,8 +204,8 @@
   </footer>
   {# Light/Dark mode switch #}
   <div class="mode-switch" data-mode-switch>
-    <label>
-      <input class="toggle-checkbox" type="checkbox">
+    <label for="light-dark-toggle">
+      <input class="toggle-checkbox" type="checkbox" name="light-dark-toggle">
       <div class="toggle-slot">
         <div class="sun-icon-wrapper">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify sun-icon" data-icon="feather-sun" data-inline="false"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></g></svg>
