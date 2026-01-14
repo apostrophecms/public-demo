@@ -16,7 +16,8 @@
     This block outputs its contents in the HTML document's <head>.
     It is a good place to put extra <script> <link> and <meta> tags.
   #}
-  <link rel="preload" href="/fonts/poppins.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="preload" href="{{ apos.asset.url('/fonts/poppins.woff2')}}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/quicksand.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/roboto.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/roboto-italic.woff2" as="font" type="font/woff2" crossorigin>
