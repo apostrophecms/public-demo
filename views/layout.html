@@ -200,11 +200,14 @@
   {# Light/Dark mode switch #}
   <div class="mode-switch" data-mode-switch>
     <label for="light-dark-toggle">
+      <span class="sr-only">Toggle dark mode</span>
       <input
         class="toggle-checkbox"
         type="checkbox"
         name="light-dark-toggle"
         id="light-dark-toggle"
+        role="switch"
+        aria-label="Toggle dark mode"
       >
       <div class="toggle-slot">
         <div class="sun-icon-wrapper">
