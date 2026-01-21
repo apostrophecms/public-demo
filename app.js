@@ -23,13 +23,7 @@ apostrophe({
     '@apostrophecms/vite': {},
 
     // Manages apostrophe's overall asset pipeline
-    '@apostrophecms/asset': {
-      // When not in production, refresh the page on restart
-      // options: {
-      //   // refreshOnRestart: true,
-      //   hmr: 'apos'
-      // }
-    },
+    '@apostrophecms/asset': {},
 
     // Manage page and piece SEO metadata
     '@apostrophecms/seo': {},
@@ -40,6 +34,12 @@ apostrophe({
     // Template helpers
     helper: {},
 
+    // Manage site's favicon via the Global Settings menu
+    '@apostrophecms/favicon': {},
+
+    // Manage page and piece open graph data
+    '@apostrophecms/open-graph': {},
+
     // Widgets
     '@apostrophecms/rich-text-widget': {},
     '@apostrophecms/image-widget': {},
@@ -48,6 +48,18 @@ apostrophe({
     'github-prs-widget': {},
     'hero-widget': {},
     'card-widget': {},
+    'card-title-rt-widget': {
+      extend: '@apostrophecms/rich-text-widget',
+      options: {
+        defaultData: { content: '<h3 class="card__title">My Card Title</h3>' },
+      }
+    },
+    'card-content-rt-widget': {
+      extend: '@apostrophecms/rich-text-widget',
+      options: {
+        defaultData: { content: '<p class="card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>' },
+      }
+    },
     'price-card-widget': {},
 
     // A page type for ordinary pages

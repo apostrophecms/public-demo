@@ -30,19 +30,6 @@ h1, h2, h3, h4 {
   }
 }
 
-.meta {
-  display: inline-block;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  padding: 0.5rem 1.25rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-
 .page-title-wrapper {
   margin-bottom: 80px;
 }

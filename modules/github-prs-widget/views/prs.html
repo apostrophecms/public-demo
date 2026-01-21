@@ -10,7 +10,7 @@
           <a href="{{ item.url }}">{{ item.title }}</a>
         </h2>
         <a target="_blank" href="{{ item.user.html_url }}" class="gh-pr-widget__details">
-          <img class="gh-pr-widget__avatar" src="{{ item.user.avatar_url }}" alt="item.user.login">
+          <img loading="lazy" class="gh-pr-widget__avatar" src="{{ item.user.avatar_url }}" alt="item.user.login">
           <p class="gh-pr-widget__login">{{ item.user.login }}</p>
         </a>
         <div class="gh-pr-widget__subdetails">

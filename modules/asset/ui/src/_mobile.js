@@ -4,6 +4,10 @@ export default () => {
     const nav = document.querySelector('[data-mobile-nav]');
     const closeTrigger = document.querySelector('[data-mobile-close-trigger]');
 
+    if (!trigger) {
+      return;
+    }
+
     trigger.addEventListener('click', toggleMenu);
     closeTrigger.addEventListener('click', handleClose);
 

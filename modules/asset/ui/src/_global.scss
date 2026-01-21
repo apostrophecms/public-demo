@@ -7,11 +7,12 @@ body {
 }
 
 a {
- color: var(--nav-color);
+  color: var(--nav-color);
 }
 
 main {
   display: flex;
+  max-width: 100%;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
@@ -29,7 +30,7 @@ main {
   @media (max-width: 680px) {
     display: block;
   }
-  
+
   @container (max-width: 680px) {
     display: block;
   }
@@ -57,4 +58,49 @@ main {
   @media screen and (max-width: 600px) {
     overflow: scroll;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/modules/asset/fonts/poppins.subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("/modules/asset/fonts/quicksand.subset.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/modules/asset/fonts/roboto.subset.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/modules/asset/fonts/roboto-italic.subset.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
 }

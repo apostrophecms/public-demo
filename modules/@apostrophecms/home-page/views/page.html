@@ -4,11 +4,12 @@
 #}
 
 {% extends "layout.html" %}
+{% block bodyClass %}{{ super() }} home-page{% endblock %}
 
 {# Home page is full width #}
 {% block pageTitle %}
   <h1 class="home-title">
-    <span class='meta'>{{ __t('project:homeTitle') }}</span>
+    <span class='chip'>{{ __t('project:homeTitle') }}</span>
   </h1>
 {% endblock %}
 {% block subnav %}{% endblock %}
