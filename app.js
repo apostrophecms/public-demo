@@ -12,19 +12,6 @@ apostrophe({
   // configuring user accounts.
 
   modules: {
-
-    // TEMPORARY, REMOVE ME
-    '@apostrophecms-pro/automatic-translation': {
-      options: {
-        provider: 'deepl',
-        targetsMapping: {
-          en: 'en-US'
-        }
-      }
-    },
-    '@apostrophecms-pro/automatic-translation-deepl': {},
-    // END TEMPORARY
-
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
