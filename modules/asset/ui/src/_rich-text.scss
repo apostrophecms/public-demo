@@ -60,15 +60,23 @@
     font-size: 1.8em;
     line-height: 1.2em;
     font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   h5 {
     font-size: 1.3em;
     line-height: 1.2em;
     font-weight: 500;
+    margin-bottom: 0.75rem;
   }
 
   margin-bottom: var(--widget-spacer);
+}
+
+.layout-widget .demo-rte {
+  h3 {
+    margin-bottom: 1rem;
+  }
 }
 
 .apos-layout__item .demo-rte {
@@ -87,7 +95,7 @@
 .demo-rte h2,
 .h2 .demo-rte p {
   margin-bottom: 1rem;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -3px;

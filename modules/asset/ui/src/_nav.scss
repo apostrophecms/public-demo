@@ -1,7 +1,7 @@
 .nav-bar {
   font-family: var(--nav-font);
   z-index: 5;
-  position: fixed;
+  // position: fixed;
   box-sizing: border-box;
   left: auto;
   right: auto;
@@ -28,6 +28,13 @@
       color: var(--nav-hover-color);
     }
   }
+
+  img {
+    width: 100px;
+    max-height: 50px;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 .nav-bar__end {
@@ -44,9 +51,8 @@
 }
 
 .mobile-nav {
+  display: none;
   z-index: 9999;
-  position: fixed;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -64,6 +70,8 @@
   transition: opacity 0.3s ease;
 
   &.active {
+    position: fixed;
+    display: flex;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;

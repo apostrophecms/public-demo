@@ -13,17 +13,17 @@
     </div>
   {% endif %}
   <div class="card__content">
-    <div class="card__title">
-      {{ widget.title }}
+    <div class="card__title-container">
+      {% area widget, 'titleRT' %}
     </div>
-    <div class="card__text">
-      {{ widget.content }}
+    <div class="card__text-container">
+      {% area widget, 'contentRT' %}
     </div>
   </div>
   {% if widget.linkText %}
     <div class="card__link">
-      {% set path = apos.helper.linkPath(item) %}
-      {% set class = 'button ' + item.style %}
+      {% set path = apos.helper.linkPath(widget) %}
+      {% set class = 'button ' + widget.style %}
         {{ link.render({
           label: widget.linkText,
           path: path,
@@ -33,4 +33,3 @@
     </div>
   {% endif %}
 </div>
-
