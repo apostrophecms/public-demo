@@ -12,7 +12,6 @@ apostrophe({
   // configuring user accounts.
 
   modules: {
-
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
@@ -28,17 +27,17 @@ apostrophe({
     // Manage page and piece SEO metadata
     '@apostrophecms/seo': {},
 
-    // A home for our own project-specific javascript and SASS assets
-    asset: {},
-
-    // Template helpers
-    helper: {},
-
     // Manage site's favicon via the Global Settings menu
     '@apostrophecms/favicon': {},
 
     // Manage page and piece open graph data
     '@apostrophecms/open-graph': {},
+
+    // A home for our own project-specific javascript and SASS assets
+    asset: {},
+
+    // Template helpers
+    helper: {},
 
     // Widgets
     '@apostrophecms/rich-text-widget': {},
@@ -60,6 +59,7 @@ apostrophe({
         defaultData: { content: '<p class="card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>' },
       }
     },
+
     'price-card-widget': {},
 
     // A page type for ordinary pages
@@ -78,6 +78,9 @@ apostrophe({
     'article-category': {},
 
     // Import and export content
-    '@apostrophecms/import-export': {}
+    '@apostrophecms/import-export': {},
+
+    // Tour
+    tour: {}
   }
 });
