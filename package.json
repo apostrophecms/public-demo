@@ -21,8 +21,7 @@
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.1.0",
     "apostrophe": "^4.24.1",
-    "klona": "^2.0.6",
-    "tiny-emitter": "^2.1.0"
+    "klona": "^2.0.6"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
