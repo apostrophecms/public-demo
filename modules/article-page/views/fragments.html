@@ -11,6 +11,7 @@
           alt="{{ attachment.title }}"
           width="{{ apos.attachment.getWidth(attachment) }}"
           height="{{ apos.attachment.getHeight(attachment) }}"
+          srcset="{{ apos.image.srcset(attachment) }}"
         />
       </a>
     {% endif %}
