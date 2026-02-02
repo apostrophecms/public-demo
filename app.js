@@ -23,7 +23,11 @@ apostrophe({
     '@apostrophecms/vite': {},
 
     // Manages apostrophe's overall asset pipeline
-    '@apostrophecms/asset': {},
+    '@apostrophecms/asset': {
+      options: {
+        refreshOnRestart: true
+      }
+    },
 
     // Manage page and piece SEO metadata
     '@apostrophecms/seo': {},
@@ -48,6 +52,7 @@ apostrophe({
     'github-prs-widget': {},
     'hero-widget': {},
     'card-widget': {},
+    'dummy-widget': {},
     'card-title-rt-widget': {
       extend: '@apostrophecms/rich-text-widget',
       options: {

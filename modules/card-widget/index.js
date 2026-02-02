@@ -148,6 +148,10 @@ export default {
         label: 'apostrophe:styleBorder',
         type: 'object',
         selector: '.card-widget',
+        options: {
+          flat: true,
+          hideLabel: true
+        },
         fields: {
           add: {
             active: {
@@ -209,6 +213,22 @@ export default {
       },
       boxShadow: {
         preset: 'boxShadow',
+        selector: '.card-widget'
+      },
+      width: {
+        preset: 'width',
+        selector: '.card-widget'
+      },
+      alignment: {
+        preset: 'alignment',
+        selector: '.card-widget'
+      },
+      padding: {
+        preset: 'padding',
+        selector: '.card-widget'
+      },
+      margin: {
+        preset: 'margin',
         selector: '.card-widget'
       }
     }

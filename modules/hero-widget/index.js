@@ -10,6 +10,22 @@ export default {
   },
   fields: {
     add: {
+      // one: {
+      //   type: 'string',
+      //   label: 'Cool'
+      // },
+      // two: {
+      //   type: 'string',
+      //   label: 'Cool'
+      // },
+      // three: {
+      //   type: 'string',
+      //   label: 'Cool'
+      // },
+      // four: {
+      //   type: 'string',
+      //   label: 'Cool'
+      // },
       content: {
         label: 'project:textContent',
         help: 'project:textContentHelp',
@@ -71,6 +87,24 @@ export default {
           }
         }
       }
-    }
+    },
+    // group: {
+    //   account: {
+    //     label: 'Something Here',
+    //     fields: [ 'one' ]
+    //   },
+    //   preferences: {
+    //     label: 'Another thing',
+    //     fields: [ 'two' ]
+    //   },
+    //   two: {
+    //     label: 'Something Here',
+    //     fields: [ 'three' ]
+    //   },
+    //   another: {
+    //     label: 'Something more',
+    //     fields: [ 'four' ]
+    //   }
+    // }
   }
 };

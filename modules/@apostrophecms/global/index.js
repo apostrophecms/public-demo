@@ -11,6 +11,18 @@ export default {
         type: 'relationship',
         withType: '@apostrophecms/image',
         max: 1
+      },
+      width: {
+        label: 'apostrophe:styleBorderWidth',
+        type: 'box',
+        def: {
+          top: 1,
+          right: 1,
+          bottom: 1,
+          left: 1
+        },
+        unit: 'px',
+        property: 'border-%key%-width'
       }
     },
     group: {
