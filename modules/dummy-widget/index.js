@@ -14,7 +14,7 @@ localLinkConfig.linkTarget.if = {
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'DUMMY'
+    label: 'Dummy'
   },
   fields: {
     add: {
