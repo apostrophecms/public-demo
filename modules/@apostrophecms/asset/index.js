@@ -2,7 +2,6 @@ export default {
   options: {
     breakpointPreviewMode: {
       enable: true,
-      debug: true,
       resizable: false,
       screens: {
         responsive: {
