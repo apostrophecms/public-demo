@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     imageUrl() {
-      return this.item._image[0].attachment._urls['one-third'];
+      return this.item._image[0]?.attachment._urls['one-third'];
     }
   }
 };

@@ -1,6 +1,6 @@
 {% fragment excerpt(article) %}
   {% set attachment = apos.image.first(article._image) %}
-  {% set url = apos.attachment.url(attachment, { size: 'one-half' }) %}
+  {% set url = apos.attachment.url(attachment, { size: 'one-half' }) if attachment %}
   <div class="article-excerpt">
     {% if url %}
       <a class="article-excerpt-image-container" href="{{ article._url }}">
