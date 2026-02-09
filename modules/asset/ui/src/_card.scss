@@ -86,7 +86,7 @@ h3.card__title {
 }
 
 p.card__text {
-  font-size: 1rem;
+  font-size: var(--default-text-size);
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   font-family: var(--default-font);
   font-weight: 400;

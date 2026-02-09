@@ -11,6 +11,7 @@
 
   h2 {
     font-size: 80px;
+    color: var(--heading-color);
   }
 
   .demo-rte {
@@ -44,7 +45,7 @@
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: var(--default-text-size);
   }
 
   @container (max-width: 800px) {
