@@ -14,18 +14,19 @@ export default () => {
     }
 
     function toggleLocales() {
-      const expanded = toggler.getAttribute('aria-expanded') === 'true' || false;
+      const expanded = toggler.getAttribute('aria-expanded') === 'true';
 
       toggler.setAttribute('aria-expanded', !expanded);
       localeList.hidden = expanded;
     }
 
-    function clickOutside ({ target }) {
-      const expanded = toggler.getAttribute('aria-expanded') === 'true' || false;
+    function clickOutside({ target }) {
+      const expanded = toggler.getAttribute('aria-expanded') === 'true';
 
       if (expanded && !locales.contains(target)) {
         toggler.setAttribute('aria-expanded', false);
         localeList.hidden = true;
+        window.removeEventListener('click', clickOutside);
       }
     }
   };
