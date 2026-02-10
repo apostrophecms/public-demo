@@ -1,18 +1,19 @@
 export default () => {
-  apos.util.onReady(() => {
+  window.aposSwitchLocale = function aposSwitchLocale(toggler) {
     const locales = document.querySelector('[data-locales]');
-    const toggler = document.querySelector('[data-locales-toggle]');
     const localeList = document.querySelector('[data-locales-list]');
-
     if (!toggler || !localeList) {
       return;
     }
+    toggleLocales();
 
-    toggler.addEventListener('click', toggleLocales);
+    if (toggler.getAttribute('aria-expanded') === 'true') {
+      window.addEventListener('click', clickOutside);
+    } else {
+      window.removeEventListener('click', clickOutside);
+    }
 
-    window.addEventListener('click', clickOutside);
-
-    function toggleLocales () {
+    function toggleLocales() {
       const expanded = toggler.getAttribute('aria-expanded') === 'true' || false;
 
       toggler.setAttribute('aria-expanded', !expanded);
@@ -27,5 +28,5 @@ export default () => {
         localeList.hidden = true;
       }
     }
-  });
+  };
 };
