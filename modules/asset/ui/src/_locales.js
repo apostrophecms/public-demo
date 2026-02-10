@@ -1,5 +1,5 @@
 export default () => {
-  apos.util.onReadyAndRefresh(() => {
+  apos.util.onReady(() => {
     const locales = document.querySelector('[data-locales]');
     const toggler = document.querySelector('[data-locales-toggle]');
     const localeList = document.querySelector('[data-locales-list]');
