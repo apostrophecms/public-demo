@@ -1,28 +1,35 @@
 export default () => {
   const APOS_LIGHT_DARK_KEY = 'apostrophe-demo-visual-preference';
 
-  apos.util.onReadyAndRefresh(() => {
-    setInitial();
+  // Check preference immediately to prevent flash
+  const pref = localStorage.getItem(APOS_LIGHT_DARK_KEY);
+  if (pref === 'dark') {
+    document.body.classList.add('dark');
+  }
+
+  let done = false;
+
+  apos.util.onReady(() => {
+    if (done) {
+      return;
+    }
+    done = true;
+
     const toggle = document.querySelector('[data-mode-switch] input');
 
     if (!toggle) {
       return;
     }
 
-    toggle.addEventListener('change', toggleMode);
+    // Sync toggle UI with current state
+    toggle.checked = (pref === 'dark');
 
-    function toggleMode () {
-      document.body.classList.toggle('dark');
-      const pref = document.body.classList.contains('dark') ? 'dark' : 'light';
-      localStorage.setItem(APOS_LIGHT_DARK_KEY, pref);
-    }
+    toggle.addEventListener('change', toggleMode);
   });
 
-  function setInitial() {
-    const pref = localStorage.getItem(APOS_LIGHT_DARK_KEY);
-    if (pref === 'dark') {
-      document.querySelector('[data-mode-switch] input').checked = true;
-      document.body.classList.toggle('dark');
-    }
+  function toggleMode() {
+    document.body.classList.toggle('dark');
+    const pref = document.body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem(APOS_LIGHT_DARK_KEY, pref);
   }
 };

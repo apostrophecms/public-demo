@@ -1,5 +1,5 @@
 export default () => {
-  apos.util.onReadyAndRefresh(() => {
+  apos.util.onReady(() => {
     const trigger = document.querySelector('[data-mobile-trigger]');
     const nav = document.querySelector('[data-mobile-nav]');
     const closeTrigger = document.querySelector('[data-mobile-close-trigger]');
@@ -11,7 +11,7 @@ export default () => {
     trigger.addEventListener('click', toggleMenu);
     closeTrigger.addEventListener('click', handleClose);
 
-    function toggleMenu () {
+    function toggleMenu() {
       const state = nav.dataset.mobileNav;
       if (state === 'hidden') {
         nav.dataset.mobileNav = 'visible';

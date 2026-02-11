@@ -4,6 +4,7 @@
     data-locales-toggle
     aria-expanded="false"
     aria-controls="locales-list"
+    onclick="aposSwitchLocale(this)"
   >
     {% for localization in data.localizations %}
       {% if localization.current %}

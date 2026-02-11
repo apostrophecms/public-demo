@@ -39,6 +39,7 @@
       ".git"
     ],
     "ignore": [
+      "./modules/**/ui/*",
       "lib/modules/*/public/js/*.js",
       "locales/*.json",
       "public/uploads",
