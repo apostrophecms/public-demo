@@ -7,13 +7,34 @@ export default () => {
     document.body.classList.add('dark');
   }
 
+  updateNavLogo(pref === 'dark');
+
   let done = false;
+
+  function updateNavLogo(isDark) {
+    console.log('updateNavLogo', isDark);
+    const logo = document.getElementById('nav-logo');
+    if (!logo) {
+      console.log('no logo found');
+      return;
+    }
+    if (isDark && logo.hasAttribute('data-dark-url')) {
+      console.log('setting dark logo');
+      logo.setAttribute('data-light-url', logo.getAttribute('src') || '');
+      logo.setAttribute('src', logo.getAttribute('data-dark-url'));
+    } else if (!isDark && logo.hasAttribute('data-light-url')) {
+      console.log('setting light logo');
+      logo.setAttribute('src', logo.getAttribute('data-light-url'));
+    }
+  }
 
   apos.util.onReady(() => {
     if (done) {
       return;
     }
     done = true;
+
+    updateNavLogo(pref === 'dark');
 
     const toggle = document.querySelector('[data-mode-switch] input');
 
@@ -31,5 +52,23 @@ export default () => {
     document.body.classList.toggle('dark');
     const pref = document.body.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem(APOS_LIGHT_DARK_KEY, pref);
+    updateNavLogo(pref === 'dark');
   }
+
+  // Watch changes to apos refreshable and make sure logo is updated
+  const el = document.querySelector('[data-apos-refreshable]');
+
+  const observer = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      if (m.type === 'childList' || m.type === 'characterData') {
+        updateNavLogo(pref === 'dark');
+      }
+    }
+  });
+
+  observer.observe(el, {
+    childList: true,
+    subtree: true,
+    characterData: true
+  });
 };

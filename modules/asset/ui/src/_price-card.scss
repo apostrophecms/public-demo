@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100%;
   padding: 20px;
-  background: var(--surface-color);
+  background: var(--price-card-background-color);
   border-radius: 12px;
   box-shadow: 0 8px 25px color-mix(in srgb, var(--default-color), transparent 92%);
   transition: all 0.3s ease;
@@ -32,6 +32,8 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  color: var(--price-card-badge-color);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--price-card-badge-color), transparent 90%), color-mix(in srgb, var(--price-card-badge-color), transparent 85%));
 }
 
 .price-card__badge-label {

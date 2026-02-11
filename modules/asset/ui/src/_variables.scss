@@ -33,6 +33,12 @@
   --button-primary-label-color: var(--contrast-color);
   --button-outline-color: var(--accent-color);
   --button-outline-label-color: var(--accent-color);
+  --card-background-color: var(--surface-color);
+  --card-icon-color: var(--accent-color);
+  --price-card-background-color: var(--surface-color);
+  --price-card-badge-color: var(--accent-color);
+  --footer-background-color: var(--surface-color);
+  --footer-color: var(--nav-color);
 }
 
 @media screen and (max-width: 800px) {

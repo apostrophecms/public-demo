@@ -72,5 +72,13 @@ export default {
         }
       }
     }
+  },
+  styles: {
+    add: {
+      width: {
+        preset: 'width',
+        selector: '.hero-widget'
+      }
+    }
   }
 };

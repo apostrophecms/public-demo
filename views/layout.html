@@ -25,16 +25,22 @@
 {% block beforeMain %}
   {% set logoAttachment = apos.image.first(data.global._siteLogo) %}
   {% set logoUrl = apos.attachment.url(logoAttachment, { size: 'one-third' }) %}
+  
+  {% set logoAttachmentDark = apos.image.first(data.global._siteLogoDark) %}
+  {% set logoUrlDark = apos.attachment.url(logoAttachmentDark, { size: 'one-third' }) %}
+
   <header class="header">
     <div class="nav-bar">
       <h2>
         <a href="/">
           {% if logoAttachment %}
             <img
+              id="nav-logo"
               src="{{ logoUrl }}"
               alt="{{ data.global.siteTitle }}"
               width="{{ apos.attachment.getWidth(logoAttachment) or '100' }}"
               height="{{ apos.attachment.getHeight(logoAttachment) or '36' }}"
+              data-dark-url="{{ logoUrlDark if logoAttachmentDark }}"
             >
           {% else %}
             {{ data.global.siteTitle }}

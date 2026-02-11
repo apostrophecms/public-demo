@@ -67,8 +67,8 @@ export default {
       features: {
         type: 'array',
         inline: true,
-        label: 'project:listOfFeature',
-        help: 'project:listOfFeatureHelp',
+        label: 'project:listOfFeatures',
+        help: 'project:listOfFeaturesHelp',
         fields: {
           add: {
             item: {
@@ -77,6 +77,22 @@ export default {
             }
           }
         }
+      },
+      buttonStyle: {
+        label: 'project:buttonStyle',
+        type: 'radio',
+        buttons: true,
+        def: 'primary',
+        choices: [
+          {
+            label: 'project:primary',
+            value: 'primary'
+          },
+          {
+            label: 'project:outline',
+            value: 'outline'
+          }
+        ]
       },
       ...localLinkConfig
     }
