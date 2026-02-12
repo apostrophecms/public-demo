@@ -1,22 +1,22 @@
 const fontChoices = [
   {
-    label: 'Roboto',
+    label: 'project:fontRoboto',
     value: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
   },
   {
-    label: 'Quicksand',
+    label: 'project:fontQuicksand',
     value: '"Quicksand", sans-serif;'
   },
   {
-    label: 'Poppins',
+    label: 'project:fontPoppins',
     value: '"Poppins", sans-serif;'
   },
   {
-    label: 'Inter',
+    label: 'project:fontInter',
     value: '"Inter", sans-serif;'
   },
   {
-    label: 'Georgia',
+    label: 'project:fontGeorgia',
     value: '"Georgia", serif;'
   }
 ];
@@ -24,8 +24,8 @@ export default {
   fields: {
     fontDefault: {
       type: 'select',
-      label: 'Default Font',
-      help: 'Used for most text and labels',
+      label: 'project:defaultFont',
+      help: 'project:defaultFontHelp',
       choices: fontChoices,
       def: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       property: '--default-font',
@@ -33,8 +33,8 @@ export default {
     },
     fontHeading: {
       type: 'select',
-      label: 'Heading Font',
-      help: 'Used for headings and large type',
+      label: 'project:headingFont',
+      help: 'project:headingFontHelp',
       choices: fontChoices,
       def: '"Quicksand", sans-serif;',
       property: '--heading-font',
@@ -42,8 +42,8 @@ export default {
     },
     fontNav: {
       type: 'select',
-      label: 'Navigation Font',
-      help: 'Used for the navigation',
+      label: 'project:navigationFont',
+      help: 'project:navigationFontHelp',
       choices: fontChoices,
       def: '"Poppins", sans-serif;',
       property: '--nav-font',
@@ -51,10 +51,10 @@ export default {
     },
     fontSizeDefault: {
       type: 'range',
-      label: 'Default Body Size',
+      label: 'project:defaultBodySize',
       def: 1,
       min: 0.7,
-      max: 1.5,
+      max: 5,
       step: 0.1,
       unit: 'rem',
       selector: ':root',
@@ -62,10 +62,10 @@ export default {
     },
     fontSizeLarger: {
       type: 'range',
-      label: 'Larger Body Size',
+      label: 'project:largerBodySize',
       def: 1.3,
-      min: 1,
-      max: 1.5,
+      min: 0.7,
+      max: 5,
       step: 0.1,
       unit: 'rem',
       selector: ':root',
@@ -73,10 +73,10 @@ export default {
     },
     fontSizeHeading3: {
       type: 'range',
-      label: 'Heading 3 Size',
+      label: 'project:heading3Size',
       def: 2.8,
-      min: 2,
-      max: 3.2,
+      min: 0.7,
+      max: 5,
       step: 0.1,
       unit: 'rem',
       selector: ':root',
@@ -84,10 +84,10 @@ export default {
     },
     fontSizeHeading4: {
       type: 'range',
-      label: 'Heading 4 Size',
+      label: 'project:heading4Size',
       def: 1.8,
-      min: 1.5,
-      max: 2.5,
+      min: 0.7,
+      max: 5,
       step: 0.1,
       unit: 'rem',
       selector: ':root',
@@ -95,10 +95,10 @@ export default {
     },
     fontSizeHeading5: {
       type: 'range',
-      label: 'Heading 5 Size',
+      label: 'project:heading5Size',
       def: 1.3,
-      min: 1,
-      max: 1.6,
+      min: 0.7,
+      max: 5,
       step: 0.1,
       unit: 'rem',
       selector: ':root',
@@ -107,10 +107,10 @@ export default {
   },
   group: {
     fonts: {
-      label: 'Text and Type',
+      label: 'project:textAndType',
       group: {
         fonts: {
-          label: 'Fonts',
+          label: 'project:fonts',
           inline: true,
           fields: [
             'fontDefault',
@@ -119,7 +119,7 @@ export default {
           ]
         },
         sizes: {
-          label: 'Font Sizes',
+          label: 'project:fontSizes',
           inline: true,
           fields: [
             'fontSizeDefault',

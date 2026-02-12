@@ -96,5 +96,78 @@ export default {
       },
       ...localLinkConfig
     }
+  },
+  styles: {
+    add: {
+      backgroundColor: {
+        type: 'color',
+        label: 'project:backgroundColor',
+        selector: '.price-card-widget',
+        property: 'background-color',
+        def: '--surface-color',
+        options: {
+          presetColors: [
+            '--surface-color',
+            '--accent-color',
+            '--default-color',
+            '--heading-color'
+          ]
+        }
+      },
+      textColor: {
+        type: 'color',
+        label: 'project:textColor',
+        selector: '.price-card-widget',
+        property: 'color',
+        def: '--surface-color',
+        options: {
+          presetColors: [
+            '--accent-color',
+            '--default-color',
+            '--heading-color'
+          ]
+        }
+      },
+      buttonBackgroundColor: {
+        type: 'color',
+        label: 'project:buttonBackgroundColor',
+        selector: '.price-card-widget .button--primary',
+        property: 'background-color',
+        def: '--button-primary-color',
+        options: {
+          presetColors: [
+            '--button-primary-color',
+            '--surface-color',
+            '--accent-color',
+            '--default-color',
+            '--heading-color',
+            '#fb5607',
+            '#ff006e',
+            '#8338ec',
+            '#3a86ff'
+          ]
+        }
+      },
+      badgeColor: {
+        type: 'color',
+        label: 'project:badgeColor',
+        selector: '.price-card-widget',
+        property: '--price-card-badge-color',
+        def: '--accent-color',
+        options: {
+          presetColors: [
+            '--button-primary-color',
+            '--surface-color',
+            '--accent-color',
+            '--default-color',
+            '--heading-color',
+            '#fb5607',
+            '#ff006e',
+            '#8338ec',
+            '#3a86ff'
+          ]
+        }
+      }
+    }
   }
 };

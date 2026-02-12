@@ -1,7 +1,7 @@
 export default {
   fields: {
     navPadding: {
-      label: 'Link Padding',
+      label: 'project:linkPadding',
       type: 'box',
       def: {
         top: 18,
@@ -15,18 +15,18 @@ export default {
     },
     navWeight: {
       type: 'select',
-      label: 'Link Weight',
+      label: 'project:linkWeight',
       choices: [
         {
-          label: 'Normal',
+          label: 'project:normal',
           value: '400'
         },
         {
-          label: 'Semibold',
+          label: 'project:semibold',
           value: '500'
         },
         {
-          label: 'Bold',
+          label: 'project:bold',
           value: '700'
         }
       ],
@@ -36,7 +36,7 @@ export default {
     },
     navShadow: {
       preset: 'boxShadow',
-      label: 'Shadow',
+      label: 'project:shadow',
       selector: '.nav-bar'
     },
     navRadius: {
@@ -45,14 +45,14 @@ export default {
       def: 50,
       min: 0,
       max: 50,
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       selector: '.nav-bar',
       property: 'border-radius'
     }
   },
   group: {
     nav: {
-      label: 'Navigation',
+      label: 'project:navigation',
       fields: [
         'navPadding',
         'navWeight',

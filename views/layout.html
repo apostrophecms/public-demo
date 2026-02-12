@@ -41,6 +41,7 @@
               width="{{ apos.attachment.getWidth(logoAttachment) or '100' }}"
               height="{{ apos.attachment.getHeight(logoAttachment) or '36' }}"
               data-dark-url="{{ logoUrlDark if logoAttachmentDark }}"
+              data-light-url="{{ logoUrl if logoAttachment }}"
             >
           {% else %}
             {{ data.global.siteTitle }}

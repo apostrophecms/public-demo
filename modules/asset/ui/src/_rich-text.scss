@@ -222,7 +222,7 @@
 .layout .tableWrapper table th,
 .layout .apos-rich-text-table td,
 .layout .apos-rich-text-table th {
-  border: 1px solid var(--faint-color);
+  border: 1px solid var(--table-border-color);
 }
 
 .layout [data-rich-text] table:not([class]) th,
@@ -230,7 +230,8 @@
 .layout .tableWrapper table th,
 .layout .apos-rich-text-table th {
   padding: 1rem 0;
-  background-color: var(--faint-color);
+  color: var(--table-header-color);
+  background-color: var(--table-header-background-color);
   vertical-align: middle;
 }
 

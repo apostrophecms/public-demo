@@ -1,7 +1,17 @@
 export default {
   fields: {
+    buttonFontSize: {
+      type: 'range',
+      label: 'project:fontSize',
+      def: 18,
+      min: 12,
+      max: 24,
+      unit: 'px',
+      selector: '.button',
+      property: 'font-size'
+    },
     lightButtonPrimaryRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 50,
@@ -12,7 +22,7 @@ export default {
     },
     lightButtonPrimaryColor: {
       type: 'color',
-      label: 'Color',
+      label: 'project:color',
       selector: ':root',
       property: '--button-primary-color',
       def: '--accent-color',
@@ -26,7 +36,7 @@ export default {
     },
     lightButtonPrimaryLabelColor: {
       type: 'color',
-      label: 'Label Color',
+      label: 'project:labelColor',
       selector: ':root',
       property: '--button-primary-label-color',
       def: '--contrast-color',
@@ -41,18 +51,18 @@ export default {
     },
     lightButtonPrimaryWeight: {
       type: 'select',
-      label: 'Label Weight',
+      label: 'project:labelWeight',
       choices: [
         {
-          label: 'Normal',
+          label: 'project:normal',
           value: '400'
         },
         {
-          label: 'Semibold',
+          label: 'project:semibold',
           value: '500'
         },
         {
-          label: 'Bold',
+          label: 'project:bold',
           value: '700'
         }
       ],
@@ -62,11 +72,11 @@ export default {
     },
     lightButtonPrimaryShadow: {
       preset: 'boxShadow',
-      label: 'Shadow',
+      label: 'project:shadow',
       selector: '.button--primary'
     },
     lightButtonOutlineRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 50,
@@ -77,7 +87,7 @@ export default {
     },
     lightButtonOutlineColor: {
       type: 'color',
-      label: 'Color',
+      label: 'project:color',
       selector: ':root',
       property: '--button-outline-color',
       def: '--accent-color',
@@ -91,7 +101,7 @@ export default {
     },
     lightButtonOutlineLabelColor: {
       type: 'color',
-      label: 'Label Color',
+      label: 'project:labelColor',
       selector: ':root',
       property: '--button-outline-label-color',
       def: '--accent-color',
@@ -106,18 +116,18 @@ export default {
     },
     lightButtonOutlineWeight: {
       type: 'select',
-      label: 'Label Weight',
+      label: 'project:labelWeight',
       choices: [
         {
-          label: 'Normal',
+          label: 'project:normal',
           value: '400'
         },
         {
-          label: 'Semibold',
+          label: 'project:semibold',
           value: '500'
         },
         {
-          label: 'Bold',
+          label: 'project:bold',
           value: '700'
         }
       ],
@@ -127,13 +137,11 @@ export default {
     },
     lightButtonOutlineShadow: {
       preset: 'boxShadow',
-      label: 'Shadow',
+      label: 'project:shadow',
       selector: '.button--outline'
     },
-    //////
-
     darkButtonPrimaryRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 50,
@@ -144,7 +152,7 @@ export default {
     },
     darkButtonPrimaryColor: {
       type: 'color',
-      label: 'Color',
+      label: 'project:color',
       selector: '.dark',
       property: '--button-primary-color',
       def: '--accent-color',
@@ -158,7 +166,7 @@ export default {
     },
     darkButtonPrimaryLabelColor: {
       type: 'color',
-      label: 'Label Color',
+      label: 'project:labelColor',
       selector: '.dark',
       property: '--button-primary-label-color',
       def: '--contrast-color',
@@ -173,18 +181,18 @@ export default {
     },
     darkButtonPrimaryWeight: {
       type: 'select',
-      label: 'Label Weight',
+      label: 'project:labelWeight',
       choices: [
         {
-          label: 'Normal',
+          label: 'project:normal',
           value: '400'
         },
         {
-          label: 'Semibold',
+          label: 'project:semibold',
           value: '500'
         },
         {
-          label: 'Bold',
+          label: 'project:bold',
           value: '700'
         }
       ],
@@ -194,11 +202,11 @@ export default {
     },
     darkButtonPrimaryShadow: {
       preset: 'boxShadow',
-      label: 'Shadow',
+      label: 'project:shadow',
       selector: '.dark .button--primary'
     },
     darkButtonOutlineRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 50,
@@ -209,7 +217,7 @@ export default {
     },
     darkButtonOutlineColor: {
       type: 'color',
-      label: 'Color',
+      label: 'project:color',
       selector: '.dark',
       property: '--button-outline-color',
       def: '--accent-color',
@@ -223,7 +231,7 @@ export default {
     },
     darkButtonOutlineLabelColor: {
       type: 'color',
-      label: 'Label Color',
+      label: 'project:labelColor',
       selector: '.dark',
       property: '--button-outline-label-color',
       def: '--accent-color',
@@ -238,18 +246,18 @@ export default {
     },
     darkButtonOutlineWeight: {
       type: 'select',
-      label: 'Label Weight',
+      label: 'project:labelWeight',
       choices: [
         {
-          label: 'Normal',
+          label: 'project:normal',
           value: '400'
         },
         {
-          label: 'Semibold',
+          label: 'project:semibold',
           value: '500'
         },
         {
-          label: 'Bold',
+          label: 'project:bold',
           value: '700'
         }
       ],
@@ -259,19 +267,19 @@ export default {
     },
     darkButtonOutlineShadow: {
       preset: 'boxShadow',
-      label: 'Shadow',
+      label: 'project:shadow',
       selector: '.dark .button--outline'
     }
   },
   group: {
     buttons: {
-      label: 'Buttons',
+      label: 'project:buttons',
       group: {
         lightMode: {
-          label: 'Light Mode',
+          label: 'project:lightMode',
           group: {
             primary: {
-              label: 'Primary Buttons',
+              label: 'project:primaryButtons',
               fields: [
                 'lightButtonPrimaryWeight',
                 'lightButtonPrimaryColor',
@@ -281,7 +289,7 @@ export default {
               ]
             },
             outline: {
-              label: 'Outline Buttons',
+              label: 'project:outlineButtons',
               fields: [
                 'lightButtonOutlineWeight',
                 'lightButtonOutlineColor',
@@ -293,10 +301,10 @@ export default {
           }
         },
         darkMode: {
-          label: 'Dark Mode',
+          label: 'project:darkMode',
           group: {
             primary: {
-              label: 'Primary Buttons',
+              label: 'project:primaryButtons',
               fields: [
                 'darkButtonPrimaryWeight',
                 'darkButtonPrimaryColor',
@@ -306,7 +314,7 @@ export default {
               ]
             },
             outline: {
-              label: 'Outline Buttons',
+              label: 'project:outlineButtons',
               fields: [
                 'darkButtonOutlineWeight',
                 'darkButtonOutlineColor',

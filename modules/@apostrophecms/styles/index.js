@@ -6,6 +6,7 @@ import card from './lib/card.js';
 import priceCard from './lib/priceCard.js';
 import footer from './lib/footer.js';
 import widget from './lib/widget.js';
+import table from './lib/table.js';
 
 export default {
   styles: {
@@ -17,17 +18,19 @@ export default {
       ...card.fields,
       ...priceCard.fields,
       ...footer.fields,
+      ...table.fields,
       ...widget.fields
     },
     group: {
-      ...color.group,
-      ...font.group,
       ...nav.group,
+      ...font.group,
+      ...color.group,
       ...button.group,
       ...card.group,
       ...priceCard.group,
-      ...footer.group,
-      ...widget.group
+      ...table.group,
+      ...widget.group,
+      ...footer.group
     }
   }
 };

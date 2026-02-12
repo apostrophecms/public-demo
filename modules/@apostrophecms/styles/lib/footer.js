@@ -2,7 +2,7 @@ export default {
   fields: {
     lightFooterBackgroundColor: {
       type: 'color',
-      label: 'Background Color',
+      label: 'project:backgroundColor',
       selector: ':root',
       property: '--footer-background-color',
       def: '--surface-color',
@@ -18,7 +18,7 @@ export default {
     },
     lightFooterColor: {
       type: 'color',
-      label: 'Text Color',
+      label: 'project:textColor',
       selector: ':root',
       property: '--footer-color',
       def: '--nav-color',
@@ -35,36 +35,36 @@ export default {
     },
     lightFooterFont: {
       type: 'select',
-      label: 'Footer Font',
+      label: 'project:footerFont',
       selector: '.footer',
       property: 'font-family',
       def: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       choices: [
         {
-          label: 'Roboto',
+          label: 'project:fontRoboto',
           value: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
         },
         {
-          label: 'Quicksand',
+          label: 'project:fontQuicksand',
           value: '"Quicksand", sans-serif;'
         },
         {
-          label: 'Poppins',
+          label: 'project:fontPoppins',
           value: '"Poppins", sans-serif;'
         },
         {
-          label: 'Inter',
+          label: 'project:fontInter',
           value: '"Inter", sans-serif;'
         },
         {
-          label: 'Georgia',
+          label: 'project:fontGeorgia',
           value: '"Georgia", serif;'
         }
       ]
     },
     darkFooterBackgroundColor: {
       type: 'color',
-      label: 'Background Color',
+      label: 'project:backgroundColor',
       selector: '.dark',
       property: '--footer-background-color',
       def: '--surface-color',
@@ -80,7 +80,7 @@ export default {
     },
     darkFooterColor: {
       type: 'color',
-      label: 'Text Color',
+      label: 'project:textColor',
       selector: '.dark',
       property: '--footer-color',
       def: '--nav-color',
@@ -97,29 +97,29 @@ export default {
     },
     darkFooterFont: {
       type: 'select',
-      label: 'Footer Font',
+      label: 'project:footerFont',
       selector: '.dark .footer',
       property: 'font-family',
       def: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       choices: [
         {
-          label: 'Roboto',
+          label: 'project:fontRoboto',
           value: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
         },
         {
-          label: 'Quicksand',
+          label: 'project:fontQuicksand',
           value: '"Quicksand", sans-serif;'
         },
         {
-          label: 'Poppins',
+          label: 'project:fontPoppins',
           value: '"Poppins", sans-serif;'
         },
         {
-          label: 'Inter',
+          label: 'project:fontInter',
           value: '"Inter", sans-serif;'
         },
         {
-          label: 'Georgia',
+          label: 'project:fontGeorgia',
           value: '"Georgia", serif;'
         }
       ]
@@ -127,10 +127,10 @@ export default {
   },
   group: {
     footer: {
-      label: 'Footer',
+      label: 'project:footer',
       group: {
         lightMode: {
-          label: 'Light Mode',
+          label: 'project:lightMode',
           fields: [
             'lightFooterBackgroundColor',
             'lightFooterFont',
@@ -138,7 +138,7 @@ export default {
           ]
         },
         darkMode: {
-          label: 'Dark Mode',
+          label: 'project:darkMode',
           fields: [
             'darkFooterBackgroundColor',
             'darkFooterFont',

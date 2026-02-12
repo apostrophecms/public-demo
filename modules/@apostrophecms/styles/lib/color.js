@@ -16,8 +16,8 @@ export default {
   fields: {
     defaultColorLight: {
       type: 'color',
-      label: 'Text Color',
-      help: 'Used for text and labels',
+      label: 'project:textColor',
+      help: 'project:textColorHelp',
       selector: ':root',
       property: '--default-color',
       def: '#4a4b64',
@@ -27,8 +27,8 @@ export default {
     },
     headingColorLight: {
       type: 'color',
-      label: 'Heading Color',
-      help: 'Used for various headings and large text',
+      label: 'project:headingColor',
+      help: 'project:headingColorHelp',
       selector: ':root',
       property: '--heading-color',
       def: '#242859',
@@ -38,8 +38,8 @@ export default {
     },
     faintColorLight: {
       type: 'color',
-      label: 'Soft Accent',
-      help: 'Used to accent cards and borders',
+      label: 'project:softAccent',
+      help: 'project:softAccentHelp',
       selector: ':root',
       property: '--faint-color',
       def: '#e8e8e8',
@@ -49,8 +49,8 @@ export default {
     },
     accentColorLight: {
       type: 'color',
-      label: 'Strong Accent',
-      help: 'For button backgrounds and stronger element accents',
+      label: 'project:strongAccent',
+      help: 'project:strongAccentHelp',
       selector: ':root',
       property: '--accent-color',
       def: '#0b1ae9',
@@ -60,8 +60,8 @@ export default {
     },
     contrastColorLight: {
       type: 'color',
-      label: 'Contrast Color',
-      help: 'Used to contrast the Accent Color',
+      label: 'project:contrastColor',
+      help: 'project:contrastColorHelp',
       selector: ':root',
       property: '--contrast-color',
       def: '#ffffff',
@@ -71,7 +71,7 @@ export default {
     },
     backgroundColorLight: {
       type: 'color',
-      label: 'Page Background',
+      label: 'project:pageBackground',
       selector: ':root',
       property: '--background-color',
       def: '#ffffff',
@@ -81,8 +81,8 @@ export default {
     },
     surfaceColorLight: {
       type: 'color',
-      label: 'Surface Background',
-      help: 'Background color used on cards, footer elements, and other raised surfaces.',
+      label: 'project:surfaceBackground',
+      help: 'project:surfaceBackgroundHelp',
       selector: ':root',
       property: '--surface-color',
       def: '#efefef',
@@ -93,8 +93,8 @@ export default {
     },
     defaultColorDark: {
       type: 'color',
-      label: 'Text Color',
-      help: 'Used for text and labels',
+      label: 'project:textColor',
+      help: 'project:textColorHelp',
       selector: '.dark',
       property: '--default-color',
       def: '#e8e7f7',
@@ -104,8 +104,8 @@ export default {
     },
     headingColorDark: {
       type: 'color',
-      label: 'Heading Color',
-      help: 'Used for various headings and large text',
+      label: 'project:headingColor',
+      help: 'project:headingColorHelp',
       selector: '.dark',
       property: '--heading-color',
       def: '#ffffff',
@@ -115,8 +115,8 @@ export default {
     },
     faintColorDark: {
       type: 'color',
-      label: 'Soft Accent',
-      help: 'Used to accent cards and borders',
+      label: 'project:softAccent',
+      help: 'project:softAccentHelp',
       selector: '.dark',
       property: '--faint-color',
       def: '#303034',
@@ -126,8 +126,8 @@ export default {
     },
     accentColorDark: {
       type: 'color',
-      label: 'Strong Accent',
-      help: 'For buttons and stronger element accents',
+      label: 'project:strongAccent',
+      help: 'project:strongAccentHelp',
       selector: '.dark',
       property: '--accent-color',
       def: '#524dd3',
@@ -137,8 +137,8 @@ export default {
     },
     contrastColorDark: {
       type: 'color',
-      label: 'Contrast Color',
-      help: 'Used to contrast the Accent Color',
+      label: 'project:contrastColor',
+      help: 'project:contrastColorHelp',
       selector: '.dark',
       property: '--contrast-color',
       def: '#ffffff',
@@ -148,7 +148,7 @@ export default {
     },
     backgroundColorDark: {
       type: 'color',
-      label: 'Page Background',
+      label: 'project:pageBackground',
       selector: '.dark',
       property: '--background-color',
       def: '#05071e',
@@ -158,8 +158,8 @@ export default {
     },
     surfaceColorDark: {
       type: 'color',
-      label: 'Surface Background',
-      help: 'Background color used on cards, footer elements, and other raised surfaces.',
+      label: 'project:surfaceBackground',
+      help: 'project:surfaceBackgroundHelp',
       selector: '.dark',
       property: '--surface-color',
       def: '#131428',
@@ -170,10 +170,10 @@ export default {
   },
   group: {
     colors: {
-      label: 'Colors',
+      label: 'project:colors',
       group: {
         lightMode: {
-          label: 'Light Mode',
+          label: 'project:lightMode',
           fields: [
             'defaultColorLight',
             'headingColorLight',
@@ -185,7 +185,7 @@ export default {
           ]
         },
         darkMode: {
-          label: 'Dark Mode',
+          label: 'project:darkMode',
           fields: [
             'defaultColorDark',
             'headingColorDark',

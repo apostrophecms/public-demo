@@ -2,7 +2,7 @@ export default {
   fields: {
     widgetsSpacing: {
       type: 'range',
-      label: 'Spacing between widgets',
+      label: 'project:spacingBetweenWidgets',
       def: 50,
       min: 0,
       max: 100,
@@ -14,7 +14,7 @@ export default {
   },
   group: {
     widgets: {
-      label: 'Widgets',
+      label: 'project:widgets',
       fields: [
         'widgetsSpacing'
       ]

@@ -2,7 +2,7 @@ export default {
   fields: {
     lightCardBackgroundColor: {
       type: 'color',
-      label: 'Background Color',
+      label: 'project:backgroundColor',
       selector: ':root',
       property: '--card-background-color',
       def: '--surface-color',
@@ -17,7 +17,7 @@ export default {
     },
     lightCardIconColor: {
       type: 'color',
-      label: 'Icon Color',
+      label: 'project:iconColor',
       selector: ':root',
       property: '--card-icon-color',
       def: '--accent-color',
@@ -35,7 +35,7 @@ export default {
       }
     },
     lightCardRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 12,
@@ -46,7 +46,7 @@ export default {
     },
     darkCardBackgroundColor: {
       type: 'color',
-      label: 'Background Color',
+      label: 'project:backgroundColor',
       selector: '.dark',
       property: '--card-background-color',
       def: '--surface-color',
@@ -61,7 +61,7 @@ export default {
     },
     darkCardIconColor: {
       type: 'color',
-      label: 'Icon Color',
+      label: 'project:iconColor',
       selector: '.dark',
       property: '--card-icon-color',
       def: '--accent-color',
@@ -79,7 +79,7 @@ export default {
       }
     },
     darkCardRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 12,
@@ -91,10 +91,10 @@ export default {
   },
   group: {
     cards: {
-      label: 'Cards',
+      label: 'project:cards',
       group: {
         lightMode: {
-          label: 'Light Mode',
+          label: 'project:lightMode',
           fields: [
             'lightCardBackgroundColor',
             'lightCardIconColor',
@@ -102,7 +102,7 @@ export default {
           ]
         },
         darkMode: {
-          label: 'Dark Mode',
+          label: 'project:darkMode',
           fields: [
             'darkCardBackgroundColor',
             'darkCardIconColor',

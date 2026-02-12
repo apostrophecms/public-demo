@@ -2,7 +2,7 @@ export default {
   fields: {
     lightPriceCardBackgroundColor: {
       type: 'color',
-      label: 'Background Color',
+      label: 'project:backgroundColor',
       selector: ':root',
       property: '--price-card-background-color',
       def: '--surface-color',
@@ -17,7 +17,7 @@ export default {
     },
     lightPriceCardIconColor: {
       type: 'color',
-      label: 'Badge Color',
+      label: 'project:badgeColor',
       selector: ':root',
       property: '--price-card-badge-color',
       def: '--accent-color',
@@ -35,7 +35,7 @@ export default {
       }
     },
     lightPriceCardRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 12,
@@ -46,7 +46,7 @@ export default {
     },
     darkPriceCardBackgroundColor: {
       type: 'color',
-      label: 'Background Color',
+      label: 'project:backgroundColor',
       selector: '.dark',
       property: '--price-card-background-color',
       def: '--surface-color',
@@ -61,7 +61,7 @@ export default {
     },
     darkPriceCardIconColor: {
       type: 'color',
-      label: 'Badge Color',
+      label: 'project:badgeColor',
       selector: '.dark',
       property: '--price-card-badge-color',
       def: '--accent-color',
@@ -79,7 +79,7 @@ export default {
       }
     },
     darkPriceCardRadius: {
-      label: 'Border Radius',
+      label: 'project:borderRadius',
       type: 'range',
       unit: 'px',
       def: 12,
@@ -91,10 +91,10 @@ export default {
   },
   group: {
     priceCards: {
-      label: 'Pricing Cards',
+      label: 'project:pricingCards',
       group: {
         lightMode: {
-          label: 'Light Mode',
+          label: 'project:lightMode',
           fields: [
             'lightPriceCardBackgroundColor',
             'lightPriceCardIconColor',
@@ -102,7 +102,7 @@ export default {
           ]
         },
         darkMode: {
-          label: 'Dark Mode',
+          label: 'project:darkMode',
           fields: [
             'darkPriceCardBackgroundColor',
             'darkPriceCardIconColor',

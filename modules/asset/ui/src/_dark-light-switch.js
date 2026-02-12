@@ -12,18 +12,13 @@ export default () => {
   let done = false;
 
   function updateNavLogo(isDark) {
-    console.log('updateNavLogo', isDark);
     const logo = document.getElementById('nav-logo');
     if (!logo) {
-      console.log('no logo found');
       return;
     }
     if (isDark && logo.hasAttribute('data-dark-url')) {
-      console.log('setting dark logo');
-      logo.setAttribute('data-light-url', logo.getAttribute('src') || '');
       logo.setAttribute('src', logo.getAttribute('data-dark-url'));
     } else if (!isDark && logo.hasAttribute('data-light-url')) {
-      console.log('setting light logo');
       logo.setAttribute('src', logo.getAttribute('data-light-url'));
     }
   }

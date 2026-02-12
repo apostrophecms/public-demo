@@ -22,5 +22,29 @@ export default {
         label: 'project:right'
       }
     ]
+  },
+  styles: {
+    add: {
+      width: 'width',
+      alignment: {
+        type: 'radio',
+        buttons: true,
+        class: true,
+        choices: [
+          {
+            label: 'apostrophe:styleLeft',
+            value: 'apos-left'
+          },
+          {
+            label: 'apostrophe:styleCenter',
+            value: 'apos-center'
+          },
+          {
+            label: 'apostrophe:styleRight',
+            value: 'apos-right'
+          }
+        ]
+      }
+    }
   }
 };
