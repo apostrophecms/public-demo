@@ -27,6 +27,16 @@ export default () => {
     return null;
   }
 
+  function getCurrentPreference() {
+    // First try to get from toggle input if it exists
+    const toggle = document.querySelector('[data-mode-switch] input');
+    if (toggle) {
+      return toggle.checked ? 'dark' : 'light';
+    }
+    // Fall back to localStorage
+    return localStorage.getItem(APOS_LIGHT_DARK_KEY) || 'light';
+  }
+
   function updateNavLogo(isDark) {
     const logo = document.getElementById('nav-logo');
     if (!logo) {
@@ -51,7 +61,8 @@ export default () => {
     }
     done = true;
 
-    updateNavLogo(pref === 'dark');
+    const currentPref = getCurrentPreference();
+    updateNavLogo(currentPref === 'dark');
 
     const toggle = document.querySelector('[data-mode-switch] input');
 
@@ -69,7 +80,9 @@ export default () => {
     document.body.classList.toggle('dark');
     const pref = document.body.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem(APOS_LIGHT_DARK_KEY, pref);
-    updateNavLogo(pref === 'dark');
+    // Get fresh preference from toggle input
+    const currentPref = getCurrentPreference();
+    updateNavLogo(currentPref === 'dark');
   }
 
   // Watch changes to apos refreshable and make sure logo is updated
@@ -78,7 +91,9 @@ export default () => {
   const observer = new MutationObserver((mutations) => {
     for (const m of mutations) {
       if (m.type === 'childList' || m.type === 'characterData') {
-        updateNavLogo(pref === 'dark');
+        // Get fresh preference from toggle input
+        const currentPref = getCurrentPreference();
+        updateNavLogo(currentPref === 'dark');
       }
     }
   });
