@@ -67,8 +67,8 @@ export default {
       features: {
         type: 'array',
         inline: true,
-        label: 'project:listOfFeature',
-        help: 'project:listOfFeatureHelp',
+        label: 'project:listOfFeatures',
+        help: 'project:listOfFeaturesHelp',
         fields: {
           add: {
             item: {
@@ -78,7 +78,96 @@ export default {
           }
         }
       },
+      buttonStyle: {
+        label: 'project:buttonStyle',
+        type: 'radio',
+        buttons: true,
+        def: 'primary',
+        choices: [
+          {
+            label: 'project:primary',
+            value: 'primary'
+          },
+          {
+            label: 'project:outline',
+            value: 'outline'
+          }
+        ]
+      },
       ...localLinkConfig
+    }
+  },
+  styles: {
+    add: {
+      backgroundColor: {
+        type: 'color',
+        label: 'project:backgroundColor',
+        selector: '.price-card-widget',
+        property: 'background-color',
+        def: '--surface-color',
+        options: {
+          presetColors: [
+            '--surface-color',
+            '--accent-color',
+            '--default-color',
+            '--heading-color'
+          ]
+        }
+      },
+      textColor: {
+        type: 'color',
+        label: 'project:textColor',
+        selector: '.price-card-widget',
+        property: 'color',
+        def: '--surface-color',
+        options: {
+          presetColors: [
+            '--accent-color',
+            '--default-color',
+            '--heading-color'
+          ]
+        }
+      },
+      buttonBackgroundColor: {
+        type: 'color',
+        label: 'project:buttonBackgroundColor',
+        selector: '.price-card-widget .button--primary',
+        property: 'background-color',
+        def: '--button-primary-color',
+        options: {
+          presetColors: [
+            '--button-primary-color',
+            '--surface-color',
+            '--accent-color',
+            '--default-color',
+            '--heading-color',
+            '#fb5607',
+            '#ff006e',
+            '#8338ec',
+            '#3a86ff'
+          ]
+        }
+      },
+      badgeColor: {
+        type: 'color',
+        label: 'project:badgeColor',
+        selector: '.price-card-widget',
+        property: '--price-card-badge-color',
+        def: '--accent-color',
+        options: {
+          presetColors: [
+            '--button-primary-color',
+            '--surface-color',
+            '--accent-color',
+            '--default-color',
+            '--heading-color',
+            '#fb5607',
+            '#ff006e',
+            '#8338ec',
+            '#3a86ff'
+          ]
+        }
+      }
     }
   }
 };

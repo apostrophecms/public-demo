@@ -32,10 +32,10 @@
     font-weight: 400;
     line-height: 1.6;
     transition: all 250ms ease 0s;
-    font-size: 1rem;
+    font-size: var(--text-size-default);
 
     &.large {
-      font-size: 1.3rem;
+      font-size: var(--text-size-larger);
       line-height: 1.7;
     }
   }
@@ -51,20 +51,20 @@
   }
 
   h3 {
-    font-size: 2.8em;
+    font-size: var(--text-size-heading-3);
     letter-spacing: -1px;
     line-height: 1em;
   }
 
   h4 {
-    font-size: 1.8em;
+    font-size: var(--text-size-heading-4);
     line-height: 1.2em;
     font-weight: 600;
     margin-bottom: 1rem;
   }
 
   h5 {
-    font-size: 1.3em;
+    font-size: var(--text-size-heading-5);
     line-height: 1.2em;
     font-weight: 500;
     margin-bottom: 0.75rem;
@@ -222,7 +222,7 @@
 .layout .tableWrapper table th,
 .layout .apos-rich-text-table td,
 .layout .apos-rich-text-table th {
-  border: 1px solid var(--faint-color);
+  border: 1px solid var(--table-border-color);
 }
 
 .layout [data-rich-text] table:not([class]) th,
@@ -230,7 +230,8 @@
 .layout .tableWrapper table th,
 .layout .apos-rich-text-table th {
   padding: 1rem 0;
-  background-color: var(--faint-color);
+  color: var(--table-header-color);
+  background-color: var(--table-header-background-color);
   vertical-align: middle;
 }
 

@@ -148,6 +148,10 @@ export default {
         label: 'apostrophe:styleBorder',
         type: 'object',
         selector: '.card-widget',
+        options: {
+          flat: true,
+          hideLabel: true
+        },
         fields: {
           add: {
             active: {

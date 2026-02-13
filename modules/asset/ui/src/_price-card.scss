@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100%;
   padding: 20px;
-  background: var(--surface-color);
+  background: var(--price-card-background-color);
   border-radius: 12px;
   box-shadow: 0 8px 25px color-mix(in srgb, var(--default-color), transparent 92%);
   transition: all 0.3s ease;
@@ -32,10 +32,8 @@
   display: flex;
   align-items: center;
   gap: 5px;
-}
-
-.price-card__badge-label {
-  font-size: 0.65rem;
+  color: var(--price-card-badge-color);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--price-card-badge-color), transparent 90%), color-mix(in srgb, var(--price-card-badge-color), transparent 85%));
 }
 
 .price-card__badge-icon {
@@ -49,9 +47,13 @@
 
 .price-card__title,
 .price-card__price-text {
-  font-size: 2rem;
+  font-size: var(--text-size-heading-4);
   font-weight: 500;
   letter-spacing: 0;
+}
+
+.price-card__price-text {
+  font-size: var(--text-size-heading-5);
 }
 
 .price-card__title {
@@ -60,7 +62,7 @@
 
 .price-card__price-detail {
   opacity: 0.75;
-  font-size: 0.875rem;
+  font-size: var(--text-size-default);
 }
 
 .price-card__content {
@@ -76,9 +78,9 @@
 .price-card__features {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0 4rem;
+  margin: 1rem 0 2rem;
   padding: 1.5rem 0 0;
-  border-top: 1px solid var(--medium-color);
+  border-top: 1px solid var(--faint-color);
   list-style-type: none;
   gap: 0.45rem;
 
@@ -94,7 +96,7 @@
 .price-card__content,
 .price-card__price-detail
  {
-  font-size: 0.875rem;
+  font-size: var(--text-size-default);
   line-height: 1.3;
 }
 

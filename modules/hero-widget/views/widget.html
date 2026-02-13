@@ -9,7 +9,7 @@
     <div class="hero-widget__buttons">
       {% for item in widget.links %}
         {% set path = apos.helper.linkPath(item) %}
-        {% set class = 'button ' + item.style %}
+        {% set class = 'button button--' + item.style %}
           {{ link.render({
             label: item.linkText,
             path: path,

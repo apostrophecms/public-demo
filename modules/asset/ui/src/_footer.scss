@@ -1,8 +1,13 @@
 .footer {
   margin-top: 5rem;
-  background-color: var(--surface-color);
+  background-color: var(--footer-background-color);
   padding: 3rem 0;
   border-top: 1px solid var(--nav-dropdown-background-color);
+}
+
+.footer h4,
+.footer a:not(.footer__logo) {
+  color: var(--footer-color);
 }
 
 .footer__logo {
