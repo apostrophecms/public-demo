@@ -11,15 +11,37 @@ export default () => {
 
   let done = false;
 
+  function getSafeLogoUrl(logo, dataAttrName) {
+    const value = logo.getAttribute(dataAttrName);
+    if (!value) {
+      return null;
+    }
+    try {
+      const url = new URL(value, window.location.origin);
+      if (url.protocol === 'http:' || url.protocol === 'https:') {
+        return url.toString();
+      }
+    } catch (e) {
+      // Invalid URL; fall through to return null.
+    }
+    return null;
+  }
+
   function updateNavLogo(isDark) {
     const logo = document.getElementById('nav-logo');
     if (!logo) {
       return;
     }
     if (isDark && logo.hasAttribute('data-dark-url')) {
-      logo.setAttribute('src', logo.getAttribute('data-dark-url'));
+      const safeUrl = getSafeLogoUrl(logo, 'data-dark-url');
+      if (safeUrl) {
+        logo.setAttribute('src', safeUrl);
+      }
     } else if (!isDark && logo.hasAttribute('data-light-url')) {
-      logo.setAttribute('src', logo.getAttribute('data-light-url'));
+      const safeUrl = getSafeLogoUrl(logo, 'data-light-url');
+      if (safeUrl) {
+        logo.setAttribute('src', safeUrl);
+      }
     }
   }
 
