@@ -5,7 +5,7 @@ import button from './lib/button.js';
 import card from './lib/card.js';
 import priceCard from './lib/priceCard.js';
 import footer from './lib/footer.js';
-import widget from './lib/widget.js';
+import spacing from './lib/spacing.js';
 import table from './lib/table.js';
 
 export default {
@@ -19,7 +19,7 @@ export default {
       ...priceCard.fields,
       ...footer.fields,
       ...table.fields,
-      ...widget.fields
+      ...spacing.fields
     },
     group: {
       ...nav.group,
@@ -29,7 +29,7 @@ export default {
       ...card.group,
       ...priceCard.group,
       ...table.group,
-      ...widget.group,
+      ...spacing.group,
       ...footer.group
     }
   }

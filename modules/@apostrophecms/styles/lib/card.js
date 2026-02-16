@@ -44,6 +44,11 @@ export default {
       selector: '.card-widget',
       property: 'border-radius'
     },
+    lightCardShadow: {
+      preset: 'boxShadow',
+      label: 'project:shadow',
+      selector: '.card-widget'
+    },
     darkCardBackgroundColor: {
       type: 'color',
       label: 'project:backgroundColor',
@@ -87,6 +92,11 @@ export default {
       max: 30,
       selector: '.dark.card-widget',
       property: 'border-radius'
+    },
+    darkCardShadow: {
+      preset: 'boxShadow',
+      label: 'project:shadow',
+      selector: '.dark .card-widget'
     }
   },
   group: {
@@ -98,7 +108,8 @@ export default {
           fields: [
             'lightCardBackgroundColor',
             'lightCardIconColor',
-            'lightCardRadius'
+            'lightCardRadius',
+            'lightCardShadow'
           ]
         },
         darkMode: {
@@ -106,7 +117,8 @@ export default {
           fields: [
             'darkCardBackgroundColor',
             'darkCardIconColor',
-            'darkCardRadius'
+            'darkCardRadius',
+            'darkCardShadow'
           ]
         }
       }
