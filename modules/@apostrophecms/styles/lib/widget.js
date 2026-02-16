@@ -14,7 +14,7 @@ export default {
   },
   group: {
     widgets: {
-      label: 'project:widgets',
+      label: 'project:spacing',
       fields: [
         'widgetsSpacing'
       ]

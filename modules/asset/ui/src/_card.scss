@@ -3,14 +3,18 @@
   align-items: center;
   gap: 16px;
   padding: 20px;
-  background: var(--card-background-color);
+  background-color: var(--card-background-color);
   border-radius: 12px;
   box-shadow: 0 8px 25px color-mix(in srgb, var(--default-color), transparent 92%);
-  transition: all 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-radius 0.3s ease,
+    border-color 0.3s ease,
+    border-width 0.3s ease,
+    transform 0.3s ease;
 
   &:hover:not(.card-widget--bg-false) {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 88%);
   }
 
   &--bg-false {
