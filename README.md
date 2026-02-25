@@ -1,20 +1,20 @@
-# Apostrophe 3 demo and test project
+# ApostropheCMS Demo
 
 ## Get started
 
-1. Install dependencies with `npm install`.
-2. Add your first user with `node app @apostrophecms/user:add {MY_USERNAME} admin`.
+If you want to just fork this repo and go:
 
-## Running the project
+1. Make sure you have Node.js (22 or better, a current LTS release).
+2. Make sure you have MongoDB. A MongoDB Atlas free tier account will work. If you're not running MongoDB on your own computer, set the `APOS_MONGODB_URI` environment variable.
+3. Install dependencies with `npm install`.
+4. Add your first user with `node app @apostrophecms/user:add {MY_USERNAME} admin`.
 
-Run `npm run dev` to build the Apostrophe UI and start the site up. Remember, this is during alpha development, so we're all in "dev mode."
+## Running the project during development
 
-## Analyzing bundle size
+Run `npm run dev` to build the Apostrophe UI and start the site up.
 
-It is possible to analyze the size of the admin UI webpack bundle:
+Go to `http://localhost:3000/login` to log in and start editing.
 
-```
-APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build
-```
+## For more information
 
-This will display a visualization in your browser. Bear in mind that the admin UI bundle is only ever present for logged-in users, generally those with editing privileges and not the general public.
+See the [documentation](https://apostrophecms.com/docs/) for more information.
