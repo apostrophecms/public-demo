@@ -221,6 +221,7 @@
   "softAccentHelp": "Used to accent cards and borders",
   "spacing": "Spacing",
   "spacingBetweenWidgets": "Vertical space between widgets",
+  "layoutWidgetGap": "Gap between layout widget columns",
   "strongAccent": "Strong Accent",
   "strongAccentHelp": "For button backgrounds and stronger element accents",
   "surfaceBackground": "Surface Background",

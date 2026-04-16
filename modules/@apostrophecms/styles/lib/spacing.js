@@ -10,13 +10,25 @@ export default {
       unit: 'px',
       selector: ':root',
       property: '--widget-spacer'
+    },
+    layoutWidgetGap: {
+      type: 'range',
+      label: 'project:layoutWidgetGap',
+      def: 1.5,
+      min: 0,
+      max: 5,
+      step: 0.1,
+      unit: 'rem',
+      selector: ':root',
+      property: '--apos-layout-widget-gap'
     }
   },
   group: {
     widgets: {
       label: 'project:spacing',
       fields: [
-        'widgetsSpacing'
+        'widgetsSpacing',
+        'layoutWidgetGap'
       ]
     }
   }

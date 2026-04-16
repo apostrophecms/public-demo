@@ -1,3 +1,5 @@
+/logs
+/claude-tools
 */.DS_Store
 # ignore vim swapfiles
 *.swp
