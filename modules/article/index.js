@@ -2,14 +2,10 @@ import dayjs from 'dayjs';
 import { fullConfig } from '../../lib/area.js';
 
 export default {
-  extend: '@apostrophecms/piece-type',
+  extend: '@apostrophecms/blog',
   options: {
     label: 'project:article',
-    pluralLabel: 'project:articles',
-    sort: {
-      publishedDate: -1,
-      createdAt: -1
-    }
+    pluralLabel: 'project:articles'
   },
   fields: {
     add: {
@@ -25,13 +21,6 @@ export default {
             }
           }
         }
-      },
-      publishedDate: {
-        label: 'project:articlePublishedDate',
-        help: 'project:articlePublishedDateHelp',
-        type: 'date',
-        // Don't display "Invalid Date"
-        required: true
       },
       _categories: {
         label: 'project:articleCategories',
@@ -64,7 +53,7 @@ export default {
         fields: [
           'title',
           'blurb',
-          'publishedDate'
+          'publishedAt'
         ]
       },
       main: {
@@ -111,65 +100,22 @@ export default {
     };
   },
   filters: {
-    add: {
-      future: {
-        label: 'project:futureArticles',
-        def: null
-      }
-    }
+    // The best experience comes with just the month filter
+    remove: [ 'day', 'year' ]
   },
-  queries(self, query) {
-    return {
-      builders: {
-        // Public sees only future posts
-        // Editors can see future posts, otherwise they can't
-        // edit them in context
-        future: {
-          def: null,
-          finalize() {
-            let future = query.get('future');
-
-            if (!self.apos.permission.can(query.req, 'edit', self.name, 'draft')) {
-              // General public cannot see posts before their publication date
-              future = false;
-            }
-
-            if (future === null) {
-              return;
-            }
-
-            const today = dayjs().format('YYYY-MM-DD');
-            if (future) {
-              query.and({ publishedDate: { $gte: today } });
-            } else {
-              query.and({ publishedDate: { $lte: today } });
-            }
-          },
-
-          launder(value) {
-            return self.apos.launder.booleanOrNull(
-              value === '' ? null : value
-            );
-          },
-
-          choices() {
-            return [
-              {
-                value: null,
-                label: 'project:both'
-              },
-              {
-                value: true,
-                label: 'project:future'
-              },
-              {
-                value: false,
-                label: 'project:past'
-              }
-            ];
-          }
-        }
-      }
-    };
+  init(self) {
+    // A temporary migration until all of our own deployments have seen this.
+    // It's harmless but we don't need to leave it in this starter kit forever
+    console.log('adding migration');
+    self.apos.migration.add('publishedDateToPublishedAt2', async () => {
+      console.log('-->', self.name);
+      await self.apos.doc.db.updateMany({
+        type: self.name,
+        publishedDate: { $exists: 1 },
+        publishedAt: { $exists: 0 }
+      }, {
+        $rename: { publishedDate: 'publishedAt' }
+      });
+    });
   }
 };

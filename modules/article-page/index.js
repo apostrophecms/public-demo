@@ -1,5 +1,5 @@
 export default {
-  extend: '@apostrophecms/piece-page-type',
+  extend: '@apostrophecms/blog-page',
   options: {
     label: 'project:articleIndexPage',
     pluralLabel: 'project:articleIndexPages'

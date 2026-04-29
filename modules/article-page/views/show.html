@@ -8,10 +8,7 @@
 {% block pageTitle %}
   <div class="article-title-wrapper">
     <div class="layout">
-      {% set title = data.page.title %}
-      {% if data.piece %}
-        {% set title = data.piece.title %}
-      {% endif %}
+      {% set title = data.piece.title %}
       <h1 class="page-title">{{ title }}</h1>
     </div>
     <div class="article-details">
@@ -24,7 +21,7 @@
         </div>
       {% endif %}
       <div class="article-detail article-published">
-        {{ apos.helper.formatDate(article.publishedDate) }}
+        {{ apos.helper.formatDate(article.publishedAt) }}
       </div>
     </div>
     {% if article._categories.length %}
