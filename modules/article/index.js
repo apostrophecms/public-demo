@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { fullConfig } from '../../lib/area.js';
 
 export default {
@@ -27,7 +28,10 @@ export default {
       },
       publishedDate: {
         label: 'project:articlePublishedDate',
-        type: 'date'
+        help: 'project:articlePublishedDateHelp',
+        type: 'date',
+        // Don't display "Invalid Date"
+        required: true
       },
       _categories: {
         label: 'project:articleCategories',
@@ -106,24 +110,66 @@ export default {
       }
     };
   },
-  init(self) {
-    // blurb used to be a string; now we've decided it should be
-    // a rich text widget. Make the conversion with a migration
-    self.apos.migration.add('blurb', async () => {
-      await self.apos.migration.eachDoc({
-        type: 'article'
-      }, 5, async (doc) => {
-        if ((typeof doc.blurb) === 'string') {
-          doc.blurb = self.apos.area.fromPlaintext(doc.blurb);
-          return self.apos.doc.db.updateOne({
-            _id: doc._id
-          }, {
-            $set: {
-              blurb: doc.blurb
+  filters: {
+    add: {
+      future: {
+        label: 'project:futureArticles',
+        def: null
+      }
+    }
+  },
+  queries(self, query) {
+    return {
+      builders: {
+        // Public sees only future posts
+        // Editors can see future posts, otherwise they can't
+        // edit them in context
+        future: {
+          def: null,
+          finalize() {
+            let future = query.get('future');
+
+            if (!self.apos.permission.can(query.req, 'edit', self.name, 'draft')) {
+              // General public cannot see posts before their publication date
+              future = false;
             }
-          });
+
+            if (future === null) {
+              return;
+            }
+
+            const today = dayjs().format('YYYY-MM-DD');
+            if (future) {
+              query.and({ publishedDate: { $gte: today } });
+            } else {
+              query.and({ publishedDate: { $lte: today } });
+            }
+          },
+
+          launder(value) {
+            return self.apos.launder.booleanOrNull(
+              value === '' ? null : value
+            );
+          },
+
+          choices() {
+            return [
+              {
+                value: null,
+                label: 'project:both'
+              },
+              {
+                value: true,
+                label: 'project:future'
+              },
+              {
+                value: false,
+                label: 'project:past'
+              }
+            ];
+          }
         }
-      });
-    });
+      }
+    };
   }
 };

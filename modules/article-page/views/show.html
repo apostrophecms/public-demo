@@ -3,7 +3,7 @@
 {% extends "layout.html" %}
 {% set article = data.piece %}
 {% set attachment = apos.image.first(article._image) %}
-{% set url = apos.attachment.url(attachment, { size: 'full' }) %}
+{% set url = attachment and apos.attachment.url(attachment, { size: 'full' }) %}
 
 {% block pageTitle %}
   <div class="article-title-wrapper">

@@ -24,10 +24,10 @@
 
 {% block beforeMain %}
   {% set logoAttachment = apos.image.first(data.global._siteLogo) %}
-  {% set logoUrl = apos.attachment.url(logoAttachment, { size: 'one-third' }) %}
+  {% set logoUrl = logoAttachment and apos.attachment.url(logoAttachment, { size: 'one-third' }) %}
   
   {% set logoAttachmentDark = apos.image.first(data.global._siteLogoDark) %}
-  {% set logoUrlDark = apos.attachment.url(logoAttachmentDark, { size: 'one-third' }) %}
+  {% set logoUrlDark = logoAttachmentDark and apos.attachment.url(logoAttachmentDark, { size: 'one-third' }) %}
 
   <header class="header">
     <div class="nav-bar">
