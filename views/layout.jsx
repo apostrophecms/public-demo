@@ -28,8 +28,8 @@ function logoUrls(data, apos) {
   return {
     logoAttachment,
     logoAttachmentDark,
-    logoUrl: apos.attachment.url(logoAttachment, { size: 'one-third' }),
-    logoUrlDark: apos.attachment.url(logoAttachmentDark, { size: 'one-third' })
+    logoUrl: logoAttachment && apos.attachment.url(logoAttachment, { size: 'one-third' }),
+    logoUrlDark: logoAttachment && apos.attachment.url(logoAttachmentDark, { size: 'one-third' })
   };
 }
 
