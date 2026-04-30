@@ -7,9 +7,6 @@
   <div class="article-title-wrapper">
     <div class="layout">
       {% set title = data.page.title %}
-      {% if data.piece %}
-        {% set title = data.piece.title %}
-      {% endif %}
       <h1 class="page-title">{{ title }}</h1>
       <ul class="article-topic-filters">
         <li>

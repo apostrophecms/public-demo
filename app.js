@@ -3,6 +3,7 @@ import apostrophe from 'apostrophe';
 apostrophe({
   root: import.meta,
   shortName: 'public-demo',
+  bundles: [ '@apostrophecms/blog' ],
 
   // The baseUrl should be overridden in environment variables for other environments.
   baseUrl: 'http://localhost:3000',
@@ -65,14 +66,15 @@ apostrophe({
     // A page type for ordinary pages
     'default-page': {},
 
-    // A piece type for articles
+    // Extends @apostrophecms/blog
     article: {},
+
+    // Extends @apostrophecms/blog-page.
+    // Paginated index of articles, with "show pages" for individual articles
+    'article-page': {},
 
     // Tease an article on any page
     'article-widget': {},
-
-    // Paginated index of articles, and with pages for individual articles
-    'article-page': {},
 
     // A piece type for categorizing articles
     'article-category': {},

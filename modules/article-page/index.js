@@ -1,5 +1,5 @@
 export default {
-  extend: '@apostrophecms/piece-page-type',
+  extend: '@apostrophecms/blog-page',
   options: {
     label: 'project:articleIndexPage',
     pluralLabel: 'project:articleIndexPages'
@@ -21,7 +21,7 @@ export default {
   methods(self) {
     return {
       async beforeIndex(req) {
-        req.data._categories = await self.apos.category.find(req).sort({ createdAt: -1 }).toArray();
+        req.data._categories = await self.apos.category.find(req).sort({ title: 1 }).toArray();
       }
     };
   }
