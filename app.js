@@ -52,13 +52,13 @@ apostrophe({
     'card-title-rt-widget': {
       extend: '@apostrophecms/rich-text-widget',
       options: {
-        defaultData: { content: '<h3 class="card__title">My Card Title</h3>' },
+        defaultData: { content: '<h3 class="card__title">My Card Title</h3>' }
       }
     },
     'card-content-rt-widget': {
       extend: '@apostrophecms/rich-text-widget',
       options: {
-        defaultData: { content: '<p class="card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>' },
+        defaultData: { content: '<p class="card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>' }
       }
     },
     'price-card-widget': {},

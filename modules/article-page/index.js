@@ -16,6 +16,12 @@ export default {
           }
         }
       }
+    },
+    group: {
+      basics: {
+        label: 'project:basics',
+        fields: [ 'intro' ]
+      }
     }
   },
   methods(self) {

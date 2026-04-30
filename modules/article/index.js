@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import { fullConfig } from '../../lib/area.js';
 
 export default {
