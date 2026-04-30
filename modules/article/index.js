@@ -106,9 +106,7 @@ export default {
   init(self) {
     // A temporary migration until all of our own deployments have seen this.
     // It's harmless but we don't need to leave it in this starter kit forever
-    console.log('adding migration');
     self.apos.migration.add('publishedDateToPublishedAt2', async () => {
-      console.log('-->', self.name);
       await self.apos.doc.db.updateMany({
         type: self.name,
         publishedDate: { $exists: 1 },
