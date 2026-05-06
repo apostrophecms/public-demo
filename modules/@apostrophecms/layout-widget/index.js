@@ -2,6 +2,7 @@ export default {
   options: {
     label: 'project:layout',
     description: 'project:layoutDescription',
-    previewImage: 'svg'
+    previewImage: 'svg',
+    className: 'widget'
   }
 };
