@@ -35,7 +35,7 @@ export default {
           rt.content = rt.content.replace(/<p>/g, '<h1>');
           rt.content = rt.content.replace(/<\/p>/g, '</h1>');
         }
-        doc.main.items = [...doc.cta.items, ...doc.ctaLinks.items, ...doc.main.items];
+        doc.main.items = [ ...doc.cta.items, ...doc.ctaLinks.items, ...doc.main.items ];
         delete doc.cta;
         delete doc.ctaLinks;
         self.apos.doc.db.replaceOne({ _id: doc._id }, doc);

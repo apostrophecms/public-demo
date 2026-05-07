@@ -52,7 +52,7 @@ export function Excerpt({
           </div>
         )}
         <div className="article-detail article-published">
-          {apos.helper.formatDate(article.publishedDate)}
+          {apos.helper.formatDate(article.publishedAt)}
         </div>
         <h3>
           <a href={article._url}>{article.title}</a>

@@ -6,7 +6,7 @@ export default function (data, { Extend, Area, apos }) {
   const article = data.piece;
   const attachment = apos.image.first(article._image);
   const url = attachment ? apos.attachment.url(attachment, { size: 'full' }) : null;
-  const title = (data.piece && data.piece.title) || (data.page && data.page.title);
+  const title = data.piece.title;
 
   return (
     <Extend
@@ -26,7 +26,7 @@ export default function (data, { Extend, Area, apos }) {
               </div>
             )}
             <div className="article-detail article-published">
-              {apos.helper.formatDate(article.publishedDate)}
+              {apos.helper.formatDate(article.publishedAt)}
             </div>
           </div>
           {article._categories && article._categories.length > 0 && (

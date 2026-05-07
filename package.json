@@ -15,17 +15,19 @@
     "url": ""
   },
   "pnpm": {
-      "overrides": {
-        "fast-xml-parser": "5.4.0"
-      }
-    },
+    "overrides": {
+      "fast-xml-parser": "5.4.0"
+    }
+  },
   "dependencies": {
+    "@apostrophecms/blog": "^1.0.6",
     "@apostrophecms/favicon": "^1.1.3",
     "@apostrophecms/import-export": "^3.6.0",
     "@apostrophecms/open-graph": "^1.2.3",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.1.0",
     "apostrophe": "^4.24.1",
+    "dayjs": "^1.11.20",
     "klona": "^2.0.6"
   },
   "author": "Apostrophe Technologies, Inc",

@@ -1,14 +1,10 @@
 import { fullConfig } from '../../lib/area.js';
 
 export default {
-  extend: '@apostrophecms/piece-type',
+  extend: '@apostrophecms/blog',
   options: {
     label: 'project:article',
-    pluralLabel: 'project:articles',
-    sort: {
-      publishedDate: -1,
-      createdAt: -1
-    }
+    pluralLabel: 'project:articles'
   },
   fields: {
     add: {
@@ -24,10 +20,6 @@ export default {
             }
           }
         }
-      },
-      publishedDate: {
-        label: 'project:articlePublishedDate',
-        type: 'date'
       },
       _categories: {
         label: 'project:articleCategories',
@@ -60,7 +52,7 @@ export default {
         fields: [
           'title',
           'blurb',
-          'publishedDate'
+          'publishedAt'
         ]
       },
       main: {
@@ -106,23 +98,20 @@ export default {
       }
     };
   },
+  filters: {
+    // The best experience comes with just the month filter
+    remove: [ 'day', 'year' ]
+  },
   init(self) {
-    // blurb used to be a string; now we've decided it should be
-    // a rich text widget. Make the conversion with a migration
-    self.apos.migration.add('blurb', async () => {
-      await self.apos.migration.eachDoc({
-        type: 'article'
-      }, 5, async (doc) => {
-        if ((typeof doc.blurb) === 'string') {
-          doc.blurb = self.apos.area.fromPlaintext(doc.blurb);
-          return self.apos.doc.db.updateOne({
-            _id: doc._id
-          }, {
-            $set: {
-              blurb: doc.blurb
-            }
-          });
-        }
+    // A temporary migration until all of our own deployments have seen this.
+    // It's harmless but we don't need to leave it in this starter kit forever
+    self.apos.migration.add('publishedDateToPublishedAt2', async () => {
+      await self.apos.doc.db.updateMany({
+        type: self.name,
+        publishedDate: { $exists: 1 },
+        publishedAt: { $exists: 0 }
+      }, {
+        $rename: { publishedDate: 'publishedAt' }
       });
     });
   }

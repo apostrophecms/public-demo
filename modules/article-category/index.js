@@ -3,6 +3,7 @@ export default {
   options: {
     alias: 'category',
     label: 'project:articleCategory',
-    pluralLabel: 'project:articleCategories'
+    pluralLabel: 'project:articleCategories',
+    shortcut: 'G,C'
   }
 };

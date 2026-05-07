@@ -4,7 +4,7 @@ export default {
       siteTitle: {
         label: 'project:siteTitle',
         type: 'string',
-        def: 'project:apostropheCmsSite'
+        def: 'ApostropheCMS Site'
       },
       _siteLogo: {
         label: 'project:siteLogo',

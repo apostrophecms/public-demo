@@ -77,7 +77,7 @@ function Pager({ options, url, apos }) {
 export default function (data, {
   Extend, Area, apos, __t
 }) {
-  const title = (data.piece && data.piece.title) || (data.page && data.page.title);
+  const title = data.page && data.page.title;
   const pieces = data.pieces || [];
   const featured = pieces.slice(0, 2);
   const rest = pieces.slice(2);
