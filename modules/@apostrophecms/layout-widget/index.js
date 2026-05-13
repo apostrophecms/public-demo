@@ -8,7 +8,7 @@ export default {
   styles: {
     add: {
       gap: {
-        label: 'Layout Gap',
+        label: 'apostrophe:styleLayoutGap',
         type: 'range',
         min: 0,
         max: 64,
