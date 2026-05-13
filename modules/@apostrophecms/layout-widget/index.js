@@ -12,7 +12,6 @@ export default {
         type: 'range',
         min: 0,
         max: 64,
-        def: 24,
         unit: 'px',
         property: 'gap'
       }
