@@ -10,13 +10,15 @@ export default {
       unit: 'px',
       selector: ':root',
       property: '--widget-spacer'
-    }
+    },
+    layoutGap: 'layoutGap'
   },
   group: {
     widgets: {
       label: 'project:spacing',
       fields: [
-        'widgetsSpacing'
+        'widgetsSpacing',
+        'layoutGap'
       ]
     }
   }
