@@ -28,6 +28,7 @@
     "@apostrophecms/vite": "^1.1.0",
     "apostrophe": "^4.24.1",
     "dayjs": "^1.11.20",
+    "dotenv": "^17.4.2",
     "klona": "^2.0.6"
   },
   "author": "Apostrophe Technologies, Inc",
@@ -60,5 +61,6 @@
     "eslint-config-apostrophe": "^3.4.0",
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "^3.1.14"
-  }
+  },
+  "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc"
 }
