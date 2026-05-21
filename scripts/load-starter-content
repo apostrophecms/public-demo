@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ -z "$APOS_DB_URI" ]; then
+  APOS_DB_URI="mongodb://localhost:27017/public-demo"
+fi
+
+curl -o /tmp/starter-database.jsonl.gz https://static.apostrophecms.com/public-demo/starter-database.jsonl.gz &&
+npx apos-db-restore $APOS_DB_URI < /tmp/starter-database.jsonl.gz &&
+curl -o /tmp/starter-uploads.tar https://static.apostrophecms.com/public-demo/starter-uploads.tar &&
+mkdir -p public/uploads &&
+(cd public/uploads && tar -xf /tmp/starter-uploads.tar) &&
+echo "Starter content loaded. Now set an admin password." &&
+node app @apostrophecms/user:add admin admin
