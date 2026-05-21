@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Our team uses this script to update the starter content. You may
+# safely remove this script from your own project
+
+if [ -z "$APOS_DB_URI" ]; then
+  APOS_DB_URI="mongodb://localhost:27017/public-demo"
+fi
+
+npx apos-db-dump $APOS_DB_URI | gzip -c > /tmp/starter-database.jsonl.gz &&
+scp /tmp/starter-database.jsonl.gz static@static.apostrophecms.com:/opt/static/static/public-demo/starter-database.jsonl.gz &&
+tar -cf /tmp/starter-uploads.tar -C ./public/uploads . &&
+scp /tmp/starter-uploads.tar static@static.apostrophecms.com:/opt/static/static/public-demo/starter-uploads.tar &&
+echo "Starter content updated."
