@@ -31,13 +31,13 @@ function PagerPage({
   );
 }
 
-function Pager({ options, url, apos }) {
+function Pager({ options, url, apos, helpers }) {
   if (!((options.page > 1) || (options.total > 1))) {
     return null;
   }
   const pagerClass = options.class || '';
   const gapClass = pagerClass ? `${pagerClass}__gap` : '';
-  const range = apos.pager.pageRange({
+  const range = helpers.pager.pageRange({
     page: options.page,
     total: options.total,
     shown: options.shown || 5
@@ -45,7 +45,7 @@ function Pager({ options, url, apos }) {
   return (
     <div className={pagerClass}>
       <PagerPage page={1} options={options} pagerClass={pagerClass} url={url} apos={apos} />
-      {apos.pager.showHeadGap(options) && (
+      {helpers.pager.showHeadGap(options) && (
         <span className={gapClass}>&hellip;</span>
       )}
       {range.map((page) => (
@@ -60,7 +60,7 @@ function Pager({ options, url, apos }) {
           />
         )
       ))}
-      {apos.pager.showTailGap(options) && (
+      {helpers.pager.showTailGap(options) && (
         <span className={gapClass}>&hellip;</span>
       )}
       <PagerPage
@@ -75,7 +75,7 @@ function Pager({ options, url, apos }) {
 }
 
 export default function (data, {
-  Extend, Area, apos, __t
+  Extend, Area, apos, helpers, __t
 }) {
   const title = data.page && data.page.title;
   const pieces = data.pieces || [];
@@ -146,6 +146,7 @@ export default function (data, {
             options={{ page: data.currentPage, total: data.totalPages }}
             url={data.url}
             apos={apos}
+            helpers={helpers}
           />
         </section>
       }
