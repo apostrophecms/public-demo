@@ -35,7 +35,7 @@ function Pager({ options, url, apos, helpers }) {
   if (!((options.page > 1) || (options.total > 1))) {
     return null;
   }
-  const pagerClass = options.class || '';
+  const pagerClass = options.class || 'pager';
   const gapClass = pagerClass ? `${pagerClass}__gap` : '';
   const range = helpers.pager.pageRange({
     page: options.page,
