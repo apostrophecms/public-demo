@@ -16,10 +16,11 @@
     This block outputs its contents in the HTML document's <head>.
     It is a good place to put extra <script> <link> and <meta> tags.
   #}
-  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/poppins.subset.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/quicksand.subset.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/roboto.subset.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/roboto-italic.subset.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <link rel="preload" href="{{ apos.asset.url('/modules/asset/fonts/poppins.subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ apos.asset.url('/modules/asset/fonts/quicksand.subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ apos.asset.url('/modules/asset/fonts/roboto.subset.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ apos.asset.url('/modules/asset/fonts/roboto-italic.subset.woff2') }}" as="font" type="font/woff2" crossorigin>
 {% endblock %}
 
 {% block beforeMain %}
