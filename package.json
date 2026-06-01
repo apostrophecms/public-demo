@@ -9,7 +9,9 @@
     "dev": "nodemon --delay 1000ms -x \"nodemon app.js\"",
     "migrate": "NODE_ENV=production node app @apostrophecms/migration:migrate",
     "build": "NODE_ENV=production node app @apostrophecms/asset:build",
-    "serve": "NODE_ENV=production node app"
+    "serve": "NODE_ENV=production node app",
+    "pm2-start": "./scripts/pm2-start",
+    "pm2-stop": "./scripts/pm2-stop"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,8 @@
     "apostrophe": "^4.24.1",
     "dayjs": "^1.11.20",
     "dotenv": "^17.4.2",
-    "klona": "^2.0.6"
+    "klona": "^2.0.6",
+    "pm2": "^7.0.1"
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",

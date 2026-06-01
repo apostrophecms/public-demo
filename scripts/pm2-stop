@@ -1,0 +1,5 @@
+#!/bin/bash
+
+NAME=`basename "$PWD"`
+
+pm2 stop $NAME || echo "Not running yet, cannot stop"

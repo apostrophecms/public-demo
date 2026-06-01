@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Start in production with pm2, for those who use pm2.
+# For containers, use "npm run serve" instead, optionally
+# with APOS_CLUSTER_PROCESSES=2.
+
+# Run at least 2 processes, or 1 less than the number of cores
+# if you have more than 2 cores. In a multiserver load-balanced
+# environment you can specify 1
+
+PROCESSES=2
+
+NAME=`basename "$PWD"`
+
+export NODE_ENV=production
+
+pm2 startOrRestart app.js --name $NAME -i $PROCESSES
