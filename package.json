@@ -6,18 +6,14 @@
   "type": "module",
   "scripts": {
     "start": "node app",
-    "dev": "APOS_DEV=1 nodemon --delay 1000ms -x \"nodemon app.js\"",
-    "staging-deploy": "echo \"ℹ️  Clearing module links and installed modules to deploy.\" && rm package-lock.json && rm -r node_modules && npm i && sc-deploy staging",
-    "analyze-bundle": "APOS_BUNDLE_ANALYZER=1 node app @apostrophecms/asset:build"
+    "dev": "nodemon --delay 1000ms -x \"nodemon app.js\"",
+    "migrate": "NODE_ENV=production node app @apostrophecms/migration:migrate",
+    "build": "NODE_ENV=production node app @apostrophecms/asset:build",
+    "serve": "NODE_ENV=production node app"
   },
   "repository": {
     "type": "git",
     "url": ""
-  },
-  "pnpm": {
-    "overrides": {
-      "fast-xml-parser": "5.4.0"
-    }
   },
   "dependencies": {
     "@apostrophecms/blog": "^1.0.6",
