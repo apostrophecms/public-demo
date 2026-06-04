@@ -60,11 +60,11 @@ export default {
         type: 'select',
         label: 'project:state',
         required: true,
+        def: 'open',
         choices: [
           {
             label: 'project:open',
-            value: 'open',
-            def: true
+            value: 'open'
           },
           {
             label: 'project:closed',

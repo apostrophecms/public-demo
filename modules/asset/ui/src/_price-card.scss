@@ -16,11 +16,6 @@
   .price-card__chip {
     background-color: var(--contrast-color);
   }
-
-  .price-card__button {
-    background-color: var(--contrast-color);
-    color: var(--default-color);
-  }
 }
 
 .price-card__badge {
@@ -98,10 +93,4 @@
  {
   font-size: var(--text-size-default);
   line-height: 1.3;
-}
-
-.price-card__button {
-  background-color: var(--default-color);
-  color: var(--contrast-color);
-  border: none;
 }

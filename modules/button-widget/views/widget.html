@@ -14,7 +14,7 @@
     label: widget.linkText,
     path: path,
     target: widget.linkTarget,
-    class: 'button'
+    class: 'button button--' + (widget.style if widget.style else 'primary')
   })}}
 </div>
 
