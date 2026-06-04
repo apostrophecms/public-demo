@@ -11,6 +11,21 @@ export default {
   fields: {
     add: {
       ...linkConfig.link,
+      style: {
+        type: 'select',
+        label: 'project:style',
+        def: 'primary',
+        choices: [
+          {
+            label: 'project:primary',
+            value: 'primary'
+          },
+          {
+            label: 'project:outline',
+            value: 'outline'
+          }
+        ]
+      },
       block: {
         type: 'boolean',
         label: 'project:fullWidth',

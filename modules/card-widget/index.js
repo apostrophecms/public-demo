@@ -98,14 +98,14 @@ export default {
       style: {
         type: 'select',
         label: 'project:linkStyle',
+        def: 'primary',
         if: {
           orientation: 'vertical'
         },
         choices: [
           {
             label: 'project:primary',
-            value: 'primary',
-            def: true
+            value: 'primary'
           },
           {
             label: 'project:outline',

@@ -119,7 +119,7 @@ export default {
         label: 'project:textColor',
         selector: '.price-card-widget',
         property: 'color',
-        def: '--surface-color',
+        def: '--default-color',
         options: {
           presetColors: [
             '--accent-color',
