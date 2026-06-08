@@ -24,3 +24,5 @@ node_modules
 /public/css/master-*.less
 /.jshintrc
 /public/js/_site-compiled.js
+
+package-lock.json
