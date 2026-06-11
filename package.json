@@ -29,6 +29,9 @@
   },
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "nodemonConfig": {
     "verbose": true,
     "watch": [
