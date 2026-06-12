@@ -80,6 +80,9 @@ apostrophe({
     // A piece type for categorizing articles
     'article-category': {},
 
+    // A piece type for locally uploaded (mp4) videos
+    'local-video': {},
+
     // Import and export content
     '@apostrophecms/import-export': {},
     'custom-layout-widget': {}
