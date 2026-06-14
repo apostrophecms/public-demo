@@ -1,8 +1,24 @@
 .hero-widget {
+  position: relative;
   margin: 0 auto;
 }
 
+.hero-widget__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  // object-fit: cover crops the footage to this box on its own — covering the
+  // widget, never letterboxed. We deliberately avoid `overflow: hidden` on the
+  // widget itself so it doesn't clip editor dropdowns/menus that overflow it.
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .hero-widget__content {
+  position: relative;
+  z-index: 1;
   margin: 0 auto;
 
   .demo-rte, .tiptap {
@@ -61,6 +77,8 @@
 }
 
 .hero-widget__buttons {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   gap: 1rem;
