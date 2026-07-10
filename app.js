@@ -17,6 +17,9 @@ apostrophe({
 
     // Apostrophe module configuration
 
+    // Extend the rich text widget with an optional font size picker
+    '@apostrophecms/font-size': {},
+
     // Note: most configuration occurs in the respective
     // modules' directories. See lib/@apostrophecms/assets/index.js for an example.
 
