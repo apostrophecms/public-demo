@@ -56,11 +56,11 @@ export default {
             style: {
               type: 'select',
               label: 'project:style',
+              def: 'primary',
               choices: [
                 {
                   label: 'project:primary',
-                  value: 'primary',
-                  def: true
+                  value: 'primary'
                 },
                 {
                   label: 'project:outline',

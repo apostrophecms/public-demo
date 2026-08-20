@@ -32,7 +32,7 @@ export default function (data, {
             label={widget.linkText}
             path={apos.helper.linkPath(widget)}
             target={widget.linkTarget}
-            linkClass={`button ${widget.style}`}
+            linkClass={`button button--${widget.style || 'primary'}`}
           />
         </div>
       )}

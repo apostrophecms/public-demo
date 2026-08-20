@@ -1,3 +1,4 @@
+.env
 */.DS_Store
 # ignore vim swapfiles
 *.swp
@@ -23,3 +24,5 @@ node_modules
 /public/css/master-*.less
 /.jshintrc
 /public/js/_site-compiled.js
+
+package-lock.json

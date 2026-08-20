@@ -4,5 +4,18 @@ export default {
     description: 'project:layoutDescription',
     previewImage: 'svg',
     className: 'widget'
+  },
+  styles: {
+    add: {
+      gap: {
+        label: 'apostrophe:styleLayoutGap',
+        type: 'range',
+        min: 0,
+        def: 24,
+        max: 64,
+        unit: 'px',
+        property: 'gap'
+      }
+    }
   }
 };

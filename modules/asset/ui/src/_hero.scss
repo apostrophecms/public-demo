@@ -12,6 +12,11 @@
     text-align: center;
   }
 
+  // Fix empty rich text not editable
+  .demo-rte > [contenteditable] {
+    width: 100%;
+  }
+
   h2 {
     font-size: 80px;
     color: var(--heading-color);

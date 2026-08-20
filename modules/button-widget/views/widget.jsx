@@ -18,7 +18,7 @@ export default function (data, { Template, apos }) {
           label={widget.linkText}
           path={path}
           target={widget.linkTarget}
-          linkClass="button"
+          linkClass={`button button--${widget.style || 'primary'}`}
         />
       </div>
       <style dangerouslySetInnerHTML={{

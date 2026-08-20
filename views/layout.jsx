@@ -95,13 +95,24 @@ function PageTitle({ data }) {
   );
 }
 
-function ExtraHead() {
+function ExtraHead({ apos }) {
+  const fonts = [
+    'poppins.subset.woff2',
+    'quicksand.subset.woff2',
+    'roboto.subset.woff2',
+    'roboto-italic.subset.woff2'
+  ];
   return (
     <>
-      <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/poppins.subset.woff2" as="font" type="font/woff2" crossorigin />
-      <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/quicksand.subset.woff2" as="font" type="font/woff2" crossorigin />
-      <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/roboto.subset.woff2" as="font" type="font/woff2" crossorigin />
-      <link rel="preload" href="/apos-frontend/default/modules/asset/fonts/roboto-italic.subset.woff2" as="font" type="font/woff2" crossorigin />
+      {fonts.map((font) => (
+        <link
+          rel="preload"
+          href={apos.asset.url(`/modules/asset/fonts/${font}`)}
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+      ))}
     </>
   );
 }
@@ -272,7 +283,7 @@ export default function (data, { Extend, apos }) {
       templateName={data.outerLayout}
       title={`${defaultTitle(data) || ''} - ${siteTitle(data)}`}
       bodyClass={data.bodyClass || ''}
-      extraHead={<ExtraHead />}
+      extraHead={<ExtraHead apos={apos} />}
       main={
         <>
           <Header data={data} apos={apos} />
