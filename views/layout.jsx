@@ -95,19 +95,36 @@ function PageTitle({ data }) {
   );
 }
 
+// Preload the webfonts so text paints in the real face rather than swapping
+// in later (`font-display: swap` otherwise reflows the page mid-render).
+//
+// The filenames must match what the built CSS actually requests. Vite
+// fingerprints the fonts referenced by `@font-face` in `_global.scss`, so the
+// source path (`/modules/asset/fonts/poppins.subset.woff2`) is NOT the URL the
+// browser asks for (`/assets/poppins.subset-DvBIGq--.woff2`). Preloading the
+// source path downloads every font twice and warms nothing.
+//
+// So read the hashed names back out of the build manifest instead of hardcoding
+// them. `entrypoints[].manifest.files.assets` is populated after a successful
+// build; in dev it is empty and we emit no preloads, which is correct because
+// the Vite dev server serves fonts unhashed.
+//
+// Note: `currentBuildManifest` is internal to @apostrophecms/asset, not
+// documented public API. If a future release reshapes it, this degrades to
+// rendering no preload tags rather than breaking the page.
+function preloadedFonts(apos) {
+  const entrypoints = apos.asset.currentBuildManifest?.entrypoints || [];
+  const assets = entrypoints.flatMap((entrypoint) => entrypoint.manifest?.files?.assets || []);
+  return [ ...new Set(assets) ].filter((asset) => asset.endsWith('.woff2'));
+}
+
 function ExtraHead({ apos }) {
-  const fonts = [
-    'poppins.subset.woff2',
-    'quicksand.subset.woff2',
-    'roboto.subset.woff2',
-    'roboto-italic.subset.woff2'
-  ];
   return (
     <>
-      {fonts.map((font) => (
+      {preloadedFonts(apos).map((font) => (
         <link
           rel="preload"
-          href={apos.asset.url(`/modules/asset/fonts/${font}`)}
+          href={apos.asset.url(`/${font}`)}
           as="font"
           type="font/woff2"
           crossorigin
