@@ -56,7 +56,12 @@ trusted raw HTML with `dangerouslySetInnerHTML={{ __html: … }}`.
 Two places where this JSX deliberately departs from React: `style` accepts a plain string, and
 attributes are emitted verbatim through `escapeAttr()`, so `srcset` and `crossorigin` keep their
 standard lowercase HTML spelling. `key` and `ref` are accepted but ignored — there is no client
-reconciler for them to serve.
+reconciler for them to serve, so they should not be written at all, including inside `.map()`.
+
+Ignoring `key` is not a reason to strip `_id` generally. Some uses are load-bearing: `button-widget`
+renders `id={widget._id}` and targets it from an injected `#${widget._id}` style rule, and
+`layout-widget` passes `widgetId` through `aposParentOptions`. Removing those fails silently rather
+than loudly.
 
 ## JSX/Nunjucks Interop
 
@@ -108,7 +113,13 @@ All project-level translation strings use the `project:` namespace (e.g., `'proj
 - **Translation files:** `modules/@apostrophecms/i18n/i18n/project/<locale>.json`
 - **Namespace registration:** `modules/@apostrophecms/i18n/index.js` → `i18n: { project: { browser: true } }`
 - Keys are camelCase, matching the JSON property names in the locale files.
-- Supported locales: `en`, `fr`, `de`, `es` (defined in `modules/@apostrophecms/i18n/index.js`).
+- Configured locales: `en`, `fr` (prefix `/fr`), `de` (prefix `/de`), defined in
+  `modules/@apostrophecms/i18n/index.js`. An `es.json` is maintained alongside the others but
+  Spanish is not listed in `options.locales`, so nothing renders it today — add the locale there
+  before assuming it works.
+- Locale flags are square SVGs under `modules/asset/public/flags/`, resolved with
+  `apos.asset.url()`. They are square because `_locales.scss` crops them to a 24px circle with
+  `background-size: 160%`, which scales width only — a rectangular flag would letterbox.
 
 ## Styles Module
 
@@ -137,6 +148,25 @@ the target template's data, and `link.jsx` maps it onto the rendered `className`
 For a co-located partial that needs no name-based resolution, plain `import` is the better tool;
 JSX templates are ordinary JS modules and can define additional components inline. Reach for
 `<Template>` when you want Apostrophe's `module:file` cross-module lookup.
+
+## Sub-components and the Helper Set
+
+Only a template's **default export** receives the second argument. Components defined inline, or
+imported from another file, are plain functions — they get props and nothing else. Anything they
+need from the helper set has to be handed to them explicitly.
+
+`Excerpt` in `modules/article-page/views/fragments.jsx` is the worked example: it is imported by
+both `article-page/views/index.jsx` and `article/views/recent.jsx`, so it takes `apos`, `__t`, and
+`Area` as props alongside its `article`.
+
+Pass those helpers under their own names — `__t={__t}`, not `t={__t}`. The repetition looks
+redundant and is worth it: renaming a helper in flight means a project-wide search for `__t` skips
+the file containing the most translated strings, and every reader has to trace the prop back to
+its origin to know what it is.
+
+Resist the urge to collapse the three props into one bundle. It reads tidier, but a component's
+parameter list is the clearest statement of what it actually depends on, and `Excerpt` depends on
+exactly three helpers.
 
 ## Server-Side Helpers (`modules/helper/`)
 
@@ -228,3 +258,14 @@ degrade to emitting no preload tags rather than throwing if its shape changes. T
 empty in development, where the Vite dev server serves fonts unhashed.
 
 Tracked in PRO-9899, which asks whether a supported API for resolving built asset URLs should exist.
+
+The development server does not exercise this path at all. Vite serves fonts unhashed, and every
+entrypoint reports `files.assets` as an empty array, so no preload tags are emitted and the question
+of whether their URLs are correct never arises. That is why the broken preloads survived so long:
+they were only wrong in production, where nobody was looking at the network panel.
+
+The practical rule is that **dev and production disagree about assets**, in both directions. Dev
+invents symptoms that do not exist in production — JS-injected CSS causing a flash of unstyled
+content on navigation, and unpreloaded fonts swapping typeface mid-render. And dev conceals real
+faults, because fingerprinted URLs, release directories, and the manifest only exist in a
+production build. Verify anything touching assets with `npm run build && npm run serve`.

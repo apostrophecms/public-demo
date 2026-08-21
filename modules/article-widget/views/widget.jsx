@@ -1,14 +1,13 @@
-// JSX equivalent of article-widget. Delegates to the article module's
-// `recent` async component, the same shape as the original Nunjucks
-// `{% component "article:recent" %}` invocation.
+// Delegates to the article module's `recent` async component, passing through
+// the widget's limit and display options.
 
-export default function (data, { Component }) {
+export default function ({ widget: { limit, display } }, { Component }) {
   return (
     <Component
       module="article"
       name="recent"
-      limit={data.widget.limit}
-      display={data.widget.display}
+      limit={limit}
+      display={display}
     />
   );
 }

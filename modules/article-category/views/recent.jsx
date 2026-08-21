@@ -1,5 +1,5 @@
-// JSX equivalent of article-category/views/recent.html. Renders a
-// trimmed-down article excerpt list using the article's `blurb` area.
+// A trimmed-down list of article excerpts for a category, using each
+// article's `blurb` area.
 
 export default function (data, { Area, apos, __t }) {
   const articles = data.articles || [];
@@ -9,7 +9,7 @@ export default function (data, { Area, apos, __t }) {
   return (
     <>
       {articles.map((article) => (
-        <div key={article._id} className="article-excerpt">
+        <div className="article-excerpt">
           {!article._url && (
             <p className="meta">
               <em>{__t('project:needArticleIndex')}</em>
@@ -19,11 +19,14 @@ export default function (data, { Area, apos, __t }) {
             <a href={article._url}>{article.title}</a>
           </h3>
           <article>
-            {!apos.area.isEmpty(article, 'blurb') ? (
-              <p className="article-blurb"><Area doc={article} name="blurb" /></p>
-            ) : (
-              <p className="placeholder">{__t('project:noSummary')}</p>
-            )}
+            {!apos.area.isEmpty(article, 'blurb')
+              ? (
+                <p className="article-blurb"><Area doc={article} name="blurb" /></p>
+              )
+              : (
+                <p className="placeholder">{__t('project:noSummary')}</p>
+              )
+            }
           </article>
         </div>
       ))}

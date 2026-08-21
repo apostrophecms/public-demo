@@ -28,6 +28,21 @@ npm run build    # production asset build
 npm run serve    # production server
 ```
 
+### Verify visual changes in production, not dev
+
+`npm run dev` differs from production in ways that produce symptoms looking like bugs:
+
+- **CSS is injected by JS.** Each navigation briefly paints unstyled, full-width HTML before
+  `.layout` centers it — content appears to "expand from the center." Dev-only.
+- **The build manifest reports no assets.** `entrypoints[].files.assets` is `[]`, so `layout.jsx`
+  emits no font preloads and fonts arrive after first paint. With `font-display: swap` the typeface
+  changes mid-render. Dev-only.
+
+Neither reproduces under `npm run build && npm run serve`. Conversely, genuine asset bugs are
+invisible in dev — dead font preloads shipped unnoticed precisely because dev never exercises
+fingerprinted URLs. **Anything touching assets, fonts, areas, or the manifest must be checked
+against a production build before it is believed.**
+
 ## Anatomy of a JSX Template
 
 A template **default-exports a function** taking two arguments:
@@ -81,12 +96,23 @@ Against a `.jsx` target, `Template` and `Extend` behave identically.
 
 Notes:
 
-- `key` and `ref` are accepted but ignored — there is no client reconciler. Don't add them.
+- `key` and `ref` are accepted but silently ignored — there is no client reconciler for them to
+  serve. **Do not add them**, even inside `.map()`. There is no "missing key" warning here because
+  there is nothing to warn about, and writing them teaches the wrong mental model.
+- That is not a rule against `_id`. Distinguish the inert React habit from real uses: `id={widget._id}`
+  and the matching `#${widget._id}` selector in `button-widget`, and `widgetId: widget._id` in
+  `layout-widget`, are load-bearing. Removing those breaks scoped styling silently.
 - Values are auto-escaped in both element bodies and attribute values, matching Nunjucks.
 - Unlike React, `style` accepts a **plain string** (`style={`background-image: url(${url})`}`).
   Attributes pass through `escapeAttr()` verbatim, so `srcset` and `crossorigin` are written in
   their standard lowercase HTML form.
 - Templates are real JS modules. `import` helpers and define additional components in the same file.
+- **Only the default export receives the second argument.** Inline and imported components are plain
+  functions, so anything they need — `apos`, `Area`, `__t` — must be passed as explicit props.
+  See `Excerpt` in `modules/article-page/views/fragments.jsx`.
+- **Pass helpers under their own names.** Write `__t={__t}`, not `t={__t}`. The redundancy is the
+  point: renaming in flight means a search for `__t` misses the file that uses it most, and the
+  reader has to trace a prop back to learn what it is. Same for `apos` and `Area`.
 - Errors carry source maps and report accurate `.jsx` line/column.
 
 ## Adding a Widget
@@ -225,7 +251,11 @@ All project translation strings use the `project:` namespace.
 - Key format: `'project:camelCaseKey'` (e.g., `'project:linkText'`)
 - Translation files: `modules/@apostrophecms/i18n/i18n/project/<locale>.json`
 - Register namespace: `modules/@apostrophecms/i18n/index.js` → `i18n: { project: { browser: true } }`
-- Supported locales: `en`, `fr`, `de`, `es`
+- Configured locales: `en`, `fr` (`/fr`), `de` (`/de`) — see
+  `modules/@apostrophecms/i18n/index.js`. An `es.json` exists and is kept in step, but Spanish is
+  not currently in `options.locales`, so it is not reachable.
+- Locale flags are square SVGs in `modules/asset/public/flags/`, referenced through
+  `apos.asset.url()`. Deliberately not a third-party image service.
 
 ## Server-Side Helpers (`modules/helper/`)
 

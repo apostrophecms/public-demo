@@ -1,22 +1,25 @@
-// JSX equivalent of the home page template. Extends the project layout,
-// switches the body class, swaps in a chip-styled page title, and renders
-// the page's `main` area inside the home wrapper.
+// Project-level 404 template. Shadows core's `notFound.html`, which must be
+// overridden here: core's version is Nunjucks and extends `layout.html`, and a
+// Nunjucks template cannot extend this project's JSX `layout.jsx`.
+//
+// Strings come from core's `apostrophe:` namespace rather than `project:`, so
+// they are already translated in every locale this project ships.
 
-export default function (data, { Extend, Area, __t }) {
+export default function (data, { Extend, __t }) {
   return (
     <Extend
       templateName="layout.jsx"
       bodyClass="notfound-page"
       pageTitle={
         <h1 className="home-title">
-          <span className="chip">Not Found</span>
+          <span className="chip">{__t('apostrophe:notFound')}</span>
         </h1>
       }
       main={
         <div className="home">
           <div className="content">
             <div className="general-content">
-              <h2>Sorry, there's nothing there.</h2>
+              <h2>{__t('apostrophe:notFoundPageMessage')}</h2>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-// JSX equivalent of layout-widget. Renders a single area with grid CSS
-// custom properties driven by the widget's options.
+// Renders a single area as a CSS grid. Column count, gap, and cell alignment
+// come from the widget's own options, falling back to the module defaults.
 
 export default function (data, { Area }) {
   const opts = data.options || {};

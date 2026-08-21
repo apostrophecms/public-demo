@@ -1,5 +1,4 @@
-// JSX equivalent of the Nunjucks default page template. Extends the
-// project layout (layout.jsx in views/) and supplies a `main` block.
+// The default page type: the project layout with a single editable area.
 
 export default function (data, { Extend, Area }) {
   return (

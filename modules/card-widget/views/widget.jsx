@@ -1,7 +1,6 @@
-// JSX equivalent of card-widget. Optional icon, two editable areas, and
-// an optional call-to-action button. Icons are looked up by name through
-// the macros/icons.jsx template using the Apostrophe `<Template>`
-// resolver, mirroring `{% import '@apostrophecms/template:macros/icons.html' %}`.
+// A card: optional icon, two editable areas, and an optional call to action.
+// The icon is chosen by name in the schema, so it is resolved at render time
+// through macros/icons.jsx rather than imported statically.
 
 export default function (data, {
   Area, Template, apos

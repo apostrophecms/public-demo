@@ -1,8 +1,10 @@
-// JSX equivalent of macros/icons.html. Each named export is a component
-// returning the same SVG markup as the corresponding Nunjucks macro.
-// The default export is a template-style entry point so the Apostrophe
-// `<Template templateName="@apostrophecms/template:macros/icons.jsx"
-// name="clock" />` form picks the icon by name.
+// The project's icon set. Each icon is a named export returning its SVG.
+//
+// The default export selects an icon by name, so icons can also be pulled in
+// without a static import — useful when the name is data, as it is for
+// card-widget's icon picker:
+//
+//   <Template templateName="@apostrophecms/template:macros/icons.jsx" name="clock" />
 
 const baseAttrs = {
   xmlns: 'http://www.w3.org/2000/svg',
