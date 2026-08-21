@@ -43,6 +43,7 @@ The first argument is the data object referenced as `data.*` in Nunjucks — des
 | `Template` | Renders another template with include semantics — replaces `{% include %}` |
 | `Extend` | Renders another template with extends semantics; props become `{% block %}` overrides against a `.html` target — replaces `{% extends %}` |
 | `Widget` | Renders a single widget directly; only needed when reimplementing `area.html` |
+| `__t` | Localization helper — the same `req.t` bound to the current request that Nunjucks exposes as the `__t` global |
 
 The function may be `async`, but need not be in order to render async children. Apostrophe collects
 pending output, awaits it, and assembles the response in one piece. This is not streaming and there
