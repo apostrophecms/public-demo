@@ -166,8 +166,17 @@ Apostrophe discovers templates by filename — **no registry required**.
 | Piece index | `modules/<piece-page>/views/index.jsx` |
 | Piece show | `modules/<piece-page>/views/show.jsx` |
 
-When both `page.jsx` and `page.html` exist for the same module, **`.jsx` wins**. Converting a
-template means renaming the file and rewriting its contents; no configuration changes.
+Resolution walks the module's view-folder chain, **nearest directory first**, trying `.jsx`, then
+`.njk`, then `.html` within each directory. Directory position wins; extension only breaks ties
+inside a single directory. A project-level `page.jsx` beats a core-level `page.html` — and equally,
+a project-level `page.html` beats a core-level `page.jsx`.
+
+An explicit `.jsx`, `.njk`, or `.html` in a template name is a starting point, not a constraint:
+all three are tried, so `<Extend templateName="layout.html" />` resolves to `layout.jsx` when one
+exists. Any other extension (`.svg`) is matched literally. See `resolveTemplate` in
+`apostrophe/modules/@apostrophecms/template/lib/jsxRender.js`.
+
+Converting a template means renaming the file and rewriting its contents; no configuration changes.
 
 ## JSX/Nunjucks Interop
 
@@ -179,12 +188,27 @@ Consequences:
 - JSX consuming Nunjucks is fine, including block overrides via `<Extend>`.
 - Never leave a `.html` template extending a `.jsx` template.
 - Widget templates extend nothing, so `.html` and `.jsx` widgets coexist freely.
+- **`.html` templates inside `node_modules` count.** Core's
+  `@apostrophecms/page/views/notFound.html` extends `layout.html`, so a `.jsx` layout breaks every
+  404 unless the project shadows it. `modules/@apostrophecms/page/views/notFound.jsx` exists for
+  exactly that reason — it is not a redundant override, and deleting it fails only in production.
 
 Remaining `.html` templates in this project:
 
 | File | Why |
 |------|-----|
 | `modules/@apostrophecms/template/views/outerLayout.html` | Stock override; extends core `outerLayoutBase.html`. `views/layout.jsx` extends *it*, which is the intended steady state — core's outer layout stays Nunjucks. |
+
+The asymmetry is in the loaders. `resolveTemplate` treats a `.jsx`/`.njk`/`.html` suffix as a
+starting point and tries all three, so a JSX template asking for `layout.html` finds `layout.jsx`.
+Nunjucks's `env.getTemplate()` does a literal filename lookup and does not — which is why the break
+lands on Nunjucks templates you did not write.
+
+Before converting a layout, check what depends on it:
+
+```
+grep -rlE "\{%\s*(extends|include|import)\s+['\"]layout\.html" node_modules --include=*.html
+```
 
 ## Template Inheritance
 

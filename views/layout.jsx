@@ -1,6 +1,9 @@
 // Top-level project layout. Extends Apostrophe's outerLayout (a Nunjucks
 // template) and accepts these named props from page templates:
 //
+//   title       string used as the document <title>, overriding the
+//               piece/page title. Templates with no page or piece in scope
+//               (notFound.jsx) rely on this.
 //   bodyClass   string appended to <body class>
 //   pageTitle   JSX node rendered in place of the default page-title block
 //   breadcrumbs JSX node rendered in place of the default breadcrumb trail
@@ -145,19 +148,22 @@ function Header({ data, apos }) {
           {/* Locale-aware: a hardcoded "/" sends visitors from /fr or /de to
               the English home page. data.home._url carries the locale prefix. */}
           <a href={(data.home && data.home._url) || '/'}>
-            {logoAttachment ? (
-              <img
-                id="nav-logo"
-                src={logoUrl}
-                alt={data.global && data.global.siteTitle}
-                width={apos.attachment.getWidth(logoAttachment) || '100'}
-                height={apos.attachment.getHeight(logoAttachment) || '36'}
-                data-dark-url={logoAttachmentDark ? logoUrlDark : undefined}
-                data-light-url={logoUrl}
-              />
-            ) : (
-              data.global && data.global.siteTitle
-            )}
+            {logoAttachment
+              ? (
+                <img
+                  id="nav-logo"
+                  src={logoUrl}
+                  alt={data.global && data.global.siteTitle}
+                  width={apos.attachment.getWidth(logoAttachment) || '100'}
+                  height={apos.attachment.getHeight(logoAttachment) || '36'}
+                  data-dark-url={logoAttachmentDark ? logoUrlDark : undefined}
+                  data-light-url={logoUrl}
+                />
+              )
+              : (
+                data.global && data.global.siteTitle
+              )
+            }
           </a>
         </h2>
         <nav className="nav" role="navigation">
@@ -293,14 +299,18 @@ function ModeSwitch() {
 }
 
 export default function (data, { Extend, apos }) {
-  if (apos.log && !defaultTitle(data)) {
-    apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.');
+  // `data.title` is how a page template overrides the document title — the
+  // JSX equivalent of Nunjucks `{% block title %}`.
+  const title = data.title || defaultTitle(data);
+
+  if (!title) {
+    apos.util.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.');
   }
 
   return (
     <Extend
       templateName={data.outerLayout}
-      title={`${defaultTitle(data) || ''} - ${siteTitle(data)}`}
+      title={title ? `${title} - ${siteTitle(data)}` : siteTitle(data)}
       bodyClass={data.bodyClass || ''}
       extraHead={<ExtraHead apos={apos} />}
       main={

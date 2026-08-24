@@ -81,6 +81,21 @@ extending a Nunjucks outer layout. That is the intended steady state, not a limi
 
 Widget templates extend nothing, so `.html` and `.jsx` widgets coexist without constraint.
 
+The rule extends to templates you did not write. Core ships
+`@apostrophecms/page/views/notFound.html`, which extends `layout.html`; once `views/layout.jsx`
+replaced the Nunjucks layout, that template could no longer resolve its parent, and every 404
+became a 500. `modules/@apostrophecms/page/views/notFound.jsx` shadows it — a project-level file
+beats a core-level one regardless of extension, per Template Discovery below. It looks like an
+override that adds nothing, and it is load-bearing.
+
+The mechanism is worth holding onto, because it predicts where else this bites. `resolveTemplate`,
+which serves the JSX path, treats a known template extension as a starting point and tries `.jsx`,
+`.njk`, and `.html` in turn — so JSX asking for `layout.html` happily finds `layout.jsx`. The
+Nunjucks loader's `env.getTemplate()` resolves the literal filename and nothing else. Every
+instance of this failure is therefore a Nunjucks template, usually one shipped by core or a pro
+package, reaching for a file that used to exist. Installed packages are the place to look, not the
+project tree.
+
 ## `_` Prefix Convention
 
 Relationship fields are always prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`).
@@ -196,9 +211,23 @@ ApostropheCMS discovers templates by **filename convention** — no registration
 - Page template → `modules/<page-type>/views/page.jsx`
 - Piece index/show → `modules/<piece-page>/views/index.jsx` and `show.jsx`
 
-Naming the file correctly is sufficient; Apostrophe picks it up automatically. The same lookup
-rules apply to both extensions, and when `page.jsx` and `page.html` both exist for a module, the
-`.jsx` file wins. Converting a template is therefore a rename plus a rewrite — nothing else.
+Naming the file correctly is sufficient; Apostrophe picks it up automatically, and the same lookup
+rules apply to both extensions.
+
+Resolution walks the module's view-folder chain from the nearest directory outward, trying `.jsx`,
+`.njk`, and `.html` in turn within each one. **Directory position decides; the extension only
+breaks ties inside a single directory.** A project-level `page.jsx` therefore beats a core-level
+`page.html`, and a project-level `page.html` equally beats a core-level `page.jsx` — the extension
+never lets a more distant file jump the queue. Co-located pairs are the only case where `.jsx`
+wins on its own merits, which is why converting a template is a rename plus a rewrite and nothing
+else.
+
+One consequence worth knowing: a `.jsx`, `.njk`, or `.html` written into a template name is a
+starting point rather than a constraint, since all three are tried regardless. `<Extend
+templateName="layout.html" />` finds `layout.jsx` if the chain offers one, so references to a
+converted template keep working without being updated. An extension outside that set — `.svg`, say
+— is matched literally instead. The logic is `resolveTemplate` in
+`apostrophe/modules/@apostrophecms/template/lib/jsxRender.js`.
 
 ## Template Inheritance Chain
 

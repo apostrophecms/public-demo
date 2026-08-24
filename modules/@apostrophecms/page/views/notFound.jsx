@@ -9,6 +9,7 @@ export default function (data, { Extend, __t }) {
   return (
     <Extend
       templateName="layout.jsx"
+      title={__t('apostrophe:notFound')}
       bodyClass="notfound-page"
       pageTitle={
         <h1 className="home-title">
