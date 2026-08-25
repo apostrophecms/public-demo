@@ -1,0 +1,10 @@
+{
+  "db": {
+    "url": "https://static.apostrophecms.com/public-demo/2026-08-25-1457/starter-database.jsonl.zip",
+    "sha256": "9467fd5c45b611a1c78c93954dd9d191d567760710e9e63cadeb5a1566c899bb"
+  },
+  "uploads": {
+    "url": "https://static.apostrophecms.com/public-demo/2026-08-25-1457/starter-uploads.zip",
+    "sha256": "a4b5c13511879d649189a2f8d3e6ffd71aaf31a648aaefb09a1555ba544e68b5"
+  }
+}
