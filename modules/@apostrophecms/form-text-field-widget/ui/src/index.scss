@@ -1,0 +1,40 @@
+// Theming for the phone field's country picker. The library's own stylesheet
+// is pulled in from `ui/src/index.js` so Vite can rewrite the flag sprite URLs;
+// what follows only fits it to this site.
+
+// Matches $apos-form-spacing in the form module's stylesheet.
+$apos-form-spacing: 20px;
+
+[data-apos-form-phone] {
+  // The library wraps the input, so the wrapper inherits the spacing the input
+  // itself gives up (it is pinned to `margin: 0 !important` in there).
+  .iti {
+    display: block;
+    margin-bottom: $apos-form-spacing;
+  }
+
+  .iti__tel-input {
+    width: 100%;
+  }
+}
+
+// On narrow viewports the country list escapes to <body> as its own `.iti`
+// element, so dark mode keys off the library's classes rather than the field
+// wrapper. Nothing else on the page uses them.
+.dark .iti {
+  --iti-border-color: #4a4b64;
+  --iti-country-selector-bg: var(--nav-dropdown-background-color);
+  --iti-hover-color: rgba(255, 255, 255, 0.08);
+  --iti-icon-color: var(--nav-dropdown-color);
+
+  .iti__country,
+  .iti__search-input {
+    color: var(--nav-dropdown-color);
+    background-color: var(--nav-dropdown-background-color);
+  }
+
+  .iti__dial-code {
+    color: var(--nav-dropdown-color);
+    opacity: 0.7;
+  }
+}
