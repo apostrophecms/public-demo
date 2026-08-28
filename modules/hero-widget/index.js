@@ -45,6 +45,13 @@ export default {
           }
         }
       },
+      _backgroundVideo: {
+        label: 'Background Video',
+        help: 'Optional looping video shown behind the hero. It always covers the widget and is cropped to fit — never letterboxed.',
+        type: 'relationship',
+        withType: 'local-video',
+        max: 1
+      },
       links: {
         label: 'project:buttonLinks',
         help: 'project:buttonLinksDescription',

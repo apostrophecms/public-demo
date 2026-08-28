@@ -1,7 +1,19 @@
 {% import 'link.html' as link %}
 {% set widget = data.widget %}
+{% set backgroundVideo = widget._backgroundVideo[0] %}
 
 <div class="widget hero-widget">
+  {% if backgroundVideo and backgroundVideo.video %}
+    <video
+      class="hero-widget__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      src="{{ apos.attachment.url(backgroundVideo.video) }}"
+    ></video>
+  {% endif %}
   <div class="hero-widget__content">
     {% area widget, 'content' %}
   </div>
