@@ -1,10 +1,9 @@
-// JSX equivalent of the article-index page. Extends the project layout
-// with a custom page title (filter chips), then renders the article
-// excerpts in two clusters (the first two get a featured horizontal
-// treatment) followed by an inline pager.
+// Article index. Supplies category filter chips as the page title, then
+// renders excerpts in two clusters — the first two get a featured horizontal
+// treatment — followed by a pager.
 //
-// The pager macros from @apostrophecms/pager are inlined as small
-// helper components so the whole template stays self-contained.
+// The pager is built from small local components rather than the macros in
+// @apostrophecms/pager, keeping the template self-contained.
 
 import { Excerpt } from './fragments.jsx';
 
@@ -24,9 +23,12 @@ function PagerPage({
   const isActive = options.page === page;
   return (
     <span className={classes}>
-      {isActive ? page : (
-        <a href={apos.url.build(url, { page })}>{page}</a>
-      )}
+      {isActive
+        ? page
+        : (
+          <a href={apos.url.build(url, { page })}>{page}</a>
+        )
+      }
     </span>
   );
 }
@@ -51,7 +53,6 @@ function Pager({ options, url, apos, helpers }) {
       {range.map((page) => (
         (page > 1 && page < options.total) && (
           <PagerPage
-            key={page}
             page={page}
             options={options}
             pagerClass={pagerClass}
@@ -99,7 +100,7 @@ export default function (data, {
                 </a>
               </li>
               {(data._categories || []).map((category) => (
-                <li key={category._id || category.slug}>
+                <li>
                   <a
                     href={`?categories=${category.slug}`}
                     className={data.query.categories === category.slug ? 'active' : undefined}
@@ -121,10 +122,9 @@ export default function (data, {
           <div className="article-excerpts article-excerpts--display-horizontal article-excerpts--display-featured">
             {featured.map((article) => (
               <Excerpt
-                key={article._id}
                 article={article}
                 apos={apos}
-                t={__t}
+                __t={__t}
                 Area={Area}
               />
             ))}
@@ -133,17 +133,19 @@ export default function (data, {
           <div className="article-excerpts article-excerpts--display-grid">
             {rest.map((article) => (
               <Excerpt
-                key={article._id}
                 article={article}
                 apos={apos}
-                t={__t}
+                __t={__t}
                 Area={Area}
               />
             ))}
           </div>
 
           <Pager
-            options={{ page: data.currentPage, total: data.totalPages }}
+            options={{
+              page: data.currentPage,
+              total: data.totalPages
+            }}
             url={data.url}
             apos={apos}
             helpers={helpers}

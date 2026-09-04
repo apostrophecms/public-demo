@@ -1,6 +1,5 @@
-// JSX equivalent of github-prs-widget. Defers the heavy lifting (the
-// HTTP fetch) to the existing `prs` async component on this same module,
-// which now resolves to prs.jsx via Apostrophe template resolution.
+// Defers to the `prs` async component on this module, which performs the HTTP
+// fetch and renders prs.jsx.
 
 const capitalize = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s);
 

@@ -1,5 +1,4 @@
-// JSX equivalent of hero-widget. Renders an editable area, optionally
-// followed by a row of styled call-to-action buttons.
+// An editable area, optionally followed by a row of call-to-action buttons.
 
 export default function (data, { Area, Template, apos }) {
   const widget = data.widget;
@@ -11,9 +10,8 @@ export default function (data, { Area, Template, apos }) {
       </div>
       {links.length > 0 && (
         <div className="hero-widget__buttons">
-          {links.map((item, index) => (
+          {links.map((item) => (
             <Template
-              key={item._id || index}
               templateName="link.jsx"
               label={item.linkText}
               path={apos.helper.linkPath(item)}

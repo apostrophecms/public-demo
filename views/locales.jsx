@@ -1,5 +1,17 @@
 // Locale switcher used by the global layout in both desktop and mobile nav.
-// `data.localizations` is an array provided by Apostrophe i18n.
+// `localizations` is an array provided by Apostrophe i18n; each entry carries a
+// `flag` country code assigned in modules/@apostrophecms/i18n/index.js.
+//
+// Called directly rather than through <Template>, so it receives `apos` as a
+// second argument — an imported function gets no helper object of its own.
+
+// Flags are served from modules/asset/public/flags/ rather than a third-party
+// image service: no external requests, no visitor IPs leaving the site, and
+// nothing to break under a Content-Security-Policy. They are square to suit
+// the circular 24px crop in _locales.scss.
+function flagUrl(apos, flag) {
+  return apos.asset.url(`/modules/asset/flags/${String(flag).toLowerCase()}.svg`);
+}
 
 const ChevronDown = () => (
   <svg
@@ -35,7 +47,7 @@ const Check = () => (
   </svg>
 );
 
-export default function (data) {
+export default function (data, apos) {
   const localizations = data.localizations || [];
   const current = localizations.find((l) => l.current);
   return (
@@ -49,9 +61,9 @@ export default function (data) {
       >
         {current && (
           <span className="locales__toggler__text">
-            <div
+            <span
               className="locales__toggler__flag"
-              style={`background-image: url(https://flagsapi.com/${current.flag}/flat/32.png)`}
+              style={`background-image: url(${flagUrl(apos, current.flag)})`}
             />
             <span className="locales__toggler__active-label">
               {current.label}
@@ -63,16 +75,15 @@ export default function (data) {
       <ul id="locales-list" className="locales__list" data-locales-list hidden>
         {localizations.map((localization) => localization._url && (
           <li
-            key={localization.locale}
             className={`locales__item ${localization.current ? 'current' : ''}`}
           >
-            <a href={localization._url || localization.homePageUrl}>
-              <div
+            <a href={localization._url}>
+              <span
                 className="locales__toggler__flag"
-                style={`background-image: url(https://flagsapi.com/${localization.flag}/flat/32.png)`}
+                style={`background-image: url(${flagUrl(apos, localization.flag)})`}
               >
                 {localization.current && <Check />}
-              </div>
+              </span>
               {localization.label}
             </a>
           </li>

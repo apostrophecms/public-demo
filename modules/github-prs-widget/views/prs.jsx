@@ -1,23 +1,23 @@
-// JSX equivalent of the prs.html component template. Receives the
-// `response` body and the originating `widget` from the async component
-// in github-prs-widget/index.js.
+// Renders the pull request list. Receives the `response` body and the
+// originating `widget` from the async component in ../index.js.
 
-const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
-
-function formatDate(value) {
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) {
+// Dates are formatted through Intl rather than a hardcoded month list, so they
+// follow the request's locale along with the surrounding strings.
+function formatDate(value, locale) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
     return value;
   }
-  return `${MONTHS[d.getMonth()]} ${d.getDate()} ${d.getFullYear()}`;
+  return new Intl.DateTimeFormat(locale || 'en', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
 }
 
-export default function (data) {
+export default function (data, { __t }) {
   if (!data.response) {
-    return "Something isn't right :(";
+    return <p>{__t('project:prsUnavailable')}</p>;
   }
   if (data.response.message) {
     return <h3>{data.response.message}</h3>;
@@ -25,22 +25,31 @@ export default function (data) {
   return (
     <ol className="gh-pr-widget__items">
       {data.response.map((item) => (
-        <li key={item.id || item.number} className="gh-pr-widget__item">
+        <li className="gh-pr-widget__item">
           <h2 className="gh-pr-widget__subtitle">
             <a href={item.url}>{item.title}</a>
           </h2>
-          <a target="_blank" href={item.user.html_url} className="gh-pr-widget__details">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={item.user.html_url}
+            className="gh-pr-widget__details"
+          >
             <img
               loading="lazy"
               className="gh-pr-widget__avatar"
               src={item.user.avatar_url}
-              alt="item.user.login"
+              alt={item.user.login}
             />
             <p className="gh-pr-widget__login">{item.user.login}</p>
           </a>
           <div className="gh-pr-widget__subdetails">
-            <p className="gh-pr-widget__subdetail">Opened on {formatDate(item.created_at)}</p>
-            <p className="gh-pr-widget__subdetail">Number {item.number}</p>
+            <p className="gh-pr-widget__subdetail">
+              {__t('project:prOpenedOn', { date: formatDate(item.created_at, data.locale) })}
+            </p>
+            <p className="gh-pr-widget__subdetail">
+              {__t('project:prNumber', { number: item.number })}
+            </p>
           </div>
         </li>
       ))}

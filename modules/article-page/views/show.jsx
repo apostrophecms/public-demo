@@ -1,6 +1,5 @@
-// JSX equivalent of the article show template. Extends the project
-// layout, rendering the article's metadata in the page-title slot and
-// the article body (image + main area) in the page's main slot.
+// A single article. Metadata goes in the page-title slot; the image and main
+// area go in the main slot.
 
 export default function (data, { Extend, Area, apos }) {
   const article = data.piece;
@@ -33,7 +32,6 @@ export default function (data, { Extend, Area, apos }) {
             <div className="inner article-topics article-topics--show">
               {article._categories.map((category) => (
                 <a
-                  key={category._id || category.slug}
                   href={`${article._parentSlug}?categories=${category.slug}`}
                   className="chip"
                 >

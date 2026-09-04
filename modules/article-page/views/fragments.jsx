@@ -1,14 +1,12 @@
-// JSX equivalent of the Nunjucks `excerpt` fragment. Exposed as the
-// `Excerpt` named export so callers (article-page/index.jsx and the
-// article-widget recent.jsx snippet) can import and render it.
+// `Excerpt` renders one article as a card: image, categories, author, date,
+// and blurb. Imported by article-page/index.jsx and article/views/recent.jsx.
 //
-// Because exported components are reused across files, runtime helpers
-// like `apos`, `__t`, and the `Area` JSX helper are passed in as props
-// rather than relying on a single template's destructured runtime
-// context.
+// It takes `apos`, `__t`, and `Area` as props because only a template's
+// default export receives the helper object — an imported component is a
+// plain function and gets nothing but its props.
 
 export function Excerpt({
-  article, apos, t, Area
+  article, apos, __t, Area
 }) {
   const attachment = apos.image.first(article._image);
   const url = attachment ? apos.attachment.url(attachment, { size: 'one-half' }) : null;
@@ -30,14 +28,13 @@ export function Excerpt({
       <div className="article-excerpt-content">
         {!article._url && (
           <p className="meta">
-            <em>{t('project:needArticleIndex')}</em>
+            <em>{__t('project:needArticleIndex')}</em>
           </p>
         )}
         {article._categories && article._categories.length > 0 && (
           <div className="article-topics">
             {article._categories.map((category) => (
               <a
-                key={category._id || category.slug}
                 href={`${article._parentSlug}?categories=${category.slug}`}
                 className="chip"
               >
@@ -48,7 +45,7 @@ export function Excerpt({
         )}
         {article._author && article._author.length > 0 && (
           <div className="article-detail article-author">
-            {t('project:writtenBy')} {article._author[0].title}
+            {__t('project:writtenBy')} {article._author[0].title}
           </div>
         )}
         <div className="article-detail article-published">
@@ -58,11 +55,14 @@ export function Excerpt({
           <a href={article._url}>{article.title}</a>
         </h3>
         <article>
-          {!apos.area.isEmpty(article, 'blurb') ? (
-            <Area doc={article} name="blurb" />
-          ) : (
-            <p className="placeholder">{t('project:noSummary')}</p>
-          )}
+          {!apos.area.isEmpty(article, 'blurb')
+            ? (
+              <Area doc={article} name="blurb" />
+            )
+            : (
+              <p className="placeholder">{__t('project:noSummary')}</p>
+            )
+          }
         </article>
       </div>
     </div>

@@ -1,6 +1,6 @@
-// JSX equivalent of button-widget. Renders an anchor styled as a button
-// and emits a scoped <style> block driving the hover color from a widget
-// schema field.
+// An anchor styled as a button, plus a scoped <style> block driving the hover
+// colour from the widget's schema field. The style rule targets the wrapper's
+// `_id`, so the two must stay in step.
 
 export default function (data, { Template, apos }) {
   const widget = data.widget;

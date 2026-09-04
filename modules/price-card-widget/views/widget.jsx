@@ -1,8 +1,7 @@
-// JSX equivalent of price-card-widget. Optional icon-led badge, headline
-// title/copy, price block, optional features list, and an optional CTA.
+// A pricing card: optional icon-led badge, title and copy, price block,
+// optional features list, and an optional call to action.
 
-export default function (data, { Template, apos }) {
-  const widget = data.widget;
+export default function ({ widget }, { Template, apos, __t }) {
   const features = widget.features || [];
   const buttonStyle = widget.buttonStyle || 'primary';
   return (
@@ -19,7 +18,7 @@ export default function (data, { Template, apos }) {
               </span>
             )}
             <span className="price-card__badge-label">
-              {widget.badgeLabel || 'No label entered'}
+              {widget.badgeLabel || __t('project:noBadgeLabel')}
             </span>
           </div>
         </div>
@@ -28,7 +27,7 @@ export default function (data, { Template, apos }) {
       <p className="price-card__content">{widget.content}</p>
       <div className="price-card__price">
         <span className="price-card__price-text">
-          {widget.priceText || 'No price text'}
+          {widget.priceText || __t('project:noPriceText')}
         </span>
         {widget.priceTextUnit && (
           <span className="price-card__price-detail">{widget.priceTextUnit}</span>
@@ -39,8 +38,8 @@ export default function (data, { Template, apos }) {
       )}
       {features.length > 0 && (
         <ol className="price-card__features">
-          {features.map((feature, index) => (
-            <li key={feature._id || index}>{feature.item}</li>
+          {features.map((feature) => (
+            <li>{feature.item}</li>
           ))}
         </ol>
       )}
