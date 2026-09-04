@@ -19,6 +19,12 @@ This project has been **fully converted from Nunjucks to JSX templates**. Write 
 JSX here is **server-side rendering only**. There is no React, no virtual DOM, no client runtime.
 It is an alternate template syntax evaluated on the server exactly where Nunjucks would have run.
 
+[ARCHITECTURE.md](ARCHITECTURE.md) covers the same conventions in prose, with the rationale behind
+them, for human contributors and as a deeper reference for coding assistants. It is not imported
+here — its length isn't worth loading into every session — so open it directly when this file's
+tables don't explain enough (a "why" question, an edge case, or unfamiliar code that doesn't match
+the summary above).
+
 ## Dev Commands
 
 ```
