@@ -4,9 +4,9 @@ export default {
   options: {
     alias: 'helper'
   },
-  init(self) {
-    self.addHelpers({
-      linkPath: (link) => {
+  methods(self) {
+    return {
+      linkPath(link) {
         if (!link) {
           return;
         }
@@ -20,9 +20,9 @@ export default {
         }
         return path;
       },
-      formatDate: (date) => {
+      formatDate(date) {
         return dayjs(date).format('MMMM D, YYYY');
       }
-    });
+    };
   }
 };

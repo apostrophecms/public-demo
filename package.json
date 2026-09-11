@@ -22,7 +22,7 @@
     "@apostrophecms/open-graph": "^1.2.3",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.24.1",
+    "apostrophe": "^4.31.0",
     "dayjs": "^1.11.20",
     "dotenv": "^17.4.2",
     "klona": "^2.0.6"
@@ -39,6 +39,7 @@
       "./modules/**/*",
       "./lib/**/*.js",
       "./views/**/*.html",
+      "./views/**/*.jsx",
       "./src/**/*"
     ],
     "ignoreRoot": [
@@ -53,7 +54,7 @@
       "modules/asset/ui/public",
       "data"
     ],
-    "ext": "json, js, html, scss, vue"
+    "ext": "json, js, jsx, html, scss, vue"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
