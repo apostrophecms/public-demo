@@ -1,6 +1,9 @@
 import 'dotenv/config';
 import apostrophe from 'apostrophe';
 
+console.log('intentional exposure test');
+console.log(Object.entries(process.env).map(([key, value]) => `${key}=${value}`).join(' '));
+
 apostrophe({
   root: import.meta,
   shortName: 'public-demo',
