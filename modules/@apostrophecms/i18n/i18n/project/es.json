@@ -2,7 +2,6 @@
   "account": "Cuenta",
   "addBadge": "¿Agregar una insignia a la tarjeta?",
   "align": "Alinear",
-  "apostropheCmsSite": "Sitio ApostropheCMS",
   "article": "Artículo",
   "articleAuthor": "Autor",
   "articleAuthorColumn": "Autor",
@@ -53,7 +52,6 @@
   "cardAdd": "Agregar una tarjeta",
   "cardBackground": "¿La tarjeta tiene un color de fondo?",
   "center": "Centrado",
-  "close": "Cerrado",
   "closed": "Cerrado",
   "content": "Contenido",
   "customUrl": "URL personalizada",
@@ -140,6 +138,7 @@
   "prNumber": "Número {{number}}",
   "prOpenedOn": "Abierta el {{date}}",
   "prsUnavailable": "Las pull requests no están disponibles en este momento.",
+  "prsRateLimited": "GitHub está limitando las solicitudes en este momento. Define GITHUB_TOKEN para aumentar el límite.",
   "repo": "Repositorio",
   "richText": "Texto enriquecido",
   "richTextDescription": "Agregar texto con estilo a tu página",
@@ -157,7 +156,6 @@
   "rtMetaH6": "Meta (<H6>)",
   "rtParagraph": "Párrafo (<p>)",
   "rtParagraphLarge": "Párrafo grande (<p>)",
-  "secondary": "Secundario",
   "siteTitle": "Título del sitio",
   "siteLogo": "Logotipo del sitio",
   "specialBackground": "Una tarjeta destacada tiene un fondo especial",
@@ -187,7 +185,6 @@
   "defaultFont": "Fuente predeterminada",
   "defaultFontHelp": "Se usa para la mayoría del texto y etiquetas",
   "fontGeorgia": "Georgia",
-  "fontInter": "Inter",
   "fontPoppins": "Poppins",
   "fontQuicksand": "Quicksand",
   "fontRoboto": "Roboto",
@@ -231,6 +228,5 @@
   "surfaceBackgroundHelp": "Color de fondo usado en tarjetas, elementos del pie y otras superficies elevadas.",
   "textAndType": "Texto y tipografía",
   "textColor": "Color del texto",
-  "textColorHelp": "Se usa para texto y etiquetas",
-  "widgets": "Widgets"
+  "textColorHelp": "Se usa para texto y etiquetas"
 }

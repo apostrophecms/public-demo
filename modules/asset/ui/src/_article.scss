@@ -21,16 +21,12 @@
 }
 
 .article-excerpts--display-grid {
-  display: grid; 
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr; 
-  gap: 8px 10px; 
-  grid-template-areas: 
-    ". . . .";
+  gap: 8px 10px;
 
   @media only screen and (max-width: 800px) {
     grid-template-columns: 1fr;
-    grid-template-areas: ".";
   }
 }
 

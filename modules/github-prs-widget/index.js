@@ -1,7 +1,6 @@
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    name: 'githubPrs',
     label: 'project:ghPrLabel',
     previewImage: 'svg',
     icon: 'github',
@@ -11,7 +10,9 @@ export default {
     return {
       async prs(req, data) {
         const w = data.widget;
-        const token = self.options.token;
+        // Unauthenticated GitHub API requests are rate limited to 60 an hour.
+        // Set GITHUB_TOKEN in .env to raise that limit.
+        const token = self.options.token || process.env.GITHUB_TOKEN;
         const options = token
           ? {
             headers: {
@@ -19,23 +20,20 @@ export default {
             }
           }
           : {};
-        let body = {};
         try {
-          body = await self.apos.http.get(
+          const pulls = await self.apos.http.get(
             `https://api.github.com/repos/${w.repo}/pulls?state=${w.state}&per_page=${w.limit}`,
             options
           );
+          return {
+            pulls,
+            locale: req.locale
+          };
         } catch (error) {
-          if (error.status === 403 && !token) {
-            body.message = 'Rate limit exceeded, see README for providing a GitHub API token';
-          } else {
-            body.message = 'Something went wrong :(';
-          }
+          return {
+            error: (error.status === 403 && !token) ? 'rateLimited' : 'unavailable'
+          };
         }
-        return {
-          response: body,
-          widget: w
-        };
       }
     };
   },

@@ -28,7 +28,8 @@ function defaultTitle(data) {
 }
 
 function siteTitle(data) {
-  return (data.global && data.global.siteTitle) || 'ApostropheCMS Demo';
+  // Matches the siteTitle default in modules/@apostrophecms/global/index.js.
+  return (data.global && data.global.siteTitle) || 'ApostropheCMS Site';
 }
 
 // `_siteLogo` is a relationship, so it arrives as an array of image documents.
@@ -191,7 +192,7 @@ function MobileNav({ data, apos }) {
         <NavLinks data={data} />
       </nav>
       <div className="mobile-nav__locales">
-        {locales(data, apos)}
+        {locales(data, apos, 'mobile-locales-list')}
       </div>
     </div>
   );

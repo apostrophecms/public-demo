@@ -14,8 +14,8 @@ export default {
         label: 'project:textContent',
         help: 'project:textContentHelp',
         type: 'area',
-        max: 1,
         options: {
+          max: 1,
           widgets: {
             '@apostrophecms/rich-text': {
               toolbar: [

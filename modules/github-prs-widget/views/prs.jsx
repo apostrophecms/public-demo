@@ -1,5 +1,6 @@
-// Renders the pull request list. Receives the `response` body and the
-// originating `widget` from the async component in ../index.js.
+// Renders the pull request list. Receives `pulls` (the GitHub API response)
+// and the request `locale`, or an `error` code, from the async component in
+// ../index.js.
 
 // Dates are formatted through Intl rather than a hardcoded month list, so they
 // follow the request's locale along with the surrounding strings.
@@ -16,18 +17,18 @@ function formatDate(value, locale) {
 }
 
 export default function (data, { __t }) {
-  if (!data.response) {
-    return <p>{__t('project:prsUnavailable')}</p>;
+  if (data.error === 'rateLimited') {
+    return <p>{__t('project:prsRateLimited')}</p>;
   }
-  if (data.response.message) {
-    return <h3>{data.response.message}</h3>;
+  if (data.error || !Array.isArray(data.pulls)) {
+    return <p>{__t('project:prsUnavailable')}</p>;
   }
   return (
     <ol className="gh-pr-widget__items">
-      {data.response.map((item) => (
+      {data.pulls.map((item) => (
         <li className="gh-pr-widget__item">
           <h2 className="gh-pr-widget__subtitle">
-            <a href={item.url}>{item.title}</a>
+            <a href={item.html_url}>{item.title}</a>
           </h2>
           <a
             target="_blank"

@@ -6,6 +6,4 @@ export default () => {
   localToggle();
   modeToggle();
   mobileMenu();
-
-  console.log('look at me, I am project level js');
 };

@@ -9,7 +9,7 @@ Machine-readable project brief for AI coding assistants. Facts and conventions o
 ApostropheCMS 4 demo project built on the essentials starter, using ES modules (`"type": "module"`).
 Modules live in `modules/`, shared field config in `lib/`, **JSX templates** in `views/` and
 `modules/*/views/`. Asset pipeline uses `@apostrophecms/vite`; client-side source is in
-`modules/asset/ui/src/`. Supports i18n (en, fr, de, es) and CMS-editable design tokens via
+`modules/asset/ui/src/`. Supports i18n (en, fr, de) and CMS-editable design tokens via
 `modules/@apostrophecms/styles/`.
 
 This project has been **fully converted from Nunjucks to JSX templates**. Write new templates as
@@ -40,14 +40,12 @@ npm run serve    # production server
 
 - **CSS is injected by JS.** Each navigation briefly paints unstyled, full-width HTML before
   `.layout` centers it — content appears to "expand from the center." Dev-only.
-- **The build manifest reports no assets.** `entrypoints[].files.assets` is `[]`, so `layout.jsx`
-  emits no font preloads and fonts arrive after first paint. With `font-display: swap` the typeface
-  changes mid-render. Dev-only.
+- **Fonts arrive late.** With `font-display: swap` the typeface can change mid-render. Dev-only.
 
 Neither reproduces under `npm run build && npm run serve`. Conversely, genuine asset bugs are
-invisible in dev — dead font preloads shipped unnoticed precisely because dev never exercises
-fingerprinted URLs. **Anything touching assets, fonts, areas, or the manifest must be checked
-against a production build before it is believed.**
+invisible in dev, because fingerprinted URLs and the build manifest only exist in a production
+build. **Anything touching assets, fonts, or areas must be checked against a production build
+before it is believed.**
 
 ## Anatomy of a JSX Template
 
@@ -96,8 +94,8 @@ Against a `.jsx` target, `Template` and `Extend` behave identically.
 | `{% for x in xs %}…{% endfor %}` | `{xs.map((x) => …)}` |
 | `{% area data.page, 'main' %}` | `<Area doc={page} name="main" />` |
 | `{% component 'product:newest' with { max: 3 } %}` | `<Component module="product" name="newest" max={3} />` |
-| `{% include "footer.html" %}` | `<Template name="footer" />` |
-| `{% extends "layout.html" %}` + `{% block main %}` | `<Extend templateName="layout" main={…} />` |
+| `{% include "footer.html" %}` | `<Template templateName="footer.jsx" />` |
+| `{% extends "layout.html" %}` + `{% block main %}` | `<Extend templateName="layout.jsx" main={…} />` |
 | `{{ content \| safe }}` | `dangerouslySetInnerHTML={{ __html: content }}` |
 
 Notes:
@@ -154,9 +152,9 @@ Example template path: `modules/default-page/views/page.jsx`
 Page templates extend the site layout by passing named slots as props:
 
 ```jsx
-export default function ({ page }, { Area, Template }) {
+export default function ({ page }, { Area, Extend }) {
   return (
-    <Template templateName="layout" main={<Area doc={page} name="main" />} />
+    <Extend templateName="layout.jsx" main={<Area doc={page} name="main" />} />
   );
 }
 ```
@@ -227,7 +225,7 @@ outerLayoutBase.html  ← ApostropheCMS core (never edit)
 
 `views/layout.jsx` uses `<Extend templateName={data.outerLayout} … />`, whose props become
 `{% block %}` overrides on the Nunjucks outer layout. It accepts these named props from page
-templates: `bodyClass`, `pageTitle`, `breadcrumbs`, `main`.
+templates: `title`, `bodyClass`, `pageTitle`, `breadcrumbs`, `main`.
 
 There are no named blocks in JSX. Markup the parent renders is passed as props, plus the implicit
 `children` prop for anything between the opening and closing tags.
@@ -241,7 +239,7 @@ Available on the **first function argument**. Destructure what you need.
 | `widget` | Widget document | Widget templates only |
 | `page` | Current page document | All page templates |
 | `piece` | Current piece document | Piece-type page templates only |
-| `global` | Global settings + styles tokens | Requires `@apostrophecms/global` |
+| `global` | Global settings document | Requires `@apostrophecms/global` |
 | `user` | Authenticated user or `null` | All templates |
 | `home` | Home page document | All templates |
 | `query` | Query string as object | All templates |
@@ -264,7 +262,6 @@ Relationship fields are prefixed with `_` (e.g., `_linkPage`, `_author`, `_categ
 |------|---------|---------|
 | `lib/area.js` | `basicConfig`, `fullConfig`, `fullConfigExpandedGroups` | Area field `widgets` option |
 | `lib/link.js` | `link` field group | Spread into `fields.add` for linkType + `_linkPage` + `_linkFile` + `linkUrl` |
-| `lib/options.js` | `aposBrandColors` | Shared color choices for select fields |
 | `lib/iconChoices.js` | Array of `{ label, value }` | Icon picker select choices |
 
 Import instead of duplicating config inline:
@@ -322,6 +319,7 @@ fingerprinting build outputs. A font referenced by `@font-face` is served as
 `/assets/poppins.subset-DvBIGq--.woff2`, not `/modules/asset/fonts/poppins.subset.woff2` — both
 exist and return 200, so mismatches fail silently.
 
-`views/layout.jsx` therefore reads hashed filenames from `apos.asset.currentBuildManifest` when
-emitting font preloads. That property is internal to `@apostrophecms/asset` and undocumented; the
-lookup is written to degrade to zero preload tags rather than throw. Tracked in PRO-9899.
+The project does not emit font preloads. Any code that hand-builds a URL to a built asset (a
+preload tag, for example) must use the fingerprinted filename, which today is only available from
+the internal, undocumented `apos.asset.currentBuildManifest`. Whether a supported API should
+exist is tracked in PRO-9899.

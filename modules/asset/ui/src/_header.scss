@@ -35,7 +35,7 @@
     content: '/';
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: var(--default-color);
 
     @media (max-width: 680px) {
       content: none;

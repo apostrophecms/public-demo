@@ -1,8 +1,5 @@
 import linkConfig from '../../lib/link.js';
 import iconChoices from '../../lib/iconChoices.js';
-import { klona } from 'klona';
-const localLinkConfig = klona(linkConfig.link);
-const localIcons = klona(iconChoices);
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -37,7 +34,7 @@ export default {
         },
         label: 'project:icon',
         type: 'select',
-        choices: localIcons
+        choices: iconChoices
       },
       badgeLabel: {
         if: {
@@ -95,8 +92,9 @@ export default {
           }
         ]
       },
-      // The shared link fields from lib/link.js (copied with klona above).
-      ...localLinkConfig
+      // linkText, linkType, _linkPage, _linkFile, linkUrl, linkTarget.
+      // Defined in lib/link.js; the template resolves them with apos.helper.linkPath().
+      ...linkConfig.link
     }
   },
   styles: {

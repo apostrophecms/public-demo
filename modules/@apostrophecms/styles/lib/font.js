@@ -1,4 +1,6 @@
-const fontChoices = [
+// Every font here must be loaded by an @font-face rule in
+// modules/asset/ui/src/_global.scss (or be a system font like Georgia).
+export const fontChoices = [
   {
     label: 'project:fontRoboto',
     value: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
@@ -10,10 +12,6 @@ const fontChoices = [
   {
     label: 'project:fontPoppins',
     value: '"Poppins", sans-serif;'
-  },
-  {
-    label: 'project:fontInter',
-    value: '"Inter", sans-serif;'
   },
   {
     label: 'project:fontGeorgia',

@@ -1,7 +1,6 @@
 export default {
   extend: '@apostrophecms/widget-type',
   options: {
-    name: 'article',
     label: 'project:articleRecentArticles',
     description: 'project:articleWidgetDescription',
     icon: 'text-subject',

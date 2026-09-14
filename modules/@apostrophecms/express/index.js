@@ -3,8 +3,9 @@ export default {
     // So baseUrl can be autodetected when behind nginx
     trustProxy: true,
     session: {
-      // If this still says `undefined`, set a real secret!
-      secret: 'e45faf16a3e6f86a'
+      // Signs session cookies. Set a long random APOS_SESSION_SECRET in .env
+      // for every real deployment; Apostrophe logs a warning when it is unset.
+      secret: process.env.APOS_SESSION_SECRET
     }
   }
 };

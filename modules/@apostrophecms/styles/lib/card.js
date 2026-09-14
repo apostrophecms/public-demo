@@ -90,7 +90,7 @@ export default {
       def: 12,
       min: 0,
       max: 30,
-      selector: '.dark.card-widget',
+      selector: '.dark .card-widget',
       property: 'border-radius'
     },
     darkCardShadow: {

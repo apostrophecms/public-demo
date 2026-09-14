@@ -197,7 +197,7 @@ export default {
         }
       ],
       def: '400',
-      selector: '.button--primary',
+      selector: '.dark .button--primary',
       property: 'font-weight'
     },
     darkButtonPrimaryShadow: {
