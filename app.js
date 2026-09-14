@@ -81,6 +81,22 @@ apostrophe({
     'article-category': {},
 
     // Import and export content
-    '@apostrophecms/import-export': {}
+    '@apostrophecms/import-export': {},
+
+    // Main form module (must come first)
+    '@apostrophecms/form': {},
+    // Form widget for adding forms to areas
+    '@apostrophecms/form-widget': {},
+    // Field widgets (include only the types you need)
+    '@apostrophecms/form-text-field-widget': {},
+    '@apostrophecms/form-textarea-field-widget': {},
+    '@apostrophecms/form-select-field-widget': {},
+    '@apostrophecms/form-radio-field-widget': {},
+    '@apostrophecms/form-file-field-widget': {},
+    '@apostrophecms/form-checkboxes-field-widget': {},
+    '@apostrophecms/form-boolean-field-widget': {},
+    '@apostrophecms/form-conditional-widget': {},
+    '@apostrophecms/form-divider-widget': {},
+    '@apostrophecms/form-group-widget': {}    
   }
 });
