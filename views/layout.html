@@ -1,3 +1,12 @@
+{#
+  Primary data sources available in this template and all templates that extend it:
+    data.page   — the current page document
+    data.piece  — the current piece on show pages; null on regular pages
+    data.global — site-wide Global Settings document (always available)
+    data.home   — the home page document; data.home._children = top-level nav pages
+  For the full data reference, see the Standalone Architecture Guide:
+  https://docs.apostrophecms.org/guide/standalone-architecture.html?utm_source=standalone-starter&utm_medium=claude-file&utm_campaign=architecture-guide
+#}
 {# Automatically extends the right outer layout and also handles AJAX situations #}
 {% extends data.outerLayout %}
 {% import 'link.html' as link %}
@@ -23,6 +32,10 @@
 {% endblock %}
 
 {% block beforeMain %}
+  {# _siteLogo is a relationship field: Apostrophe populates it at request time
+     and returns it as an array. apos.image.first() safely extracts the first
+     attachment object; apos.attachment.url() then resolves it to a sized URL.
+     Never access _siteLogo[0].attachment directly — use this two-step pattern. #}
   {% set logoAttachment = apos.image.first(data.global._siteLogo) %}
   {% set logoUrl = logoAttachment and apos.attachment.url(logoAttachment, { size: 'one-third' }) %}
   

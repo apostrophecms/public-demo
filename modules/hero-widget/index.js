@@ -52,6 +52,7 @@ export default {
         titleField: 'linkText',
         fields: {
           add: {
+            // Full link field set (linkType, _linkPage, _linkFile, linkUrl, linkTarget) — see lib/link.js.
             ...linkConfig.link,
             style: {
               type: 'select',

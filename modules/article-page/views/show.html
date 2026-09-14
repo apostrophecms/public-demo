@@ -1,6 +1,11 @@
 {% import 'fragments.html' as fragments with context %}
 
 {% extends "layout.html" %}
+{# data.piece is the current article on this show page.
+   _image, _author, and _categories are relationship fields: Apostrophe populates them
+   at request time and returns them as arrays, even when max: 1.
+   apos.image.first() safely extracts the first attachment; apos.attachment.url()
+   resolves it to a sized URL. Never access _image[0].attachment directly. #}
 {% set article = data.piece %}
 {% set attachment = apos.image.first(article._image) %}
 {% set url = attachment and apos.attachment.url(attachment, { size: 'full' }) %}
@@ -47,6 +52,8 @@
         srcset="{{ apos.image.srcset(attachment) }}"
       >
     {% endif %}
+    {# {% area doc, 'fieldName' %} renders a CMS-editable widget sequence stored in that field.
+       In edit mode, editors see the widget picker here; in view mode, widgets render normally. #}
     {% area article, 'main' %}
   </article>
 {% endblock %}

@@ -10,7 +10,23 @@ export default {
   },
   fields: {
     add: {
+      // Full link field set (linkType, _linkPage, _linkFile, linkUrl, linkTarget) — see lib/link.js.
       ...linkConfig.link,
+      style: {
+        type: 'select',
+        label: 'project:style',
+        def: 'primary',
+        choices: [
+          {
+            label: 'project:primary',
+            value: 'primary'
+          },
+          {
+            label: 'project:outline',
+            value: 'outline'
+          }
+        ]
+      },
       block: {
         type: 'boolean',
         label: 'project:fullWidth',

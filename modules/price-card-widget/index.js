@@ -1,6 +1,8 @@
 import linkConfig from '../../lib/link.js';
 import iconChoices from '../../lib/iconChoices.js';
 import { klona } from 'klona';
+// klona deep-clones the shared configs so we can safely modify them
+// (e.g., add widget-specific `if:` conditions) without affecting other modules.
 const localLinkConfig = klona(linkConfig.link);
 const localIcons = klona(iconChoices);
 
@@ -94,6 +96,7 @@ export default {
           }
         ]
       },
+      // Full link field set (linkType, _linkPage, _linkFile, linkUrl, linkTarget) — see lib/link.js.
       ...localLinkConfig
     }
   },

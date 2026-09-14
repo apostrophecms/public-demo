@@ -2,8 +2,12 @@ import linkConfig from '../../lib/link.js';
 import iconChoices from '../../lib/iconChoices.js';
 import { klona } from 'klona';
 
+// klona deep-clones the shared linkConfig so we can add widget-specific
+// `if:` conditions without mutating the original object used elsewhere.
 const localLinkConfig = klona(linkConfig.link);
 
+// Hide link fields unless the card is in vertical orientation (horizontal
+// cards render a plain linked title rather than a button CTA).
 localLinkConfig.linkText.if =
 localLinkConfig.linkType.if =
 localLinkConfig.linkTarget.if = {
@@ -94,6 +98,8 @@ export default {
         ],
         def: 'horizontal'
       },
+      // Full link field set (linkType, _linkPage, _linkFile, linkUrl, linkTarget) — see lib/link.js.
+      // These fields are pre-filtered by localLinkConfig above: they only appear when orientation is 'vertical'.
       ...localLinkConfig,
       style: {
         type: 'select',

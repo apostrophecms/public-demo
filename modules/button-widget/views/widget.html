@@ -1,3 +1,5 @@
+{# data.widget — this widget's stored fields (defined in modules/button-widget/index.js).
+   Aliased to `widget` below for brevity. #}
 {% import 'link.html' as link %}
 {% set widget = data.widget %}
 {% set path = apos.helper.linkPath(widget) %}
@@ -14,7 +16,7 @@
     label: widget.linkText,
     path: path,
     target: widget.linkTarget,
-    class: 'button'
+    class: 'button button--' + (widget.style or 'primary')
   })}}
 </div>
 

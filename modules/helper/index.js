@@ -1,5 +1,15 @@
 import dayjs from 'dayjs';
 
+/**
+ * Project-level template helpers.
+ *
+ * Functions registered here with self.addHelpers() become available in every
+ * Nunjucks template as apos.helper.functionName(). In JSX templates, they are
+ * accessible via the `helpers` object passed as the second argument.
+ *
+ * This is the correct place to add any shared server-side logic that templates
+ * need. Do not duplicate this logic inline in individual templates.
+ */
 export default {
   options: {
     alias: 'helper'

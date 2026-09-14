@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+
+if [ -z "$APOS_DB_URI" ]; then
+  APOS_DB_URI="mongodb://localhost:27017/public-demo"
+fi
+
+curl -o /tmp/starter-database.jsonl.zip https://static.apostrophecms.com/public-demo/starter-database.jsonl.zip &&
+unzip -p /tmp/starter-database.jsonl.zip starter-database.jsonl | npx apos-db-restore "$APOS_DB_URI" &&
+curl -o /tmp/starter-uploads.zip https://static.apostrophecms.com/public-demo/starter-uploads.zip &&
+mkdir -p public/uploads &&
+unzip -oq /tmp/starter-uploads.zip -d public/uploads &&
+echo "Starter content loaded. Now set an admin password." &&
+node app @apostrophecms/user:add admin admin

@@ -49,6 +49,10 @@ apostrophe({
     'github-prs-widget': {},
     'hero-widget': {},
     'card-widget': {},
+    // These two are minor variants of @apostrophecms/rich-text-widget that
+    // supply card-specific default content. They are configured inline here
+    // rather than in their own module directories because they have no
+    // schema fields, views, or other per-module files of their own.
     'card-title-rt-widget': {
       extend: '@apostrophecms/rich-text-widget',
       options: {

@@ -1,3 +1,5 @@
+{# data.widget — this widget's stored fields (defined in modules/card-widget/index.js).
+   Aliased to `widget` below for brevity. #}
 {% import 'link.html' as link %}
 {% import '@apostrophecms/template:macros/icons.html' as icons with context %}
 {% set widget = data.widget %}
@@ -14,6 +16,8 @@
   {% endif %}
   <div class="card__content">
     <div class="card__title-container">
+      {# {% area doc, 'fieldName' %} renders a CMS-editable widget sequence stored in that field.
+         In edit mode, editors see the widget picker here; in view mode, widgets render normally. #}
       {% area widget, 'titleRT' %}
     </div>
     <div class="card__text-container">

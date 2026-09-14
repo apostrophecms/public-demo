@@ -1,4 +1,7 @@
 {% fragment excerpt(article) %}
+  {# article._image, _categories, and _author are relationship fields: Apostrophe returns them
+     as arrays. Use apos.image.first() to extract the attachment, then apos.attachment.url()
+     to resolve a sized URL — never access _image[0].attachment directly. #}
   {% set attachment = apos.image.first(article._image) %}
   {% set url = apos.attachment.url(attachment, { size: 'one-half' }) if attachment %}
   <div class="article-excerpt">
@@ -39,6 +42,8 @@
       <h3><a href="{{ article._url }}">{{ article.title }}</a></h3>
       <article>
         {% if not apos.area.isEmpty(article, 'blurb') %}
+          {# {% area doc, 'fieldName' %} renders a CMS-editable widget sequence.
+             apos.area.isEmpty() checks before rendering to avoid an empty placeholder in view mode. #}
           {% area article, 'blurb' %}
         {% else %}
           <p class="placeholder">{{ __t('project:noSummary') }}</p>

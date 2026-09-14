@@ -18,6 +18,8 @@
   <div class="home">
     <div class="content">
       <div class="general-content">
+        {# {% area doc, 'fieldName' %} renders a CMS-editable widget sequence stored in that field.
+           In edit mode, editors see the widget picker here; in view mode, widgets render normally. #}
         {% area data.page, 'main' %}
       </div>
     </div>

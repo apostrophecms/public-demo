@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Our team uses this script to update the starter content. You may
+# safely remove this script from your own project
+
+set -o pipefail
+
+if [ -z "$APOS_DB_URI" ]; then
+  APOS_DB_URI="mongodb://localhost:27017/public-demo"
+fi
+
+STATIC_HOST="static@static.apostrophecms.com"
+STATIC_DIR="/opt/static/static/public-demo"
+CLEAN_ATTACHMENTS_DIR="$(mktemp -d /tmp/starter-clean-attachments.XXXXXX)"
+
+ssh "$STATIC_HOST" "mkdir -p $STATIC_DIR" &&
+rm -f /tmp/starter-database.jsonl.zip /tmp/starter-uploads.zip &&
+npx apos-db-dump "$APOS_DB_URI" > /tmp/starter-database.jsonl &&
+(cd /tmp && zip -q starter-database.jsonl.zip starter-database.jsonl) &&
+scp /tmp/starter-database.jsonl.zip "$STATIC_HOST:$STATIC_DIR/starter-database.jsonl.zip" &&
+node app @apostrophecms/attachment:download-all --to="$CLEAN_ATTACHMENTS_DIR" &&
+(cd "$CLEAN_ATTACHMENTS_DIR" && zip -0 -qr /tmp/starter-uploads.zip .) &&
+scp /tmp/starter-uploads.zip "$STATIC_HOST:$STATIC_DIR/starter-uploads.zip" &&
+echo "Starter content updated."

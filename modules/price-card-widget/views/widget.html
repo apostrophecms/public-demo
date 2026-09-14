@@ -1,3 +1,5 @@
+{# data.widget — this widget's stored fields (defined in modules/price-card-widget/index.js).
+   Aliased to `widget` below for brevity. #}
 {% import 'link.html' as link %}
 {% import '@apostrophecms/template:macros/icons.html' as icons with context %}
 {% set widget = data.widget %}
@@ -41,7 +43,7 @@
   {% endif %}
   {% if widget.linkText %}
     <div class="price-card__link">
-      {% set path = apos.helper.linkPath(item) %}
+      {% set path = apos.helper.linkPath(widget) %}
       {% set class = 'button button--' + (widget.buttonStyle if widget.buttonStyle else 'primary') + ' button--small' %}
         {{ link.render({
           label: widget.linkText,

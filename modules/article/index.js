@@ -21,6 +21,9 @@ export default {
           }
         }
       },
+      // Relationship fields (prefixed with _): Apostrophe populates these at request
+      // time and returns them as arrays, even when max: 1. In templates, always use
+      // [0] to access the first item: article._author[0].title, article._image[0], etc.
       _categories: {
         label: 'project:articleCategories',
         type: 'relationship',

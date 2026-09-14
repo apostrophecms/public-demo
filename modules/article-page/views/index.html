@@ -2,6 +2,10 @@
 {% import 'fragments.html' as fragments with context %}
 
 {% extends "layout.html" %}
+{# data.page       — the article index page document
+   data.pieces     — paginated array of published article pieces for this page
+   data._categories — relationship field: all article-category pieces, populated for the filter UI
+   data.currentPage / data.totalPages — pager state supplied by @apostrophecms/blog-page #}
 
 {% block pageTitle %}
   <div class="article-title-wrapper">
@@ -35,6 +39,8 @@
 {% block main %}
   <section class="article-index">
     <header class="article-intro general-content">
+      {# {% area doc, 'fieldName' %} renders a CMS-editable widget sequence stored in that field.
+         In edit mode, editors see the widget picker here; in view mode, widgets render normally. #}
       {% area data.page, 'intro' %}
     </header>
 
