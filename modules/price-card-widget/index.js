@@ -30,6 +30,7 @@ export default {
         type: 'boolean',
         def: false
       },
+      // The icon and label fields only appear while `badge` is checked.
       badgeIcon: {
         if: {
           badge: true
@@ -94,6 +95,7 @@ export default {
           }
         ]
       },
+      // The shared link fields from lib/link.js (copied with klona above).
       ...localLinkConfig
     }
   },

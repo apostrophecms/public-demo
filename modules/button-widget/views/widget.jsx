@@ -1,6 +1,8 @@
 // An anchor styled as a button, plus a scoped <style> block driving the hover
 // colour from the widget's schema field. The style rule targets the wrapper's
 // `_id`, so the two must stay in step.
+//
+// `data.widget` holds this widget's saved fields, defined in ../index.js.
 
 export default function (data, { Template, apos }) {
   const widget = data.widget;

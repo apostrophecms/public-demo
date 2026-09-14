@@ -10,6 +10,8 @@ export default {
   },
   fields: {
     add: {
+      // linkText, linkType, _linkPage, _linkFile, linkUrl, linkTarget.
+      // Defined in lib/link.js; the template resolves them with apos.helper.linkPath().
       ...linkConfig.link,
       style: {
         type: 'select',

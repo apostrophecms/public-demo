@@ -21,6 +21,8 @@ export default function (data, { Area, apos, __t }) {
           <article>
             {!apos.area.isEmpty(article, 'blurb')
               ? (
+                // Renders the article's `blurb` area field, defined in
+                // modules/article/index.js.
                 <p className="article-blurb"><Area doc={article} name="blurb" /></p>
               )
               : (

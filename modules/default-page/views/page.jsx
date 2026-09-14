@@ -6,6 +6,8 @@ export default function (data, { Extend, Area }) {
       templateName="layout.jsx"
       main={
         <div className="general-content">
+          {/* Renders the widgets stored in the page's `main` area field,
+              defined in modules/default-page/index.js. */}
           <Area doc={data.page} name="main" />
         </div>
       }

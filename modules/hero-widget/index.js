@@ -52,6 +52,7 @@ export default {
         titleField: 'linkText',
         fields: {
           add: {
+            // The shared link fields from lib/link.js, repeated per array item.
             ...linkConfig.link,
             style: {
               type: 'select',

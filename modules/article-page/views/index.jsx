@@ -99,6 +99,9 @@ export default function (data, {
                   All Articles
                 </a>
               </li>
+              {/* Despite the `_` prefix, this is not a relationship field: it
+                  is a plain query result set by beforeIndex() in
+                  modules/article-page/index.js. */}
               {(data._categories || []).map((category) => (
                 <li>
                   <a
@@ -116,6 +119,8 @@ export default function (data, {
       main={
         <section className="article-index">
           <header className="article-intro general-content">
+            {/* Renders the widgets stored in the index page's `intro` area
+                field, defined in modules/article-page/index.js. */}
             <Area doc={data.page} name="intro" />
           </header>
 
