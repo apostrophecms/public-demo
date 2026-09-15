@@ -22,10 +22,10 @@
   font-size: 14px;
   line-height: 1.3;
   a {
-    color: var(--accent-color);
-    text-decoration: none;
+    color: var(--heading-color);
+    text-decoration: underline;
     &:hover {
-      text-decoration: underline;
+      color: var(--accent-color);
     }
   }
 }
