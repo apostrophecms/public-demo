@@ -28,7 +28,9 @@ export default function (data, { __t }) {
       {data.pulls.map((item) => (
         <li className="gh-pr-widget__item">
           <h2 className="gh-pr-widget__subtitle">
-            <a href={item.html_url}>{item.title}</a>
+            <a href={item.html_url} target="_blank" rel="noopener noreferrer">
+              {item.title}
+            </a>
           </h2>
           <a
             target="_blank"
