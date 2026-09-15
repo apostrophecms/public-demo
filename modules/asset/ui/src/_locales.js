@@ -1,38 +1,34 @@
-// Opens and closes each locale switcher's dropdown. The layout renders more
-// than one switcher (desktop and mobile nav), so every lookup is scoped to the
-// switcher that was clicked rather than the first match on the page.
+// Opens and closes the locale switcher dropdowns.
+//
+// Uses one delegated listener on `document` instead of listeners on each
+// switcher: the header is re-rendered whenever an editor refreshes the page
+// (for example, switching between edit and preview), which throws away any
+// listeners attached to the old markup. `document` is never replaced.
+//
+// The layout renders more than one switcher (desktop and mobile nav), so each
+// lookup is scoped to the `[data-locales]` wrapper of the switcher involved.
 export default () => {
-  apos.util.onReady(() => {
-    document.querySelectorAll('[data-locales]').forEach(setUp);
-  });
+  document.addEventListener('click', (event) => {
+    const toggler = event.target.closest('[data-locales-toggle]');
 
-  function setUp(locales) {
-    const toggler = locales.querySelector('[data-locales-toggle]');
-    const localeList = locales.querySelector('[data-locales-list]');
-    if (!toggler || !localeList || toggler.dataset.localesReady) {
-      return;
-    }
-    // onReady runs again after in-context edits refresh the page content.
-    toggler.dataset.localesReady = 'true';
-
-    toggler.addEventListener('click', () => {
-      setExpanded(toggler.getAttribute('aria-expanded') !== 'true');
+    // Close any open switcher the click landed outside of.
+    document.querySelectorAll('[data-locales-toggle][aria-expanded="true"]').forEach((open) => {
+      if (open !== toggler && !open.closest('[data-locales]').contains(event.target)) {
+        setExpanded(open, false);
+      }
     });
 
-    function setExpanded(expanded) {
-      toggler.setAttribute('aria-expanded', expanded);
-      localeList.hidden = !expanded;
-      if (expanded) {
-        window.addEventListener('click', clickOutside);
-      } else {
-        window.removeEventListener('click', clickOutside);
-      }
+    if (toggler) {
+      setExpanded(toggler, toggler.getAttribute('aria-expanded') !== 'true');
     }
+  });
 
-    function clickOutside({ target }) {
-      if (!locales.contains(target)) {
-        setExpanded(false);
-      }
+  function setExpanded(toggler, expanded) {
+    const list = toggler.closest('[data-locales]')?.querySelector('[data-locales-list]');
+    if (!list) {
+      return;
     }
+    toggler.setAttribute('aria-expanded', expanded);
+    list.hidden = !expanded;
   }
 };
