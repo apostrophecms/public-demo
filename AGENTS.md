@@ -106,6 +106,8 @@ Notes:
 - That is not a rule against `_id`. Distinguish the inert React habit from real uses: `id={widget._id}`
   and the matching `#${widget._id}` selector in `button-widget`, and `widgetId: widget._id` in
   `layout-widget`, are load-bearing. Removing those breaks scoped styling silently.
+- The `.jsx` in `templateName` is not a constraint — see [Template Discovery](#template-discovery).
+  It is written because every template in this project is `.jsx`.
 - Values are auto-escaped in both element bodies and attribute values, matching Nunjucks.
 - Unlike React, `style` accepts a **plain string** (`style={`background-image: url(${url})`}`).
   Attributes pass through `escapeAttr()` verbatim, so `srcset` and `crossorigin` are written in
