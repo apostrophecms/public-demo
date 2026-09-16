@@ -98,8 +98,12 @@ project tree.
 
 ## `_` Prefix Convention
 
-Relationship fields are always prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`).
-The prefix signals that the value is **not stored in the document** — it is joined at query time.
+Relationship fields **must** be prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`);
+ApostropheCMS throws if they are not. What the document stores is the ids, under `<name>Ids` —
+`_linkPage` is backed by `linkPageIds`. The documents themselves are fetched at query time and
+attached under the prefixed name, and the prefix is what keeps them from being written back into
+the parent on the next save, where they would sit as a stale copy of another document.
+
 The value is always an **array**, even when `max: 1` is set; ApostropheCMS uses a consistent API
 regardless of cardinality. Access a single-result relationship via `doc._field[0]` in templates.
 
@@ -111,7 +115,6 @@ Shared configuration objects live in `lib/` and are imported where needed to avo
 |------|---------|---------|
 | `lib/area.js` | `basicConfig`, `fullConfig`, `fullConfigExpandedGroups` | Area field `widgets` option — choose the config that matches the context |
 | `lib/link.js` | `link` (field group object) | Spread into any module's `fields.add` to add a linkType + `_linkPage` + `_linkFile` + `linkUrl` pattern |
-| `lib/options.js` | `aposBrandColors` | Shared color choices for select fields |
 | `lib/iconChoices.js` | Array of `{ label, value }` | Icon picker select choices |
 
 Import instead of duplicating config inline:
@@ -141,7 +144,11 @@ All project-level translation strings use the `project:` namespace (e.g., `'proj
 CMS-editable design tokens (colors, fonts, spacing) live in `modules/@apostrophecms/styles/`.
 Fields are defined per-concern in `modules/@apostrophecms/styles/lib/*.js` (one file per token
 group: `color.js`, `font.js`, `spacing.js`, etc.) and composed in `index.js` under `styles.add`
-and `styles.group`. Templates read these values from the `global` property of their data argument.
+and `styles.group`. Apostrophe compiles the saved values into a stylesheet and adds it to every
+page, so templates never read them. Most fields set a CSS custom property (`--accent-color`,
+`--card-background-color`) whose fallback value lives in `modules/asset/ui/src/_variables.scss`;
+the project SCSS consumes those properties. Dark-mode fields target the `.dark` class that
+`_dark-light-switch.js` puts on `<body>`.
 
 ## Shared Link Template
 
@@ -245,9 +252,9 @@ correct outer template automatically (handling both full-page and AJAX requests)
 prop into a `{% block %}` override on that Nunjucks template.
 
 JSX has no named blocks. A parent receives markup as **props**, plus the implicit `children` prop
-for anything between the caller's opening and closing tags. `views/layout.jsx` accepts `bodyClass`,
-`pageTitle`, `breadcrumbs`, and `main` from page templates; each falls back to a default when the
-page does not supply it.
+for anything between the caller's opening and closing tags. `views/layout.jsx` accepts `title`,
+`bodyClass`, `pageTitle`, `breadcrumbs`, and `main` from page templates; each falls back to a
+default when the page does not supply it.
 
 Use `<Extend>` when the target is Nunjucks and you want block-override semantics. Use `<Template>`
 for include semantics, where props simply arrive as the target's data. Against a `.jsx` target the
@@ -263,7 +270,7 @@ the template needs.
 | `widget` | Widget document (widget templates only) |
 | `page` | Current page document |
 | `piece` | Current piece (piece-type pages only) |
-| `global` | Global settings document — includes styles module values |
+| `global` | Global settings document |
 | `user` | Authenticated user, or `null` |
 | `home` | Home page document |
 | `query` | Query string as a plain object |
@@ -278,23 +285,14 @@ the template needs.
 its build outputs. A font referenced from `@font-face` in `_global.scss` is served as
 `/assets/poppins.subset-DvBIGq--.woff2`, not `/modules/asset/fonts/poppins.subset.woff2`. Both
 paths exist and return 200 in a production build, so a mismatch produces no error — just a wasted
-request and, in the case of preloads, no benefit.
+request.
 
-`views/layout.jsx` reads the hashed filenames out of `apos.asset.currentBuildManifest` when emitting
-font preload tags, so the preloaded URL always matches what the built CSS requests. That property
-is internal to `@apostrophecms/asset` and not documented public API; the lookup is written to
-degrade to emitting no preload tags rather than throwing if its shape changes. The manifest is
-empty in development, where the Vite dev server serves fonts unhashed.
-
-Tracked in PRO-9899, which asks whether a supported API for resolving built asset URLs should exist.
-
-The development server does not exercise this path at all. Vite serves fonts unhashed, and every
-entrypoint reports `files.assets` as an empty array, so no preload tags are emitted and the question
-of whether their URLs are correct never arises. That is why the broken preloads survived so long:
-they were only wrong in production, where nobody was looking at the network panel.
+That only matters for code that builds an asset URL by hand. Nothing in this project does, and
+there is no supported API for resolving a fingerprinted name, so reference built assets from CSS
+and let the build rewrite the URL.
 
 The practical rule is that **dev and production disagree about assets**, in both directions. Dev
 invents symptoms that do not exist in production — JS-injected CSS causing a flash of unstyled
-content on navigation, and unpreloaded fonts swapping typeface mid-render. And dev conceals real
-faults, because fingerprinted URLs, release directories, and the manifest only exist in a
-production build. Verify anything touching assets with `npm run build && npm run serve`.
+content on navigation, and fonts arriving late enough to swap typeface mid-render. And dev conceals
+real faults, because fingerprinted URLs and release directories only exist in a production build.
+Verify anything touching assets with `npm run build && npm run serve`.

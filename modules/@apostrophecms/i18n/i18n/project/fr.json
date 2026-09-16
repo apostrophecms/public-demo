@@ -2,7 +2,6 @@
   "account": "Compte",
   "addBadge": "Ajouter un badge à la carte ?",
   "align": "Aligner",
-  "apostropheCmsSite": "Site ApostropheCMS",
   "article": "Article",
   "articleAuthor": "Auteur",
   "articleAuthorColumn": "Auteur",
@@ -53,7 +52,6 @@
   "cardAdd": "Ajouter une carte",
   "cardBackground": "La carte a-t-elle une couleur de fond ?",
   "center": "Centré",
-  "close": "Fermé",
   "closed": "Fermé",
   "content": "Contenu",
   "customUrl": "URL personnalisée",
@@ -140,6 +138,7 @@
   "prNumber": "Numéro {{number}}",
   "prOpenedOn": "Ouverte le {{date}}",
   "prsUnavailable": "Les pull requests sont indisponibles pour le moment.",
+  "prsRateLimited": "GitHub limite les requêtes pour le moment. Définissez GITHUB_TOKEN pour augmenter la limite.",
   "repo": "Dépôt",
   "richText": "Texte enrichi",
   "richTextDescription": "Ajouter du texte stylisé à votre page",
@@ -157,7 +156,6 @@
   "rtMetaH6": "Méta (<H6>)",
   "rtParagraph": "Paragraphe (<p>)",
   "rtParagraphLarge": "Grand paragraphe (<p>)",
-  "secondary": "Secondaire",
   "siteTitle": "Titre du site",
   "specialBackground": "Une carte mise en avant a un arrière-plan spécial",
   "siteLogo": "Logo du site",
@@ -187,7 +185,6 @@
   "defaultFont": "Police par défaut",
   "defaultFontHelp": "Utilisée pour la plupart du texte et des libellés",
   "fontGeorgia": "Georgia",
-  "fontInter": "Inter",
   "fontPoppins": "Poppins",
   "fontQuicksand": "Quicksand",
   "fontRoboto": "Roboto",
@@ -231,6 +228,5 @@
   "surfaceBackgroundHelp": "Couleur d'arrière-plan utilisée sur les cartes, éléments du pied de page et autres surfaces en relief.",
   "textAndType": "Texte et typographie",
   "textColor": "Couleur du texte",
-  "textColorHelp": "Utilisée pour le texte et les libellés",
-  "widgets": "Widgets"
+  "textColorHelp": "Utilisée pour le texte et les libellés"
 }

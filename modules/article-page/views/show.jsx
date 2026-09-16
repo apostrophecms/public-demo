@@ -1,8 +1,15 @@
 // A single article. Metadata goes in the page-title slot; the image and main
 // area go in the main slot.
+//
+// On a show page, `data.piece` is the article and `data.page` is the article
+// index page it belongs to.
 
 export default function (data, { Extend, Area, apos }) {
   const article = data.piece;
+  // `_image`, `_author`, and `_categories` are relationships (see
+  // modules/article/index.js): loaded at request time and always arrays.
+  // apos.image.first() takes the attachment from `_image`, and
+  // apos.attachment.url() turns it into a URL for one image size.
   const attachment = apos.image.first(article._image);
   const url = attachment ? apos.attachment.url(attachment, { size: 'full' }) : null;
   const title = data.piece.title;
@@ -55,6 +62,8 @@ export default function (data, { Extend, Area, apos }) {
               srcset={apos.image.srcset(attachment)}
             />
           )}
+          {/* Renders the widgets stored in the article's `main` area field,
+              defined in modules/article/index.js. */}
           <Area doc={article} name="main" />
         </article>
       }

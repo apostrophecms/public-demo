@@ -20,13 +20,13 @@ export default {
       label: 'project:headerColor',
       selector: ':root',
       property: '--table-header-color',
-      def: '--faint-color',
+      def: '--default-color',
       options: {
         presetColors: [
-          '--faint-color',
-          '--accent-color',
           '--default-color',
-          '--heading-color'
+          '--heading-color',
+          '--accent-color',
+          '--contrast-color'
         ]
       }
     },
@@ -65,13 +65,13 @@ export default {
       label: 'project:headerColor',
       selector: '.dark',
       property: '--table-header-color',
-      def: '--faint-color',
+      def: '--default-color',
       options: {
         presetColors: [
-          '--faint-color',
-          '--accent-color',
           '--default-color',
-          '--heading-color'
+          '--heading-color',
+          '--accent-color',
+          '--contrast-color'
         ]
       }
     },

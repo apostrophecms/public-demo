@@ -14,8 +14,8 @@ export default {
         label: 'project:textContent',
         help: 'project:textContentHelp',
         type: 'area',
-        max: 1,
         options: {
+          max: 1,
           widgets: {
             '@apostrophecms/rich-text': {
               toolbar: [
@@ -52,6 +52,7 @@ export default {
         titleField: 'linkText',
         fields: {
           add: {
+            // The shared link fields from lib/link.js, repeated per array item.
             ...linkConfig.link,
             style: {
               type: 'select',

@@ -12,6 +12,12 @@
 // Extending a Nunjucks template from JSX uses the bridge implemented in
 // `jsxRender.js`: each prop becomes a {% block %} override on the
 // underlying Nunjucks template.
+//
+// Data available here and in every template that extends this one:
+//   data.page    the current page document
+//   data.piece   the current piece on show pages; undefined elsewhere
+//   data.global  the Global Settings document (modules/@apostrophecms/global)
+//   data.home    the home page; data.home._children feeds the nav
 
 import locales from './locales.jsx';
 
@@ -22,9 +28,13 @@ function defaultTitle(data) {
 }
 
 function siteTitle(data) {
-  return (data.global && data.global.siteTitle) || 'ApostropheCMS Demo';
+  // Matches the siteTitle default in modules/@apostrophecms/global/index.js.
+  return (data.global && data.global.siteTitle) || 'ApostropheCMS Site';
 }
 
+// `_siteLogo` is a relationship, so it arrives as an array of image documents.
+// Getting a URL takes two steps: apos.image.first() pulls the attachment out
+// of that array, then apos.attachment.url() builds the URL for one size.
 function logoUrls(data, apos) {
   const logoAttachment = apos.image.first(data.global && data.global._siteLogo);
   const logoAttachmentDark = apos.image.first(data.global && data.global._siteLogoDark);
@@ -182,7 +192,7 @@ function MobileNav({ data, apos }) {
         <NavLinks data={data} />
       </nav>
       <div className="mobile-nav__locales">
-        {locales(data, apos)}
+        {locales(data, apos, 'mobile-locales-list')}
       </div>
     </div>
   );

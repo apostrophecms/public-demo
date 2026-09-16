@@ -1,5 +1,9 @@
 // Renders a single area as a CSS grid. Column count, gap, and cell alignment
 // come from the widget's own options, falling back to the module defaults.
+//
+// `data.widget` is the layout widget itself; its `columns` area field is
+// defined by core's @apostrophecms/layout-widget. The `with` values are passed
+// down to that area's renderer rather than rendered here.
 
 export default function (data, { Area }) {
   const opts = data.options || {};

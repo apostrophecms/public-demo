@@ -1,0 +1,9 @@
+# Keep local state and secrets out of the image. Dependencies are installed
+# inside the container, and data/uploads are mounted as volumes.
+.git
+.env
+node_modules
+data
+public/uploads
+public/apos-frontend
+apos-build

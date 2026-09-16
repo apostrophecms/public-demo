@@ -92,7 +92,8 @@ export default {
     return {
       async recent(req, data) {
         return {
-          articles: await self.find(req).limit(data.limit).sort({ createdAt: -1 }).toArray(),
+          // No explicit sort: @apostrophecms/blog already orders by publishedAt.
+          articles: await self.find(req).limit(data.limit).toArray(),
           display: data.display
         };
       }
@@ -101,18 +102,5 @@ export default {
   filters: {
     // The best experience comes with just the month filter
     remove: [ 'day', 'year' ]
-  },
-  init(self) {
-    // A temporary migration until all of our own deployments have seen this.
-    // It's harmless but we don't need to leave it in this starter kit forever
-    self.apos.migration.add('publishedDateToPublishedAt2', async () => {
-      await self.apos.doc.db.updateMany({
-        type: self.name,
-        publishedDate: { $exists: 1 },
-        publishedAt: { $exists: 0 }
-      }, {
-        $rename: { publishedDate: 'publishedAt' }
-      });
-    });
   }
 };

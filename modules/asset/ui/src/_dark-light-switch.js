@@ -1,18 +1,78 @@
+// Light/dark mode toggle. The visitor's choice is saved in localStorage and
+// applied as a `dark` class on <body>; the `.dark` rules in _variables.scss and
+// the dark-mode fields in modules/@apostrophecms/styles key off that class.
 export default () => {
-  const APOS_LIGHT_DARK_KEY = 'apostrophe-demo-visual-preference';
+  const STORAGE_KEY = 'apostrophe-demo-visual-preference';
 
-  // Check preference immediately to prevent flash
-  const pref = localStorage.getItem(APOS_LIGHT_DARK_KEY);
-  if (pref === 'dark') {
-    document.body.classList.add('dark');
+  // Apply the saved preference right away to avoid a flash of light mode.
+  setDark(readPreference() === 'dark');
+
+  apos.util.onReady(() => {
+    const toggle = document.querySelector('[data-mode-switch] input');
+    // onReady runs again after in-context edits refresh the page content;
+    // only wire the toggle up once.
+    if (!toggle || toggle.dataset.modeSwitchReady) {
+      return;
+    }
+    toggle.dataset.modeSwitchReady = 'true';
+    toggle.checked = isDark();
+    toggle.addEventListener('change', () => {
+      setDark(toggle.checked);
+      writePreference(toggle.checked ? 'dark' : 'light');
+    });
+  });
+
+  // Refreshing the page content re-renders the header with the light logo,
+  // so swap the dark one back in whenever that happens.
+  const refreshable = document.querySelector('[data-apos-refreshable]');
+  if (refreshable) {
+    new MutationObserver(() => updateNavLogo(isDark()))
+      .observe(refreshable, {
+        childList: true,
+        subtree: true
+      });
   }
 
-  updateNavLogo(pref === 'dark');
+  function isDark() {
+    return document.body.classList.contains('dark');
+  }
 
-  let done = false;
+  function setDark(dark) {
+    document.body.classList.toggle('dark', dark);
+    updateNavLogo(dark);
+  }
 
-  function getSafeLogoUrl(logo, dataAttrName) {
-    const value = logo.getAttribute(dataAttrName);
+  // localStorage can throw when storage is blocked (some private windows).
+  function readPreference() {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function writePreference(value) {
+    try {
+      localStorage.setItem(STORAGE_KEY, value);
+    } catch (e) {
+      // The toggle still works for this page view.
+    }
+  }
+
+  // The logo URLs come from data attributes rendered in views/layout.jsx.
+  // Only http(s) URLs are accepted before they are assigned to `src`.
+  function updateNavLogo(dark) {
+    const logo = document.getElementById('nav-logo');
+    if (!logo) {
+      return;
+    }
+    const url = safeUrl(logo.getAttribute(dark ? 'data-dark-url' : 'data-light-url'));
+    if (url && logo.getAttribute('src') !== url) {
+      logo.setAttribute('src', url);
+    }
+  }
+
+  function safeUrl(value) {
     if (!value) {
       return null;
     }
@@ -22,85 +82,8 @@ export default () => {
         return url.toString();
       }
     } catch (e) {
-      // Invalid URL; fall through to return null.
+      // Invalid URL
     }
     return null;
   }
-
-  function getCurrentPreference() {
-    // First try to get from toggle input if it exists
-    const toggle = document.querySelector('[data-mode-switch] input');
-    if (toggle) {
-      return toggle.checked ? 'dark' : 'light';
-    }
-    // Fall back to localStorage
-    return localStorage.getItem(APOS_LIGHT_DARK_KEY) || 'light';
-  }
-
-  function updateNavLogo(isDark) {
-    const logo = document.getElementById('nav-logo');
-    if (!logo) {
-      return;
-    }
-    if (isDark && logo.hasAttribute('data-dark-url')) {
-      const safeUrl = getSafeLogoUrl(logo, 'data-dark-url');
-      if (safeUrl) {
-        logo.setAttribute('src', safeUrl);
-      }
-    } else if (!isDark && logo.hasAttribute('data-light-url')) {
-      const safeUrl = getSafeLogoUrl(logo, 'data-light-url');
-      if (safeUrl) {
-        logo.setAttribute('src', safeUrl);
-      }
-    }
-  }
-
-  apos.util.onReady(() => {
-    if (done) {
-      return;
-    }
-    done = true;
-
-    const currentPref = getCurrentPreference();
-    updateNavLogo(currentPref === 'dark');
-
-    const toggle = document.querySelector('[data-mode-switch] input');
-
-    if (!toggle) {
-      return;
-    }
-
-    // Sync toggle UI with current state
-    toggle.checked = (pref === 'dark');
-
-    toggle.addEventListener('change', toggleMode);
-  });
-
-  function toggleMode() {
-    document.body.classList.toggle('dark');
-    const pref = document.body.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem(APOS_LIGHT_DARK_KEY, pref);
-    // Get fresh preference from toggle input
-    const currentPref = getCurrentPreference();
-    updateNavLogo(currentPref === 'dark');
-  }
-
-  // Watch changes to apos refreshable and make sure logo is updated
-  const el = document.querySelector('[data-apos-refreshable]');
-
-  const observer = new MutationObserver((mutations) => {
-    for (const m of mutations) {
-      if (m.type === 'childList' || m.type === 'characterData') {
-        // Get fresh preference from toggle input
-        const currentPref = getCurrentPreference();
-        updateNavLogo(currentPref === 'dark');
-      }
-    }
-  });
-
-  observer.observe(el, {
-    childList: true,
-    subtree: true,
-    characterData: true
-  });
 };

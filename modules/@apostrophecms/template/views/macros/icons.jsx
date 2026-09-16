@@ -109,24 +109,6 @@ export const chart = () => (
   </svg>
 );
 
-export const smartphone = () => (
-  <svg {...baseAttrs} className="lucide lucide-tablet-smartphone-icon lucide-tablet-smartphone">
-    <rect width="10" height="14" x="3" y="8" rx="2" />
-    <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4" />
-    <path d="M8 18h.01" />
-  </svg>
-);
-
-export const network = () => (
-  <svg {...baseAttrs} className="lucide lucide-network-icon lucide-network">
-    <rect x="16" y="16" width="6" height="6" rx="1" />
-    <rect x="2" y="16" width="6" height="6" rx="1" />
-    <rect x="9" y="2" width="6" height="6" rx="1" />
-    <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
-    <path d="M12 12V8" />
-  </svg>
-);
-
 export const rocket = () => (
   <svg {...baseAttrs} className="lucide lucide-rocket-icon lucide-rocket">
     <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
@@ -156,6 +138,8 @@ export const editor = () => (
   </svg>
 );
 
+// Keep this list in step with lib/iconChoices.js, which offers these names
+// to editors. An icon missing from either side can never be rendered.
 export const icons = {
   clock,
   building,
@@ -165,8 +149,6 @@ export const icons = {
   people,
   earth,
   chart,
-  smartphone,
-  network,
   rocket,
   package: pkg,
   editor

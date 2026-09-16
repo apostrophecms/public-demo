@@ -47,7 +47,9 @@ const Check = () => (
   </svg>
 );
 
-export default function (data, apos) {
+// The layout renders this twice (desktop and mobile nav), so `id` keeps the
+// list's id, and the toggle's aria-controls, unique on the page.
+export default function (data, apos, id = 'locales-list') {
   const localizations = data.localizations || [];
   const current = localizations.find((l) => l.current);
   return (
@@ -56,8 +58,7 @@ export default function (data, apos) {
         className="locales__toggler"
         data-locales-toggle
         aria-expanded="false"
-        aria-controls="locales-list"
-        onclick="aposSwitchLocale(this)"
+        aria-controls={id}
       >
         {current && (
           <span className="locales__toggler__text">
@@ -72,7 +73,7 @@ export default function (data, apos) {
           </span>
         )}
       </button>
-      <ul id="locales-list" className="locales__list" data-locales-list hidden>
+      <ul id={id} className="locales__list" data-locales-list hidden>
         {localizations.map((localization) => localization._url && (
           <li
             className={`locales__item ${localization.current ? 'current' : ''}`}

@@ -1,8 +1,5 @@
 import linkConfig from '../../lib/link.js';
 import iconChoices from '../../lib/iconChoices.js';
-import { klona } from 'klona';
-const localLinkConfig = klona(linkConfig.link);
-const localIcons = klona(iconChoices);
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -30,13 +27,14 @@ export default {
         type: 'boolean',
         def: false
       },
+      // The icon and label fields only appear while `badge` is checked.
       badgeIcon: {
         if: {
           badge: true
         },
         label: 'project:icon',
         type: 'select',
-        choices: localIcons
+        choices: iconChoices
       },
       badgeLabel: {
         if: {
@@ -94,7 +92,9 @@ export default {
           }
         ]
       },
-      ...localLinkConfig
+      // linkText, linkType, _linkPage, _linkFile, linkUrl, linkTarget.
+      // Defined in lib/link.js; the template resolves them with apos.helper.linkPath().
+      ...linkConfig.link
     }
   },
   styles: {

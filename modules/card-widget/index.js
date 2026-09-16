@@ -2,8 +2,13 @@ import linkConfig from '../../lib/link.js';
 import iconChoices from '../../lib/iconChoices.js';
 import { klona } from 'klona';
 
+// Deep-copy the shared link fields from lib/link.js before adding `if:`
+// conditions. Assigning to linkConfig.link directly would hide the link
+// fields in every other widget that spreads it.
 const localLinkConfig = klona(linkConfig.link);
 
+// Horizontal cards have no call to action, so these link fields only appear
+// while `orientation` is 'vertical'.
 localLinkConfig.linkText.if =
 localLinkConfig.linkType.if =
 localLinkConfig.linkTarget.if = {
@@ -99,6 +104,7 @@ export default {
         type: 'select',
         label: 'project:linkStyle',
         def: 'primary',
+        // Button style only matters when the link fields above are shown.
         if: {
           orientation: 'vertical'
         },
@@ -159,6 +165,7 @@ export default {
               type: 'boolean',
               def: false
             },
+            // width, color, and style are hidden until `active` is checked.
             width: {
               label: 'apostrophe:styleBorderWidth',
               type: 'box',

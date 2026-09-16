@@ -2,7 +2,6 @@
   "account": "Account",
   "addBadge": "Add a badge to the card?",
   "align": "Align",
-  "apostropheCmsSite": "ApostropheCMS Site",
   "article": "Article",
   "articleAuthor": "Author",
   "articleAuthorColumn": "Author",
@@ -53,7 +52,6 @@
   "cardAdd": "Add a card",
   "cardBackground": "Card has a background color?",
   "center": "Center",
-  "close": "Closed",
   "closed": "Closed",
   "content": "Content",
   "customUrl": "Custom URL",
@@ -140,6 +138,7 @@
   "prNumber": "Number {{number}}",
   "prOpenedOn": "Opened on {{date}}",
   "prsUnavailable": "Pull requests are unavailable right now.",
+  "prsRateLimited": "GitHub is limiting requests right now. Set GITHUB_TOKEN to raise the limit.",
   "repo": "Repo",
   "richText": "Rich Text",
   "richTextDescription": "Add styled text to your page",
@@ -157,7 +156,6 @@
   "rtMetaH6": "Meta (<H6>)",
   "rtParagraph": "Paragraph (<p>)",
   "rtParagraphLarge": "Large Paragraph (<p>)",
-  "secondary": "Secondary",
   "siteTitle": "Site Title",
   "siteLogo": "Site Logo",
   "siteLogoDark": "Site Logo (Dark)",
@@ -187,7 +185,6 @@
   "defaultFont": "Default Font",
   "defaultFontHelp": "Used for most text and labels",
   "fontGeorgia": "Georgia",
-  "fontInter": "Inter",
   "fontPoppins": "Poppins",
   "fontQuicksand": "Quicksand",
   "fontRoboto": "Roboto",
@@ -231,6 +228,5 @@
   "surfaceBackgroundHelp": "Background color used on cards, footer elements, and other raised surfaces.",
   "textAndType": "Text and Typography",
   "textColor": "Text Color",
-  "textColorHelp": "Used for text and labels",
-  "widgets": "Widgets"
+  "textColorHelp": "Used for text and labels"
 }

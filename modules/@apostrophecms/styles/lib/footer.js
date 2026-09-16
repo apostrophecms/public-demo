@@ -1,3 +1,5 @@
+import { fontChoices } from './font.js';
+
 export default {
   fields: {
     lightFooterBackgroundColor: {
@@ -39,28 +41,7 @@ export default {
       selector: '.footer',
       property: 'font-family',
       def: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-      choices: [
-        {
-          label: 'project:fontRoboto',
-          value: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
-        },
-        {
-          label: 'project:fontQuicksand',
-          value: '"Quicksand", sans-serif;'
-        },
-        {
-          label: 'project:fontPoppins',
-          value: '"Poppins", sans-serif;'
-        },
-        {
-          label: 'project:fontInter',
-          value: '"Inter", sans-serif;'
-        },
-        {
-          label: 'project:fontGeorgia',
-          value: '"Georgia", serif;'
-        }
-      ]
+      choices: fontChoices
     },
     darkFooterBackgroundColor: {
       type: 'color',
@@ -101,28 +82,7 @@ export default {
       selector: '.dark .footer',
       property: 'font-family',
       def: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
-      choices: [
-        {
-          label: 'project:fontRoboto',
-          value: '"Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
-        },
-        {
-          label: 'project:fontQuicksand',
-          value: '"Quicksand", sans-serif;'
-        },
-        {
-          label: 'project:fontPoppins',
-          value: '"Poppins", sans-serif;'
-        },
-        {
-          label: 'project:fontInter',
-          value: '"Inter", sans-serif;'
-        },
-        {
-          label: 'project:fontGeorgia',
-          value: '"Georgia", serif;'
-        }
-      ]
+      choices: fontChoices
     }
   },
   group: {

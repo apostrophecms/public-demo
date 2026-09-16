@@ -1,28 +1,17 @@
+# Environment and local data
 .env
-.DS_Store
-# ignore vim swapfiles
-*.swp
-/storybook-static
-/public/apos-frontend
-/apos-build
-/apos-frontend
-/locales
-npm-debug.log
 /data
 /public/uploads
-/public/apos-minified
-/data/temp/uploadfs
-/modules/asset/ui/public/site.js
-/modules/asset/ui/public/site.css
-node_modules
-# This folder is created on the fly and contains symlinks updated at startup (we'll come up with a Windows solution that actually copies things)
-/public/modules
-# We don't commit CSS, only LESS
-/public/css/*.css
-/public/css/*.map
-# Don't commit masters generated on the fly at startup, these import all the rest
-/public/css/master-*.less
-/.jshintrc
-/public/js/_site-compiled.js
 
+# Dependencies
+node_modules
 package-lock.json
+
+# Build output
+/apos-build
+/public/apos-frontend
+
+# OS and editor files
+.DS_Store
+*.swp
+npm-debug.log

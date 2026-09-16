@@ -99,7 +99,8 @@ export default function (data, {
                   All Articles
                 </a>
               </li>
-              {(data._categories || []).map((category) => (
+              {/* Set by beforeIndex() in modules/article-page/index.js. */}
+              {(data.categories || []).map((category) => (
                 <li>
                   <a
                     href={`?categories=${category.slug}`}
@@ -116,6 +117,8 @@ export default function (data, {
       main={
         <section className="article-index">
           <header className="article-intro general-content">
+            {/* Renders the widgets stored in the index page's `intro` area
+                field, defined in modules/article-page/index.js. */}
             <Area doc={data.page} name="intro" />
           </header>
 

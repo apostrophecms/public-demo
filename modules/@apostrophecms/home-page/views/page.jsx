@@ -15,6 +15,8 @@ export default function (data, { Extend, Area, __t }) {
         <div className="home">
           <div className="content">
             <div className="general-content">
+              {/* Renders the widgets stored in the home page's `main` area
+                  field, defined in modules/@apostrophecms/home-page/index.js. */}
               <Area doc={data.page} name="main" />
             </div>
           </div>

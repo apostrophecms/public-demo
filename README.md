@@ -4,6 +4,9 @@ A feature-rich reference project built on the [essentials starter kit](https://g
 Use it to explore ApostropheCMS 4 capabilities — articles, i18n, CMS-editable design tokens,
 relationship fields, and a full widget library — or as a reference when building your own project.
 
+Templates are written in server-side **JSX**. There is no React and no client-side runtime; JSX is
+an alternative to Nunjucks that runs on the server. See [ARCHITECTURE.md](./ARCHITECTURE.md).
+
 ---
 
 ## Prerequisites
@@ -25,7 +28,7 @@ relationship fields, and a full widget library — or as a reference when buildi
 git clone https://github.com/apostrophecms/public-demo.git
 cd public-demo
 cp .env.example .env
-# Edit .env — set APOS_DB_URI at minimum (see Environment Variables below)
+# Edit .env — set APOS_DB_URI unless MongoDB is running locally (see Environment Variables below)
 npm install
 node app @apostrophecms/user:add admin admin
 npm run dev
@@ -47,13 +50,14 @@ Express  (app.js)
   ▼
 Page module  modules/<page-type>/index.js
   │  Relationship fields joined (_field arrays populated)
-  │  data.global (incl. styles tokens), data.home, data.user attached
+  │  data.global, data.home, data.user attached
   ▼
-Nunjucks render
-  views/layout.html                          ← site chrome
-    └─ modules/<page-type>/views/page.html  ← page content
-         └─ {% area %} tags
-              └─ modules/<widget-name>/views/widget.html
+JSX render (server-side)
+  outerLayout.html                          ← Nunjucks, from core; <head> and <body>
+    └─ views/layout.jsx                     ← site chrome (header, nav, footer)
+         └─ modules/<page-type>/views/page.jsx  ← page content
+              └─ <Area> components
+                   └─ modules/<widget-name>/views/widget.jsx
   ▼
 HTML response
 ```
@@ -64,14 +68,14 @@ HTML response
 |------|---------|
 | `app.js` | Entry point; all module registration |
 | `modules/` | One subdirectory per module |
-| `lib/` | Shared field config (area, link, options, icons) |
-| `views/` | Site-wide Nunjucks templates and macros |
+| `lib/` | Shared field config (areas, links, icon choices) |
+| `views/` | Site-wide JSX templates (layout, link, locale switcher) |
 | `modules/asset/ui/src/` | Client-side JS and SCSS |
 | `modules/@apostrophecms/styles/` | CMS-editable design tokens |
-| `modules/helper/` | Server-side Nunjucks helpers |
+| `modules/helper/` | Shared template logic, called as `apos.helper.*` |
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for conventions, template inheritance details,
-the full `data.*` reference, and helper documentation.
+the full data reference, and helper documentation.
 
 ---
 
@@ -80,7 +84,7 @@ the full `data.*` reference, and helper documentation.
 **1.** Create `modules/<widget-name>/index.js`:
 
 ```js
-import link from '../../lib/link.js';
+import linkConfig from '../../lib/link.js';
 
 export default {
   extend: '@apostrophecms/widget-type',
@@ -88,26 +92,34 @@ export default {
   fields: {
     add: {
       heading: { type: 'string', label: 'project:heading' },
-      ...link.link
+      ...linkConfig.link
     }
   }
 };
 ```
 
-**2.** Create `modules/<widget-name>/views/widget.html`:
+**2.** Create `modules/<widget-name>/views/widget.jsx`:
 
-```html
-{% import 'link.html' as link %}
-{% set widget = data.widget %}
-<div>
-  <h2>{{ widget.heading }}</h2>
-  {{ link.render({ label: widget.linkText, path: apos.helper.linkPath(widget), target: widget.linkTarget }) }}
-</div>
+```jsx
+export default function ({ widget }, { Template, apos }) {
+  return (
+    <div className="widget my-widget">
+      <h2>{widget.heading}</h2>
+      <Template
+        templateName="link.jsx"
+        label={widget.linkText}
+        path={apos.helper.linkPath(widget)}
+        target={widget.linkTarget}
+      />
+    </div>
+  );
+}
 ```
 
 **3.** Register in `app.js` under `modules`: `'<widget-name>': {}`
 
-**4.** Add `'<widget-name>': {}` to an area's `widgets` config, or to `lib/area.js`.
+**4.** Add the widget to an area's `widgets` config, or to `lib/area.js`. The key drops the
+`-widget` suffix: `'my': {}` for `my-widget`.
 
 **5.** Add translation keys to `modules/@apostrophecms/i18n/i18n/project/en.json` (and other locales).
 
@@ -131,14 +143,17 @@ export default {
 };
 ```
 
-**2.** Create `modules/<page-name>/views/page.html`:
+**2.** Create `modules/<page-name>/views/page.jsx`:
 
-```html
-{% extends "layout.html" %}
-{% block main %}
-  <h1>{{ data.page.title }}</h1>
-  {% area data.page, 'main' %}
-{% endblock %}
+```jsx
+export default function ({ page }, { Extend, Area }) {
+  return (
+    <Extend
+      templateName="layout.jsx"
+      main={<Area doc={page} name="main" />}
+    />
+  );
+}
 ```
 
 **3.** Register in `app.js` under `modules`: `'<page-name>': {}`
@@ -157,8 +172,10 @@ Copy `.env.example` to `.env`. Never commit `.env`.
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `APOS_DB_URI` | **Yes** | Database connection string (see formats below) |
-| `APOS_DEV` | No | Set to `1` to force admin UI rebuild on every restart |
+| `APOS_DB_URI` | Unless using local MongoDB | Database connection string (see formats below) |
+| `APOS_SESSION_SECRET` | **Yes, in production** | Long random string used to sign session cookies |
+| `GITHUB_TOKEN` | No | Raises the GitHub API rate limit for the GitHub Pull Requests widget |
+| `APOS_DEV` | No | Set to `1` to rebuild the admin UI on every restart |
 
 **`APOS_DB_URI` formats:**
 
@@ -177,10 +194,10 @@ postgres://user:password@localhost:5432/public_demo
 
 ## Before Going to Production
 
-- [ ] Set a unique session `secret` in `modules/@apostrophecms/express/index.js`
+- [ ] Set `APOS_SESSION_SECRET` in the production environment
 - [ ] Set `baseUrl` in `app.js` to your production domain
 - [ ] Run `npm run build` to compile production assets
-- [ ] Start with `npm run serve` (or `npm run release` to install, build, and migrate in one step)
+- [ ] Run `npm run migrate`, then start with `npm run serve`
 
 ---
 

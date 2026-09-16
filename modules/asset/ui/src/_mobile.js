@@ -1,33 +1,31 @@
+// Opens and closes the full-screen mobile navigation.
+//
+// Like _locales.js, this uses delegated listeners on `document` because the
+// header markup is replaced whenever an editor refreshes the page, which would
+// discard listeners attached directly to the buttons.
 export default () => {
-  apos.util.onReady(() => {
-    const trigger = document.querySelector('[data-mobile-trigger]');
-    const nav = document.querySelector('[data-mobile-nav]');
-    const closeTrigger = document.querySelector('[data-mobile-close-trigger]');
-
-    if (!trigger) {
-      return;
-    }
-
-    trigger.addEventListener('click', toggleMenu);
-    closeTrigger.addEventListener('click', handleClose);
-
-    function toggleMenu() {
-      const state = nav.dataset.mobileNav;
-      if (state === 'hidden') {
-        nav.dataset.mobileNav = 'visible';
-        document.body.addEventListener('keydown', handleClose);
-      }
-      nav.setAttribute('aria-hidden', nav.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
-      nav.classList.toggle('active');
-    }
-
-    function handleClose(e) {
-      if (!e.key || e.key === 'Escape') {
-        nav.classList.remove('active');
-        nav.dataset.mobileNav = 'hidden';
-        nav.setAttribute('aria-hidden', 'true');
-        document.body.removeEventListener('keydown', handleClose);
-      }
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-mobile-trigger]')) {
+      const nav = document.querySelector('[data-mobile-nav]');
+      setOpen(nav && !nav.classList.contains('active'));
+    } else if (event.target.closest('[data-mobile-close-trigger]')) {
+      setOpen(false);
     }
   });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setOpen(false);
+    }
+  });
+
+  function setOpen(open) {
+    const nav = document.querySelector('[data-mobile-nav]');
+    if (!nav) {
+      return;
+    }
+    nav.classList.toggle('active', open);
+    nav.dataset.mobileNav = open ? 'visible' : 'hidden';
+    nav.setAttribute('aria-hidden', String(!open));
+  }
 };

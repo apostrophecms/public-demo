@@ -8,6 +8,9 @@
 export function Excerpt({
   article, apos, __t, Area
 }) {
+  // `_image`, `_author`, and `_categories` are relationships: loaded at request
+  // time and always arrays. The image URL takes two steps, apos.image.first()
+  // for the attachment and then apos.attachment.url() for a sized URL.
   const attachment = apos.image.first(article._image);
   const url = attachment ? apos.attachment.url(attachment, { size: 'one-half' }) : null;
   return (
@@ -57,6 +60,8 @@ export function Excerpt({
         <article>
           {!apos.area.isEmpty(article, 'blurb')
             ? (
+              // Renders the article's `blurb` area field, defined in
+              // modules/article/index.js.
               <Area doc={article} name="blurb" />
             )
             : (
