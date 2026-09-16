@@ -27,7 +27,7 @@ export default {
   methods(self) {
     return {
       async beforeIndex(req) {
-        req.data._categories = await self.apos.category.find(req).sort({ title: 1 }).toArray();
+        req.data.categories = await self.apos.category.find(req).sort({ title: 1 }).toArray();
       }
     };
   }

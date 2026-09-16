@@ -250,10 +250,12 @@ Available on the **first function argument**. Destructure what you need.
 
 ## `_` Prefix Convention
 
-Relationship fields are prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`).
+Relationship fields **must** be prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`).
+Core throws if they are not.
 
 - Value is always an **array**, even with `max: 1`
-- Not stored in the document — joined at query time
+- Not stored in the document — the ids are, under `<name>Ids`; the docs are joined at query time
+- The prefix is what prevents the joined docs being written back on the next save
 - Access single results via `doc._field[0]`
 
 ## Shared Field Utilities (`lib/`)

@@ -99,12 +99,8 @@ export default function (data, {
                   All Articles
                 </a>
               </li>
-              {/* The `_` prefix is not just for relationships. Use it on any
-                  property attached on the fly that should never be saved to
-                  the database; Apostrophe does not store `_` properties.
-                  This one is a plain query result set by beforeIndex() in
-                  modules/article-page/index.js. */}
-              {(data._categories || []).map((category) => (
+              {/* Set by beforeIndex() in modules/article-page/index.js. */}
+              {(data.categories || []).map((category) => (
                 <li>
                   <a
                     href={`?categories=${category.slug}`}

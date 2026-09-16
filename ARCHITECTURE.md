@@ -98,8 +98,12 @@ project tree.
 
 ## `_` Prefix Convention
 
-Relationship fields are always prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`).
-The prefix signals that the value is **not stored in the document** — it is joined at query time.
+Relationship fields **must** be prefixed with `_` (e.g., `_linkPage`, `_author`, `_categories`);
+ApostropheCMS throws if they are not. What the document stores is the ids, under `<name>Ids` —
+`_linkPage` is backed by `linkPageIds`. The documents themselves are fetched at query time and
+attached under the prefixed name, and the prefix is what keeps them from being written back into
+the parent on the next save, where they would sit as a stale copy of another document.
+
 The value is always an **array**, even when `max: 1` is set; ApostropheCMS uses a consistent API
 regardless of cardinality. Access a single-result relationship via `doc._field[0]` in templates.
 
