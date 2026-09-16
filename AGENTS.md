@@ -319,7 +319,6 @@ fingerprinting build outputs. A font referenced by `@font-face` is served as
 `/assets/poppins.subset-DvBIGq--.woff2`, not `/modules/asset/fonts/poppins.subset.woff2` — both
 exist and return 200, so mismatches fail silently.
 
-The project does not emit font preloads. Any code that hand-builds a URL to a built asset (a
-preload tag, for example) must use the fingerprinted filename, which today is only available from
-the internal, undocumented `apos.asset.currentBuildManifest`. Whether a supported API should
-exist is tracked in PRO-9899.
+Nothing in this project builds a URL to a built asset by hand, and there is no supported API for
+resolving a fingerprinted name. Reference built assets from CSS, where the build rewrites the URL
+for you, rather than constructing one in a template.

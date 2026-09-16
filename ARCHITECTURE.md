@@ -283,15 +283,12 @@ its build outputs. A font referenced from `@font-face` in `_global.scss` is serv
 paths exist and return 200 in a production build, so a mismatch produces no error — just a wasted
 request.
 
-That only matters for code that builds an asset URL by hand, such as a `<link rel="preload">` tag.
-The project currently emits no font preloads; an earlier version did, and its URLs pointed at the
-unhashed paths for a long time without anyone noticing. Resolving the hashed name today means
-reading `apos.asset.currentBuildManifest`, which is internal to `@apostrophecms/asset` and not
-documented public API. PRO-9899 asks whether a supported API for resolving built asset URLs should
-exist.
+That only matters for code that builds an asset URL by hand. Nothing in this project does, and
+there is no supported API for resolving a fingerprinted name, so reference built assets from CSS
+and let the build rewrite the URL.
 
 The practical rule is that **dev and production disagree about assets**, in both directions. Dev
 invents symptoms that do not exist in production — JS-injected CSS causing a flash of unstyled
-content on navigation, and unpreloaded fonts swapping typeface mid-render. And dev conceals real
-faults, because fingerprinted URLs, release directories, and the manifest only exist in a
-production build. Verify anything touching assets with `npm run build && npm run serve`.
+content on navigation, and fonts arriving late enough to swap typeface mid-render. And dev conceals
+real faults, because fingerprinted URLs and release directories only exist in a production build.
+Verify anything touching assets with `npm run build && npm run serve`.
