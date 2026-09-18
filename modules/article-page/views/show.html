@@ -23,6 +23,9 @@
       <div class="article-detail article-published">
         {{ apos.helper.formatDate(article.publishedAt) }}
       </div>
+      <div class="article-detail article-affinity">
+        Affinity: {% field article, 'affinity' %}
+      </div>
     </div>
     {% if article._categories.length %}
       <div class="inner article-topics article-topics--show">

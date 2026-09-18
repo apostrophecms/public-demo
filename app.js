@@ -81,6 +81,9 @@ apostrophe({
     'article-category': {},
 
     // Import and export content
-    '@apostrophecms/import-export': {}
+    '@apostrophecms/import-export': {},
+
+    // A custom field type that can be edited in place
+    'inline-select-field': {}
   }
 });

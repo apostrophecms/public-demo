@@ -44,6 +44,24 @@ export default {
         options: {
           widgets: fullConfig
         }
+      },
+      affinity: {
+        label: 'Affinity',
+        type: 'inlineSelect',
+        choices: [
+          {
+            label: 'Faculty',
+            value: 'faculty'
+          },
+          {
+            label: 'Student',
+            value: 'student'
+          },
+          {
+            label: 'Employee',
+            value: 'employee'
+          }
+        ]
       }
     },
     group: {
