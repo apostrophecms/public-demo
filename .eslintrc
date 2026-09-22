@@ -2,11 +2,15 @@
   "extends": [
     "apostrophe"
   ],
+  "plugins": [
+    "react"
+  ],
   "globals": {
     "apos": true
   },
   "rules": {
     "no-var": "error",
-    "no-console": 0
+    "no-console": 0,
+    "react/jsx-uses-vars": "error"
   }
 }
