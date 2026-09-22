@@ -3,7 +3,9 @@
 
 import { Excerpt } from '../../article-page/views/fragments.jsx';
 
-export default function (data, { Area, apos, __t }) {
+export default function (data, {
+  Area, apos, __t
+}) {
   const articles = data.articles || [];
   const displayClass = data.display ? `article-excerpts--display-${data.display}` : '';
   return (

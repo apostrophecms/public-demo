@@ -4,7 +4,9 @@
 // On a show page, `data.piece` is the article and `data.page` is the article
 // index page it belongs to.
 
-export default function (data, { Extend, Area, apos }) {
+export default function (data, {
+  Extend, Area, apos
+}) {
   const article = data.piece;
   // `_image`, `_author`, and `_categories` are relationships (see
   // modules/article/index.js): loaded at request time and always arrays.

@@ -31,7 +31,10 @@ export default function (data, { Area }) {
       with={{
         aposStyle,
         aposClassName: 'layout-widget widget',
-        aposParentOptions: { ...opts, widgetId: data.widget._id },
+        aposParentOptions: {
+          ...opts,
+          widgetId: data.widget._id
+        },
         aposAttrs: {
           'tablet-auto': true,
           'mobile-auto': true
