@@ -4,7 +4,9 @@
 // `widget` (destructured from data.widget) holds this widget's saved fields,
 // defined in ../index.js.
 
-export default function ({ widget }, { Template, apos, __t }) {
+export default function ({ widget }, {
+  Template, apos, __t
+}) {
   const features = widget.features || [];
   const buttonStyle = widget.buttonStyle || 'primary';
   return (

@@ -4,7 +4,9 @@
 // Each `links` item uses the lib/link.js fields, so apos.helper.linkPath()
 // resolves it the same way as a single-link widget.
 
-export default function (data, { Area, Template, apos }) {
+export default function (data, {
+  Area, Template, apos
+}) {
   const widget = data.widget;
   const links = widget.links || [];
   return (

@@ -1,7 +1,9 @@
 // A trimmed-down list of article excerpts for a category, using each
 // article's `blurb` area.
 
-export default function (data, { Area, apos, __t }) {
+export default function (data, {
+  Area, apos, __t
+}) {
   const articles = data.articles || [];
   if (articles.length === 0) {
     return <p>{__t('project:noArticles')}</p>;

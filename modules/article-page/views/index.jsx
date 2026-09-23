@@ -33,7 +33,9 @@ function PagerPage({
   );
 }
 
-function Pager({ options, url, apos, helpers }) {
+function Pager({
+  options, url, apos, helpers
+}) {
   if (!((options.page > 1) || (options.total > 1))) {
     return null;
   }
