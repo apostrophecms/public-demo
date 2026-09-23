@@ -6,12 +6,6 @@ apostrophe({
   shortName: 'public-demo',
   bundles: [ '@apostrophecms/blog' ],
 
-  // Defaults to the dev server's own port so overriding PORT (e.g. because 3000
-  // is already in use) doesn't leave baseUrl pointing at the wrong port. Set
-  // APOS_BASE_URL directly for other environments, where the public URL
-  // (domain, https, proxy) isn't just "localhost:<port>".
-  baseUrl: process.env.APOS_BASE_URL || `http://localhost:${process.env.PORT || 3000}`,
-
   modules: {
 
     // Apostrophe module configuration
