@@ -35,7 +35,8 @@ npm run dev
 ```
 
 Open **http://localhost:3000** and log in at `/login` with username `admin` and the password
-you entered above.
+you entered above. (If port 3000 is already in use on your machine, set `PORT` in `.env` — see
+[Environment Variables](#environment-variables) — and open that port instead.)
 
 ---
 
@@ -176,6 +177,8 @@ Copy `.env.example` to `.env`. Never commit `.env`.
 | `APOS_SESSION_SECRET` | **Yes, in production** | Long random string used to sign session cookies |
 | `GITHUB_TOKEN` | No | Raises the GitHub API rate limit for the GitHub Pull Requests widget |
 | `APOS_DEV` | No | Set to `1` to rebuild the admin UI on every restart |
+| `PORT` | No | Port the server listens on. Defaults to `3000` — if that's already taken on your machine, set `PORT` instead |
+| `APOS_BASE_URL` | **Yes, in production** | Has no default. Without it, absolute URLs are computed per request from what the browser asked for, which is fine for normal page views but not for work that happens outside a request — like sitemap generation — which needs an explicit base URL to build absolute links from. Set it to your production domain, e.g. `https://example.com` |
 
 **`APOS_DB_URI` formats:**
 
@@ -195,7 +198,7 @@ postgres://user:password@localhost:5432/public_demo
 ## Before Going to Production
 
 - [ ] Set `APOS_SESSION_SECRET` in the production environment
-- [ ] Set `baseUrl` in `app.js` to your production domain
+- [ ] Set `APOS_BASE_URL` in the production environment to your production domain
 - [ ] Run `npm run build` to compile production assets
 - [ ] Run `npm run migrate`, then start with `npm run serve`
 
