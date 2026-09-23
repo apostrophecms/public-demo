@@ -144,6 +144,7 @@ export default function (data, {
             {featured.map((article) => (
               <Excerpt
                 article={article}
+                locale={data.locale}
                 apos={apos}
                 __t={__t}
                 Area={Area}
@@ -155,6 +156,7 @@ export default function (data, {
             {rest.map((article) => (
               <Excerpt
                 article={article}
+                locale={data.locale}
                 apos={apos}
                 __t={__t}
                 Area={Area}

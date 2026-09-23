@@ -1,14 +1,36 @@
-// `Excerpt` renders one article as a card: image, categories, author, date,
+// `Excerpt` renders one article as a card: image, categories, authors, date,
 // and blurb. Imported by article-page/index.jsx and article/views/recent.jsx.
+// `Byline` lists an article's authors; show.jsx uses it too.
 //
 // It takes `apos`, `__t`, and `Area` as props because only a template's
 // default export receives the helper object — an imported component is a
 // plain function and gets nothing but its props.
 
+// Joins author names the way the locale does ("A, B and C" in English,
+// "A, B et C" in French). With `authorUrl`, each name links there.
+export function Byline({ authors, locale, authorUrl }) {
+  const parts = new Intl.ListFormat(locale || 'en', { type: 'conjunction' })
+    .formatToParts(authors.map((author) => author.title));
+  let next = 0;
+  return (
+    <>
+      {parts.map((part) => {
+        if (part.type === 'literal') {
+          return part.value;
+        }
+        const author = authors[next++];
+        return authorUrl
+          ? <a href={authorUrl(author)}>{author.title}</a>
+          : author.title;
+      })}
+    </>
+  );
+}
+
 export function Excerpt({
-  article, apos, __t, Area
+  article, locale, apos, __t, Area
 }) {
-  // `_image`, `_author`, and `_categories` are relationships: loaded at request
+  // `_image`, `_authors`, and `_categories` are relationships: loaded at request
   // time and always arrays. The image URL takes two steps, apos.image.first()
   // for the attachment and then apos.attachment.url() for a sized URL.
   const attachment = apos.image.first(article._image);
@@ -46,9 +68,10 @@ export function Excerpt({
             ))}
           </div>
         )}
-        {article._author && article._author.length > 0 && (
+        {article._authors && article._authors.length > 0 && (
           <div className="article-detail article-author">
-            {__t('project:writtenBy')} {article._author[0].title}
+            {__t('project:writtenBy')}{' '}
+            <Byline authors={article._authors} locale={locale} />
           </div>
         )}
         <div className="article-detail article-published">

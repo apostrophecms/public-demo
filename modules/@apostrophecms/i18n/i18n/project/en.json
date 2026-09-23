@@ -3,8 +3,11 @@
   "addBadge": "Add a badge to the card?",
   "align": "Align",
   "article": "Article",
-  "articleAuthor": "Author",
-  "articleAuthorColumn": "Author",
+  "author": "Author",
+  "authors": "Authors",
+  "articleAuthors": "Authors",
+  "articleAuthorsColumn": "Authors",
+  "authorName": "Name",
   "articleBlurb": "Blurb",
   "articleBlurbHelp": "A short summary",
   "articleCategories": "Article Categories",
@@ -236,5 +239,7 @@
   "footerExplore": "Explore ApostropheCMS",
   "footerProduct": "Product",
   "footerSocialMedia": "Social Media",
-  "ghPrsForRepo": "{{state}} PRs for {{repo}}"
+  "ghPrsForRepo": "{{state}} PRs for {{repo}}",
+  "userAuthor": "Author",
+  "userAuthorHelp": "The byline credited when this user writes an article. Created automatically the first time they work on one."
 }

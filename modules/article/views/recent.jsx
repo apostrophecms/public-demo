@@ -15,6 +15,7 @@ export default function (data, {
           articles.map((article) => (
             <Excerpt
               article={article}
+              locale={data.locale}
               apos={apos}
               __t={__t}
               Area={Area}

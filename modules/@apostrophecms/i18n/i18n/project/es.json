@@ -3,8 +3,11 @@
   "addBadge": "¿Agregar una insignia a la tarjeta?",
   "align": "Alinear",
   "article": "Artículo",
-  "articleAuthor": "Autor",
-  "articleAuthorColumn": "Autor",
+  "author": "Autor",
+  "authors": "Autores",
+  "articleAuthors": "Autores",
+  "articleAuthorsColumn": "Autores",
+  "authorName": "Nombre",
   "articleBlurb": "Resumen",
   "articleBlurbHelp": "Un resumen breve",
   "articleCategories": "Categorías de artículos",
@@ -236,5 +239,7 @@
   "footerExplore": "Explorar ApostropheCMS",
   "footerProduct": "Producto",
   "footerSocialMedia": "Redes sociales",
-  "ghPrsForRepo": "PRs {{state}} de {{repo}}"
+  "ghPrsForRepo": "PRs {{state}} de {{repo}}",
+  "userAuthor": "Autor",
+  "userAuthorHelp": "La firma que se acredita cuando este usuario escribe un artículo. Se crea automáticamente la primera vez que trabaja en uno."
 }

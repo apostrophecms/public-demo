@@ -8,7 +8,7 @@ export default {
     // @apostrophecms/url, its own dispatch routes (`/categories/:value`).
     piecesFilters: [
       { name: 'categories' },
-      { name: 'author' }
+      { name: 'authors' }
     ]
   },
   fields: {
