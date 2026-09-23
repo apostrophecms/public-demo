@@ -6,9 +6,6 @@ apostrophe({
   shortName: 'public-demo',
   bundles: [ '@apostrophecms/blog' ],
 
-  // The baseUrl should be overridden in environment variables for other environments.
-  baseUrl: 'http://localhost:3000',
-
   modules: {
 
     // Apostrophe module configuration
