@@ -260,6 +260,20 @@ Core throws if they are not.
 - The prefix is what prevents the joined docs being written back on the next save
 - Access single results via `doc._field[0]`
 
+## Filter and Pagination URLs
+
+`modules/@apostrophecms/url` sets `static: true`, so piece-page filters and pages are **paths**,
+not query strings: `/articles/categories/news/page/2`, not `/articles?categories=news&page=2`.
+Query strings still work on the way in; nothing should generate them.
+
+- Filters are declared in `piecesFilters` on `modules/article-page/index.js` (`categories`,
+  `author`). Each gets its own dispatch routes and a `data.filters` entry in the index template.
+- In the index template, link to a filter through its choice's `_url`; don't build the URL yourself.
+- Elsewhere, append `apos.url.getChoiceFilter(name, value, page)` or
+  `apos.url.getPageFilter(page)` to a page's `_url`, or a piece's `_parentUrl`.
+- Use `_parentUrl`, never `_parentSlug`. The slug lacks the `/fr` or `/de` locale prefix.
+- A static URL expresses one filter at a time.
+
 ## Shared Field Utilities (`lib/`)
 
 | File | Exports | Use for |

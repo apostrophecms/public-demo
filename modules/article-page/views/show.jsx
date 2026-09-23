@@ -28,7 +28,7 @@ export default function (data, {
             {article._author && article._author.length > 0 && (
               <div className="article-detail article-author">
                 {__t('project:writtenBy')}{' '}
-                <a href={`${article._parentSlug}?author=${article._author[0].slug}`}>
+                <a href={article._parentUrl + apos.url.getChoiceFilter('author', article._author[0].slug, 1)}>
                   {article._author[0].title}
                 </a>
               </div>
@@ -41,7 +41,7 @@ export default function (data, {
             <div className="inner article-topics article-topics--show">
               {article._categories.map((category) => (
                 <a
-                  href={`${article._parentSlug}?categories=${category.slug}`}
+                  href={article._parentUrl + apos.url.getChoiceFilter('categories', category.slug, 1)}
                   className="chip"
                 >
                   {category.title}

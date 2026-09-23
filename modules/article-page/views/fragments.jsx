@@ -38,7 +38,7 @@ export function Excerpt({
           <div className="article-topics">
             {article._categories.map((category) => (
               <a
-                href={`${article._parentSlug}?categories=${category.slug}`}
+                href={article._parentUrl + apos.url.getChoiceFilter('categories', category.slug, 1)}
                 className="chip"
               >
                 {category.title}
