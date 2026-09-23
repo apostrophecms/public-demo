@@ -228,5 +228,13 @@
   "surfaceBackgroundHelp": "Couleur d'arrière-plan utilisée sur les cartes, éléments du pied de page et autres surfaces en relief.",
   "textAndType": "Texte et typographie",
   "textColor": "Couleur du texte",
-  "textColorHelp": "Utilisée pour le texte et les libellés"
+  "textColorHelp": "Utilisée pour le texte et les libellés",
+  "allArticles": "Tous les articles",
+  "menu": "Menu",
+  "closeMenu": "Fermer",
+  "toggleDarkMode": "Basculer le mode sombre",
+  "footerExplore": "Découvrir ApostropheCMS",
+  "footerProduct": "Produit",
+  "footerSocialMedia": "Réseaux sociaux",
+  "ghPrsForRepo": "PRs {{state}} pour {{repo}}"
 }

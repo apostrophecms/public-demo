@@ -228,5 +228,13 @@
   "surfaceBackgroundHelp": "Background color used on cards, footer elements, and other raised surfaces.",
   "textAndType": "Text and Typography",
   "textColor": "Text Color",
-  "textColorHelp": "Used for text and labels"
+  "textColorHelp": "Used for text and labels",
+  "allArticles": "All Articles",
+  "menu": "Menu",
+  "closeMenu": "Close",
+  "toggleDarkMode": "Toggle dark mode",
+  "footerExplore": "Explore ApostropheCMS",
+  "footerProduct": "Product",
+  "footerSocialMedia": "Social Media",
+  "ghPrsForRepo": "{{state}} PRs for {{repo}}"
 }

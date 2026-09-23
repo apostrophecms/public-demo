@@ -5,7 +5,7 @@
 // index page it belongs to.
 
 export default function (data, {
-  Extend, Area, apos
+  Extend, Area, apos, __t
 }) {
   const article = data.piece;
   // `_image`, `_author`, and `_categories` are relationships (see
@@ -27,7 +27,7 @@ export default function (data, {
           <div className="article-details">
             {article._author && article._author.length > 0 && (
               <div className="article-detail article-author">
-                Written by{' '}
+                {__t('project:writtenBy')}{' '}
                 <a href={`${article._parentSlug}?author=${article._author[0].slug}`}>
                   {article._author[0].title}
                 </a>

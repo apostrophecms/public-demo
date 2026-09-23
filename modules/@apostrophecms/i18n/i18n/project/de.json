@@ -228,5 +228,13 @@
   "surfaceBackgroundHelp": "Hintergrundfarbe für Karten, Fußzeilenelemente und andere erhabene Flächen.",
   "textAndType": "Text und Typografie",
   "textColor": "Textfarbe",
-  "textColorHelp": "Wird für Text und Beschriftungen verwendet"
+  "textColorHelp": "Wird für Text und Beschriftungen verwendet",
+  "allArticles": "Alle Artikel",
+  "menu": "Menü",
+  "closeMenu": "Schließen",
+  "toggleDarkMode": "Dunkelmodus umschalten",
+  "footerExplore": "ApostropheCMS entdecken",
+  "footerProduct": "Produkt",
+  "footerSocialMedia": "Soziale Medien",
+  "ghPrsForRepo": "{{state}} PRs für {{repo}}"
 }
