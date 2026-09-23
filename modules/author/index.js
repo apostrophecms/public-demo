@@ -38,9 +38,6 @@ export default {
     }
   },
   handlers(self) {
-    // Display names seen before a user update, keyed by the doc being saved,
-    // so the rename can wait until the user has actually been saved.
-    const previousTitles = new WeakMap();
     return {
       '@apostrophecms/user:beforeUpdate': {
         async rememberUserName(req, user) {
@@ -52,17 +49,22 @@ export default {
             { projection: { title: 1 } }
           );
           if (previous) {
-            previousTitles.set(user, previous.title);
+            // Held on the req, keyed by user, until afterUpdate, so the author
+            // is only renamed once the user has actually been saved.
+            req.previousUserTitles = {
+              ...req.previousUserTitles,
+              [user._id]: previous.title
+            };
           }
         }
       },
       '@apostrophecms/user:afterUpdate': {
         async syncAuthorName(req, user) {
-          if (!previousTitles.has(user)) {
+          if (!(req.previousUserTitles && (user._id in req.previousUserTitles))) {
             return;
           }
-          const previousTitle = previousTitles.get(user);
-          previousTitles.delete(user);
+          const previousTitle = req.previousUserTitles[user._id];
+          delete req.previousUserTitles[user._id];
           const authorId = user.authorIds && user.authorIds[0];
           if (!authorId || (previousTitle === user.title)) {
             return;
