@@ -96,7 +96,7 @@ export default function (data, {
                   href="?"
                   className={!data.query.categories ? 'active' : undefined}
                 >
-                  All Articles
+                  {__t('project:allArticles')}
                 </a>
               </li>
               {/* Set by beforeIndex() in modules/article-page/index.js. */}

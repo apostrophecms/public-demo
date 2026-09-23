@@ -4,7 +4,9 @@
 // On a show page, `data.piece` is the article and `data.page` is the article
 // index page it belongs to.
 
-export default function (data, { Extend, Area, apos }) {
+export default function (data, {
+  Extend, Area, apos, __t
+}) {
   const article = data.piece;
   // `_image`, `_author`, and `_categories` are relationships (see
   // modules/article/index.js): loaded at request time and always arrays.
@@ -25,7 +27,7 @@ export default function (data, { Extend, Area, apos }) {
           <div className="article-details">
             {article._author && article._author.length > 0 && (
               <div className="article-detail article-author">
-                Written by{' '}
+                {__t('project:writtenBy')}{' '}
                 <a href={`${article._parentSlug}?author=${article._author[0].slug}`}>
                   {article._author[0].title}
                 </a>
