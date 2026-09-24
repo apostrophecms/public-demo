@@ -3,8 +3,11 @@
   "addBadge": "Ajouter un badge à la carte ?",
   "align": "Aligner",
   "article": "Article",
-  "articleAuthor": "Auteur",
-  "articleAuthorColumn": "Auteur",
+  "author": "Auteur",
+  "authors": "Auteurs",
+  "articleAuthors": "Auteurs",
+  "articleAuthorsColumn": "Auteurs",
+  "authorName": "Nom",
   "articleBlurb": "Résumé",
   "articleBlurbHelp": "Un court résumé",
   "articleCategories": "Catégories d’articles",
@@ -236,5 +239,7 @@
   "footerExplore": "Découvrir ApostropheCMS",
   "footerProduct": "Produit",
   "footerSocialMedia": "Réseaux sociaux",
-  "ghPrsForRepo": "PRs {{state}} pour {{repo}}"
+  "ghPrsForRepo": "PRs {{state}} pour {{repo}}",
+  "userAuthor": "Auteur",
+  "userAuthorHelp": "La signature créditée lorsque cet utilisateur écrit un article. Créée automatiquement la première fois qu’il travaille sur un article."
 }

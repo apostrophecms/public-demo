@@ -4,11 +4,15 @@
 //
 // The pager is built from small local components rather than the macros in
 // @apostrophecms/pager, keeping the template self-contained.
+//
+// Filter and pager links come from core rather than being assembled here:
+// with `static: true` on @apostrophecms/url they are paths
+// (`/articles/categories/news/page/2`), not query strings.
 
 import { Excerpt } from './fragments.jsx';
 
 function PagerPage({
-  page, options, pagerClass, url, apos
+  page, options, pagerClass, pageUrl
 }) {
   if (page > options.total) {
     return null;
@@ -26,7 +30,7 @@ function PagerPage({
       {isActive
         ? page
         : (
-          <a href={apos.url.build(url, { page })}>{page}</a>
+          <a href={pageUrl(page)}>{page}</a>
         )
       }
     </span>
@@ -34,7 +38,7 @@ function PagerPage({
 }
 
 function Pager({
-  options, url, apos, helpers
+  options, pageUrl, helpers
 }) {
   if (!((options.page > 1) || (options.total > 1))) {
     return null;
@@ -48,7 +52,7 @@ function Pager({
   });
   return (
     <div className={pagerClass}>
-      <PagerPage page={1} options={options} pagerClass={pagerClass} url={url} apos={apos} />
+      <PagerPage page={1} options={options} pagerClass={pagerClass} pageUrl={pageUrl} />
       {helpers.pager.showHeadGap(options) && (
         <span className={gapClass}>&hellip;</span>
       )}
@@ -58,8 +62,7 @@ function Pager({
             page={page}
             options={options}
             pagerClass={pagerClass}
-            url={url}
-            apos={apos}
+            pageUrl={pageUrl}
           />
         )
       ))}
@@ -70,8 +73,7 @@ function Pager({
         page={options.total}
         options={options}
         pagerClass={pagerClass}
-        url={url}
-        apos={apos}
+        pageUrl={pageUrl}
       />
     </div>
   );
@@ -85,6 +87,21 @@ export default function (data, {
   const featured = pieces.slice(0, 2);
   const rest = pieces.slice(2);
 
+  // Populated by core from the `piecesFilters` option in
+  // modules/article-page/index.js. Each choice carries its own `_url` and
+  // `active` flag.
+  const filters = data.filters || [];
+  const categoryChoices = (filters.find((filter) => filter.name === 'categories') || {})
+    .choices || [];
+
+  // A static URL can express at most one filter, so paging keeps whichever
+  // one is active (a category or an author) and drops the rest.
+  const activeFilter = filters.find((filter) => filter.choices.some((choice) => choice.active));
+  const activeChoice = activeFilter && activeFilter.choices.find((choice) => choice.active);
+  const pageUrl = (n) => data.page._url + (activeChoice
+    ? apos.url.getChoiceFilter(activeFilter.name, activeChoice.value, n)
+    : apos.url.getPageFilter(n));
+
   return (
     <Extend
       templateName="layout.jsx"
@@ -95,20 +112,19 @@ export default function (data, {
             <ul className="article-topic-filters">
               <li>
                 <a
-                  href="?"
-                  className={!data.query.categories ? 'active' : undefined}
+                  href={data.page._url}
+                  className={!activeChoice ? 'active' : undefined}
                 >
                   {__t('project:allArticles')}
                 </a>
               </li>
-              {/* Set by beforeIndex() in modules/article-page/index.js. */}
-              {(data.categories || []).map((category) => (
+              {categoryChoices.map((choice) => (
                 <li>
                   <a
-                    href={`?categories=${category.slug}`}
-                    className={data.query.categories === category.slug ? 'active' : undefined}
+                    href={choice._url}
+                    className={choice.active ? 'active' : undefined}
                   >
-                    {category.title}
+                    {choice.label}
                   </a>
                 </li>
               ))}
@@ -128,6 +144,7 @@ export default function (data, {
             {featured.map((article) => (
               <Excerpt
                 article={article}
+                locale={data.locale}
                 apos={apos}
                 __t={__t}
                 Area={Area}
@@ -139,6 +156,7 @@ export default function (data, {
             {rest.map((article) => (
               <Excerpt
                 article={article}
+                locale={data.locale}
                 apos={apos}
                 __t={__t}
                 Area={Area}
@@ -151,8 +169,7 @@ export default function (data, {
               page: data.currentPage,
               total: data.totalPages
             }}
-            url={data.url}
-            apos={apos}
+            pageUrl={pageUrl}
             helpers={helpers}
           />
         </section>
