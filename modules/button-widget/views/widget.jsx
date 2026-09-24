@@ -1,6 +1,6 @@
-// An anchor styled as a button, plus a scoped <style> block driving the hover
-// colour from the widget's schema field. The style rule targets the wrapper's
-// `_id`, so the two must stay in step.
+// An anchor styled as a button. Editor-chosen color comes from the widget's
+// `styles` (see ../index.js): core sets `--button-primary-color` on `.button`,
+// and `_button.scss` uses that token for both the resting and hover states.
 //
 // `data.widget` holds this widget's saved fields, defined in ../index.js.
 
@@ -13,22 +13,14 @@ export default function (data, { Template, apos }) {
   ].filter(Boolean).join(' ');
 
   return (
-    <>
-      <div className={`widget button-widget ${classes}`} id={widget._id}>
-        <Template
-          templateName="link.jsx"
-          label={widget.linkText}
-          path={path}
-          target={widget.linkTarget}
-          linkClass={`button button--${widget.style || 'primary'}`}
-        />
-      </div>
-      <style dangerouslySetInnerHTML={{
-        __html: `
-  #${widget._id} .button:hover{
-    background-color: ${widget.color}
-  }`
-      }} />
-    </>
+    <div className={`widget button-widget ${classes}`}>
+      <Template
+        templateName="link.jsx"
+        label={widget.linkText}
+        path={path}
+        target={widget.linkTarget}
+        linkClass={`button button--${widget.style || 'primary'}`}
+      />
+    </div>
   );
 }
