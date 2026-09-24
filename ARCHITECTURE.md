@@ -58,10 +58,9 @@ attributes are emitted verbatim through `escapeAttr()`, so `srcset` and `crossor
 standard lowercase HTML spelling. `key` and `ref` are accepted but ignored — there is no client
 reconciler for them to serve, so they should not be written at all, including inside `.map()`.
 
-Ignoring `key` is not a reason to strip `_id` generally. Some uses are load-bearing: `button-widget`
-renders `id={widget._id}` and targets it from an injected `#${widget._id}` style rule, and
-`layout-widget` passes `widgetId` through `aposParentOptions`. Removing those fails silently rather
-than loudly.
+Ignoring `key` is not a reason to strip `_id` generally. Some uses are load-bearing:
+`layout-widget` passes `widgetId` through `aposParentOptions`. Removing that fails silently
+rather than loudly.
 
 ## JSX/Nunjucks Interop
 
