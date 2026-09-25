@@ -1,5 +1,6 @@
 // Every font here must be loaded by an @font-face rule in
-// modules/asset/ui/src/_global.scss (or be a system font like Georgia).
+// modules/asset/ui/src/_global.scss (or be a system font like Georgia),
+// and preloaded by the `fonts` list in views/layout.jsx.
 export const fontChoices = [
   {
     label: 'project:fontRoboto',

@@ -43,9 +43,9 @@ npm run serve    # production server
 - **Fonts arrive late.** With `font-display: swap` the typeface can change mid-render. Dev-only.
 
 Neither reproduces under `npm run build && npm run serve`. Conversely, genuine asset bugs are
-invisible in dev, because fingerprinted URLs and the build manifest only exist in a production
-build. **Anything touching assets, fonts, or areas must be checked against a production build
-before it is believed.**
+invisible in dev, because release directories and built CSS only exist in a production build.
+**Anything touching assets, fonts, or areas must be checked against a production build before it is
+believed.**
 
 ## Anatomy of a JSX Template
 
@@ -344,13 +344,24 @@ registered helpers rather than methods. That is intentional: all templates consu
 
 Note the prop is `linkClass`, not `class` or `className`.
 
-## Asset URLs and Fingerprinting
+## Asset URLs and Font Preloads
 
-`apos.asset.url(path)` prefixes the release directory but does **not** account for Vite
-fingerprinting build outputs. A font referenced by `@font-face` is served as
-`/assets/poppins.subset-DvBIGq--.woff2`, not `/modules/asset/fonts/poppins.subset.woff2` — both
-exist and return 200, so mismatches fail silently.
+A file in a module's `public/` folder that CSS references by `/modules/...` path, such as a font in
+`@font-face`, is **not** fingerprinted. The build keeps its `modules/...` path, but relative to the
+built CSS files in the release directory, not the site root. `apos.asset.url()` adds that same
+release-directory prefix, so `apos.asset.url('/modules/asset/fonts/poppins.subset.woff2')` in a
+template is exactly the URL the built CSS requests. Never write the bare `/modules/...` path in
+markup. Cache busting comes from the release directory.
 
-Nothing in this project builds a URL to a built asset by hand, and there is no supported API for
-resolving a fingerprinted name. Reference built assets from CSS, where the build rewrites the URL
-for you, rather than constructing one in a template.
+`views/layout.jsx` relies on this to emit `<link rel="preload">` tags for the webfonts:
+
+- Its `fonts` list must name the same files as the `@font-face` rules in
+  `modules/asset/ui/src/_global.scss`. Add, rename, or remove a font in both places.
+- A mismatch fails silently: both URLs return 200, and the font just downloads twice.
+- Vite inlines any asset under 4 KB into the built CSS as a `data:` URL. A font that small needs
+  no request, so preloading it is redundant: leave it out of the list. All four current fonts
+  are over 4 KB.
+
+This applies only to `public/` files referenced by `/modules/...` path. Any other file Vite emits
+may be fingerprinted under `/assets/`, and there is no supported API for resolving those names.
+Reference such files from CSS rather than building their URLs in a template.
