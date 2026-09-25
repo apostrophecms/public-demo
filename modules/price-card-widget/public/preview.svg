@@ -1,75 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Price Cards</title>
+    <title>Price Cards Copy 2</title>
     <defs>
-        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
-        <rect id="path-2" x="-3.55271368e-15" y="0" width="42" height="55" rx="4.82809591"></rect>
-        <rect id="path-4" x="-3.55271368e-15" y="0" width="42" height="55" rx="4.82809591"></rect>
+        <path d="M0,0 L130,0 L130,89 L0,89 Z" id="path-1"></path>
     </defs>
-    <g id="Price-Cards" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
-        <use fill="#ADC4FE" xlink:href="#path-1"></use>
-        <g id="Group" stroke-width="1" transform="translate(10, 4)">
-            <rect id="Mask" fill="#FFFFFD" x="0" y="6" width="110" height="69" rx="8"></rect>
-            <g transform="translate(9.0555, 13)" id="Group-Copy">
+    <g id="Price-Cards-Copy-2" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group" stroke-width="1" transform="translate(10, 10)">
+            <g id="Group-Copy">
                 <g id="Rectangle">
-                    <mask id="mask-3" fill="white">
-                        <use xlink:href="#path-2"></use>
-                    </mask>
-                    <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="1.20702403" width="39.5859519" height="52.5859519" rx="4.82809591"></rect>
-                    <g id="close" mask="url(#mask-3)" fill="#2C5AD8" fill-rule="nonzero" stroke="#2B5AD8" stroke-width="0.65">
-                        <g transform="translate(6, 36)" id="Path">
-                            <polygon points="3 1.30214286 2.69785714 1 1.5 2.19785714 0.302142857 1 0 1.30214286 1.19785714 2.5 0 3.69785714 0.302142857 4 1.5 2.80214286 2.69785714 4 3 3.69785714 1.80214286 2.5"></polygon>
-                        </g>
+                    <rect id="Mask" stroke="#ADC4FE" stroke-width="2.89685768" fill="#F2F6FD" x="1.44842884" y="1.44842884" width="47.5031423" height="65.1031423" rx="5.79371536"></rect>
+                    <g id="close" transform="translate(7.2, 45.7455)" fill="#2C5AD8" fill-rule="nonzero" stroke="#2B5AD8" stroke-width="0.78">
+                        <polygon id="Path" points="3.6 0.373558442 3.23742857 0 1.8 1.48098701 0.362571429 0 0 0.373558442 1.43742857 1.85454545 0 3.33553247 0.362571429 3.70909091 1.8 2.2281039 3.23742857 3.70909091 3.6 3.33553247 2.16257143 1.85454545"></polygon>
                     </g>
-                    <g id="close-copy" mask="url(#mask-3)" fill="#2C5AD8" fill-rule="nonzero" stroke="#2B5AD8" stroke-width="0.65">
-                        <g transform="translate(6, 43)" id="Path">
-                            <polygon points="3 1.30214286 2.69785714 1 1.5 2.19785714 0.302142857 1 0 1.30214286 1.19785714 2.5 0 3.69785714 0.302142857 4 1.5 2.80214286 2.69785714 4 3 3.69785714 1.80214286 2.5"></polygon>
-                        </g>
+                    <g id="close-copy" transform="translate(7.2, 54.4)" fill="#2C5AD8" fill-rule="nonzero" stroke="#2B5AD8" stroke-width="0.78">
+                        <polygon id="Path" points="3.6 0.373558442 3.23742857 0 1.8 1.48098701 0.362571429 0 0 0.373558442 1.43742857 1.85454545 0 3.33553247 0.362571429 3.70909091 1.8 2.2281039 3.23742857 3.70909091 3.6 3.33553247 2.16257143 1.85454545"></polygon>
                     </g>
-                    <g id="check-bold" mask="url(#mask-3)" fill="#2C5AD8" fill-rule="nonzero">
-                        <g transform="translate(5, 29)" id="Path">
-                            <polygon points="1.64112051 5 0 3.4015444 0.747885835 2.67310167 1.64112051 3.54568855 4.25211416 1 5 1.72844273"></polygon>
-                        </g>
+                    <g id="check-bold" transform="translate(6, 37.0909)" fill="#2C5AD8" fill-rule="nonzero">
+                        <polygon id="Path" points="1.96934461 4.94545455 0 2.96918217 0.897463002 2.06856207 1.96934461 3.14739675 5.102537 0 6 0.900620101"></polygon>
                     </g>
                 </g>
-                <line x1="15.9445474" y1="32" x2="32.9445474" y2="32" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                <text id="25" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#2C5AD8">
-                    <tspan x="5.94454745" y="24">25</tspan>
+                <line x1="19.1334569" y1="38.4" x2="39.5334569" y2="38.4" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                <text id="25" font-family="Helvetica-Bold, Helvetica" font-size="14.4" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="7.13345694" y="29.330303">25</tspan>
                 </text>
-                <text id="/mo" font-family="Helvetica-Bold, Helvetica" font-size="8" font-weight="bold" fill="#2C5AD8">
-                    <tspan x="20.9445474" y="24">/mo</tspan>
+                <text id="/mo" font-family="Helvetica-Bold, Helvetica" font-size="9.6" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="25.1334569" y="27.9484848">/mo</tspan>
                 </text>
-                <line x1="15.9445474" y1="39" x2="32.9445474" y2="39" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                <line x1="15.9445474" y1="46" x2="32.9445474" y2="46" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="19.1334569" y1="46.8" x2="39.5334569" y2="46.8" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                <line x1="19.1334569" y1="55.2" x2="39.5334569" y2="55.2" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
             </g>
-            <g id="Group-Copy" transform="translate(59.0555, 13)">
+            <g id="Group-Copy" transform="translate(59.6, 0)">
                 <g id="Rectangle">
-                    <mask id="mask-5" fill="white">
-                        <use xlink:href="#path-4"></use>
-                    </mask>
-                    <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="1.20702403" width="39.5859519" height="52.5859519" rx="4.82809591"></rect>
-                    <g id="star" mask="url(#mask-5)" fill="#2C5AD8" fill-rule="nonzero">
-                        <g transform="translate(8, 8)" id="Path">
-                            <polygon points="25 3.42947368 27.472 5 26.816 2.04 29 0.0484210526 26.124 -0.212631579 25 -3 23.876 -0.212631579 21 0.0484210526 23.18 2.04 22.528 5"></polygon>
-                        </g>
+                    <rect id="Mask" stroke="#ADC4FE" stroke-width="2.89685768" fill="#F2F6FD" x="1.44842884" y="1.44842884" width="47.5031423" height="65.1031423" rx="5.79371536"></rect>
+                    <g id="star" transform="translate(34.8, 6.1818)" fill="#2C5AD8" fill-rule="nonzero">
+                        <polygon id="Path" points="4.8 7.94916746 7.7664 9.89090909 6.9792 6.23127273 9.6 3.76895694 6.1488 3.44620096 4.8 0 3.4512 3.44620096 0 3.76895694 2.616 6.23127273 1.8336 9.89090909"></polygon>
                     </g>
-                    <g id="check-bold" mask="url(#mask-5)" fill="#2C5AD8" fill-rule="nonzero">
-                        <g transform="translate(5, 29)">
-                            <polygon id="Path" points="2.64112051 5 1 3.4015444 1.74788584 2.67310167 2.64112051 3.54568855 5.25211416 1 6 1.72844273"></polygon>
-                            <polygon id="Path-Copy" points="2.64112051 12 1 10.4015444 1.74788584 9.67310167 2.64112051 10.5456885 5.25211416 8 6 8.72844273"></polygon>
-                            <polygon id="Path-Copy-2" points="2.64112051 19 1 17.4015444 1.74788584 16.6731017 2.64112051 17.5456885 5.25211416 15 6 15.7284427"></polygon>
-                        </g>
+                    <g id="check-bold" transform="translate(7.2, 37.0909)" fill="#2C5AD8" fill-rule="nonzero">
+                        <polygon id="Path" points="1.96934461 4.94545455 0 2.96918217 0.897463002 2.06856207 1.96934461 3.14739675 5.102537 0 6 0.900620101"></polygon>
+                        <polygon id="Path-Copy" points="1.96934461 13.6 0 11.6237276 0.897463002 10.7231075 1.96934461 11.8019422 5.102537 8.65454545 6 9.55516556"></polygon>
+                        <polygon id="Path-Copy-2" points="1.96934461 22.2545455 0 20.2782731 0.897463002 19.377653 1.96934461 20.4564877 5.102537 17.3090909 6 18.209711"></polygon>
                     </g>
                 </g>
-                <line x1="15.9445474" y1="32" x2="32.9445474" y2="32" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                <text id="99" font-family="Helvetica-Bold, Helvetica" font-size="12" font-weight="bold" fill="#2C5AD8">
-                    <tspan x="5.94454745" y="24">99</tspan>
+                <line x1="19.1334569" y1="38.4" x2="39.5334569" y2="38.4" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                <text id="99" font-family="Helvetica-Bold, Helvetica" font-size="14.4" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="7.13345694" y="29.330303">99</tspan>
                 </text>
-                <text id="/mo" font-family="Helvetica-Bold, Helvetica" font-size="8" font-weight="bold" fill="#2C5AD8">
-                    <tspan x="20.9445474" y="24">/mo</tspan>
+                <text id="/mo" font-family="Helvetica-Bold, Helvetica" font-size="9.6" font-weight="bold" fill="#2C5AD8">
+                    <tspan x="25.1334569" y="27.9484848">/mo</tspan>
                 </text>
-                <line x1="15.9445474" y1="39" x2="32.9445474" y2="39" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                <line x1="15.9445474" y1="46" x2="32.9445474" y2="46" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="19.1334569" y1="46.8" x2="39.5334569" y2="46.8" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                <line x1="19.1334569" y1="55.2" x2="39.5334569" y2="55.2" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
             </g>
         </g>
     </g>
