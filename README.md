@@ -14,29 +14,69 @@ an alternative to Nunjucks that runs on the server. See [ARCHITECTURE.md](./ARCH
 | Requirement | Version | Link |
 |-------------|---------|------|
 | Node.js | 22 LTS+ | https://nodejs.org |
-| Database | — | MongoDB 8+, SQLite (no server), or PostgreSQL 14+ |
 | npm | 8+ | Included with Node.js |
+| Git | Any recent | https://git-scm.com |
+| Database | — | SQLite (no server), MongoDB 8+, or PostgreSQL 14+ |
 
-> **Quickest local setup:** use SQLite — no database server required.
-> Set `APOS_DB_URI=sqlite://./data/public-demo.db` in `.env`.
+> **Quickest local setup:** choose SQLite. No database server is required.
 
 ---
 
 ## Quick Start
 
+Create a project with the guided installer:
+
+```sh
+npm create apostrophe@latest
+```
+
+Answer the prompts as follows. Two of the defaults install something else, so check those two
+answers carefully:
+
+1. **Project name** — anything; this becomes the project folder.
+2. **How would you like to build?** → **Apostrophe Standalone** (the default is Astro).
+3. **Choose a starting point** → **Demo**
+4. **Pre-fill with sample content?** → **Yes** (the default is No).
+5. **Choose a database** → **SQLite**, unless you already run MongoDB or PostgreSQL.
+6. **Create your admin account** — pick a username and password.
+
+The installer clones this repository, writes `.env`, installs dependencies, imports the sample
+content, and creates your admin account. Then:
+
+```sh
+cd <your-project-name>
+npm run dev
+```
+
+Open **http://localhost:3000** and log in at `/login` with the admin account you just created.
+(If port 3000 is already in use on your machine, set `PORT` in `.env` — see
+[Environment Variables](#environment-variables) — and open that port instead.)
+
+To install without prompts, for example in CI, pass `--kit=apostrophe-demo-data`. Without it,
+unattended mode installs the Astro demo:
+
+```sh
+npm create apostrophe@latest -- --unattended --kit=apostrophe-demo-data \
+  --project-name=my-site --password=<admin-password> --telemetry=off
+```
+
+Run `npm create apostrophe@latest -- --help` for all flags.
+
+### Working on this repository
+
+To contribute to the demo itself, clone it directly. This path starts with an empty database
+and no sample content.
+
 ```sh
 git clone https://github.com/apostrophecms/public-demo.git
 cd public-demo
 cp .env.example .env
-# Edit .env — set APOS_DB_URI unless MongoDB is running locally (see Environment Variables below)
+# Edit .env — set APOS_DB_URI unless MongoDB is running locally, e.g.
+# APOS_DB_URI=sqlite://./data/public-demo.db (see Environment Variables below)
 npm install
 node app @apostrophecms/user:add admin admin
 npm run dev
 ```
-
-Open **http://localhost:3000** and log in at `/login` with username `admin` and the password
-you entered above. (If port 3000 is already in use on your machine, set `PORT` in `.env` — see
-[Environment Variables](#environment-variables) — and open that port instead.)
 
 ---
 
