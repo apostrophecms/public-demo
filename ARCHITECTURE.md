@@ -278,20 +278,41 @@ the template needs.
 | `contextOptions` | Context options passed down by the enclosing area (widget templates) |
 | `children` | Markup passed between a caller's tags (templates used as layouts) |
 
-## Asset URLs and Build Fingerprinting
+## Asset URLs and Font Preloads
 
-`apos.asset.url(path)` prefixes the release directory but does not account for Vite fingerprinting
-its build outputs. A font referenced from `@font-face` in `_global.scss` is served as
-`/assets/poppins.subset-DvBIGq--.woff2`, not `/modules/asset/fonts/poppins.subset.woff2`. Both
-paths exist and return 200 in a production build, so a mismatch produces no error — just a wasted
-request.
+The webfonts are declared with `@font-face` in `_global.scss`, using `font-display: swap`. Without
+help, the browser discovers them only after it has downloaded and parsed the CSS. Text paints first
+in a fallback face and then reflows when the real one arrives. So `views/layout.jsx` emits
+`<link rel="preload">` tags for them in the outer layout's `extraHead` block, which starts the
+downloads as soon as the `<head>` is parsed.
 
-That only matters for code that builds an asset URL by hand. Nothing in this project does, and
-there is no supported API for resolving a fingerprinted name, so reference built assets from CSS
-and let the build rewrite the URL.
+This works because the build does not fingerprint files from a module's `public/` folder that CSS
+references by `/modules/...` path. The build keeps the `modules/...` path, but relative to the built
+CSS files, not to the site root. `url("/modules/asset/fonts/poppins.subset.woff2")` in
+`_global.scss` becomes
+`/uploads/apos-frontend/releases/<release>/default/modules/asset/fonts/poppins.subset.woff2` in the
+built CSS. `apos.asset.url()` adds the same release-directory prefix, so
+`apos.asset.url('/modules/asset/fonts/poppins.subset.woff2')` in a template produces exactly the
+URL the built CSS requests. The bare `/modules/...` path is not that URL, so never write it directly
+in markup. Cache busting comes from the release directory itself, which changes with every
+deployment.
+
+The preload list in `layout.jsx` is maintained by hand and must name the same files as the
+`@font-face` rules. A mismatch produces no error. Both URLs return 200, so the preloaded file just
+goes unused and the font downloads twice. Change both places together.
+
+The exception is a font under 4 KB. Vite inlines any asset that small into the built CSS as a
+`data:` URL, so the browser never requests the file and preloading it would download bytes it
+already has. Leave such a font out of the preload list. All four current fonts are over 4 KB;
+the smallest, `poppins.subset.woff2`, is about 6.5 KB.
+
+This applies only to `public/` files referenced by `/modules/...` path. Any other file Vite emits
+may be fingerprinted under `/assets/`, and there is no supported API for resolving those names. For
+those, reference the file from CSS and let the build rewrite the URL, rather than building one in a
+template.
 
 The practical rule is that **dev and production disagree about assets**, in both directions. Dev
 invents symptoms that do not exist in production — JS-injected CSS causing a flash of unstyled
 content on navigation, and fonts arriving late enough to swap typeface mid-render. And dev conceals
-real faults, because fingerprinted URLs and release directories only exist in a production build.
+real faults, because release directories and built CSS only exist in a production build.
 Verify anything touching assets with `npm run build && npm run serve`.
