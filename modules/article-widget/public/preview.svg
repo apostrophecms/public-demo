@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Articles</title>
+    <title>Articles Copy 2</title>
     <defs>
-        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
-        <rect id="path-2" x="-3.55271368e-15" y="0" width="42" height="55" rx="4.82809591"></rect>
-        <rect id="path-4" x="-3.55271368e-15" y="0" width="42" height="55" rx="4.82809591"></rect>
+        <path d="M0,0 L130,0 L130,89 L0,89 Z" id="path-1"></path>
+        <rect id="path-2" x="0" y="0" width="50.3076923" height="68" rx="5.79371536"></rect>
+        <rect id="path-4" x="0" y="0" width="50.3076923" height="68" rx="5.79371536"></rect>
     </defs>
-    <g id="Articles" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
-        <use fill="#ADC4FE" xlink:href="#path-1"></use>
-        <g id="Group" stroke-width="1" transform="translate(10, 4)">
-            <rect id="Mask" fill="#FFFFFD" x="0" y="6" width="110" height="69" rx="8"></rect>
-            <g transform="translate(9.0555, 13)">
+    <g id="Articles-Copy-2" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group" stroke-width="1" transform="translate(10, 10)">
+            <g>
                 <g id="Group-Copy">
                     <g id="Rectangle">
                         <mask id="mask-3" fill="white">
                             <use xlink:href="#path-2"></use>
                         </mask>
-                        <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="1.20702403" width="39.5859519" height="52.5859519" rx="4.82809591"></rect>
-                        <rect fill="#ADC4FE" mask="url(#mask-3)" x="1" y="2" width="40" height="23"></rect>
+                        <rect stroke="#ADC4FE" stroke-width="2.89685768" x="1.44842884" y="1.44842884" width="47.4108346" height="65.1031423" rx="5.79371536"></rect>
+                        <rect fill="#ADC4FE" mask="url(#mask-3)" x="1.1978022" y="2.47272727" width="47.9120879" height="28.4363636"></rect>
                     </g>
-                    <line x1="9.44454745" y1="32" x2="32.9445474" y2="32" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                    <line x1="9.44454745" y1="39" x2="32.9445474" y2="39" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                    <line x1="9.44454745" y1="46" x2="32.9445474" y2="46" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="11.3334569" y1="39.4" x2="39.5334569" y2="39.4" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                    <line x1="11.3334569" y1="47.8" x2="39.5334569" y2="47.8" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                    <line x1="11.3334569" y1="56.2" x2="39.5334569" y2="56.2" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
                 </g>
-                <g id="Group-Copy-2" transform="translate(49, 0)">
+                <g id="Group-Copy-2" transform="translate(58.6923, 0)">
                     <g id="Rectangle">
                         <mask id="mask-5" fill="white">
                             <use xlink:href="#path-4"></use>
                         </mask>
-                        <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="1.20702403" width="39.5859519" height="52.5859519" rx="4.82809591"></rect>
-                        <rect fill="#ADC4FE" mask="url(#mask-5)" x="1" y="2" width="40" height="23"></rect>
+                        <rect stroke="#ADC4FE" stroke-width="2.89685768" x="1.44842884" y="1.44842884" width="47.4108346" height="65.1031423" rx="5.79371536"></rect>
+                        <rect fill="#ADC4FE" mask="url(#mask-5)" x="1.1978022" y="2.47272727" width="47.9120879" height="28.4363636"></rect>
                     </g>
-                    <line x1="9.44454745" y1="32" x2="32.9445474" y2="32" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                    <line x1="9.44454745" y1="39" x2="32.9445474" y2="39" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
-                    <line x1="9.44454745" y1="46" x2="32.9445474" y2="46" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4" stroke-linecap="round"></line>
+                    <line x1="11.3334569" y1="39.4" x2="39.5334569" y2="39.4" id="Line-Copy-10" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                    <line x1="11.3334569" y1="47.8" x2="39.5334569" y2="47.8" id="Line-Copy-11" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
+                    <line x1="11.3334569" y1="56.2" x2="39.5334569" y2="56.2" id="Line-Copy-12" stroke="#2C5AD8" stroke-width="4.8" stroke-linecap="round"></line>
                 </g>
             </g>
         </g>
