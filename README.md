@@ -13,9 +13,8 @@ an alternative to Nunjucks that runs on the server. See [ARCHITECTURE.md](./ARCH
 
 | Requirement | Version | Link |
 |-------------|---------|------|
-| Node.js | 22 LTS+ | https://nodejs.org |
+| Node.js | 24 LTS+ | https://nodejs.org |
 | npm | 8+ | Included with Node.js |
-| Git | Any recent | https://git-scm.com |
 | Database | — | SQLite (no server), MongoDB 8+, or PostgreSQL 14+ |
 
 > **Quickest local setup:** choose SQLite. No database server is required.
