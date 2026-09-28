@@ -16,16 +16,18 @@ function formatDate(value, locale) {
   }).format(date);
 }
 
-export default function (data, { __t }) {
-  if (data.error === 'rateLimited') {
+export default function ({
+  pulls, locale, error
+}, { __t }) {
+  if (error === 'rateLimited') {
     return <p>{__t('project:prsRateLimited')}</p>;
   }
-  if (data.error || !Array.isArray(data.pulls)) {
+  if (error || !Array.isArray(pulls)) {
     return <p>{__t('project:prsUnavailable')}</p>;
   }
   return (
     <ol className="gh-pr-widget__items">
-      {data.pulls.map((item) => (
+      {pulls.map((item) => (
         <li className="gh-pr-widget__item">
           <h2 className="gh-pr-widget__subtitle">
             <a href={item.html_url} target="_blank" rel="noopener noreferrer">
@@ -48,7 +50,7 @@ export default function (data, { __t }) {
           </a>
           <div className="gh-pr-widget__subdetails">
             <p className="gh-pr-widget__subdetail">
-              {__t('project:prOpenedOn', { date: formatDate(item.created_at, data.locale) })}
+              {__t('project:prOpenedOn', { date: formatDate(item.created_at, locale) })}
             </p>
             <p className="gh-pr-widget__subdetail">
               {__t('project:prNumber', { number: item.number })}

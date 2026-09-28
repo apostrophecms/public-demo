@@ -13,32 +13,31 @@
 // `jsxRender.js`: each prop becomes a {% block %} override on the
 // underlying Nunjucks template.
 //
-// Data available here and in every template that extends this one:
-//   data.page    the current page document
-//   data.piece   the current piece on show pages; undefined elsewhere
-//   data.global  the Global Settings document (modules/@apostrophecms/global)
-//   data.home    the home page; data.home._children feeds the nav
+// Props and page data arrive in the same first argument. Apostrophe also
+// provides, here and in every template that extends this one:
+//   page    the current page document; undefined on the 404 page
+//   piece   the current piece on show pages; undefined elsewhere
+//   global  the Global Settings document (modules/@apostrophecms/global)
+//   home    the home page; home._children feeds the nav
 
-import locales from './locales.jsx';
+import Locales from './locales.jsx';
 import Logo from './logo.jsx';
 
-function defaultTitle(data) {
-  const piece = data.piece && data.piece.title;
-  const page = data.page && data.page.title;
-  return piece || page;
+function defaultTitle(page, piece) {
+  return (piece && piece.title) || (page && page.title);
 }
 
-function siteTitle(data) {
+function siteTitle(global) {
   // Matches the siteTitle default in modules/@apostrophecms/global/index.js.
-  return (data.global && data.global.siteTitle) || 'ApostropheCMS Site';
+  return (global && global.siteTitle) || 'ApostropheCMS Site';
 }
 
 // `_siteLogo` is a relationship, so it arrives as an array of image documents.
 // Getting a URL takes two steps: apos.image.first() pulls the attachment out
 // of that array, then apos.attachment.url() builds the URL for one size.
-function logoUrls(data, apos) {
-  const logoAttachment = apos.image.first(data.global && data.global._siteLogo);
-  const logoAttachmentDark = apos.image.first(data.global && data.global._siteLogoDark);
+function logoUrls(global, apos) {
+  const logoAttachment = apos.image.first(global && global._siteLogo);
+  const logoAttachmentDark = apos.image.first(global && global._siteLogoDark);
   return {
     logoAttachment,
     logoAttachmentDark,
@@ -47,27 +46,27 @@ function logoUrls(data, apos) {
   };
 }
 
-function NavLinks({ data }) {
-  const homeSlug = data.home && data.home.slug;
-  const pageSlug = data.page && data.page.slug;
-  const children = (data.home && data.home._children) || [];
+function NavLinks({ home, page }) {
+  const homeSlug = home && home.slug;
+  const pageSlug = page && page.slug;
+  const children = (home && home._children) || [];
   return (
     <ul>
       <li>
         <a
           className={pageSlug === homeSlug ? 'active' : undefined}
-          href={data.home && data.home._url}
+          href={home && home._url}
         >
-          {data.home && data.home.title}
+          {home && home.title}
         </a>
       </li>
-      {children.map((page) => page.visibility === 'public' && (
+      {children.map((child) => child.visibility === 'public' && (
         <li>
           <a
-            className={pageSlug === page.slug ? 'active' : undefined}
-            href={page._url}
+            className={pageSlug === child.slug ? 'active' : undefined}
+            href={child._url}
           >
-            {page.title}
+            {child.title}
           </a>
         </li>
       ))}
@@ -75,57 +74,58 @@ function NavLinks({ data }) {
   );
 }
 
-function Breadcrumbs({ data }) {
-  const ancestors = (data.page && data.page._ancestors) || [];
+function Breadcrumbs({ page, piece }) {
+  const ancestors = (page && page._ancestors) || [];
   if (!ancestors.length) {
     return null;
   }
   return (
     <div className="layout">
       <nav className="breadcrumb">
-        {ancestors.map((page) => (
-          <a href={page._url}>{page.title}</a>
+        {ancestors.map((ancestor) => (
+          <a href={ancestor._url}>{ancestor.title}</a>
         ))}
         <a
-          className={!data.piece ? 'current-page' : undefined}
-          href={data.page && data.page._url}
+          className={!piece ? 'current-page' : undefined}
+          href={page._url}
         >
-          {data.page && data.page.title}
+          {page.title}
         </a>
-        {data.piece && (
-          <a className="current-page" href={data.piece._url}>{data.piece.title}</a>
+        {piece && (
+          <a className="current-page" href={piece._url}>{piece.title}</a>
         )}
       </nav>
     </div>
   );
 }
 
-function PageTitle({ data }) {
-  const title = (data.piece && data.piece.title) || (data.page && data.page.title);
+function PageTitle({ page, piece }) {
   return (
     <div className="page-title-wrapper">
-      <h1 className="page-title">{title}</h1>
+      <h1 className="page-title">{defaultTitle(page, piece)}</h1>
     </div>
   );
 }
 
-function Header({ data, apos, __t }) {
+function Header({
+  home, page, global, localizations, apos, __t
+}) {
   const {
     logoAttachment, logoAttachmentDark, logoUrl, logoUrlDark
-  } = logoUrls(data, apos);
+  } = logoUrls(global, apos);
   return (
     <header className="header">
       <div className="nav-bar">
         <h2>
           {/* Locale-aware: a hardcoded "/" sends visitors from /fr or /de to
-              the English home page. data.home._url carries the locale prefix. */}
-          <a href={(data.home && data.home._url) || '/'}>
+              the English home page. home._url carries the locale prefix. */}
+          <a href={(home && home._url) || '/'}>
             {logoAttachment
               ? (
                 <img
                   id="nav-logo"
                   src={logoUrl}
-                  alt={data.global && data.global.siteTitle}
+                  alt={global && global.siteTitle}
                   width={apos.attachment.getWidth(logoAttachment) || '100'}
                   height={apos.attachment.getHeight(logoAttachment) || '36'}
                   data-dark-url={logoAttachmentDark ? logoUrlDark : undefined}
@@ -133,16 +133,16 @@ function Header({ data, apos, __t }) {
                 />
               )
               : (
-                data.global && data.global.siteTitle
+                global && global.siteTitle
               )
             }
           </a>
         </h2>
         <nav className="nav" role="navigation">
-          <NavLinks data={data} />
+          <NavLinks home={home} page={page} />
         </nav>
         <div className="nav-bar__end">
-          {locales(data, apos)}
+          <Locales localizations={localizations} apos={apos} />
         </div>
         <button className="nav__mobile-button" data-mobile-trigger aria-controls="mobile-nav">
           <svg
@@ -168,7 +168,9 @@ function Header({ data, apos, __t }) {
   );
 }
 
-function MobileNav({ data, apos, __t }) {
+function MobileNav({
+  home, page, localizations, apos, __t
+}) {
   return (
     <div className="mobile-nav" data-mobile-nav="hidden" aria-hidden="true">
       <button className="mobile-nav__close-trigger" data-mobile-close-trigger>
@@ -190,21 +192,21 @@ function MobileNav({ data, apos, __t }) {
         <span>{__t('project:closeMenu')}</span>
       </button>
       <nav id="mobile-nav" className="mobile-nav__nav" role="navigation">
-        <NavLinks data={data} />
+        <NavLinks home={home} page={page} />
       </nav>
       <div className="mobile-nav__locales">
-        {locales(data, apos, 'mobile-locales-list')}
+        <Locales localizations={localizations} apos={apos} id="mobile-locales-list" />
       </div>
     </div>
   );
 }
 
-function Footer({ data, __t }) {
+function Footer({ home, __t }) {
   return (
     <footer className="footer">
       <div className="footer__section footer__top">
         <div className="footer__column footer__column--logo">
-          <a href={(data.home && data.home._url) || '/'} className="footer__logo">
+          <a href={(home && home._url) || '/'} className="footer__logo">
             <Logo />
           </a>
         </div>
@@ -291,32 +293,50 @@ function ModeSwitch({ __t }) {
   );
 }
 
-export default function (data, { Extend, apos, __t }) {
-  // `data.title` is how a page template overrides the document title — the
-  // JSX equivalent of Nunjucks `{% block title %}`.
-  const title = data.title || defaultTitle(data);
+export default function ({
+  page, piece, global, home, localizations, outerLayout,
+  title, bodyClass, pageTitle, breadcrumbs, main
+}, {
+  Extend, apos, __t
+}) {
+  // The `title` prop is how a page template overrides the document title —
+  // the JSX equivalent of Nunjucks `{% block title %}`.
+  const docTitle = title || defaultTitle(page, piece);
 
-  if (!title) {
+  if (!docTitle) {
     apos.util.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.');
   }
 
   return (
     <Extend
-      templateName={data.outerLayout}
-      title={title ? `${title} - ${siteTitle(data)}` : siteTitle(data)}
-      bodyClass={data.bodyClass || ''}
+      templateName={outerLayout}
+      title={docTitle ? `${docTitle} - ${siteTitle(global)}` : siteTitle(global)}
+      bodyClass={bodyClass || ''}
       main={
         <>
-          <Header data={data} apos={apos} __t={__t} />
-          <MobileNav data={data} apos={apos} __t={__t} />
-          {data.breadcrumbs !== undefined ? data.breadcrumbs : <Breadcrumbs data={data} />}
-          {data.pageTitle !== undefined ? data.pageTitle : <PageTitle data={data} />}
+          <Header
+            home={home}
+            page={page}
+            global={global}
+            localizations={localizations}
+            apos={apos}
+            __t={__t}
+          />
+          <MobileNav
+            home={home}
+            page={page}
+            localizations={localizations}
+            apos={apos}
+            __t={__t}
+          />
+          {breadcrumbs !== undefined ? breadcrumbs : <Breadcrumbs page={page} piece={piece} />}
+          {pageTitle !== undefined ? pageTitle : <PageTitle page={page} piece={piece} />}
           <div className="layout">
             <main>
-              {data.main}
+              {main}
             </main>
           </div>
-          <Footer data={data} __t={__t} />
+          <Footer home={home} __t={__t} />
         </>
       }
       extraBody={<ModeSwitch __t={__t} />}

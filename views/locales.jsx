@@ -2,8 +2,8 @@
 // `localizations` is an array provided by Apostrophe i18n; each entry carries a
 // `flag` country code assigned in modules/@apostrophecms/i18n/index.js.
 //
-// Called directly rather than through <Template>, so it receives `apos` as a
-// second argument — an imported function gets no helper object of its own.
+// Imported as a component rather than rendered through <Template>, so `apos`
+// arrives as a prop — an imported component gets no helper object of its own.
 
 // Flags are served from modules/asset/public/flags/ rather than a third-party
 // image service: no external requests, no visitor IPs leaving the site, and
@@ -49,8 +49,9 @@ const Check = () => (
 
 // The layout renders this twice (desktop and mobile nav), so `id` keeps the
 // list's id, and the toggle's aria-controls, unique on the page.
-export default function (data, apos, id = 'locales-list') {
-  const localizations = data.localizations || [];
+export default function Locales({
+  localizations = [], apos, id = 'locales-list'
+}) {
   const current = localizations.find((l) => l.current);
   return (
     <div className="locales" data-locales>

@@ -155,11 +155,8 @@ export const icons = {
 };
 
 // Template-style entry point: `<Template templateName="@apostrophecms/template:macros/icons.jsx" name="clock" />`.
-// Returns the icon picked by `data.name`, or nothing when missing/unknown.
-export default function (data) {
-  if (!data || !data.name) {
-    return null;
-  }
-  const Icon = icons[data.name];
+// Returns the icon picked by `name`, or nothing when missing/unknown.
+export default function ({ name } = {}) {
+  const Icon = name && icons[name];
   return Icon ? <Icon /> : null;
 }
