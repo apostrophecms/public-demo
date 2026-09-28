@@ -2,10 +2,9 @@
 // `styles` (see ../index.js): core sets `--button-primary-color` on `.button`,
 // and `_button.scss` uses that token for both the resting and hover states.
 //
-// `data.widget` holds this widget's saved fields, defined in ../index.js.
+// `widget` holds this widget's saved fields, defined in ../index.js.
 
-export default function (data, { Template, apos }) {
-  const widget = data.widget;
+export default function ({ widget }, { Template, apos }) {
   const path = apos.helper.linkPath(widget);
   const classes = [
     widget.block ? `button-widget--block-${widget.block}` : '',

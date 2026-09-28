@@ -1,6 +1,6 @@
 // The default page type: the project layout with a single editable area.
 
-export default function (data, { Extend, Area }) {
+export default function ({ page }, { Extend, Area }) {
   return (
     <Extend
       templateName="layout.jsx"
@@ -8,7 +8,7 @@ export default function (data, { Extend, Area }) {
         <div className="general-content">
           {/* Renders the widgets stored in the page's `main` area field,
               defined in modules/default-page/index.js. */}
-          <Area doc={data.page} name="main" />
+          <Area doc={page} name="main" />
         </div>
       }
     />

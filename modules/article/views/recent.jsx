@@ -3,11 +3,12 @@
 
 import { Excerpt } from '../../article-page/views/fragments.jsx';
 
-export default function (data, {
+export default function ({
+  articles = [], display, locale
+}, {
   Area, apos, __t
 }) {
-  const articles = data.articles || [];
-  const displayClass = data.display ? `article-excerpts--display-${data.display}` : '';
+  const displayClass = display ? `article-excerpts--display-${display}` : '';
   return (
     <div className={`widget article-widget article-excerpts ${displayClass}`}>
       {articles.length > 0
@@ -15,7 +16,7 @@ export default function (data, {
           articles.map((article) => (
             <Excerpt
               article={article}
-              locale={data.locale}
+              locale={locale}
               apos={apos}
               __t={__t}
               Area={Area}
