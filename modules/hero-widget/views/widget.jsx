@@ -5,11 +5,14 @@
 // resolves it the same way as a single-link widget.
 
 export default function ({ widget }, {
-  Area, Template, apos
+  Area, Template, Field, apos
 }) {
   const links = widget.links || [];
   return (
     <div className="widget hero-widget">
+    <div class="hero-widget__headline">
+      <Field doc={widget} name="headline" with={{ tag: 'h1' }} />
+    </div>
       <div className="hero-widget__content">
         {/* Renders the widgets stored in this widget's `content` area field,
             defined in ../index.js. */}
