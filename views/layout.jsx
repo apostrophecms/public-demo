@@ -107,6 +107,34 @@ function PageTitle({ page, piece }) {
   );
 }
 
+// Preload the webfonts so text paints in the real face rather than swapping
+// in later (`font-display: swap` otherwise reflows the page mid-render).
+// These must be the same paths the `@font-face` rules in `_global.scss`
+// request, or each font downloads twice. Leave out any font under 4 KB: Vite
+// inlines it into the CSS, so there is nothing to preload.
+const fonts = [
+  'poppins.subset.woff2',
+  'quicksand.subset.woff2',
+  'roboto.subset.woff2',
+  'roboto-italic.subset.woff2'
+];
+
+function ExtraHead({ apos }) {
+  return (
+    <>
+      {fonts.map((font) => (
+        <link
+          rel="preload"
+          href={apos.asset.url(`/modules/asset/fonts/${font}`)}
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+      ))}
+    </>
+  );
+}
+
 function Header({
   home, page, global, localizations, apos, __t
 }) {
@@ -312,6 +340,7 @@ export default function ({
       templateName={outerLayout}
       title={docTitle ? `${docTitle} - ${siteTitle(global)}` : siteTitle(global)}
       bodyClass={bodyClass || ''}
+      extraHead={<ExtraHead apos={apos} />}
       main={
         <>
           <Header
