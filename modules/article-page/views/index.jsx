@@ -79,18 +79,17 @@ function Pager({
   );
 }
 
-export default function (data, {
+export default function ({
+  page, pieces = [], filters = [], locale, currentPage, totalPages
+}, {
   Extend, Area, apos, helpers, __t
 }) {
-  const title = data.page && data.page.title;
-  const pieces = data.pieces || [];
   const featured = pieces.slice(0, 2);
   const rest = pieces.slice(2);
 
   // Populated by core from the `piecesFilters` option in
   // modules/article-page/index.js. Each choice carries its own `_url` and
   // `active` flag.
-  const filters = data.filters || [];
   const categoryChoices = (filters.find((filter) => filter.name === 'categories') || {})
     .choices || [];
 
@@ -98,7 +97,7 @@ export default function (data, {
   // one is active (a category or an author) and drops the rest.
   const activeFilter = filters.find((filter) => filter.choices.some((choice) => choice.active));
   const activeChoice = activeFilter && activeFilter.choices.find((choice) => choice.active);
-  const pageUrl = (n) => data.page._url + (activeChoice
+  const pageUrl = (n) => page._url + (activeChoice
     ? apos.url.getChoiceFilter(activeFilter.name, activeChoice.value, n)
     : apos.url.getPageFilter(n));
 
@@ -108,11 +107,11 @@ export default function (data, {
       pageTitle={
         <div className="article-title-wrapper">
           <div className="layout">
-            <h1 className="page-title">{title}</h1>
+            <h1 className="page-title">{page.title}</h1>
             <ul className="article-topic-filters">
               <li>
                 <a
-                  href={data.page._url}
+                  href={page._url}
                   className={!activeChoice ? 'active' : undefined}
                 >
                   {__t('project:allArticles')}
@@ -137,14 +136,14 @@ export default function (data, {
           <header className="article-intro general-content">
             {/* Renders the widgets stored in the index page's `intro` area
                 field, defined in modules/article-page/index.js. */}
-            <Area doc={data.page} name="intro" />
+            <Area doc={page} name="intro" />
           </header>
 
           <div className="article-excerpts article-excerpts--display-horizontal article-excerpts--display-featured">
             {featured.map((article) => (
               <Excerpt
                 article={article}
-                locale={data.locale}
+                locale={locale}
                 apos={apos}
                 __t={__t}
                 Area={Area}
@@ -156,7 +155,7 @@ export default function (data, {
             {rest.map((article) => (
               <Excerpt
                 article={article}
-                locale={data.locale}
+                locale={locale}
                 apos={apos}
                 __t={__t}
                 Area={Area}
@@ -166,8 +165,8 @@ export default function (data, {
 
           <Pager
             options={{
-              page: data.currentPage,
-              total: data.totalPages
+              page: currentPage,
+              total: totalPages
             }}
             pageUrl={pageUrl}
             helpers={helpers}

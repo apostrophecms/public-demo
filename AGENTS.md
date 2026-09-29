@@ -63,12 +63,25 @@ export default function ({ page }, { Area }) {
 ```
 
 1. **`data`** — the same object referenced as `data.*` in Nunjucks. Destructure it; write
-   `page.title`, not `data.page.title`.
+   `page.title`, not `data.page.title`. See [Reading Data](#reading-data).
 2. **Helpers** — `{ apos, helpers, Area, Component, Extend, Template, Widget, __t }`.
 
 The function may be `async`, but does not need to be in order to render async children. Apostrophe
 awaits all pending output before sending the response. Declare `async` only when the template itself
 must fetch something first.
+
+## Reading Data
+
+Every template Apostrophe renders destructures its first argument: pages, pieces, widgets, async
+component templates, `<Template>` targets, the 404, and `views/layout.jsx`. There is no exception.
+
+- **Top level only.** Write `({ widget })` and read `widget.limit`, not `({ widget: { limit } })`.
+  Renaming is fine where it names the thing better: `({ piece: article })`.
+- **Props and page data share the argument.** In a layout, `main` and `title` (props from
+  `<Extend>`) sit beside `page` and `home` (request data). Destructuring them together is correct.
+- **Unused:** name it `_data`, as `notFound.jsx` does.
+- **Inner components** receive what they need as explicit props, never the whole data object —
+  `<NavLinks home={home} page={page} />`, not `<NavLinks data={data} />`.
 
 ## The Second Argument
 
@@ -225,7 +238,7 @@ outerLayoutBase.html  ← ApostropheCMS core (never edit)
       modules/<page-type>/views/page.jsx ← edit for page content
 ```
 
-`views/layout.jsx` uses `<Extend templateName={data.outerLayout} … />`, whose props become
+`views/layout.jsx` uses `<Extend templateName={outerLayout} … />`, whose props become
 `{% block %}` overrides on the Nunjucks outer layout. It accepts these named props from page
 templates: `title`, `bodyClass`, `pageTitle`, `breadcrumbs`, `main`.
 
@@ -267,7 +280,7 @@ not query strings: `/articles/categories/news/page/2`, not `/articles?categories
 Query strings still work on the way in; nothing should generate them.
 
 - Filters are declared in `piecesFilters` on `modules/article-page/index.js` (`categories`,
-  `authors`). Each gets its own dispatch routes and a `data.filters` entry in the index template.
+  `authors`). Each gets its own dispatch routes and a `filters` entry in the index template's data.
 - In the index template, link to a filter through its choice's `_url`; don't build the URL yourself.
 - Elsewhere, append `apos.url.getChoiceFilter(name, value, page)` or
   `apos.url.getPageFilter(page)` to a page's `_url`, or a piece's `_parentUrl`.

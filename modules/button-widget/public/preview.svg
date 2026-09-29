@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>button</title>
+    <title>button copy 2</title>
     <defs>
-        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
+        <path d="M0,0 L130,0 L130,89 L0,89 Z" id="path-1"></path>
     </defs>
-    <g id="button" stroke="none" fill="none" xlink:href="#path-1">
-        <use fill="#ADC4FE" fill-rule="evenodd" xlink:href="#path-1"></use>
-        <rect id="Rectangle-Copy-11" fill="#FFFFFD" fill-rule="evenodd" x="10" y="10" width="110" height="69" rx="8"></rect>
+    <g id="button-copy-2" stroke="none" fill="none" xlink:href="#path-1">
+        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        <rect id="Rectangle-Copy-11" stroke="#ADC4FE" stroke-width="2.41404807" fill="#F2F6FD" fill-rule="evenodd" x="11.207024" y="11.207024" width="107.585952" height="66.5859519" rx="4.82809613"></rect>
         <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(42, 45)">
             <rect id="Rectangle-Copy-11" fill="#2C5AD8" x="-8" y="-22" width="61" height="18" rx="9"></rect>
             <rect id="Rectangle-Copy-12" stroke="#ADC4FE" stroke-width="1.76190476" x="-7.11904762" y="4.88095238" width="59.2380952" height="16.2380952" rx="8.11904762"></rect>

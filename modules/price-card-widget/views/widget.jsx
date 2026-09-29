@@ -1,7 +1,7 @@
 // A pricing card: optional icon-led badge, title and copy, price block,
 // optional features list, and an optional call to action.
 //
-// `widget` (destructured from data.widget) holds this widget's saved fields,
+// `widget` holds this widget's saved fields,
 // defined in ../index.js.
 
 export default function ({ widget }, {

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="130px" height="89px" viewBox="0 0 130 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>GH</title>
+    <title>GH Copy 2</title>
     <defs>
-        <path d="M0,0 L130,0 L130,89 L0,89 L0,0 Z" id="path-1"></path>
-        <rect id="path-2" x="0" y="6" width="110" height="69" rx="8"></rect>
+        <path d="M0,0 L130,0 L130,89 L0,89 Z" id="path-1"></path>
+        <rect id="path-2" x="0" y="6" width="110" height="69" rx="4.82809613"></rect>
     </defs>
-    <g id="GH" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
-        <use fill="#ADC4FE" xlink:href="#path-1"></use>
+    <g id="GH-Copy-2" stroke="none" fill="none" xlink:href="#path-1" fill-rule="evenodd">
+        <use fill="#FFFFFF" xlink:href="#path-1"></use>
         <g id="Group" stroke-width="1" transform="translate(10, 4)">
             <mask id="mask-3" fill="white">
                 <use xlink:href="#path-2"></use>
             </mask>
-            <use id="Mask" fill="#FFFFFD" xlink:href="#path-2"></use>
+            <rect stroke="#ADC4FE" stroke-width="2.41404807" x="1.20702403" y="7.20702403" width="107.585952" height="66.5859519" rx="4.82809613"></rect>
+            <rect id="Mask" fill="#F2F6FD" mask="url(#mask-3)" x="-3" y="2" width="118" height="79" rx="4.82809613"></rect>
             <g mask="url(#mask-3)">
                 <g transform="translate(17, 30)">
                     <line x1="31" y1="3" x2="76" y2="3" id="Line-Copy-4" stroke="#ADC4FE" stroke-width="4" stroke-linecap="round"></line>

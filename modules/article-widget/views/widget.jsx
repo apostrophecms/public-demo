@@ -1,13 +1,13 @@
 // Delegates to the article module's `recent` async component, passing through
 // the widget's limit and display options.
 
-export default function ({ widget: { limit, display } }, { Component }) {
+export default function ({ widget }, { Component }) {
   return (
     <Component
       module="article"
       name="recent"
-      limit={limit}
-      display={display}
+      limit={widget.limit}
+      display={widget.display}
     />
   );
 }

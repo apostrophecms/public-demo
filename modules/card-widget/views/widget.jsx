@@ -2,14 +2,13 @@
 // The icon is chosen by name in the schema, so it is resolved at render time
 // through macros/icons.jsx rather than imported statically.
 //
-// `data.widget` holds this widget's saved fields, defined in ../index.js.
+// `widget` holds this widget's saved fields, defined in ../index.js.
 // The link fields come from lib/link.js and are resolved with
 // apos.helper.linkPath() rather than read directly.
 
-export default function (data, {
+export default function ({ widget }, {
   Area, Template, apos
 }) {
-  const widget = data.widget;
   return (
     <div className={`widget card-widget card-widget--bg-${widget.bg} card-widget--orientation-${widget.orientation}`}>
       {widget.icon && (

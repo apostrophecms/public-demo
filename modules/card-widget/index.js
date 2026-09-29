@@ -17,9 +17,12 @@ localLinkConfig.linkTarget.if = {
 
 export default {
   extend: '@apostrophecms/widget-type',
+  icons: {
+    'card-text-icon': 'CardText'
+  },
   options: {
     label: 'project:card',
-    icon: 'link-icon',
+    icon: 'card-text-icon',
     previewImage: 'svg',
     description: 'project:cardAdd',
     initialModal: false

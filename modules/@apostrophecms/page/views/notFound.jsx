@@ -5,7 +5,7 @@
 // Strings come from core's `apostrophe:` namespace rather than `project:`, so
 // they are already translated in every locale this project ships.
 
-export default function (data, { Extend, __t }) {
+export default function (_data, { Extend, __t }) {
   return (
     <Extend
       templateName="layout.jsx"

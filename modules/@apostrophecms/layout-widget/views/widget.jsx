@@ -1,13 +1,15 @@
 // Renders a single area as a CSS grid. Column count, gap, and cell alignment
 // come from the widget's own options, falling back to the module defaults.
 //
-// `data.widget` is the layout widget itself; its `columns` area field is
+// `widget` is the layout widget itself; its `columns` area field is
 // defined by core's @apostrophecms/layout-widget. The `with` values are passed
 // down to that area's renderer rather than rendered here.
 
-export default function (data, { Area }) {
-  const opts = data.options || {};
-  const managerOpts = (data.manager && data.manager.options) || {};
+export default function ({
+  widget, options, manager
+}, { Area }) {
+  const opts = options || {};
+  const managerOpts = (manager && manager.options) || {};
   const columns = opts.columns || managerOpts.columns;
   const gap = opts.gap || managerOpts.gap || '0';
   const justify = opts.defaultCellHorizontalAlignment ||
@@ -26,14 +28,14 @@ export default function (data, { Area }) {
 
   return (
     <Area
-      doc={data.widget}
+      doc={widget}
       name="columns"
       with={{
         aposStyle,
         aposClassName: 'layout-widget widget',
         aposParentOptions: {
           ...opts,
-          widgetId: data.widget._id
+          widgetId: widget._id
         },
         aposAttrs: {
           'tablet-auto': true,

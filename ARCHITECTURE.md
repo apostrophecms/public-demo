@@ -32,7 +32,18 @@ export default function ({ page }, { Area }) {
 ```
 
 The first argument is the data object referenced as `data.*` in Nunjucks — destructure it and write
-`page.title` rather than `data.page.title`. The second is Apostrophe's template helper set:
+`page.title` rather than `data.page.title`. Every template in the project does this, including
+component templates, `<Template>` targets, and the layout, so that there is one pattern to copy.
+Destructure the top level only (`({ widget })`, then `widget.limit`): nested patterns hide which
+document a value came from. A template that reads nothing names the argument `_data`.
+
+The layout is not an exception, though it can look like one. Props passed through `<Extend>` arrive
+in the same object as the request data, so `views/layout.jsx` destructures `main` and `title`
+alongside `page` and `home`. Its inner components (`Header`, `NavLinks`, `Breadcrumbs`) take only
+the fields they use as explicit props rather than the whole data object — the same rule as for any
+imported component, and it keeps each one's inputs visible at the call site.
+
+The second is Apostrophe's template helper set:
 
 | Name | Purpose |
 |------|---------|
@@ -246,7 +257,7 @@ Four levels, outermost first:
 | `layout` | `views/layout.jsx` | **Yes — site-wide chrome (header, nav, footer)** |
 | page template | `modules/<page-type>/views/page.jsx` | **Yes — page-specific content** |
 
-`views/layout.jsx` renders `<Extend templateName={data.outerLayout} … />`, which resolves to the
+`views/layout.jsx` renders `<Extend templateName={outerLayout} … />`, which resolves to the
 correct outer template automatically (handling both full-page and AJAX requests) and turns each
 prop into a `{% block %}` override on that Nunjucks template.
 

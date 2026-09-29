@@ -1,7 +1,7 @@
 // Home page. Sets the body class, supplies a chip-styled page title, and
 // renders the page's `main` area inside the home wrapper.
 
-export default function (data, {
+export default function ({ page }, {
   Extend, Area, __t
 }) {
   return (
@@ -19,7 +19,7 @@ export default function (data, {
             <div className="general-content">
               {/* Renders the widgets stored in the home page's `main` area
                   field, defined in modules/@apostrophecms/home-page/index.js. */}
-              <Area doc={data.page} name="main" />
+              <Area doc={page} name="main" />
             </div>
           </div>
         </div>
