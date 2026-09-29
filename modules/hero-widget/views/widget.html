@@ -2,6 +2,9 @@
 {% set widget = data.widget %}
 
 <div class="widget hero-widget">
+  <div class="hero-widget__headline">
+      {% field data.widget, 'headline' with { tag: 'h1' } %}
+  </div>
   <div class="hero-widget__content">
     {% area widget, 'content' %}
   </div>
