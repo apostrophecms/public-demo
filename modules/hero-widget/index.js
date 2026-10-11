@@ -10,6 +10,10 @@ export default {
   },
   fields: {
     add: {
+      headline: {
+        type: 'string',
+        label: 'Headline'
+      },
       content: {
         label: 'project:textContent',
         help: 'project:textContentHelp',
