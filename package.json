@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node app",
     "dev": "nodemon app.js",
-    "lint": "eslint modules lib app.js --ext .js,.jsx",
+    "lint": "eslint modules lib app.js",
     "migrate": "NODE_ENV=production node app @apostrophecms/migration:migrate",
     "build": "NODE_ENV=production node app @apostrophecms/asset:build",
     "serve": "NODE_ENV=production node app"
@@ -25,7 +25,7 @@
     "@apostrophecms/vite": "^1.1.0",
     "apostrophe": "^4.33.0",
     "dayjs": "^1.11.20",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.8",
     "klona": "^2.0.6"
   },
   "author": "Apostrophe Technologies, Inc",
@@ -54,10 +54,8 @@
     "ext": "json, js, jsx, html, scss, vue"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-apostrophe": "^3.4.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-react": "^7.37.5",
+    "eslint": "^9.39.5",
+    "eslint-config-apostrophe": "^6.1.0",
     "nodemon": "^3.1.14"
   },
   "allowScripts": {

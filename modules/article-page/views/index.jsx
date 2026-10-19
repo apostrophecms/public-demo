@@ -31,8 +31,7 @@ function PagerPage({
         ? page
         : (
           <a href={pageUrl(page)}>{page}</a>
-        )
-      }
+        )}
     </span>
   );
 }
