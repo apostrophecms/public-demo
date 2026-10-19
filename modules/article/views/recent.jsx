@@ -25,8 +25,7 @@ export default function ({
         )
         : (
           <p>{__t('project:noArticles')}</p>
-        )
-      }
+        )}
     </div>
   );
 }

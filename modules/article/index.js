@@ -135,7 +135,6 @@ export default {
       // Articles used to credit users directly through `_author`. Give each
       // of those users an author and credit that instead.
       async migrateAuthorsFromUsers() {
-        const req = self.apos.task.getReq();
         const authorIdsByUserId = new Map();
         // One at a time, so two articles by the same user can't each create
         // an author for them.

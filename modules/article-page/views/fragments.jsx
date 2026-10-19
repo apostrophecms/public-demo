@@ -8,7 +8,9 @@
 
 // Joins author names the way the locale does ("A, B and C" in English,
 // "A, B et C" in French). With `authorUrl`, each name links there.
-export function Byline({ authors, locale, authorUrl }) {
+export function Byline({
+  authors, locale, authorUrl
+}) {
   const parts = new Intl.ListFormat(locale || 'en', { type: 'conjunction' })
     .formatToParts(authors.map((author) => author.title));
   let next = 0;
@@ -89,8 +91,7 @@ export function Excerpt({
             )
             : (
               <p className="placeholder">{__t('project:noSummary')}</p>
-            )
-          }
+            )}
         </article>
       </div>
     </div>
