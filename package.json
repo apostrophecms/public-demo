@@ -23,7 +23,7 @@
     "@apostrophecms/open-graph": "^1.2.3",
     "@apostrophecms/seo": "^1.2.3",
     "@apostrophecms/vite": "^1.1.0",
-    "apostrophe": "^4.31.0",
+    "apostrophe": "^4.33.0",
     "dayjs": "^1.11.20",
     "dotenv": "^17.4.2",
     "klona": "^2.0.6"
@@ -31,7 +31,7 @@
   "author": "Apostrophe Technologies, Inc",
   "license": "MIT",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.12.0"
   },
   "nodemonConfig": {
     "verbose": true,
