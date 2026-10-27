@@ -10,7 +10,7 @@ export default function ({ page }, {
       bodyClass="home-page"
       pageTitle={
         <h1 className="home-title">
-          <span className="chip">{__t('project:homeTitle')}</span>
+          Really deployed! <span className="chip">{__t('project:homeTitle')}</span>
         </h1>
       }
       main={
