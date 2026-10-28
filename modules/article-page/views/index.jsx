@@ -26,7 +26,7 @@ function PagerPage({
   ].join('');
   const isActive = options.page === page;
   return (
-    <span className={classes}>
+    <span className={classes} aria-current={isActive ? 'page' : undefined}>
       {isActive
         ? page
         : (
@@ -37,7 +37,7 @@ function PagerPage({
 }
 
 function Pager({
-  options, pageUrl, helpers
+  options, pageUrl, helpers, label
 }) {
   if (!((options.page > 1) || (options.total > 1))) {
     return null;
@@ -50,7 +50,7 @@ function Pager({
     shown: options.shown || 5
   });
   return (
-    <div className={pagerClass}>
+    <nav className={pagerClass} aria-label={label}>
       <PagerPage page={1} options={options} pagerClass={pagerClass} pageUrl={pageUrl} />
       {helpers.pager.showHeadGap(options) && (
         <span className={gapClass}>&hellip;</span>
@@ -74,7 +74,7 @@ function Pager({
         pagerClass={pagerClass}
         pageUrl={pageUrl}
       />
-    </div>
+    </nav>
   );
 }
 
@@ -169,6 +169,7 @@ export default function ({
             }}
             pageUrl={pageUrl}
             helpers={helpers}
+            label={__t('project:pagination')}
           />
         </section>
       }

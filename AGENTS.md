@@ -336,7 +336,7 @@ JSX receives the real `apos`, so methods are called directly:
 
 - `apos.helper.linkPath(link)` — canonical link resolver; accepts a widget or field group using the
   `lib/link.js` pattern; returns a URL string
-- `apos.helper.formatDate(date)` — formats a date as `"Month D, YYYY"`
+- `apos.helper.formatDate(date, locale)` — formats a date for the locale (default `en`), e.g. `"October 28, 2026"` / `"28 octobre 2026"`
 
 These are **not** reachable from Nunjucks templates, which resolve `apos.helper.*` against
 registered helpers rather than methods. That is intentional: all templates consuming them are JSX.

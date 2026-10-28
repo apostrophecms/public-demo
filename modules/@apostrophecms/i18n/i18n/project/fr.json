@@ -241,5 +241,6 @@
   "footerSocialMedia": "Réseaux sociaux",
   "ghPrsForRepo": "PRs {{state}} pour {{repo}}",
   "userAuthor": "Auteur",
-  "userAuthorHelp": "La signature créditée lorsque cet utilisateur écrit un article. Créée automatiquement la première fois qu’il travaille sur un article."
+  "userAuthorHelp": "La signature créditée lorsque cet utilisateur écrit un article. Créée automatiquement la première fois qu’il travaille sur un article.",
+  "pagination": "Pagination"
 }

@@ -37,7 +37,7 @@ export default function ({ piece: article, locale }, {
               </div>
             )}
             <div className="article-detail article-published">
-              {apos.helper.formatDate(article.publishedAt)}
+              {apos.helper.formatDate(article.publishedAt, data.locale)}
             </div>
           </div>
           {article._categories && article._categories.length > 0 && (
