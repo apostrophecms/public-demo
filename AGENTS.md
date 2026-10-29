@@ -1,6 +1,8 @@
 # AGENTS.md — public-demo
 
-Machine-readable project brief for AI coding assistants. Facts and conventions only.
+Machine-readable project brief for AI coding assistants. Facts and conventions only. For anything
+not covered here — API details, options, edge cases — consult the docs:
+https://apostrophecms.com/docs/
 
 ---
 
@@ -378,3 +380,7 @@ markup. Cache busting comes from the release directory.
 This applies only to `public/` files referenced by `/modules/...` path. Any other file Vite emits
 may be fingerprinted under `/assets/`, and there is no supported API for resolving those names.
 Reference such files from CSS rather than building their URLs in a template.
+
+## Team Conventions
+
+<!-- Add your team's own conventions below. Keep entries as facts, file paths and rules. -->
