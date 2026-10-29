@@ -1,5 +1,6 @@
 .pager {
   display: flex;
+  justify-content: center;
   margin: 20px 0;
 
   .pager__gap,
@@ -23,8 +24,13 @@
       text-decoration: none;
     }
 
+    &:has(a:hover) {
+      color: var(--accent-color);
+    }
+
     &.is-active {
-      opacity: 0.5;
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
     }
   }
 }

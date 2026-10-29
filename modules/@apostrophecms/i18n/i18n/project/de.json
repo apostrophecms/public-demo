@@ -241,5 +241,6 @@
   "footerSocialMedia": "Soziale Medien",
   "ghPrsForRepo": "{{state}} PRs für {{repo}}",
   "userAuthor": "Autor",
-  "userAuthorHelp": "Die Autorenzeile, die genannt wird, wenn dieser Benutzer einen Artikel schreibt. Wird automatisch angelegt, sobald er zum ersten Mal an einem Artikel arbeitet."
+  "userAuthorHelp": "Die Autorenzeile, die genannt wird, wenn dieser Benutzer einen Artikel schreibt. Wird automatisch angelegt, sobald er zum ersten Mal an einem Artikel arbeitet.",
+  "pagination": "Seitennavigation"
 }

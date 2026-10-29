@@ -40,12 +40,19 @@ export function Excerpt({
   return (
     <div className="article-excerpt">
       {url && (
-        <a className="article-excerpt-image-container" href={article._url}>
+        // Hidden from assistive tech and the tab order: the title link below
+        // goes to the same place, so this would be a duplicate stop.
+        <a
+          className="article-excerpt-image-container"
+          href={article._url}
+          tabindex="-1"
+          aria-hidden="true"
+        >
           <img
             loading="lazy"
             className="article-excerpt-image"
             src={url}
-            alt={attachment.title}
+            alt=""
             width={apos.attachment.getWidth(attachment)}
             height={apos.attachment.getHeight(attachment)}
             srcset={apos.image.srcset(attachment)}
@@ -76,9 +83,14 @@ export function Excerpt({
             <Byline authors={article._authors} locale={locale} />
           </div>
         )}
-        <div className="article-detail article-published">
-          {apos.helper.formatDate(article.publishedAt)}
-        </div>
+        {article.publishedAt && (
+          <time
+            className="article-detail article-published"
+            dateTime={new Date(article.publishedAt).toISOString()}
+          >
+            {apos.helper.formatDate(article.publishedAt, locale)}
+          </time>
+        )}
         <h3>
           <a href={article._url}>{article.title}</a>
         </h3>

@@ -3,8 +3,6 @@
 // `apos.helper.linkPath(...)` (the `helper` alias below provides that name).
 // Put logic here rather than repeating it inline across templates.
 
-import dayjs from 'dayjs';
-
 export default {
   options: {
     alias: 'helper'
@@ -29,8 +27,10 @@ export default {
         }
         return path;
       },
-      formatDate(date) {
-        return dayjs(date).format('MMMM D, YYYY');
+      // Intl rather than a fixed English format, so /fr and /de get localized
+      // month names. `dateStyle: 'long'` matches the old "October 28, 2026" in en.
+      formatDate(date, locale = 'en') {
+        return new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(date));
       }
     };
   }

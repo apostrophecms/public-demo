@@ -207,7 +207,7 @@ exactly three helpers.
 | Method | Signature | Returns |
 |--------|-----------|---------|
 | `apos.helper.linkPath(link)` | `link` — a widget or field group using the `lib/link.js` pattern | Resolved URL string |
-| `apos.helper.formatDate(date)` | `date` — a JS Date or ISO string | `"Month D, YYYY"` |
+| `apos.helper.formatDate(date, locale)` | `date` — a JS Date or ISO string; `locale` — defaults to `en` | Long date for the locale, e.g. `"October 28, 2026"` |
 
 Because JSX templates receive the real `apos` object, module methods are callable directly and the
 helper-registration indirection is unnecessary. The tradeoff: these are **not** reachable from
