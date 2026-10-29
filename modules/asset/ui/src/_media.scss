@@ -3,6 +3,9 @@
 }
 
 .demo-image {
+  // Block display lets the align style's auto margins work when the image
+  // is wrapped in a link.
+  display: block;
   width: 100%;
   height: auto;
   max-width: 100%;
