@@ -19,23 +19,25 @@ export default {
         label: 'project:align',
         type: 'radio',
         buttons: true,
-        property: 'justify-content',
-        selector: '.demo-image__wrapper',
-        def: 'begin',
+        // Auto inline margins align the image itself, so its resized width
+        // and any link wrapper are preserved and the caption stays put.
+        property: 'margin-inline',
+        selector: '.demo-image',
+        def: '0 auto',
         choices: [
           {
             label: 'project:left',
-            value: 'begin',
+            value: '0 auto',
             icon: 'format-align-left-icon'
           },
           {
             label: 'project:center',
-            value: 'center',
+            value: 'auto',
             icon: 'format-align-center-icon'
           },
           {
             label: 'project:right',
-            value: 'end',
+            value: 'auto 0',
             icon: 'format-align-right-icon'
           }
         ]
