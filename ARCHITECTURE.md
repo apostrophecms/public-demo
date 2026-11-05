@@ -85,18 +85,28 @@ That asymmetry dictates migration order. Convert leaves first: each new `page.js
 existing `layout.html` via `<Extend>`, while untouched `page.html` files keep working. Only once
 every page template extending a given layout is converted can that layout itself become `.jsx`.
 
-Core's `outerLayoutBase.html` will remain Nunjucks for the foreseeable future, since every existing
-project's layout extends it. A fully-converted project therefore ends with a `.jsx` layout
-extending a Nunjucks outer layout. That is the intended steady state, not a limitation.
+There is one exception: the outer layout. Extension pages written in Nunjucks
+`{% extends data.outerLayout %}`. When the outer layout is JSX, core hands those templates a
+stand-in that captures their blocks, then renders the JSX outer layout with each block as a prop.
+The props are the same ones `views/layout.jsx` passes through `<Extend>`, so the outer layout cannot
+tell which kind of page it is rendering. This applies only to `outerLayout` and `refreshLayout`;
+the rule above holds for every other template.
+
+Core ships its own templates in both forms. This project sets `nunjucks: false` in
+`modules/@apostrophecms/template/index.js`, so core renders the `.jsx` versions — the outer layout,
+areas, widgets, the login page — and Nunjucks is never loaded. A Nunjucks template that tries to
+render throws an error naming it: an extension's `.html` page, for one, needs a `.jsx` override
+here. A project that leaves the option alone renders core's `.html` versions, exactly as before.
 
 Widget templates extend nothing, so `.html` and `.jsx` widgets coexist without constraint.
 
 The rule extends to templates you did not write. Core ships
 `@apostrophecms/page/views/notFound.html`, which extends `layout.html`; once `views/layout.jsx`
 replaced the Nunjucks layout, that template could no longer resolve its parent, and every 404
-became a 500. `modules/@apostrophecms/page/views/notFound.jsx` shadows it — a project-level file
-beats a core-level one regardless of extension, per Template Discovery below. It looks like an
-override that adds nothing, and it is load-bearing.
+became a 500. `modules/@apostrophecms/page/views/notFound.jsx` shadowed it — a project-level file
+beats a core-level one regardless of extension, per Template Discovery below. Now that this project
+renders core's `.jsx` templates, core's own `notFound.jsx` would serve, and the project's version
+stays for its design.
 
 The mechanism is worth holding onto, because it predicts where else this bites. `resolveTemplate`,
 which serves the JSX path, treats a known template extension as a starting point and tries `.jsx`,
@@ -252,14 +262,16 @@ Four levels, outermost first:
 
 | Level | File | Edit? |
 |-------|------|-------|
-| `outerLayoutBase` | ApostropheCMS core (Nunjucks) | Never |
-| `outerLayout` | `modules/@apostrophecms/template/views/outerLayout.html` (Nunjucks) | For `<head>`, meta tags, markup outside `<body>` |
+| `outerLayoutBase` | ApostropheCMS core (`outerLayoutBase.jsx`) | Never |
+| `outerLayout` | ApostropheCMS core (`outerLayout.jsx`); shadow it in `modules/@apostrophecms/template/views/` | Only to change markup outside `<body>`, or the `<head>`, on every page including core's |
 | `layout` | `views/layout.jsx` | **Yes — site-wide chrome (header, nav, footer)** |
 | page template | `modules/<page-type>/views/page.jsx` | **Yes — page-specific content** |
 
 `views/layout.jsx` renders `<Extend templateName={outerLayout} … />`, which resolves to the
-correct outer template automatically (handling both full-page and AJAX requests) and turns each
-prop into a `{% block %}` override on that Nunjucks template.
+correct outer template automatically (handling both full-page and AJAX requests). That is core's
+`outerLayout.jsx`, which passes every prop on to `outerLayoutBase.jsx`. Each prop stands in for
+one of its blocks. A prop left undefined keeps core's markup for the block; a function prop
+receives that markup and returns what to use instead, as Nunjucks `super()` would.
 
 JSX has no named blocks. A parent receives markup as **props**, plus the implicit `children` prop
 for anything between the caller's opening and closing tags. `views/layout.jsx` accepts `title`,

@@ -1,6 +1,5 @@
-// Project-level 404 template. Shadows core's `notFound.html`, which must be
-// overridden here: core's version is Nunjucks and extends `layout.html`, and a
-// Nunjucks template cannot extend this project's JSX `layout.jsx`.
+// Project-level 404 template, in the site's own design. Shadows core's
+// `notFound.jsx`, which would also work: it extends any layout.
 //
 // Strings come from core's `apostrophe:` namespace rather than `project:`, so
 // they are already translated in every locale this project ships.
