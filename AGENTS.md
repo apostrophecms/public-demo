@@ -66,7 +66,7 @@ export default function ({ page }, { Area }) {
 
 1. **`data`** — the same object referenced as `data.*` in Nunjucks. Destructure it; write
    `page.title`, not `data.page.title`. See [Reading Data](#reading-data).
-2. **Helpers** — `{ apos, helpers, Area, Component, Extend, Template, Widget, __t }`.
+2. **Helpers** — `{ apos, helpers, Area, Field, Component, Extend, Template, Widget, __t }`.
 
 The function may be `async`, but does not need to be in order to render async children. Apostrophe
 awaits all pending output before sending the response. Declare `async` only when the template itself
@@ -92,6 +92,7 @@ component templates, `<Template>` targets, the 404, and `views/layout.jsx`. Ther
 | `apos` | The real `self.apos`. Call any module method directly. **Prefer this.** |
 | `helpers` | The Nunjucks-oriented helper wrappers. Equivalent to Nunjucks's `apos`. Use only when you need a Nunjucks helper's exact behavior. |
 | `Area` | Renders an area. Replaces `{% area %}` |
+| `Field` | Renders a `string` or `richText` field, editable in place. Replaces `{% field %}`. Options go in `with`: `<Field doc={widget} name="content" with={{ class: 'x' }} />` |
 | `Component` | Invokes an async component. Replaces `{% component %}` |
 | `Template` | Renders another template, **include semantics** (props arrive as data). Replaces `{% include %}` |
 | `Extend` | Renders another template, **extends semantics**. Against a `.html` target, props become `{% block %}` overrides. Replaces `{% extends %}` |

@@ -1,19 +1,21 @@
-// An editable area, optionally followed by a row of call-to-action buttons.
+// Rich text editable in place, optionally followed by a row of
+// call-to-action buttons.
 //
 // `widget` holds this widget's saved fields, defined in ../index.js.
 // Each `links` item uses the lib/link.js fields, so apos.helper.linkPath()
 // resolves it the same way as a single-link widget.
 
 export default function ({ widget }, {
-  Area, Template, apos
+  Field, Template, apos
 }) {
   const links = widget.links || [];
   return (
     <div className="widget hero-widget">
       <div className="hero-widget__content">
-        {/* Renders the widgets stored in this widget's `content` area field,
-            defined in ../index.js. */}
-        <Area doc={widget} name="content" />
+        {/* The `content` richText field, defined in ../index.js, rendered
+            as a div and editable in place. `demo-rte` keeps the shared rich
+            text styles the old rich text widget wrapper carried. */}
+        <Field doc={widget} name="content" with={{ class: 'demo-rte hero-widget__text' }} />
       </div>
       {links.length > 0 && (
         <div className="hero-widget__buttons">
