@@ -93,7 +93,7 @@ Page module  modules/<page-type>/index.js
   │  data.global, data.home, data.user attached
   ▼
 JSX render (server-side)
-  outerLayout.html                          ← Nunjucks, from core; <head> and <body>
+  outerLayout.jsx                           ← core; <head> and <body>, around every page
     └─ views/layout.jsx                     ← site chrome (header, nav, footer)
          └─ modules/<page-type>/views/page.jsx  ← page content
               └─ <Area> components

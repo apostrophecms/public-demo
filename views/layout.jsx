@@ -1,5 +1,5 @@
-// Top-level project layout. Extends Apostrophe's outerLayout (a Nunjucks
-// template) and accepts these named props from page templates:
+// Top-level project layout. Extends core's outer layout (outerLayout.jsx)
+// and accepts these named props from page templates:
 //
 //   title       string used as the document <title>, overriding the
 //               piece/page title. Templates with no page or piece in scope
@@ -9,9 +9,8 @@
 //   breadcrumbs JSX node rendered in place of the default breadcrumb trail
 //   main        JSX node providing the page's main content
 //
-// Extending a Nunjucks template from JSX uses the bridge implemented in
-// `jsxRender.js`: each prop becomes a {% block %} override on the
-// underlying Nunjucks template.
+// Each prop passed to the outer layout stands in for one of the blocks of
+// core's outerLayoutBase.jsx, such as `extraHead` or `main`.
 //
 // Props and page data arrive in the same first argument. Apostrophe also
 // provides, here and in every template that extends this one:
