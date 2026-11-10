@@ -1,10 +1,10 @@
 {
   "db": {
-    "url": "https://static.apostrophecms.com/public-demo/2026-08-25-1457/starter-database.jsonl.zip",
-    "sha256": "9467fd5c45b611a1c78c93954dd9d191d567760710e9e63cadeb5a1566c899bb"
+    "url": "https://static.apostrophecms.com/public-demo/2026-11-10-0955/starter-database.jsonl.zip",
+    "sha256": "4465f9c3d429d3a348807ea7650a272252e0785ab43b5681a562a35ada69c5bc"
   },
   "uploads": {
-    "url": "https://static.apostrophecms.com/public-demo/2026-08-25-1457/starter-uploads.zip",
-    "sha256": "a4b5c13511879d649189a2f8d3e6ffd71aaf31a648aaefb09a1555ba544e68b5"
+    "url": "https://static.apostrophecms.com/public-demo/2026-11-10-0955/starter-uploads.zip",
+    "sha256": "462be35d08f3f02bd87027645ff2f10dfd54f6545f1407cc721fa4111f0c9a2e"
   }
 }
