@@ -14,9 +14,12 @@ Modules live in `modules/`, shared field config in `lib/`, **JSX templates** in 
 `modules/asset/ui/src/`. Supports i18n (en, fr, de) and CMS-editable design tokens via
 `modules/@apostrophecms/styles/`.
 
-This project has been **fully converted from Nunjucks to JSX templates**. Write new templates as
-`.jsx`. Nunjucks remains fully supported by ApostropheCMS core and the two interoperate — see
-[JSX/Nunjucks Interop](#jsxnunjucks-interop) for the one hard rule.
+This project has been **fully converted from Nunjucks to JSX templates**, and core's own templates
+render from JSX too: `modules/@apostrophecms/template/index.js` sets `nunjucks: false`, so Nunjucks
+is never loaded, and rendering any Nunjucks template throws an error naming it. Write new templates
+as `.jsx`. A Nunjucks template, such as one an extension ships, fails here until it has a `.jsx`
+override. Nunjucks remains fully supported by ApostropheCMS core and the two interoperate in
+projects that allow it — see [JSX/Nunjucks Interop](#jsxnunjucks-interop).
 
 JSX here is **server-side rendering only**. There is no React, no virtual DOM, no client runtime.
 It is an alternate template syntax evaluated on the server exactly where Nunjucks would have run.
@@ -211,15 +214,15 @@ Consequences:
 - Never leave a `.html` template extending a `.jsx` template.
 - Widget templates extend nothing, so `.html` and `.jsx` widgets coexist freely.
 - **`.html` templates inside `node_modules` count.** Core's
-  `@apostrophecms/page/views/notFound.html` extends `layout.html`, so a `.jsx` layout breaks every
-  404 unless the project shadows it. `modules/@apostrophecms/page/views/notFound.jsx` exists for
-  exactly that reason — it is not a redundant override, and deleting it fails only in production.
+  `@apostrophecms/page/views/notFound.html` extends `layout.html`, so in a project that renders
+  core's `.html` templates, a `.jsx` layout breaks every 404 unless the project shadows it. This
+  project renders core's `.jsx` versions instead (`nunjucks: false`), and core's `notFound.jsx`
+  extends any layout. `modules/@apostrophecms/page/views/notFound.jsx` now exists for its design.
 
-Remaining `.html` templates in this project:
-
-| File | Why |
-|------|-----|
-| `modules/@apostrophecms/template/views/outerLayout.html` | Stock override; extends core `outerLayoutBase.html`. `views/layout.jsx` extends *it*, which is the intended steady state — core's outer layout stays Nunjucks. |
+The one exception is the outer layout. When it is JSX, core lets Nunjucks templates that
+`{% extends data.outerLayout %}` render through it: their blocks arrive as props, the same props
+`views/layout.jsx` passes. This project has no `.html` templates, and with `nunjucks: false` none
+can render.
 
 The asymmetry is in the loaders. `resolveTemplate` treats a `.jsx`/`.njk`/`.html` suffix as a
 starting point and tries all three, so a JSX template asking for `layout.html` finds `layout.jsx`.
@@ -235,15 +238,22 @@ grep -rlE "\{%\s*(extends|include|import)\s+['\"]layout\.html" node_modules --in
 ## Template Inheritance
 
 ```
-outerLayoutBase.html  ← ApostropheCMS core (never edit)
-  outerLayout.html    ← override in modules/@apostrophecms/template/views/ for <head>/meta
+outerLayoutBase.jsx   ← ApostropheCMS core (never edit)
+  outerLayout.jsx     ← core; shadow in modules/@apostrophecms/template/views/ to customize
     views/layout.jsx  ← edit for site chrome (header, nav, footer)
       modules/<page-type>/views/page.jsx ← edit for page content
 ```
 
-`views/layout.jsx` uses `<Extend templateName={outerLayout} … />`, whose props become
-`{% block %}` overrides on the Nunjucks outer layout. It accepts these named props from page
-templates: `title`, `bodyClass`, `pageTitle`, `breadcrumbs`, `main`.
+`views/layout.jsx` uses `<Extend templateName={outerLayout} … />`, which resolves to core's
+`outerLayout.jsx`. Every prop passed to it is a block of `outerLayoutBase.jsx`: `title`, `bodyClass`,
+`extraHead`, `beforeMain`, `main`, `afterMain`, `extraBody` and the rest. An undefined prop keeps
+core's markup for the block. A function prop receives that markup and returns what to use instead,
+like Nunjucks `super()`. To change the outer chrome itself, add `outerLayout.jsx` to
+`modules/@apostrophecms/template/views/` and extend `outerLayoutBase.jsx` from it, never
+`outerLayout.jsx`, which would resolve back to itself.
+
+`views/layout.jsx` accepts these named props from page templates: `title`, `bodyClass`,
+`pageTitle`, `breadcrumbs`, `main`.
 
 There are no named blocks in JSX. Markup the parent renders is passed as props, plus the implicit
 `children` prop for anything between the opening and closing tags.
