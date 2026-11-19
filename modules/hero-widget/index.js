@@ -24,6 +24,9 @@ export default {
             'bold',
             'italic'
           ],
+          // A hero is a heading and a line or two of text: no inline
+          // images, tables or rules, so no "/" insert menu either
+          insert: [],
           styles: [
             {
               tag: 'p',
